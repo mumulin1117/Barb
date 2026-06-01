@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A0000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000101 /* AppDelegate.swift */; };
+		7A0000010000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000102 /* SceneDelegate.swift */; };
+		7A0000010000000000000003 /* styleStorebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000103 /* styleStorebarBV.swift */; };
+		7A0000010000000000000004 /* localFixturebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000104 /* localFixturebarBV.swift */; };
+		7A0000010000000000000005 /* localStorebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000105 /* localStorebarBV.swift */; };
+		7A0000010000000000000006 /* localSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000106 /* localSurfacebarBV.swift */; };
+		7A0000010000000000000007 /* tabSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000107 /* tabSurfacebarBV.swift */; };
+		7A0000010000000000000008 /* homeSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000108 /* homeSurfacebarBV.swift */; };
+		7A0000010000000000000009 /* inboxSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000109 /* inboxSurfacebarBV.swift */; };
+		7A000001000000000000000A /* threadPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010A /* threadPagebarBV.swift */; };
+		7A000001000000000000000B /* draftSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010B /* draftSurfacebarBV.swift */; };
+		7A000001000000000000000C /* contactSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010C /* contactSurfacebarBV.swift */; };
+		7A000001000000000000000D /* detailSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010D /* detailSurface.swift */; };
+		7A000001000000000000000E /* profileSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010E /* profileSurfacebarBV.swift */; };
+		7A000001000000000000000F /* scanSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010F /* scanSurfacebarBV.swift */; };
+		7A0000010000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000110 /* Assets.xcassets */; };
+		7A0000010000000000000011 /* sessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000113 /* sessionStore.swift */; };
+		7A0000010000000000000012 /* loginPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000114 /* loginPagebarBV.swift */; };
+		7A0000010000000000000013 /* registerPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000115 /* registerPagebarBV.swift */; };
+		7A0000010000000000000014 /* materialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000116 /* materialPage.swift */; };
+		7A0000010000000000000015 /* agreementPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000117 /* agreementPage.swift */; };
+		7A0000010000000000000016 /* policyPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000118 /* policyPagebarBV.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7A0000010000000000000101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A0000010000000000000102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7A0000010000000000000103 /* styleStorebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styleStorebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000104 /* localFixturebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localFixturebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000105 /* localStorebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localStorebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000106 /* localSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000107 /* tabSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000108 /* homeSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000109 /* inboxSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inboxSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010A /* threadPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = threadPagebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010B /* draftSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = draftSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010C /* contactSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010D /* detailSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailSurface.swift; sourceTree = "<group>"; };
+		7A000001000000000000010E /* profileSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010F /* scanSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A0000010000000000000111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A0000010000000000000112 /* SNudgebarBV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNudgebarBV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0000010000000000000113 /* sessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sessionStore.swift; sourceTree = "<group>"; };
+		7A0000010000000000000114 /* loginPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPagebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000115 /* registerPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerPagebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000116 /* materialPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = materialPage.swift; sourceTree = "<group>"; };
+		7A0000010000000000000117 /* agreementPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = agreementPage.swift; sourceTree = "<group>"; };
+		7A0000010000000000000118 /* policyPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = policyPagebarBV.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A0000010000000000000201 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A0000010000000000000301 = {
+			isa = PBXGroup;
+			children = (
+				7A0000010000000000000302 /* SNudgebarBV */,
+				7A0000010000000000000303 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A0000010000000000000302 /* SNudgebarBV */ = {
+			isa = PBXGroup;
+			children = (
+				7A0000010000000000000101 /* AppDelegate.swift */,
+				7A0000010000000000000102 /* SceneDelegate.swift */,
+				7A0000010000000000000103 /* styleStorebarBV.swift */,
+				7A0000010000000000000104 /* localFixturebarBV.swift */,
+				7A0000010000000000000105 /* localStorebarBV.swift */,
+				7A0000010000000000000106 /* localSurfacebarBV.swift */,
+				7A0000010000000000000107 /* tabSurfacebarBV.swift */,
+				7A0000010000000000000108 /* homeSurfacebarBV.swift */,
+				7A0000010000000000000109 /* inboxSurfacebarBV.swift */,
+				7A000001000000000000010A /* threadPagebarBV.swift */,
+				7A000001000000000000010B /* draftSurfacebarBV.swift */,
+				7A000001000000000000010C /* contactSurfacebarBV.swift */,
+				7A000001000000000000010D /* detailSurface.swift */,
+				7A000001000000000000010E /* profileSurfacebarBV.swift */,
+				7A000001000000000000010F /* scanSurfacebarBV.swift */,
+				7A0000010000000000000113 /* sessionStore.swift */,
+				7A0000010000000000000114 /* loginPagebarBV.swift */,
+				7A0000010000000000000115 /* registerPagebarBV.swift */,
+				7A0000010000000000000116 /* materialPage.swift */,
+				7A0000010000000000000117 /* agreementPage.swift */,
+				7A0000010000000000000118 /* policyPagebarBV.swift */,
+				7A0000010000000000000110 /* Assets.xcassets */,
+				7A0000010000000000000111 /* Info.plist */,
+			);
+			path = SNudgebarBV;
+			sourceTree = "<group>";
+		};
+		7A0000010000000000000303 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A0000010000000000000112 /* SNudgebarBV.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A0000010000000000000401 /* SNudgebarBV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A0000010000000000000702 /* Build configuration list for PBXNativeTarget "SNudgebarBV" */;
+			buildPhases = (
+				7A0000010000000000000202 /* Sources */,
+				7A0000010000000000000201 /* Frameworks */,
+				7A0000010000000000000203 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SNudgebarBV;
+			productName = SNudgebarBV;
+			productReference = 7A0000010000000000000112 /* SNudgebarBV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A0000010000000000000501 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					7A0000010000000000000401 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 7A0000010000000000000701 /* Build configuration list for PBXProject "SNudgebarBV" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A0000010000000000000301;
+			productRefGroup = 7A0000010000000000000303 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A0000010000000000000401 /* SNudgebarBV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A0000010000000000000203 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A0000010000000000000010 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A0000010000000000000202 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A0000010000000000000001 /* AppDelegate.swift in Sources */,
+				7A0000010000000000000002 /* SceneDelegate.swift in Sources */,
+				7A0000010000000000000003 /* styleStorebarBV.swift in Sources */,
+				7A0000010000000000000004 /* localFixturebarBV.swift in Sources */,
+				7A0000010000000000000005 /* localStorebarBV.swift in Sources */,
+				7A0000010000000000000006 /* localSurfacebarBV.swift in Sources */,
+				7A0000010000000000000007 /* tabSurfacebarBV.swift in Sources */,
+				7A0000010000000000000008 /* homeSurfacebarBV.swift in Sources */,
+				7A0000010000000000000009 /* inboxSurfacebarBV.swift in Sources */,
+				7A000001000000000000000A /* threadPagebarBV.swift in Sources */,
+				7A000001000000000000000B /* draftSurfacebarBV.swift in Sources */,
+				7A000001000000000000000C /* contactSurfacebarBV.swift in Sources */,
+				7A000001000000000000000D /* detailSurface.swift in Sources */,
+				7A000001000000000000000E /* profileSurfacebarBV.swift in Sources */,
+				7A000001000000000000000F /* scanSurfacebarBV.swift in Sources */,
+				7A0000010000000000000011 /* sessionStore.swift in Sources */,
+				7A0000010000000000000012 /* loginPagebarBV.swift in Sources */,
+				7A0000010000000000000013 /* registerPagebarBV.swift in Sources */,
+				7A0000010000000000000014 /* materialPage.swift in Sources */,
+				7A0000010000000000000015 /* agreementPage.swift in Sources */,
+				7A0000010000000000000016 /* policyPagebarBV.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7A0000010000000000000601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7A0000010000000000000602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A0000010000000000000603 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SNudgebarBV/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Barb;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.SNudgebarBV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7A0000010000000000000604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SNudgebarBV/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Barb;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.SNudgebarBV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A0000010000000000000701 /* Build configuration list for PBXProject "SNudgebarBV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A0000010000000000000601 /* Debug */,
+				7A0000010000000000000602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A0000010000000000000702 /* Build configuration list for PBXNativeTarget "SNudgebarBV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A0000010000000000000603 /* Debug */,
+				7A0000010000000000000604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A0000010000000000000501 /* Project object */;
+}

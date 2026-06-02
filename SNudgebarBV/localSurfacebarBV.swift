@@ -142,8 +142,26 @@ final class groupAvatarSurfacebarBV: UIView {
             avatarLabelsbarBV[0].frame = bounds
             return
         }
-        let sizebarBV = min(bounds.height, bounds.width * 0.58)
-        let overlapbarBV = sizebarBV * 0.34
+        if countbarBV >= 3 {
+            let sizebarBV = min(bounds.width, bounds.height) * 0.52
+            let xGapbarBV = max(2, (bounds.width - sizebarBV * 2) / 3)
+            let yGapbarBV = max(1, (bounds.height - sizebarBV * 2) / 3)
+            let positionsbarBV = [
+                CGPoint(x: xGapbarBV, y: yGapbarBV),
+                CGPoint(x: bounds.width - sizebarBV - xGapbarBV, y: yGapbarBV),
+                CGPoint(x: xGapbarBV, y: bounds.height - sizebarBV - yGapbarBV),
+                CGPoint(x: bounds.width - sizebarBV - xGapbarBV, y: bounds.height - sizebarBV - yGapbarBV)
+            ]
+            for (indexbarBV, avatarbarBV) in avatarLabelsbarBV.enumerated() {
+                let pointbarBV = positionsbarBV[min(indexbarBV, positionsbarBV.count - 1)]
+                avatarbarBV.frame = CGRect(x: pointbarBV.x, y: pointbarBV.y, width: sizebarBV, height: sizebarBV)
+            }
+            return
+        }
+        let overlapRatiobarBV: CGFloat = 0.34
+        let sizeToFitWidthbarBV = bounds.width / (CGFloat(countbarBV) - overlapRatiobarBV * CGFloat(countbarBV - 1))
+        let sizebarBV = min(bounds.height, sizeToFitWidthbarBV)
+        let overlapbarBV = sizebarBV * overlapRatiobarBV
         let totalbarBV = sizebarBV * CGFloat(countbarBV) - overlapbarBV * CGFloat(countbarBV - 1)
         var xbarBV = max(0, (bounds.width - totalbarBV) / 2)
         let ybarBV = max(0, (bounds.height - sizebarBV) / 2)

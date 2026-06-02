@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>SNudgebarBV</string>
+	<string>Barb</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,14 +22,17 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>SNudgebarBV uses the camera to scan trusted contact QR codes.</string>
-	<key>NSContactsUsageDescription</key>
-	<string>SNudgebarBV can help you find people you already know if you choose to import contacts.</string>
+	<string>Barb uses the camera to scan trusted contact QR codes.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>SNudgebarBV uses the microphone when you record a voice message in a conversation.</string>
+	<string>Barb uses the microphone when you record a voice message in a conversation.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>SNudgebarBV can save your QR code image to your photo library when you choose to export it.</string>
+	<string>Barb can save your QR code image to your photo library when you choose to export it.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>SNudgebarBV lets you choose profile photos and simulated chat images from your library.</string>
 	<key>UIApplicationSceneManifest</key>

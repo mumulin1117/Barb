@@ -952,8 +952,7 @@ final class topUpSurfacebarBV: localSurfacebarBV {
             for packagebarBV in packagesbarBV[rowStartbarBV..<min(rowStartbarBV + 3, packagesbarBV.count)] {
                 let cellbarBV = coinPackageCellbarBV(packagebarBV: packagebarBV)
                 cellbarBV.addAction(UIAction { [weak self] _ in
-                    self?.selectedPackageSeedbarBV = packagebarBV.packageSeedbarBV
-                    self?.renderPackagesbarBV()
+                    self?.selectPackagebarBV(packageSeedbarBV: packagebarBV.packageSeedbarBV, amountbarBV: packagebarBV.coinAmountbarBV)
                 }, for: .touchUpInside)
                 rowbarBV.addArrangedSubview(cellbarBV)
                 packageCellsbarBV.append(cellbarBV)
@@ -965,6 +964,13 @@ final class topUpSurfacebarBV: localSurfacebarBV {
             packageGridbarBV.addArrangedSubview(rowbarBV)
             rowbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(112, minimumbarBV: 100, maximumbarBV: 118)).isActive = true
         }
+    }
+
+    private func selectPackagebarBV(packageSeedbarBV: String, amountbarBV: Int) {
+        guard selectedPackageSeedbarBV != packageSeedbarBV else { return }
+        selectedPackageSeedbarBV = packageSeedbarBV
+        renderPackagesbarBV()
+        showStatusbarBV("\(amountbarBV) coins selected")
     }
 
     private func rechargebarBV() {
@@ -1126,7 +1132,7 @@ private final class setupSurfacebarBV: localSurfacebarBV {
     }
 
     private func configureCancelButtonbarBV() {
-        cancelButtonbarBV.setTitle("Cancel account", for: .normal)
+        cancelButtonbarBV.setTitle("Log Out", for: .normal)
         cancelButtonbarBV.setTitleColor(.black, for: .normal)
         cancelButtonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(23, weight: .heavy)
         cancelButtonbarBV.colorsbarBV = [
@@ -1135,7 +1141,7 @@ private final class setupSurfacebarBV: localSurfacebarBV {
             UIColor(red: 153 / 255, green: 226 / 255, blue: 248 / 255, alpha: 1)
         ]
         cancelButtonbarBV.addAction(UIAction { [weak self] _ in
-            self?.showAccountSheetbarBV()
+            self?.logOutbarBV()
         }, for: .touchUpInside)
         view.addSubview(cancelButtonbarBV)
         cancelButtonbarBV.translatesAutoresizingMaskIntoConstraints = false
@@ -1239,6 +1245,14 @@ private final class setupSurfacebarBV: localSurfacebarBV {
         let deletebarBV = deleteAccountSurfacebarBV(storebarBV: storebarBV)
         deletebarBV.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(deletebarBV, animated: true)
+    }
+
+    private func logOutbarBV() {
+        dismissAccountSheetbarBV()
+        showStatusbarBV("Logged out")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+            sessionStore.logoutFlowbarBV()
+        }
     }
 
     private func showAccountSheetbarBV() {
@@ -1884,7 +1898,7 @@ private final class deleteAccountSurfacebarBV: localSurfacebarBV {
         )
         alertbarBV.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertbarBV.addAction(UIAlertAction(title: "Permanently Delete", style: .destructive) { [weak self] _ in
-            self?.showStatusbarBV("Account deleted locally.")
+            self?.showStatusbarBV("Account deleted.")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
                 sessionStore.deleteLocalAccountbarBV()
             }
@@ -2846,6 +2860,7 @@ private final class coinPackageCellbarBV: UIControl {
     }
 
     private func configurebarBV() {
+        isExclusiveTouch = true
         backgroundColor = packagebarBV.selectedFlagbarBV ? .clear : .white
         layer.borderWidth = packagebarBV.selectedFlagbarBV ? 0 : 1.2
         layer.borderColor = UIColor(red: 182 / 255, green: 231 / 255, blue: 1, alpha: 1).cgColor
@@ -2875,6 +2890,7 @@ private final class coinPackageCellbarBV: UIControl {
         addSubview(coinBoxbarBV)
         coinBoxbarBV.addSubview(coinLabelbarBV)
         coinBoxbarBV.addSubview(amountLabelbarBV)
+        [priceLabelbarBV, coinBoxbarBV, coinLabelbarBV, amountLabelbarBV].forEach { $0.isUserInteractionEnabled = false }
         [priceLabelbarBV, coinBoxbarBV, coinLabelbarBV, amountLabelbarBV].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         NSLayoutConstraint.activate([
             priceLabelbarBV.topAnchor.constraint(equalTo: topAnchor, constant: styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
@@ -3054,6 +3070,7 @@ private final class aiToneRowbarBV: UIControl {
     }
 
     private func configurebarBV() {
+        isExclusiveTouch = true
         let markerbarBV = gradientBadgebarBV()
         markerbarBV.colorsbarBV = stylebarBV.selectedFlagbarBV
             ? [styleStorebarBV.mint, styleStorebarBV.purple, styleStorebarBV.pink]
@@ -3108,6 +3125,7 @@ private final class aiToneRowbarBV: UIControl {
         rowbarBV.axis = .horizontal
         rowbarBV.alignment = .center
         rowbarBV.spacing = styleStorebarBV.metricbarBV(14, minimumbarBV: 10, maximumbarBV: 16)
+        rowbarBV.isUserInteractionEnabled = false
         addSubview(rowbarBV)
         rowbarBV.translatesAutoresizingMaskIntoConstraints = false
 

@@ -9,8 +9,6 @@ enum contactGroupbarBV: String, CaseIterable, Codable {
 
 enum localMessageType {
     case textBubblebarBV
-    case voiceBubblebarBV
-    case imageBubblebarBV
 }
 
 enum replyStylebarBV: String, CaseIterable {

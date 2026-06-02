@@ -14,8 +14,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
     private let tableView = UITableView(frame: .zero, style: .plain)
     private let composerBarbarBV = UIView()
     private let composer = UITextField()
-    private let plusButtonbarBV = UIButton(type: .system)
-    private let micButtonbarBV = UIButton(type: .system)
+    private let sendTextButtonbarBV = gradientPill(type: .system)
     private let groupInviteButtonbarBV = gradientPill(type: .system)
     private var actionOverlaybarBV: UIControl?
     private var selectedMessagebarBV: messageFixturebarBV?
@@ -199,20 +198,16 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
             composer.text = nil
             composer.placeholder = "You blocked this user."
             composer.isEnabled = false
-            plusButtonbarBV.isEnabled = false
-            micButtonbarBV.isEnabled = false
+            sendTextButtonbarBV.isEnabled = false
             composer.alpha = 0.72
-            plusButtonbarBV.alpha = 0.45
-            micButtonbarBV.alpha = 0.45
+            sendTextButtonbarBV.alpha = 0.45
             return
         }
         composer.placeholder = "Type a message..."
         composer.isEnabled = true
-        plusButtonbarBV.isEnabled = true
-        micButtonbarBV.isEnabled = true
+        sendTextButtonbarBV.isEnabled = true
         composer.alpha = 1
-        plusButtonbarBV.alpha = 1
-        micButtonbarBV.alpha = 1
+        sendTextButtonbarBV.alpha = 1
     }
 
     private func configureTablebarBV() {
@@ -250,17 +245,14 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
         composerBarbarBV.layer.shadowRadius = 10
         composerBarbarBV.layer.shadowOffset = CGSize(width: 0, height: -4)
 
-        plusButtonbarBV.setImage(UIImage(systemName: "plus"), for: .normal)
-        plusButtonbarBV.tintColor = styleStorebarBV.purple
-        plusButtonbarBV.backgroundColor = UIColor.systemGray6
-        plusButtonbarBV.layer.cornerRadius = styleStorebarBV.controlbarBV(42) / 2
-        plusButtonbarBV.isUserInteractionEnabled = false
-
-        micButtonbarBV.setImage(UIImage(systemName: "mic.fill"), for: .normal)
-        micButtonbarBV.tintColor = styleStorebarBV.purple
-        micButtonbarBV.backgroundColor = UIColor.systemGray6
-        micButtonbarBV.layer.cornerRadius = styleStorebarBV.controlbarBV(42) / 2
-        micButtonbarBV.isUserInteractionEnabled = false
+        sendTextButtonbarBV.setTitle("Send", for: .normal)
+        sendTextButtonbarBV.setTitleColor(.black, for: .normal)
+        sendTextButtonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(15, weight: .heavy)
+        styleStorebarBV.buttonFitbarBV(sendTextButtonbarBV)
+        sendTextButtonbarBV.colorsbarBV = [styleStorebarBV.mint, UIColor(red: 1, green: 215 / 255, blue: 251 / 255, alpha: 0.7), styleStorebarBV.pink, styleStorebarBV.mint]
+        sendTextButtonbarBV.addAction(UIAction { [weak self] _ in
+            self?.sendTypedMessagebarBV()
+        }, for: .touchUpInside)
 
         composer.placeholder = "Type a message..."
         composer.font = styleStorebarBV.fontbarBV(16, weight: .regular)
@@ -279,36 +271,31 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
         }, for: .primaryActionTriggered)
 
         view.addSubview(composerBarbarBV)
-        [plusButtonbarBV, composer, micButtonbarBV].forEach {
+        [composer, sendTextButtonbarBV].forEach {
             composerBarbarBV.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         composerBarbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         let composerHeightbarBV = styleStorebarBV.metricbarBV(70, minimumbarBV: 62, maximumbarBV: 74)
-        let toolSizebarBV = styleStorebarBV.controlbarBV(42)
         let sideInsetbarBV = styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)
         let controlGapbarBV = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        let sendWidthbarBV = styleStorebarBV.metricbarBV(74, minimumbarBV: 66, maximumbarBV: 82)
         NSLayoutConstraint.activate([
             composerBarbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             composerBarbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             composerBarbarBV.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor),
             composerBarbarBV.heightAnchor.constraint(equalToConstant: composerHeightbarBV),
 
-            plusButtonbarBV.leadingAnchor.constraint(equalTo: composerBarbarBV.leadingAnchor, constant: sideInsetbarBV),
-            plusButtonbarBV.centerYAnchor.constraint(equalTo: composerBarbarBV.centerYAnchor),
-            plusButtonbarBV.widthAnchor.constraint(equalToConstant: toolSizebarBV),
-            plusButtonbarBV.heightAnchor.constraint(equalToConstant: toolSizebarBV),
-
-            composer.leadingAnchor.constraint(equalTo: plusButtonbarBV.trailingAnchor, constant: controlGapbarBV),
-            composer.trailingAnchor.constraint(equalTo: micButtonbarBV.leadingAnchor, constant: -controlGapbarBV),
+            composer.leadingAnchor.constraint(equalTo: composerBarbarBV.leadingAnchor, constant: sideInsetbarBV),
+            composer.trailingAnchor.constraint(equalTo: sendTextButtonbarBV.leadingAnchor, constant: -controlGapbarBV),
             composer.centerYAnchor.constraint(equalTo: composerBarbarBV.centerYAnchor),
             composer.heightAnchor.constraint(equalToConstant: inputHeightbarBV),
 
-            micButtonbarBV.trailingAnchor.constraint(equalTo: composerBarbarBV.trailingAnchor, constant: -sideInsetbarBV),
-            micButtonbarBV.centerYAnchor.constraint(equalTo: composerBarbarBV.centerYAnchor),
-            micButtonbarBV.widthAnchor.constraint(equalToConstant: toolSizebarBV),
-            micButtonbarBV.heightAnchor.constraint(equalToConstant: toolSizebarBV)
+            sendTextButtonbarBV.trailingAnchor.constraint(equalTo: composerBarbarBV.trailingAnchor, constant: -sideInsetbarBV),
+            sendTextButtonbarBV.centerYAnchor.constraint(equalTo: composerBarbarBV.centerYAnchor),
+            sendTextButtonbarBV.widthAnchor.constraint(equalToConstant: sendWidthbarBV),
+            sendTextButtonbarBV.heightAnchor.constraint(equalToConstant: inputHeightbarBV)
         ])
     }
 
@@ -587,13 +574,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
 
     private func reportTargetMessagebarBV() -> messageFixturebarBV? {
         let messagesbarBV = store.messagePool(for: thread)
-        if let incomingTextbarBV = messagesbarBV.last(where: { messagebarBV in
-            if messagebarBV.sentFlag { return false }
-            if case .textBubblebarBV = messagebarBV.localMessageType {
-                return true
-            }
-            return false
-        }) {
+        if let incomingTextbarBV = messagesbarBV.last(where: { !$0.sentFlag }) {
             return incomingTextbarBV
         }
         return messagesbarBV.last
@@ -807,21 +788,11 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
     }
 
     private func copyEnabledbarBV(messagebarBV: messageFixturebarBV) -> Bool {
-        if case .textBubblebarBV = messagebarBV.localMessageType {
-            return true
-        }
-        return false
+        true
     }
 
     private func actionPreviewTextbarBV(messagebarBV: messageFixturebarBV) -> String {
-        switch messagebarBV.localMessageType {
-        case .textBubblebarBV:
-            return messagebarBV.localMessageText
-        case .imageBubblebarBV:
-            return messagebarBV.localMessageText.isEmpty ? "Shared photo" : messagebarBV.localMessageText
-        case .voiceBubblebarBV:
-            return messagebarBV.localMessageText.isEmpty ? "Voice message" : "Voice message · \(messagebarBV.localMessageText)"
-        }
+        messagebarBV.localMessageText
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -1347,7 +1318,7 @@ final class reportSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
             reasonbarBV: selectedReasonbarBV,
             detailsbarBV: detailEntrybarBV.text.trimmingCharacters(in: .whitespacesAndNewlines)
         )
-        let alertbarBV = UIAlertController(title: "Report submitted", message: "Thanks. This report was saved locally for review simulation.", preferredStyle: .alert)
+        let alertbarBV = UIAlertController(title: "Report submitted", message: "Thank you. We will process your request within 24 hours.", preferredStyle: .alert)
         alertbarBV.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         })
@@ -1617,7 +1588,7 @@ final class inviteGroupSurfacebarBV: localSurfacebarBV, UITableViewDataSource, U
         linkRowbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         linkRowbarBV.addAction(UIAction { [weak self] _ in
             UIPasteboard.general.string = self?.inviteLinkbarBV()
-            self?.noticebarBV(titlebarBV: "Copied", messagebarBV: "Invite link copied locally.")
+            self?.noticebarBV(titlebarBV: "Copied", messagebarBV: "Invite link copied .")
         }, for: .touchUpInside)
         let linkbarBV = UILabel()
         linkbarBV.text = inviteLinkbarBV()
@@ -1677,7 +1648,7 @@ final class inviteGroupSurfacebarBV: localSurfacebarBV, UITableViewDataSource, U
 
     private func finishInvitebarBV() {
         let countbarBV = selectedContactsbarBV.count
-        let messagebarBV = countbarBV == 0 ? "No contact selected. Invite flow closed." : "\(countbarBV) invite request\(countbarBV == 1 ? "" : "s") prepared locally."
+        let messagebarBV = countbarBV == 0 ? "No contact selected. Invite flow closed." : "\(countbarBV) invite request\(countbarBV == 1 ? "" : "s") prepared ."
         let alertbarBV = UIAlertController(title: "Invite to Group", message: messagebarBV, preferredStyle: .alert)
         alertbarBV.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
@@ -1982,7 +1953,7 @@ final class groupReportSurfacebarBV: localSurfacebarBV {
             reasonbarBV: selectedReasonbarBV,
             hiddenNamebarBV: visibilitySwitchbarBV.isOn
         )
-        let alertbarBV = UIAlertController(title: "Report submitted", message: "This group report was saved locally.", preferredStyle: .alert)
+        let alertbarBV = UIAlertController(title: "Report submitted", message: "This group report was saved.", preferredStyle: .alert)
         alertbarBV.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         })
@@ -2400,7 +2371,7 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
 
         quoteLinebarBV.backgroundColor = styleStorebarBV.blue
         quoteMetabarBV.text = "↳ REPLYING TO \(replyNamebarBV) · \(replyTimebarBV)"
-        quoteMetabarBV.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
+        quoteMetabarBV.font = styleStorebarBV.fontbarBV(11, weight: .heavy)
         quoteMetabarBV.textColor = styleStorebarBV.blue
         quoteMetabarBV.numberOfLines = 1
         styleStorebarBV.labelFitbarBV(quoteMetabarBV, factorbarBV: 0.68, linesbarBV: 1)
@@ -2649,32 +2620,11 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
     }
 
     private func generateLocalAIReplybarBV(tonebarBV: replyStylebarBV, regenbarBV: Bool) -> String {
-        let poolbarBV: [String]
-        switch tonebarBV {
-        case .replyToneShortbarBV:
-            poolbarBV = [
-                "That sounds tough. Get some rest.",
-                "Sorry, that sounds tiring. Rest up.",
-                "Take it easy tonight. I'm here."
-            ]
-        case .replyTonePolite:
-            poolbarBV = [
-                "I'm sorry you're feeling tired. I hope you can rest well and feel better soon.",
-                "I'm sorry to hear that. Please take care and rest well tonight.",
-                "Thank you for telling me. I hope you can get some proper rest soon."
-            ]
-        default:
-            poolbarBV = [
-                "That sounds really tiring. Hope you can get some rest tonight - let me know if you want to talk.",
-                "I'm sorry you're feeling so tired. Get some rest tonight, and I'm here if you want company.",
-                "That sounds like a lot. Please take it easy tonight, and tell me if you want to talk."
-            ]
-        }
-        guard !poolbarBV.isEmpty else { return "" }
-        if regenbarBV {
-            return poolbarBV[abs(regenCursorbarBV) % poolbarBV.count]
-        }
-        return poolbarBV[0]
+        localStorebarBV.shared.generatedDraftbarBV(
+            for: messagebarBV,
+            tone: tonebarBV,
+            variantbarBV: regenbarBV ? regenCursorbarBV : nil
+        )
     }
 
     private func updatePlaceholderbarBV() {
@@ -2693,13 +2643,6 @@ final class messageSurfacebarBV: UITableViewCell {
     private let contentStackbarBV = UIStackView()
     private let senderLabelbarBV = UILabel()
     private let textLabelbarBV = UILabel()
-    private let photoSurfacebarBV = UIView()
-    private let photoIconbarBV = UIImageView(image: UIImage(systemName: "photo.on.rectangle.angled"))
-    private let photoLabelbarBV = UILabel()
-    private let voiceSurfacebarBV = UIView()
-    private let playIconbarBV = UIImageView(image: UIImage(systemName: "play.fill"))
-    private let waveSurfacebarBV = waveformSurfacebarBV()
-    private let durationLabelbarBV = UILabel()
     private var layoutConstraintsbarBV: [NSLayoutConstraint] = []
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -2707,7 +2650,6 @@ final class messageSurfacebarBV: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         configureBubblebarBV()
-        configureMediabarBV()
         configureLayoutbarBV()
     }
 
@@ -2723,33 +2665,17 @@ final class messageSurfacebarBV: UITableViewCell {
         bubblebarBV.layer.borderWidth = sentbarBV ? 0 : 1
         bubblebarBV.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
         textLabelbarBV.textColor = sentbarBV ? .white : .black
-        durationLabelbarBV.textColor = sentbarBV ? .white : .black
-        playIconbarBV.tintColor = sentbarBV ? .white : styleStorebarBV.purple
-        waveSurfacebarBV.tintbarBV = sentbarBV ? UIColor.white.withAlphaComponent(0.92) : styleStorebarBV.purple
 
         textLabelbarBV.isHidden = true
         senderLabelbarBV.isHidden = true
-        photoSurfacebarBV.isHidden = true
-        voiceSurfacebarBV.isHidden = true
         bubblebarBV.backgroundColor = sentbarBV ? styleStorebarBV.blue : UIColor.white.withAlphaComponent(0.96)
         if groupFlagbarBV && !sentbarBV {
             senderLabelbarBV.text = senderNamebarBV(messagebarBV: messagebarBV, storebarBV: storebarBV)
             senderLabelbarBV.isHidden = false
         }
 
-        switch messagebarBV.localMessageType {
-        case .textBubblebarBV:
-            textLabelbarBV.text = messagebarBV.localMessageText
-            textLabelbarBV.isHidden = false
-        case .imageBubblebarBV:
-            photoLabelbarBV.text = messagebarBV.localMessageText.isEmpty ? "Shared photo" : messagebarBV.localMessageText
-            photoSurfacebarBV.isHidden = false
-            bubblebarBV.backgroundColor = .clear
-            bubblebarBV.layer.borderWidth = 0
-        case .voiceBubblebarBV:
-            durationLabelbarBV.text = messagebarBV.localMessageText.isEmpty ? "0:12" : messagebarBV.localMessageText
-            voiceSurfacebarBV.isHidden = false
-        }
+        textLabelbarBV.text = messagebarBV.localMessageText
+        textLabelbarBV.isHidden = false
         updateAlignmentbarBV(sentbarBV: sentbarBV)
     }
 
@@ -2785,59 +2711,6 @@ final class messageSurfacebarBV: UITableViewCell {
             contentStackbarBV.leadingAnchor.constraint(equalTo: bubblebarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
             contentStackbarBV.trailingAnchor.constraint(equalTo: bubblebarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
             contentStackbarBV.bottomAnchor.constraint(equalTo: bubblebarBV.bottomAnchor, constant: -styleStorebarBV.metricbarBV(11, minimumbarBV: 9, maximumbarBV: 12))
-        ])
-    }
-
-    private func configureMediabarBV() {
-        photoSurfacebarBV.backgroundColor = UIColor.white.withAlphaComponent(0.9)
-        photoSurfacebarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(18, minimumbarBV: 15, maximumbarBV: 20)
-        photoSurfacebarBV.layer.masksToBounds = true
-        photoSurfacebarBV.layer.borderWidth = 1
-        photoSurfacebarBV.layer.borderColor = UIColor(red: 161 / 255, green: 233 / 255, blue: 1, alpha: 1).cgColor
-        photoIconbarBV.tintColor = styleStorebarBV.purple
-        photoIconbarBV.contentMode = .scaleAspectFit
-        photoLabelbarBV.font = styleStorebarBV.fontbarBV(14, weight: .semibold)
-        photoLabelbarBV.textColor = styleStorebarBV.mutedText
-        photoLabelbarBV.textAlignment = .center
-        photoLabelbarBV.numberOfLines = 2
-        [photoIconbarBV, photoLabelbarBV].forEach {
-            photoSurfacebarBV.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        contentStackbarBV.addArrangedSubview(photoSurfacebarBV)
-
-        voiceSurfacebarBV.backgroundColor = .clear
-        let voiceStackbarBV = UIStackView(arrangedSubviews: [playIconbarBV, waveSurfacebarBV, durationLabelbarBV])
-        voiceStackbarBV.axis = .horizontal
-        voiceStackbarBV.alignment = .center
-        voiceStackbarBV.spacing = styleStorebarBV.metricbarBV(9, minimumbarBV: 7, maximumbarBV: 10)
-        voiceSurfacebarBV.addSubview(voiceStackbarBV)
-        voiceStackbarBV.translatesAutoresizingMaskIntoConstraints = false
-        playIconbarBV.contentMode = .scaleAspectFit
-        durationLabelbarBV.font = styleStorebarBV.fontbarBV(14, weight: .semibold)
-        durationLabelbarBV.setContentCompressionResistancePriority(.required, for: .horizontal)
-        contentStackbarBV.addArrangedSubview(voiceSurfacebarBV)
-
-        NSLayoutConstraint.activate([
-            photoSurfacebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(190, minimumbarBV: 158, maximumbarBV: 208)),
-            photoSurfacebarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(132, minimumbarBV: 106, maximumbarBV: 142)),
-            photoIconbarBV.centerXAnchor.constraint(equalTo: photoSurfacebarBV.centerXAnchor),
-            photoIconbarBV.centerYAnchor.constraint(equalTo: photoSurfacebarBV.centerYAnchor, constant: -styleStorebarBV.metricbarBV(12, minimumbarBV: 8, maximumbarBV: 14)),
-            photoIconbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(42, minimumbarBV: 34, maximumbarBV: 46)),
-            photoIconbarBV.heightAnchor.constraint(equalTo: photoIconbarBV.widthAnchor),
-            photoLabelbarBV.leadingAnchor.constraint(equalTo: photoSurfacebarBV.leadingAnchor, constant: 14),
-            photoLabelbarBV.trailingAnchor.constraint(equalTo: photoSurfacebarBV.trailingAnchor, constant: -14),
-            photoLabelbarBV.topAnchor.constraint(equalTo: photoIconbarBV.bottomAnchor, constant: 8),
-
-            voiceSurfacebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(188, minimumbarBV: 156, maximumbarBV: 208)),
-            voiceSurfacebarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(34, minimumbarBV: 30, maximumbarBV: 36)),
-            voiceStackbarBV.topAnchor.constraint(equalTo: voiceSurfacebarBV.topAnchor),
-            voiceStackbarBV.leadingAnchor.constraint(equalTo: voiceSurfacebarBV.leadingAnchor),
-            voiceStackbarBV.trailingAnchor.constraint(equalTo: voiceSurfacebarBV.trailingAnchor),
-            voiceStackbarBV.bottomAnchor.constraint(equalTo: voiceSurfacebarBV.bottomAnchor),
-            playIconbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(18, minimumbarBV: 16, maximumbarBV: 20)),
-            playIconbarBV.heightAnchor.constraint(equalTo: playIconbarBV.widthAnchor),
-            waveSurfacebarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(24, minimumbarBV: 20, maximumbarBV: 26))
         ])
     }
 
@@ -2885,40 +2758,5 @@ final class messageSurfacebarBV: UITableViewCell {
 
     private func senderNamebarBV(messagebarBV: messageFixturebarBV, storebarBV: localStorebarBV) -> String {
         storebarBV.contactMatcherbarBV(contactSeed: messagebarBV.personaSeed)?.placeholderNamebarBV ?? "Group member"
-    }
-}
-
-final class waveformSurfacebarBV: UIView {
-    var tintbarBV: UIColor = styleStorebarBV.purple {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .clear
-        setContentHuggingPriority(.defaultLow, for: .horizontal)
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        backgroundColor = .clear
-    }
-
-    override func draw(_ rect: CGRect) {
-        guard rect.width > 0, rect.height > 0 else { return }
-        let heightsbarBV: [CGFloat] = [0.34, 0.62, 0.42, 0.82, 0.5, 0.72, 0.38, 0.9, 0.54, 0.68, 0.44]
-        let gapbarBV = rect.width / CGFloat(heightsbarBV.count * 3)
-        let barWidthbarBV = max(2, gapbarBV)
-        var xbarBV: CGFloat = 0
-        tintbarBV.setFill()
-        for scalebarBV in heightsbarBV {
-            let heightbarBV = max(4, rect.height * scalebarBV)
-            let ybarBV = (rect.height - heightbarBV) / 2
-            let barRectbarBV = CGRect(x: xbarBV, y: ybarBV, width: barWidthbarBV, height: heightbarBV)
-            UIBezierPath(roundedRect: barRectbarBV, cornerRadius: barWidthbarBV / 2).fill()
-            xbarBV += barWidthbarBV + gapbarBV
-        }
     }
 }

@@ -75,8 +75,8 @@ final class materialPage: localSurfacebarBV {
         avatarStackbarBV.axis = .vertical
         avatarStackbarBV.alignment = .center
         avatarStackbarBV.spacing = styleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)
-        birthdayEntrybarBV.placeholder = "yyyy-MM-dd"
-        birthdayEntrybarBV.keyboardType = .numbersAndPunctuation
+        birthdayEntrybarBV.placeholder = "Birthday"
+        birthdayEntrybarBV.keyboardType = .default
         let actionButtonbarBV = gradientPill(type: .system)
         actionButtonbarBV.setTitle("Enter Barb", for: .normal)
         actionButtonbarBV.setTitleColor(.black, for: .normal)

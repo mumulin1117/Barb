@@ -14,22 +14,31 @@ final class tabSurfacebarBV: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        store.reloadAccountScopebarBV()
         tabBar.tintColor = styleStorebarBV.purple
         tabBar.unselectedItemTintColor = .systemGray3
         tabBar.backgroundColor = .white
         viewControllers = [
-            nav(homeSurfacebarBV(store: store), "Home", "house.fill"),
-            nav(inboxSurfacebarBV(store: store), "Messages", "message.fill"),
-            nav(contactSurfacebarBV(store: store), "Contacts", "person.crop.rectangle.stack.fill"),
-            nav(profileSurfacebarBV(store: store), "Personal", "person.fill")
+            nav(homeSurfacebarBV(store: store),  "tabHomeIdlebarBV", "tabHomeSelectedbarBV"),
+            nav(inboxSurfacebarBV(store: store),  "tabMessagesIdlebarBV", "tabMessagesSelectedbarBV"),
+            nav(contactSurfacebarBV(store: store),  "tabContactsIdlebarBV", "tabContactsSelectedbarBV"),
+            nav(profileSurfacebarBV(store: store),  "tabPersonalIdlebarBV", "tabPersonalSelectedbarBV")
         ]
     }
 
-    private func nav(_ controller: UIViewController, _ localThreadTitle: String, _ image: String) -> UIViewController {
+    private func nav(_ controller: UIViewController, _ imagebarBV: String, _ selectedImagebarBV: String) -> UIViewController {
         let navigation = UINavigationController(rootViewController: controller)
         navigation.navigationBar.prefersLargeTitles = false
         navigation.navigationBar.tintColor = .black
-        navigation.tabBarItem = UITabBarItem(title: localThreadTitle, image: UIImage(systemName: image), selectedImage: nil)
+        navigation.tabBarItem = UITabBarItem(
+            title: nil,
+            image: tabIconbarBV(namebarBV: imagebarBV),
+            selectedImage: tabIconbarBV(namebarBV: selectedImagebarBV)
+        )
         return navigation
+    }
+
+    private func tabIconbarBV(namebarBV: String) -> UIImage? {
+        UIImage(named: namebarBV)?.withRenderingMode(.alwaysOriginal)
     }
 }

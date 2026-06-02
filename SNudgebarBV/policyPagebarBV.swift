@@ -21,7 +21,7 @@ final class policyPagebarBV: localSurfacebarBV {
         label.text = """
         Privacy Policy
 
-        Barb stores registration, login state, profile fields, and demo conversation state locally on this device through UserDefaults.
+        Barb stores registration, login state, profile fields, and demo conversation state  on this device through UserDefaults.
 
         Apple Guideline 1.2 Safety
         Barb is designed around familiar contacts, blocking, reporting, and privacy controls. Users must not use profile fields, local messages, or simulated replies to create harmful, abusive, explicit, harassing, or objectionable material.

@@ -163,7 +163,9 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         let unreadCounterbarBV = store.threadPoolbarBV.reduce(0) { $0 + $1.unreadCounter }
         let labelSurfacebarBV = UILabel()
         labelSurfacebarBV.attributedText = summaryTextbarBV(unreadCounterbarBV: unreadCounterbarBV)
-        styleStorebarBV.labelFitbarBV(labelSurfacebarBV, factorbarBV: 0.52, linesbarBV: 1)
+        labelSurfacebarBV.numberOfLines = unreadCounterbarBV == 0 ? 2 : 1
+        labelSurfacebarBV.textAlignment = unreadCounterbarBV == 0 ? .center : .left
+        styleStorebarBV.labelFitbarBV(labelSurfacebarBV, factorbarBV: 0.52, linesbarBV: labelSurfacebarBV.numberOfLines)
         labelSurfacebarBV.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         let dotRowbarBV = UIStackView()
         dotRowbarBV.axis = .horizontal
@@ -173,6 +175,17 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         dotRowbarBV.setContentHuggingPriority(.required, for: .horizontal)
         for indexbarBV in 0..<unreadCounterbarBV {
             dotRowbarBV.addArrangedSubview(dotSurfacebarBV(activebarBV: indexbarBV == 0, totalbarBV: unreadCounterbarBV))
+        }
+        if unreadCounterbarBV == 0 {
+            cardSurfacebarBV.addSubview(labelSurfacebarBV)
+            labelSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                cardSurfacebarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(78, minimumbarBV: 68, maximumbarBV: 86)),
+                labelSurfacebarBV.leadingAnchor.constraint(equalTo: cardSurfacebarBV.leadingAnchor, constant: 15),
+                labelSurfacebarBV.trailingAnchor.constraint(equalTo: cardSurfacebarBV.trailingAnchor, constant: -15),
+                labelSurfacebarBV.centerYAnchor.constraint(equalTo: cardSurfacebarBV.centerYAnchor)
+            ])
+            return cardSurfacebarBV
         }
         let spacerbarBV = UIView()
         let contentRowbarBV = UIStackView(arrangedSubviews: [labelSurfacebarBV, spacerbarBV, dotRowbarBV])
@@ -191,6 +204,12 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
     }
 
     private func summaryTextbarBV(unreadCounterbarBV: Int) -> NSAttributedString {
+        if unreadCounterbarBV == 0 {
+            return NSAttributedString(
+                string: "0 unread message\nwaiting....",
+                attributes: [.font: styleStorebarBV.fontbarBV(17, weight: .heavy), .foregroundColor: UIColor.black]
+            )
+        }
         let textSurfacebarBV = NSMutableAttributedString(
             string: "\(unreadCounterbarBV)",
             attributes: [.font: styleStorebarBV.titleFont(24), .foregroundColor: styleStorebarBV.blue]
@@ -381,7 +400,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         let metaSurfacebarBV = UILabel()
         metaSurfacebarBV.text = "↳ REPLYING TO \(threadFlowbarBV.localThreadTitle.uppercased()) · 11:24"
         metaSurfacebarBV.textColor = styleStorebarBV.blue
-        metaSurfacebarBV.font = styleStorebarBV.fontbarBV(15, weight: .heavy)
+        metaSurfacebarBV.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
         styleStorebarBV.labelFitbarBV(metaSurfacebarBV, factorbarBV: 0.68, linesbarBV: 1)
         let quoteSurfacebarBV = UILabel()
         quoteSurfacebarBV.text = "\"\(latestbarBV?.localMessageText ?? "")\""
@@ -581,15 +600,17 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
     private func emptySurfacebarBV() -> UIView {
         let cardSurfacebarBV = cardSurfacebarBV(cornerRadius: 24)
         let textSurfacebarBV = UILabel()
-        textSurfacebarBV.text = "No unread messages waiting for reply."
+        textSurfacebarBV.text = "0 unread message\nwaiting...."
         textSurfacebarBV.font = styleStorebarBV.fontbarBV(20, weight: .heavy)
         textSurfacebarBV.textAlignment = .center
+        textSurfacebarBV.numberOfLines = 2
         styleStorebarBV.labelFitbarBV(textSurfacebarBV, factorbarBV: 0.7, linesbarBV: 0)
         cardSurfacebarBV.addSubview(textSurfacebarBV)
         textSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cardSurfacebarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(150, minimumbarBV: 120, maximumbarBV: 180)),
-            textSurfacebarBV.centerXAnchor.constraint(equalTo: cardSurfacebarBV.centerXAnchor),
+            textSurfacebarBV.leadingAnchor.constraint(equalTo: cardSurfacebarBV.leadingAnchor, constant: 15),
+            textSurfacebarBV.trailingAnchor.constraint(equalTo: cardSurfacebarBV.trailingAnchor, constant: -15),
             textSurfacebarBV.centerYAnchor.constraint(equalTo: cardSurfacebarBV.centerYAnchor)
         ])
         return cardSurfacebarBV
@@ -632,19 +653,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
 
     private func draftGeneratebarBV() {
         guard let threadFlowbarBV = draftThreadbarBV, let latestbarBV = store.localThreadPreviewbarBV(for: threadFlowbarBV) else { return }
-        let basebarBV = store.generatedDraftbarBV(for: latestbarBV, tone: styleChoicebarBV)
-        if regenIndexbarBV == 0 {
-            draftTextbarBV = basebarBV
-            return
-        }
-        switch styleChoicebarBV {
-        case .replyToneShortbarBV:
-            draftTextbarBV = "I hear you. Please rest tonight, and message me when you feel up to it."
-        case .replyTonePolite:
-            draftTextbarBV = "Thank you for telling me. I hope you can take some time to rest, and I am here if you would like to talk."
-        default:
-            draftTextbarBV = "That sounds really tiring. I hope tonight gives you a little space to breathe, and I am here if you want to talk."
-        }
+        draftTextbarBV = store.generatedDraftbarBV(for: latestbarBV, tone: styleChoicebarBV, variantbarBV: regenIndexbarBV == 0 ? nil : regenIndexbarBV)
     }
 
     private func draftRegenbarBV() {
@@ -909,7 +918,7 @@ private final class homeSearchSurfacebarBV: localSurfacebarBV, UITextFieldDelega
             visibleThreadsbarBV = []
             resultStackbarBV.addArrangedSubview(emptyStatebarBV(
                 titlebarBV: "Search your familiar space.",
-                messagebarBV: "Look up contacts, chats, or message text stored locally on this device."
+                messagebarBV: "Look up contacts, chats, or message text stored on this device."
             ))
             return
         }
@@ -920,7 +929,7 @@ private final class homeSearchSurfacebarBV: localSurfacebarBV, UITextFieldDelega
 
         guard !visibleThreadsbarBV.isEmpty else {
             resultStackbarBV.addArrangedSubview(emptyStatebarBV(
-                titlebarBV: "No local results.",
+                titlebarBV: "No  results.",
                 messagebarBV: "Try another contact name or message phrase."
             ))
             return

@@ -673,7 +673,7 @@ final class addContactSurfacebarBV: localSurfacebarBV {
         scanbarBV.addAction(UIAction { [weak self] _ in self?.showScanbarBV() }, for: .touchUpInside)
         entryStackbarBV.addArrangedSubview(scanbarBV)
 
-        let phonebarBV = contactEntryItembarBV(titlebarBV: "Phone or Email", subtitlebarBV: "Search trusted people locally", systemImagebarBV: "envelope.fill")
+        let phonebarBV = contactEntryItembarBV(titlebarBV: "Phone or Email", subtitlebarBV: "Search trusted people", systemImagebarBV: "envelope.fill")
         phonebarBV.addAction(UIAction { [weak self] _ in self?.showHintbarBV("Search coming soon") }, for: .touchUpInside)
         entryStackbarBV.addArrangedSubview(phonebarBV)
 

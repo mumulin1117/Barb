@@ -30,7 +30,7 @@ final class agreementPage: localSurfacebarBV {
         This app follows Apple's Standard End User License Agreement where applicable. Your use of this app is licensed, not sold. You may not misuse, reverse engineer, redistribute, or use this app in a way that violates applicable law, Apple platform rules, or these terms.
 
         Local Data
-        Login, registration, profile, and conversation demo data are stored locally on this device. No real server request is made by this demo flow.
+        Login, registration, profile, and conversation demo data are stored  on this device. No real server request is made by this demo flow.
         """
         let insetbarBV = styleStorebarBV.metricbarBV(22, minimumbarBV: 16, maximumbarBV: 24)
         NSLayoutConstraint.activate([

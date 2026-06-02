@@ -4,9 +4,9 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
     private let store: localStorebarBV
     private let headerBarbarBV = UIView()
     private let titleLabelbarBV = UILabel()
-    private let addButtonbarBV = UIButton(type: .system)
     private let profileAvatarbarBV = avatarSurfacebarBV(initial: "B", color: styleStorebarBV.pink)
     private let tableView = UITableView(frame: .zero, style: .plain)
+    private let emptyLabelbarBV = UILabel()
 
     init(store: localStorebarBV) {
         self.store = store
@@ -22,13 +22,14 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
         super.viewDidLoad()
         configureHeaderbarBV()
         configureTablebarBV()
+        configureEmptybarBV()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         reloadProfilebarBV()
-        tableView.reloadData()
+        reloadContentbarBV()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,20 +43,8 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
         titleLabelbarBV.textColor = .black
         styleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
 
-        addButtonbarBV.setImage(UIImage(systemName: "plus"), for: .normal)
-        addButtonbarBV.tintColor = .black
-        addButtonbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.94)
-        addButtonbarBV.layer.cornerRadius = styleStorebarBV.controlbarBV(44) / 2
-        addButtonbarBV.layer.shadowColor = UIColor.black.cgColor
-        addButtonbarBV.layer.shadowOpacity = 0.06
-        addButtonbarBV.layer.shadowRadius = 10
-        addButtonbarBV.layer.shadowOffset = CGSize(width: 0, height: 4)
-        addButtonbarBV.addAction(UIAction { [weak self] _ in
-            self?.presentNoticebarBV(titlebarBV: "Message", messagebarBV: "New conversation is a local placeholder.")
-        }, for: .touchUpInside)
-
         view.addSubview(headerBarbarBV)
-        [titleLabelbarBV, addButtonbarBV, profileAvatarbarBV].forEach {
+        [titleLabelbarBV, profileAvatarbarBV].forEach {
             headerBarbarBV.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -71,12 +60,7 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
 
             titleLabelbarBV.leadingAnchor.constraint(equalTo: headerBarbarBV.leadingAnchor),
             titleLabelbarBV.centerYAnchor.constraint(equalTo: headerBarbarBV.centerYAnchor),
-            titleLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: addButtonbarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
-
-            addButtonbarBV.trailingAnchor.constraint(equalTo: profileAvatarbarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)),
-            addButtonbarBV.centerYAnchor.constraint(equalTo: headerBarbarBV.centerYAnchor),
-            addButtonbarBV.widthAnchor.constraint(equalToConstant: toolSizebarBV),
-            addButtonbarBV.heightAnchor.constraint(equalToConstant: toolSizebarBV),
+            titleLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: profileAvatarbarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
 
             profileAvatarbarBV.trailingAnchor.constraint(equalTo: headerBarbarBV.trailingAnchor),
             profileAvatarbarBV.centerYAnchor.constraint(equalTo: headerBarbarBV.centerYAnchor),
@@ -108,6 +92,29 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
         profileAvatarbarBV.text = sessionStore.profileLocalbarBV?.placeholderAvatar ?? "B"
     }
 
+    private func configureEmptybarBV() {
+        emptyLabelbarBV.text = "No messages yet."
+        emptyLabelbarBV.textAlignment = .center
+        emptyLabelbarBV.textColor = styleStorebarBV.mutedText
+        emptyLabelbarBV.font = styleStorebarBV.fontbarBV(17, weight: .semibold)
+        emptyLabelbarBV.numberOfLines = 0
+        view.addSubview(emptyLabelbarBV)
+        emptyLabelbarBV.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyLabelbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: styleStorebarBV.metricbarBV(34, minimumbarBV: 24, maximumbarBV: 38)),
+            emptyLabelbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -styleStorebarBV.metricbarBV(34, minimumbarBV: 24, maximumbarBV: 38)),
+            emptyLabelbarBV.centerYAnchor.constraint(equalTo: tableView.centerYAnchor, constant: -styleStorebarBV.spacebarBV(24, minimumbarBV: 12, maximumbarBV: 30))
+        ])
+        reloadContentbarBV()
+    }
+
+    private func reloadContentbarBV() {
+        tableView.reloadData()
+        let emptybarBV = store.threadPoolbarBV.isEmpty
+        tableView.isHidden = emptybarBV
+        emptyLabelbarBV.isHidden = !emptybarBV
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         store.threadPoolbarBV.count
     }
@@ -128,11 +135,6 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
         navigationController?.pushViewController(threadPagebarBV(store: store, thread: store.threadPoolbarBV[indexPath.row]), animated: true)
     }
 
-    private func presentNoticebarBV(titlebarBV: String, messagebarBV: String) {
-        let alertbarBV = UIAlertController(title: titlebarBV, message: messagebarBV, preferredStyle: .alert)
-        alertbarBV.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alertbarBV, animated: true)
-    }
 }
 
 final class threadSurface: UITableViewCell {
@@ -164,6 +166,10 @@ final class threadSurface: UITableViewCell {
         statusLabel.font = styleStorebarBV.fontbarBV(12, weight: .semibold)
         statusLabel.textColor = .systemGreen
         styleStorebarBV.labelFitbarBV(statusLabel, factorbarBV: 0.64, linesbarBV: 1)
+        titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        previewLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        statusLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        statusLabel.setContentHuggingPriority(.required, for: .horizontal)
         messageButtonbarBV.setImage(UIImage(systemName: "message.fill"), for: .normal)
         messageButtonbarBV.tintColor = .white
         messageButtonbarBV.isUserInteractionEnabled = false

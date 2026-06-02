@@ -5,6 +5,7 @@ final class draftSurfacebarBV: UIViewController {
     private let thread: threadFixturebarBV
     private let targetMessage: messageFixturebarBV
     private var selectedTone: replyStylebarBV = .replyToneWarm
+    private var regenCounterbarBV = 0
     private let draftTextView = UITextView()
     private let toneStack = UIStackView()
 
@@ -39,7 +40,7 @@ final class draftSurfacebarBV: UIViewController {
         styleStorebarBV.labelFitbarBV(titleLabel, factorbarBV: 0.72, linesbarBV: 1)
         let contextLabel = UILabel()
         contextLabel.text = "Replying to \(thread.localThreadTitle)"
-        contextLabel.font = styleStorebarBV.fontbarBV(14, weight: .heavy)
+        contextLabel.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
         contextLabel.textColor = styleStorebarBV.purple
         styleStorebarBV.labelFitbarBV(contextLabel, factorbarBV: 0.68, linesbarBV: 1)
         let targetLabel = UILabel()
@@ -86,6 +87,7 @@ final class draftSurfacebarBV: UIViewController {
             button.layer.cornerRadius = styleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)
             button.addAction(UIAction { [weak self] _ in
                 self?.selectedTone = tone
+                self?.regenCounterbarBV = 0
                 self?.updateDraft()
             }, for: .touchUpInside)
             toneStack.addArrangedSubview(button)
@@ -130,7 +132,7 @@ final class draftSurfacebarBV: UIViewController {
     }
 
     private func updateDraft() {
-        draftTextView.text = store.generatedDraftbarBV(for: targetMessage, tone: selectedTone)
+        draftTextView.text = store.generatedDraftbarBV(for: targetMessage, tone: selectedTone, variantbarBV: regenCounterbarBV == 0 ? nil : regenCounterbarBV)
         for case let button as UIButton in toneStack.arrangedSubviews {
             let isSelected = button.title(for: .normal) == selectedTone.rawValue
             button.backgroundColor = isSelected ? styleStorebarBV.pink : UIColor.systemGray6
@@ -156,6 +158,7 @@ final class draftSurfacebarBV: UIViewController {
             present(alertbarBV, animated: true)
             return
         }
+        regenCounterbarBV += 1
         updateDraft()
     }
 }

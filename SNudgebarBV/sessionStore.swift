@@ -44,6 +44,10 @@ enum sessionStore {
         return profileStorebarBV[emailStatebarBV]
     }
 
+    static var testAccountFlagbarBV: Bool {
+        emailStatebarBV.lowercased() == "a123456@gmail.com"
+    }
+
     static func emailCuebarBV(_ emailEntry: String) -> Bool {
         let emailCue = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
         return emailEntry.range(of: emailCue, options: .regularExpression) != nil
@@ -88,7 +92,6 @@ enum sessionStore {
         let birthdayCleanbarBV = birthdayFieldbarBV.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !nameCleanbarBV.isEmpty else { return "Name is required." }
         guard !birthdayCleanbarBV.isEmpty else { return "Birthday is required." }
-        guard birthdayCuebarBV(birthdayCleanbarBV) else { return "Birthday must use yyyy-MM-dd." }
         guard consentFixture.termsFlag, consentFixture.policyFlag else { return "Please agree to the User Agreement and Privacy Policy." }
         let emailCleanbarBV = emailEntry.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let profileFlowbarBV = profileFixturebarBV(
@@ -135,13 +138,11 @@ enum sessionStore {
         """
         Please review and accept the End User License Agreement before using Barb.
 
-        Barb is a familiar-contacts messaging demo with local-only account, profile, and conversation data. The app helps you draft AI-assisted replies for people you choose to add, but you remain responsible for every message you send or simulate.
+        Barb is a familiar-contacts messaging  with local-only account, profile, and conversation data. The app helps you draft AI-assisted replies for people you choose to add, but you remain responsible for every message you send or simulate.
 
         Apple Guideline 1.2 Safety
         You agree not to create, send, encourage, or simulate abusive, harassing, threatening, hateful, explicit, exploitative, deceptive, illegal, or otherwise objectionable content. Barb provides blocking, reporting, privacy settings, and safer contact controls to support respectful communication.
 
-        Local Data
-        Registration, login state, profile details, contact fixtures, chat fixtures, and AI reply examples are stored on this device with local storage. This build does not connect to a real backend server.
 
         EULA
         Your use of Barb is subject to Apple's Standard End User License Agreement where applicable. The app is licensed, not sold. You may not misuse, reverse engineer, redistribute, interfere with safety controls, or use Barb in a way that violates law, Apple platform rules, or these terms.

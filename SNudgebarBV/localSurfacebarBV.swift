@@ -19,7 +19,7 @@ class localSurfacebarBV: UIViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [
-            .font: UIFont.systemFont(ofSize: 28, weight: .heavy),
+            .font: styleStorebarBV.fontbarBV(28, weight: .heavy),
             .foregroundColor: UIColor.black
         ]
         navigationController?.navigationBar.standardAppearance = appearance
@@ -58,14 +58,25 @@ final class offlineSurfacebarBV: UIView {
 }
 
 final class gradientPill: UIButton {
+    var colorsbarBV: [UIColor]?
+    var locationsbarBV: [NSNumber]?
+    var cornerRadiusbarBV: CGFloat?
+
     override func layoutSubviews() {
         super.layoutSubviews()
+        styleStorebarBV.buttonFitbarBV(self)
         layer.sublayers?.removeAll { $0.name == "gradient" }
-        let gradient = styleStorebarBV.gradientLayer(bounds: bounds, cornerRadius: bounds.height / 2)
+        let radiusbarBV = cornerRadiusbarBV ?? bounds.height / 2
+        let gradient = styleStorebarBV.gradientLayer(
+            bounds: bounds,
+            cornerRadius: radiusbarBV,
+            colorsbarBV: colorsbarBV,
+            locationsbarBV: locationsbarBV
+        )
         gradient.name = "gradient"
         layer.insertSublayer(gradient, at: 0)
-        layer.cornerRadius = bounds.height / 2
-        layer.masksToBounds = true
+        layer.cornerRadius = radiusbarBV
+        layer.masksToBounds = false
     }
 }
 
@@ -88,9 +99,10 @@ final class avatarSurfacebarBV: UILabel {
         text = initial
         textAlignment = .center
         textColor = .white
-        font = .systemFont(ofSize: 24, weight: .bold)
+        font = styleStorebarBV.fontbarBV(24, weight: .bold)
         backgroundColor = color
         clipsToBounds = true
+        styleStorebarBV.labelFitbarBV(self, factorbarBV: 0.65, linesbarBV: 1)
     }
 
     required init?(coder: NSCoder) {
@@ -100,5 +112,44 @@ final class avatarSurfacebarBV: UILabel {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = min(bounds.width, bounds.height) / 2
+    }
+}
+
+final class groupAvatarSurfacebarBV: UIView {
+    private var avatarLabelsbarBV: [avatarSurfacebarBV] = []
+
+    func configurebarBV(initialsbarBV: [String]) {
+        avatarLabelsbarBV.forEach { $0.removeFromSuperview() }
+        avatarLabelsbarBV.removeAll()
+        let fallbackbarBV = initialsbarBV.isEmpty ? ["G"] : Array(initialsbarBV.prefix(4))
+        let colorsbarBV: [UIColor] = [styleStorebarBV.pink, styleStorebarBV.purple, styleStorebarBV.blue, styleStorebarBV.mint]
+        for (indexbarBV, initialbarBV) in fallbackbarBV.enumerated() {
+            let avatarbarBV = avatarSurfacebarBV(initial: initialbarBV, color: colorsbarBV[indexbarBV % colorsbarBV.count])
+            avatarbarBV.font = styleStorebarBV.fontbarBV(14, weight: .heavy)
+            avatarbarBV.layer.borderColor = UIColor.white.cgColor
+            avatarbarBV.layer.borderWidth = 1.5
+            addSubview(avatarbarBV)
+            avatarLabelsbarBV.append(avatarbarBV)
+        }
+        setNeedsLayout()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let countbarBV = avatarLabelsbarBV.count
+        guard countbarBV > 0 else { return }
+        if countbarBV == 1 {
+            avatarLabelsbarBV[0].frame = bounds
+            return
+        }
+        let sizebarBV = min(bounds.height, bounds.width * 0.58)
+        let overlapbarBV = sizebarBV * 0.34
+        let totalbarBV = sizebarBV * CGFloat(countbarBV) - overlapbarBV * CGFloat(countbarBV - 1)
+        var xbarBV = max(0, (bounds.width - totalbarBV) / 2)
+        let ybarBV = max(0, (bounds.height - sizebarBV) / 2)
+        for avatarbarBV in avatarLabelsbarBV {
+            avatarbarBV.frame = CGRect(x: xbarBV, y: ybarBV, width: sizebarBV, height: sizebarBV)
+            xbarBV += sizebarBV - overlapbarBV
+        }
     }
 }

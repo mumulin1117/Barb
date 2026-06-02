@@ -15,8 +15,9 @@ final class policyPagebarBV: localSurfacebarBV {
         scroll.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.font = styleStorebarBV.fontbarBV(16, weight: .regular)
         label.textColor = .black
+        styleStorebarBV.labelFitbarBV(label, factorbarBV: 0.72, linesbarBV: 0)
         label.text = """
         Privacy Policy
 
@@ -31,15 +32,16 @@ final class policyPagebarBV: localSurfacebarBV {
         No Server Requests
         The login and registration flow does not connect to Firebase, Supabase, a custom server, or any real backend service.
         """
+        let insetbarBV = styleStorebarBV.metricbarBV(22, minimumbarBV: 16, maximumbarBV: 24)
         NSLayoutConstraint.activate([
             scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scroll.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scroll.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scroll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            label.topAnchor.constraint(equalTo: scroll.contentLayoutGuide.topAnchor, constant: 24),
-            label.leadingAnchor.constraint(equalTo: scroll.frameLayoutGuide.leadingAnchor, constant: 24),
-            label.trailingAnchor.constraint(equalTo: scroll.frameLayoutGuide.trailingAnchor, constant: -24),
-            label.bottomAnchor.constraint(equalTo: scroll.contentLayoutGuide.bottomAnchor, constant: -24)
+            label.topAnchor.constraint(equalTo: scroll.contentLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24)),
+            label.leadingAnchor.constraint(equalTo: scroll.frameLayoutGuide.leadingAnchor, constant: insetbarBV),
+            label.trailingAnchor.constraint(equalTo: scroll.frameLayoutGuide.trailingAnchor, constant: -insetbarBV),
+            label.bottomAnchor.constraint(equalTo: scroll.contentLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24))
         ])
     }
 }

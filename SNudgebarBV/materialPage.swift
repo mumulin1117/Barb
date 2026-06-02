@@ -37,46 +37,52 @@ final class materialPage: localSurfacebarBV {
         view.addSubview(scrollSurfacebarBV)
         scrollSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
         stackSurfacebarBV.axis = .vertical
-        stackSurfacebarBV.spacing = 18
+        stackSurfacebarBV.spacing = styleStorebarBV.spacebarBV(16, minimumbarBV: 10, maximumbarBV: 18)
         scrollSurfacebarBV.addSubview(stackSurfacebarBV)
         stackSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
+        let sideInsetbarBV = styleStorebarBV.metricbarBV(24, minimumbarBV: 16, maximumbarBV: 24)
         NSLayoutConstraint.activate([
             scrollSurfacebarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollSurfacebarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollSurfacebarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollSurfacebarBV.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor),
-            stackSurfacebarBV.topAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.topAnchor, constant: 20),
-            stackSurfacebarBV.leadingAnchor.constraint(equalTo: scrollSurfacebarBV.frameLayoutGuide.leadingAnchor, constant: 24),
-            stackSurfacebarBV.trailingAnchor.constraint(equalTo: scrollSurfacebarBV.frameLayoutGuide.trailingAnchor, constant: -24),
-            stackSurfacebarBV.bottomAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.bottomAnchor, constant: -32)
+            stackSurfacebarBV.topAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(18, minimumbarBV: 12, maximumbarBV: 24)),
+            stackSurfacebarBV.leadingAnchor.constraint(equalTo: scrollSurfacebarBV.frameLayoutGuide.leadingAnchor, constant: sideInsetbarBV),
+            stackSurfacebarBV.trailingAnchor.constraint(equalTo: scrollSurfacebarBV.frameLayoutGuide.trailingAnchor, constant: -sideInsetbarBV),
+            stackSurfacebarBV.bottomAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(28, minimumbarBV: 18, maximumbarBV: 32))
         ])
         let titleTextbarBV = UILabel()
         titleTextbarBV.text = "Complete the data"
         titleTextbarBV.font = styleStorebarBV.titleFont(38)
         titleTextbarBV.numberOfLines = 0
+        styleStorebarBV.labelFitbarBV(titleTextbarBV, factorbarBV: 0.72, linesbarBV: 0)
         let subtitleTextbarBV = UILabel()
         subtitleTextbarBV.text = "Your friends will recognize you faster."
-        subtitleTextbarBV.font = .systemFont(ofSize: 20, weight: .regular)
+        subtitleTextbarBV.font = styleStorebarBV.fontbarBV(20, weight: .regular)
         subtitleTextbarBV.textColor = .darkGray
         subtitleTextbarBV.numberOfLines = 0
-        avatarBadgebarBV.font = .systemFont(ofSize: 48, weight: .heavy)
-        avatarBadgebarBV.widthAnchor.constraint(equalToConstant: 116).isActive = true
-        avatarBadgebarBV.heightAnchor.constraint(equalToConstant: 116).isActive = true
+        styleStorebarBV.labelFitbarBV(subtitleTextbarBV, factorbarBV: 0.72, linesbarBV: 0)
+        avatarBadgebarBV.font = styleStorebarBV.fontbarBV(48, weight: .heavy)
+        let avatarSizebarBV = styleStorebarBV.metricbarBV(96, minimumbarBV: 82, maximumbarBV: 108)
+        avatarBadgebarBV.widthAnchor.constraint(equalToConstant: avatarSizebarBV).isActive = true
+        avatarBadgebarBV.heightAnchor.constraint(equalToConstant: avatarSizebarBV).isActive = true
         let avatarButtonbarBV = UIButton(type: .system)
         avatarButtonbarBV.setTitle("Choose Avatar", for: .normal)
-        avatarButtonbarBV.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)
+        avatarButtonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(17, weight: .bold)
+        styleStorebarBV.buttonFitbarBV(avatarButtonbarBV)
         avatarButtonbarBV.addAction(UIAction { [weak self] _ in self?.avatarUploadbarBV() }, for: .touchUpInside)
         let avatarStackbarBV = UIStackView(arrangedSubviews: [avatarBadgebarBV, avatarButtonbarBV])
         avatarStackbarBV.axis = .vertical
         avatarStackbarBV.alignment = .center
-        avatarStackbarBV.spacing = 10
+        avatarStackbarBV.spacing = styleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)
         birthdayEntrybarBV.placeholder = "yyyy-MM-dd"
         birthdayEntrybarBV.keyboardType = .numbersAndPunctuation
         let actionButtonbarBV = gradientPill(type: .system)
         actionButtonbarBV.setTitle("Enter Barb", for: .normal)
         actionButtonbarBV.setTitleColor(.black, for: .normal)
-        actionButtonbarBV.titleLabel?.font = .systemFont(ofSize: 22, weight: .heavy)
-        actionButtonbarBV.heightAnchor.constraint(equalToConstant: 58).isActive = true
+        actionButtonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(22, weight: .heavy)
+        styleStorebarBV.buttonFitbarBV(actionButtonbarBV)
+        actionButtonbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(54)).isActive = true
         actionButtonbarBV.addAction(UIAction { [weak self] _ in self?.profileCompletionbarBV() }, for: .touchUpInside)
         [titleTextbarBV, subtitleTextbarBV, avatarStackbarBV, inputPanelbarBV(nameEntrybarBV, "Name", "person.fill"), inputPanelbarBV(birthdayEntrybarBV, "Birthday", "birthday.cake.fill"), consentRowbarBV(termsMarkbarBV, "I agree to the User Agreement.", agreementPage()), consentRowbarBV(policyMarkbarBV, "I agree to the Privacy Policy.", policyPagebarBV()), actionButtonbarBV].forEach {
             stackSurfacebarBV.addArrangedSubview($0)
@@ -85,22 +91,26 @@ final class materialPage: localSurfacebarBV {
     }
 
     private func inputPanelbarBV(_ field: UITextField, _ placeholder: String, _ icon: String) -> UIView {
-        let card = cardSurfacebarBV(cornerRadius: 30)
+        let fieldHeightbarBV = styleStorebarBV.controlbarBV(54)
+        let card = cardSurfacebarBV(cornerRadius: fieldHeightbarBV / 2)
         let symbol = UIImageView(image: UIImage(systemName: icon))
         symbol.tintColor = .black
         field.placeholder = placeholder
-        field.font = .systemFont(ofSize: 18, weight: .semibold)
+        field.font = styleStorebarBV.fontbarBV(18, weight: .semibold)
+        field.adjustsFontSizeToFitWidth = true
+        field.minimumFontSize = styleStorebarBV.sizebarBV(12)
         card.addSubview(symbol)
         card.addSubview(field)
         symbol.translatesAutoresizingMaskIntoConstraints = false
         field.translatesAutoresizingMaskIntoConstraints = false
+        let iconWidthbarBV = styleStorebarBV.metricbarBV(22, minimumbarBV: 19, maximumbarBV: 24)
         NSLayoutConstraint.activate([
-            card.heightAnchor.constraint(equalToConstant: 62),
-            symbol.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 22),
+            card.heightAnchor.constraint(equalToConstant: fieldHeightbarBV),
+            symbol.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)),
             symbol.centerYAnchor.constraint(equalTo: card.centerYAnchor),
-            symbol.widthAnchor.constraint(equalToConstant: 24),
-            field.leadingAnchor.constraint(equalTo: symbol.trailingAnchor, constant: 16),
-            field.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -20),
+            symbol.widthAnchor.constraint(equalToConstant: iconWidthbarBV),
+            field.leadingAnchor.constraint(equalTo: symbol.trailingAnchor, constant: styleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 16)),
+            field.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
             field.centerYAnchor.constraint(equalTo: card.centerYAnchor)
         ])
         return card
@@ -109,9 +119,10 @@ final class materialPage: localSurfacebarBV {
     private func consentRowbarBV(_ button: UIButton, _ text: String, _ controller: UIViewController) -> UIView {
         let row = UIStackView()
         row.alignment = .center
-        row.spacing = 8
-        button.widthAnchor.constraint(equalToConstant: 28).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        row.spacing = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        let markSizebarBV = styleStorebarBV.metricbarBV(24, minimumbarBV: 22, maximumbarBV: 28)
+        button.widthAnchor.constraint(equalToConstant: markSizebarBV).isActive = true
+        button.heightAnchor.constraint(equalToConstant: markSizebarBV).isActive = true
         button.addAction(UIAction { [weak self, weak button] _ in
             guard let self, let button else { return }
             if button === self.termsMarkbarBV { self.termsStatebarBV.toggle() } else { self.policyStatebarBV.toggle() }
@@ -119,8 +130,10 @@ final class materialPage: localSurfacebarBV {
         }, for: .touchUpInside)
         let link = UIButton(type: .system)
         link.setTitle(text, for: .normal)
-        link.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        link.titleLabel?.font = styleStorebarBV.fontbarBV(15, weight: .semibold)
         link.titleLabel?.numberOfLines = 0
+        styleStorebarBV.buttonFitbarBV(link, factorbarBV: 0.68)
+        link.titleLabel?.lineBreakMode = .byWordWrapping
         link.contentHorizontalAlignment = .left
         link.addAction(UIAction { [weak self] _ in self?.navigationController?.pushViewController(controller, animated: true) }, for: .touchUpInside)
         row.addArrangedSubview(button)

@@ -111,6 +111,21 @@ enum sessionStore {
         NotificationCenter.default.post(name: sessionSignalbarBV, object: nil)
     }
 
+    static func deleteLocalAccountbarBV() {
+        let currentEmailbarBV = emailStatebarBV
+        if !currentEmailbarBV.isEmpty {
+            var profileStorebarBV = profileMatcherbarBV()
+            profileStorebarBV.removeValue(forKey: currentEmailbarBV)
+            if let localMessageText = try? JSONEncoder().encode(profileStorebarBV) {
+                localCachebarBV.set(localMessageText, forKey: profileKeybarBV)
+            }
+        }
+        localCachebarBV.set(false, forKey: activeKeybarBV)
+        localCachebarBV.removeObject(forKey: emailKeybarBV)
+        localCachebarBV.removeObject(forKey: "loginTime")
+        NotificationCenter.default.post(name: sessionSignalbarBV, object: nil)
+    }
+
     static func agreementFlowbarBV(_ agreementStatebarBV: Bool) {
         localCachebarBV.set(agreementStatebarBV, forKey: agreementKeybarBV)
         NotificationCenter.default.post(name: agreementSignalbarBV, object: nil)

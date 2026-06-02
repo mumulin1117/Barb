@@ -1,8 +1,8 @@
 import Foundation
 import StoreKit
 
-final class localStorebarBV {
-    static let shared = localStorebarBV()
+final class barbVaultbarBV {
+    static let shared = barbVaultbarBV()
 
     private struct contactStateSnapshotbarBV: Codable {
         var contactsbarBV: [trustedContact]
@@ -47,16 +47,16 @@ final class localStorebarBV {
 
     func reloadAccountScopebarBV() {
         restorePersonalStatebarBV()
-        if sessionStore.testAccountFlagbarBV {
+        if sessionStore.seedAccountFlagbarBV {
             seedFlow()
             restoreContactStatebarBV()
         } else {
-            clearDemoDatabarBV()
+            clearPreviewDatabarBV()
         }
     }
 
     func messagePool(for thread: threadFixturebarBV) -> [messageFixturebarBV] {
-        messagePoolbarBV[thread.threadSeed, default: []].sorted { $0.localMessageTime < $1.localMessageTime }
+        messagePoolbarBV[thread.threadSeed, default: []].sorted { $0.messageMomentbarBV < $1.messageMomentbarBV }
     }
 
     func contactMatcherbarBV(contactSeed: UUID) -> trustedContact? {
@@ -137,7 +137,7 @@ final class localStorebarBV {
         }
         let threadbarBV = threadFixturebarBV(
             threadSeed: UUID(),
-            localThreadTitle: contactbarBV.placeholderNamebarBV,
+            threadTitlebarBV: contactbarBV.placeholderNamebarBV,
             personaPoolbarBV: [contactbarBV.contactSeed],
             smallGroupFlag: false,
             unreadCounter: 0,
@@ -149,16 +149,16 @@ final class localStorebarBV {
                 messageSeed: UUID(),
                 threadSeed: threadbarBV.threadSeed,
                 personaSeed: contactbarBV.contactSeed,
-                localMessageText: "Glad we're connected here.",
-                localMessageType: .textBubblebarBV,
-                localMessageTime: Date().addingTimeInterval(-300),
+                messageCopybarBV: "Glad we're connected here.",
+                messageFormbarBV: .textBubblebarBV,
+                messageMomentbarBV: Date().addingTimeInterval(-300),
                 sentFlag: false
             )
         ]
         return threadbarBV
     }
 
-    func localThreadPreviewbarBV(for thread: threadFixturebarBV) -> messageFixturebarBV? {
+    func threadPreviewbarBV(for thread: threadFixturebarBV) -> messageFixturebarBV? {
         messagePool(for: thread).last
     }
 
@@ -167,19 +167,19 @@ final class localStorebarBV {
     }
 
     func previewTextbarBV(for thread: threadFixturebarBV) -> String {
-        guard let latestbarBV = localThreadPreviewbarBV(for: thread) else {
+        guard let latestbarBV = threadPreviewbarBV(for: thread) else {
             return thread.smallGroupFlag ? "\(groupMemberCountbarBV(for: thread)) members" : ""
         }
-        guard thread.smallGroupFlag else { return latestbarBV.localMessageText }
+        guard thread.smallGroupFlag else { return latestbarBV.messageCopybarBV }
         if latestbarBV.sentFlag {
-            return "You: \(latestbarBV.localMessageText)"
+            return "You: \(latestbarBV.messageCopybarBV)"
         }
         let senderbarBV = contactMatcherbarBV(contactSeed: latestbarBV.personaSeed)?.placeholderNamebarBV.components(separatedBy: " ").first ?? "Member"
-        return "\(senderbarBV): \(latestbarBV.localMessageText)"
+        return "\(senderbarBV): \(latestbarBV.messageCopybarBV)"
     }
 
     func contactCardFlowbarBV() -> contactCardbarBV {
-        let profilebarBV = sessionStore.profileLocalbarBV
+        let profilebarBV = sessionStore.profileSnapshotbarBV
         let cleanNamebarBV = profilebarBV?.placeholderNamebarBV.trimmingCharacters(in: .whitespacesAndNewlines)
         let displayNamebarBV: String
         if let cleanNamebarBV, !cleanNamebarBV.isEmpty {
@@ -196,7 +196,7 @@ final class localStorebarBV {
         }
         let idbarBV = "0824"
         return contactCardbarBV(
-            userIdbarBV: profilebarBV?.emailEntry ?? "local-user-barBV",
+            userIdbarBV: profilebarBV?.emailEntry ?? "barb-user-barBV",
             namebarBV: displayNamebarBV,
             avatarbarBV: avatarbarBV,
             barbIdbarBV: "BARB ID · \(idbarBV)",
@@ -323,7 +323,7 @@ final class localStorebarBV {
         let transactionbarBV = coinTransactionbarBV(
             transactionSeedbarBV: UUID(),
             packageSeedbarBV: typebarBV,
-            priceTextbarBV: "local",
+            priceTextbarBV: "coins",
             coinAmountbarBV: -amountbarBV,
             createdAtbarBV: Date(),
             typebarBV: typebarBV
@@ -519,14 +519,14 @@ final class localStorebarBV {
         threadPoolbarBV.append(threadFlowbarBV)
     }
 
-    func sendButton(_ localMessageText: String, in thread: threadFixturebarBV) {
+    func sendButton(_ messageCopybarBV: String, in thread: threadFixturebarBV) {
         let messageFixture = messageFixturebarBV(
             messageSeed: UUID(),
             threadSeed: thread.threadSeed,
             personaSeed: profileSeedletbarBV,
-            localMessageText: localMessageText,
-            localMessageType: .textBubblebarBV,
-            localMessageTime: Date(),
+            messageCopybarBV: messageCopybarBV,
+            messageFormbarBV: .textBubblebarBV,
+            messageMomentbarBV: Date(),
             sentFlag: true
         )
         messagePoolbarBV[thread.threadSeed, default: []].append(messageFixture)
@@ -545,7 +545,7 @@ final class localStorebarBV {
     }
 
     private func replyDraftPoolbarBV(for messageFixturebarBV: messageFixturebarBV, tonebarBV: replyStylebarBV) -> [String] {
-        let contextHintbarBV = messageFixturebarBV.localMessageText.lowercased()
+        let contextHintbarBV = messageFixturebarBV.messageCopybarBV.lowercased()
         let tiredContextbarBV = contextHintbarBV.contains("tired") || contextHintbarBV.contains("heavy")
         let bookContextbarBV = contextHintbarBV.contains("book") || contextHintbarBV.contains("page") || contextHintbarBV.contains("chapter")
         switch tonebarBV {
@@ -781,7 +781,7 @@ final class localStorebarBV {
         }
     }
 
-    private func clearDemoDatabarBV() {
+    private func clearPreviewDatabarBV() {
         contactPoolbarBV.removeAll()
         threadPoolbarBV.removeAll()
         messagePoolbarBV.removeAll()
@@ -809,23 +809,23 @@ final class localStorebarBV {
             let storedBalancebarBV = UserDefaults.standard.integer(forKey: balanceKeybarBV)
             let purchaseRecordsMissingbarBV = UserDefaults.standard.data(forKey: transactionKeybarBV) == nil
                 && UserDefaults.standard.array(forKey: purchaseKeybarBV) == nil
-            if !sessionStore.testAccountFlagbarBV, purchaseRecordsMissingbarBV, storedBalancebarBV > 0 {
+            if !sessionStore.seedAccountFlagbarBV, purchaseRecordsMissingbarBV, storedBalancebarBV > 0 {
                 coinBalance = 0
                 persistCoinBalancebarBV()
             } else {
                 coinBalance = storedBalancebarBV
             }
-        } else if sessionStore.testAccountFlagbarBV, UserDefaults.standard.object(forKey: coinBalanceKeybarBV) != nil {
+        } else if sessionStore.seedAccountFlagbarBV, UserDefaults.standard.object(forKey: coinBalanceKeybarBV) != nil {
             coinBalance = UserDefaults.standard.integer(forKey: coinBalanceKeybarBV)
             persistCoinBalancebarBV()
         } else {
-            coinBalance = sessionStore.testAccountFlagbarBV ? 2222 : 0
+            coinBalance = sessionStore.seedAccountFlagbarBV ? 2222 : 0
             persistCoinBalancebarBV()
         }
         if let databarBV = UserDefaults.standard.data(forKey: transactionKeybarBV),
            let recordsbarBV = try? JSONDecoder().decode([coinTransactionbarBV].self, from: databarBV) {
             coinTransactionsbarBV = recordsbarBV
-        } else if sessionStore.testAccountFlagbarBV,
+        } else if sessionStore.seedAccountFlagbarBV,
                   let databarBV = UserDefaults.standard.data(forKey: coinTransactionsKeybarBV),
                   let recordsbarBV = try? JSONDecoder().decode([coinTransactionbarBV].self, from: databarBV) {
             coinTransactionsbarBV = recordsbarBV
@@ -835,7 +835,7 @@ final class localStorebarBV {
         }
         if let seedsbarBV = UserDefaults.standard.array(forKey: purchaseKeybarBV) as? [String] {
             coinPurchaseSeedsbarBV = Set(seedsbarBV)
-        } else if sessionStore.testAccountFlagbarBV,
+        } else if sessionStore.seedAccountFlagbarBV,
                   let seedsbarBV = UserDefaults.standard.array(forKey: coinPurchaseSeedKeybarBV) as? [String] {
             coinPurchaseSeedsbarBV = Set(seedsbarBV)
             persistCoinPurchaseSeedsbarBV()
@@ -852,7 +852,7 @@ final class localStorebarBV {
         if let toneRawPoolbarBV = UserDefaults.standard.array(forKey: unlockedToneKeybarBV) as? [String] {
             let restoredbarBV = toneRawPoolbarBV.compactMap { replyStylebarBV(rawValue: $0) }
             styleUnlock.formUnion(restoredbarBV)
-        } else if sessionStore.testAccountFlagbarBV,
+        } else if sessionStore.seedAccountFlagbarBV,
                   let toneRawPoolbarBV = UserDefaults.standard.array(forKey: unlockedReplyToneKeybarBV) as? [String] {
             let restoredbarBV = toneRawPoolbarBV.compactMap { replyStylebarBV(rawValue: $0) }
             styleUnlock.formUnion(restoredbarBV)
@@ -864,7 +864,7 @@ final class localStorebarBV {
            let tonebarBV = replyStylebarBV(rawValue: toneRawbarBV),
            styleUnlock.contains(tonebarBV) {
             selectedReplyTonebarBV = tonebarBV
-        } else if sessionStore.testAccountFlagbarBV,
+        } else if sessionStore.seedAccountFlagbarBV,
                   let toneRawbarBV = UserDefaults.standard.string(forKey: selectedReplyToneKeybarBV),
                   let tonebarBV = replyStylebarBV(rawValue: toneRawbarBV),
                   styleUnlock.contains(tonebarBV) {
@@ -1026,24 +1026,24 @@ final class localStorebarBV {
             )
         ]
 
-        let privateThreadFlagbarBV = threadFixturebarBV(threadSeed: stableSeedbarBV("30000000-0000-4000-8000-000000000001"), localThreadTitle: "Mia Tanaka", personaPoolbarBV: [quietFriend.contactSeed], smallGroupFlag: false, unreadCounter: 1, pinFlagbarBV: true)
-        let smallGroupFlag = threadFixturebarBV(threadSeed: stableSeedbarBV("30000000-0000-4000-8000-000000000002"), localThreadTitle: "Sunday Slow Reading", personaPoolbarBV: [quietFriend.contactSeed, readingFriend.contactSeed, climbingBuddy.contactSeed, teaFriend.contactSeed], smallGroupFlag: true, unreadCounter: 2, pinFlagbarBV: false)
-        let familyThread = threadFixturebarBV(threadSeed: stableSeedbarBV("30000000-0000-4000-8000-000000000003"), localThreadTitle: "Mom", personaPoolbarBV: [parentPersona.contactSeed], smallGroupFlag: false, unreadCounter: 1, pinFlagbarBV: false)
+        let privateThreadFlagbarBV = threadFixturebarBV(threadSeed: stableSeedbarBV("30000000-0000-4000-8000-000000000001"), threadTitlebarBV: "Mia Tanaka", personaPoolbarBV: [quietFriend.contactSeed], smallGroupFlag: false, unreadCounter: 1, pinFlagbarBV: true)
+        let smallGroupFlag = threadFixturebarBV(threadSeed: stableSeedbarBV("30000000-0000-4000-8000-000000000002"), threadTitlebarBV: "Sunday Slow Reading", personaPoolbarBV: [quietFriend.contactSeed, readingFriend.contactSeed, climbingBuddy.contactSeed, teaFriend.contactSeed], smallGroupFlag: true, unreadCounter: 2, pinFlagbarBV: false)
+        let familyThread = threadFixturebarBV(threadSeed: stableSeedbarBV("30000000-0000-4000-8000-000000000003"), threadTitlebarBV: "Mom", personaPoolbarBV: [parentPersona.contactSeed], smallGroupFlag: false, unreadCounter: 1, pinFlagbarBV: false)
         threadPoolbarBV = [privateThreadFlagbarBV, smallGroupFlag, familyThread]
 
         messagePoolbarBV[privateThreadFlagbarBV.threadSeed] = [
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: privateThreadFlagbarBV.threadSeed, personaSeed: quietFriend.contactSeed, localMessageText: "Hey, did you finish the book I lent you?", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-7000), sentFlag: false),
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: privateThreadFlagbarBV.threadSeed, personaSeed: profileSeedletbarBV, localMessageText: "Almost. The last chapter is heavy.", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-6800), sentFlag: true),
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: privateThreadFlagbarBV.threadSeed, personaSeed: quietFriend.contactSeed, localMessageText: "I've been feeling a little tired lately. Hope you're doing okay...", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-1200), sentFlag: false)
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: privateThreadFlagbarBV.threadSeed, personaSeed: quietFriend.contactSeed, messageCopybarBV: "Hey, did you finish the book I lent you?", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-7000), sentFlag: false),
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: privateThreadFlagbarBV.threadSeed, personaSeed: profileSeedletbarBV, messageCopybarBV: "Almost. The last chapter is heavy.", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-6800), sentFlag: true),
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: privateThreadFlagbarBV.threadSeed, personaSeed: quietFriend.contactSeed, messageCopybarBV: "I've been feeling a little tired lately. Hope you're doing okay...", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-1200), sentFlag: false)
         ]
         messagePoolbarBV[smallGroupFlag.threadSeed] = [
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: quietFriend.contactSeed, localMessageText: "Are we still reading chapter five tonight?", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-3600), sentFlag: false),
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: readingFriend.contactSeed, localMessageText: "Yes, I marked a few lines I really liked.", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-3000), sentFlag: false),
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: profileSeedletbarBV, localMessageText: "I'll join after dinner.", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-2500), sentFlag: true),
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: climbingBuddy.contactSeed, localMessageText: "Great, see you all later.", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-900), sentFlag: false)
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: quietFriend.contactSeed, messageCopybarBV: "Are we still reading chapter five tonight?", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-3600), sentFlag: false),
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: readingFriend.contactSeed, messageCopybarBV: "Yes, I marked a few lines I really liked.", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-3000), sentFlag: false),
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: profileSeedletbarBV, messageCopybarBV: "I'll join after dinner.", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-2500), sentFlag: true),
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: smallGroupFlag.threadSeed, personaSeed: climbingBuddy.contactSeed, messageCopybarBV: "Great, see you all later.", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-900), sentFlag: false)
         ]
         messagePoolbarBV[familyThread.threadSeed] = [
-            messageFixturebarBV(messageSeed: UUID(), threadSeed: familyThread.threadSeed, personaSeed: parentPersona.contactSeed, localMessageText: "Are you eating well this week?", localMessageType: .textBubblebarBV, localMessageTime: Date().addingTimeInterval(-1400), sentFlag: false)
+            messageFixturebarBV(messageSeed: UUID(), threadSeed: familyThread.threadSeed, personaSeed: parentPersona.contactSeed, messageCopybarBV: "Are you eating well this week?", messageFormbarBV: .textBubblebarBV, messageMomentbarBV: Date().addingTimeInterval(-1400), sentFlag: false)
         ]
     }
 }

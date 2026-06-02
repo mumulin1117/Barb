@@ -1,14 +1,14 @@
 import UIKit
 
-final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITableViewDelegate {
-    private let store: localStorebarBV
+final class inboxSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UITableViewDelegate {
+    private let store: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let titleLabelbarBV = UILabel()
     private let profileAvatarbarBV = avatarSurfacebarBV(initial: "B", color: styleStorebarBV.pink)
     private let tableView = UITableView(frame: .zero, style: .plain)
     private let emptyLabelbarBV = UILabel()
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -89,7 +89,7 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
     }
 
     private func reloadProfilebarBV() {
-        profileAvatarbarBV.text = sessionStore.profileLocalbarBV?.placeholderAvatar ?? "B"
+        profileAvatarbarBV.text = sessionStore.profileSnapshotbarBV?.placeholderAvatar ?? "B"
     }
 
     private func configureEmptybarBV() {
@@ -126,7 +126,7 @@ final class inboxSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: threadSurface.reuseID, for: indexPath) as! threadSurface
         let thread = store.threadPoolbarBV[indexPath.row]
-        cell.configure(thread: thread, latest: store.localThreadPreviewbarBV(for: thread), store: store)
+        cell.configure(thread: thread, latest: store.threadPreviewbarBV(for: thread), store: store)
         return cell
     }
 
@@ -211,8 +211,8 @@ final class threadSurface: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(thread: threadFixturebarBV, latest: messageFixturebarBV?, store: localStorebarBV) {
-        titleLabel.text = thread.localThreadTitle
+    func configure(thread: threadFixturebarBV, latest: messageFixturebarBV?, store: barbVaultbarBV) {
+        titleLabel.text = thread.threadTitlebarBV
         previewLabel.text = store.previewTextbarBV(for: thread)
         if thread.smallGroupFlag {
             statusLabel.text = "\(store.groupMemberCountbarBV(for: thread)) members"
@@ -228,7 +228,7 @@ final class threadSurface: UITableViewCell {
             statusLabel.textColor = thread.unreadCounter > 0 ? styleStorebarBV.pink : .systemGreen
             avatar.isHidden = false
             groupAvatarbarBV.isHidden = true
-            let initial = thread.localThreadTitle.first.map(String.init) ?? "B"
+            let initial = thread.threadTitlebarBV.first.map(String.init) ?? "B"
             avatar.text = initial
             avatar.backgroundColor = styleStorebarBV.purple
         }

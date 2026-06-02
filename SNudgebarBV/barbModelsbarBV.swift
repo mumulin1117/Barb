@@ -7,7 +7,7 @@ enum contactGroupbarBV: String, CaseIterable, Codable {
     case otherFilter = "Other"
 }
 
-enum localMessageType {
+enum messageFormbarBV {
     case textBubblebarBV
 }
 
@@ -145,15 +145,15 @@ struct messageFixturebarBV: Hashable {
     let messageSeed: UUID
     let threadSeed: UUID
     let personaSeed: UUID
-    var localMessageText: String
-    var localMessageType: localMessageType
-    var localMessageTime: Date
+    var messageCopybarBV: String
+    var messageFormbarBV: messageFormbarBV
+    var messageMomentbarBV: Date
     var sentFlag: Bool
 }
 
 struct threadFixturebarBV: Hashable {
     let threadSeed: UUID
-    var localThreadTitle: String
+    var threadTitlebarBV: String
     var personaPoolbarBV: [UUID]
     var smallGroupFlag: Bool
     var unreadCounter: Int

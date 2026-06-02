@@ -1,9 +1,9 @@
 import UIKit
 
 final class tabSurfacebarBV: UITabBarController {
-    private let store: localStorebarBV
+    private let store: barbVaultbarBV
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
     }

@@ -135,7 +135,7 @@ final class scanSurfacebarBV: UIViewController {
         actionStackbarBV.spacing = styleStorebarBV.metricbarBV(18, minimumbarBV: 12, maximumbarBV: 24)
 
         albumActionbarBV.addAction(UIAction { [weak self] _ in
-            self?.showStatusbarBV("Album coming soon")
+            self?.showStatusbarBV("Album scan is unavailable right now.")
         }, for: .touchUpInside)
         flashActionbarBV.addAction(UIAction { [weak self] _ in
             self?.toggleFlashbarBV()

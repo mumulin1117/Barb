@@ -10,9 +10,9 @@
 		7A0000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000101 /* AppDelegate.swift */; };
 		7A0000010000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000102 /* SceneDelegate.swift */; };
 		7A0000010000000000000003 /* styleStorebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000103 /* styleStorebarBV.swift */; };
-		7A0000010000000000000004 /* localFixturebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000104 /* localFixturebarBV.swift */; };
-		7A0000010000000000000005 /* localStorebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000105 /* localStorebarBV.swift */; };
-		7A0000010000000000000006 /* localSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000106 /* localSurfacebarBV.swift */; };
+		7A0000010000000000000004 /* barbModelsbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000104 /* barbModelsbarBV.swift */; };
+		7A0000010000000000000005 /* barbVaultbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000105 /* barbVaultbarBV.swift */; };
+		7A0000010000000000000006 /* barbCanvasbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000106 /* barbCanvasbarBV.swift */; };
 		7A0000010000000000000007 /* tabSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000107 /* tabSurfacebarBV.swift */; };
 		7A0000010000000000000008 /* homeSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000108 /* homeSurfacebarBV.swift */; };
 		7A0000010000000000000009 /* inboxSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000109 /* inboxSurfacebarBV.swift */; };
@@ -35,9 +35,9 @@
 		7A0000010000000000000101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0000010000000000000102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7A0000010000000000000103 /* styleStorebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styleStorebarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000104 /* localFixturebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localFixturebarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000105 /* localStorebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localStorebarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000106 /* localSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000104 /* barbModelsbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barbModelsbarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000105 /* barbVaultbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barbVaultbarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000106 /* barbCanvasbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barbCanvasbarBV.swift; sourceTree = "<group>"; };
 		7A0000010000000000000107 /* tabSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabSurfacebarBV.swift; sourceTree = "<group>"; };
 		7A0000010000000000000108 /* homeSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeSurfacebarBV.swift; sourceTree = "<group>"; };
 		7A0000010000000000000109 /* inboxSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inboxSurfacebarBV.swift; sourceTree = "<group>"; };
@@ -83,9 +83,9 @@
 				7A0000010000000000000101 /* AppDelegate.swift */,
 				7A0000010000000000000102 /* SceneDelegate.swift */,
 				7A0000010000000000000103 /* styleStorebarBV.swift */,
-				7A0000010000000000000104 /* localFixturebarBV.swift */,
-				7A0000010000000000000105 /* localStorebarBV.swift */,
-				7A0000010000000000000106 /* localSurfacebarBV.swift */,
+				7A0000010000000000000104 /* barbModelsbarBV.swift */,
+				7A0000010000000000000105 /* barbVaultbarBV.swift */,
+				7A0000010000000000000106 /* barbCanvasbarBV.swift */,
 				7A0000010000000000000107 /* tabSurfacebarBV.swift */,
 				7A0000010000000000000108 /* homeSurfacebarBV.swift */,
 				7A0000010000000000000109 /* inboxSurfacebarBV.swift */,
@@ -192,9 +192,9 @@
 				7A0000010000000000000001 /* AppDelegate.swift in Sources */,
 				7A0000010000000000000002 /* SceneDelegate.swift in Sources */,
 				7A0000010000000000000003 /* styleStorebarBV.swift in Sources */,
-				7A0000010000000000000004 /* localFixturebarBV.swift in Sources */,
-				7A0000010000000000000005 /* localStorebarBV.swift in Sources */,
-				7A0000010000000000000006 /* localSurfacebarBV.swift in Sources */,
+				7A0000010000000000000004 /* barbModelsbarBV.swift in Sources */,
+				7A0000010000000000000005 /* barbVaultbarBV.swift in Sources */,
+				7A0000010000000000000006 /* barbCanvasbarBV.swift in Sources */,
 				7A0000010000000000000007 /* tabSurfacebarBV.swift in Sources */,
 				7A0000010000000000000008 /* homeSurfacebarBV.swift in Sources */,
 				7A0000010000000000000009 /* inboxSurfacebarBV.swift in Sources */,

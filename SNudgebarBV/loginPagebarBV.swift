@@ -1,6 +1,6 @@
 import UIKit
 
-final class loginPagebarBV: localSurfacebarBV {
+final class loginPagebarBV: barbCanvasbarBV {
     private let emailEntrybarBV = UITextField()
     private let privacySeed = UITextField()
     private let consentMarkbarBV = UIButton(type: .system)

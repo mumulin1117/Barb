@@ -1,7 +1,7 @@
 import UIKit
 
-final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableViewDelegate {
-    private let store: localStorebarBV
+final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableViewDelegate {
+    private let store: barbVaultbarBV
     private var thread: threadFixturebarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
@@ -24,7 +24,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
     private var blockOverlaybarBV: UIControl?
     private var coinOverlaybarBV: UIControl?
 
-    init(store: localStorebarBV, thread: threadFixturebarBV) {
+    init(store: barbVaultbarBV, thread: threadFixturebarBV) {
         self.store = store
         self.thread = thread
         super.init(nibName: nil, bundle: nil)
@@ -168,7 +168,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
     }
 
     private func refreshHeaderbarBV() {
-        titleLabelbarBV.text = thread.localThreadTitle
+        titleLabelbarBV.text = thread.threadTitlebarBV
         if thread.smallGroupFlag {
             headerAvatarbarBV.isHidden = true
             headerGroupAvatarbarBV.isHidden = false
@@ -183,7 +183,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
         headerAvatarbarBV.isHidden = false
         headerGroupAvatarbarBV.isHidden = true
         let contactbarBV = thread.personaPoolbarBV.first.flatMap { store.contactMatcherbarBV(contactSeed: $0) }
-        headerAvatarbarBV.text = contactbarBV?.placeholderAvatar ?? thread.localThreadTitle.first.map(String.init) ?? "B"
+        headerAvatarbarBV.text = contactbarBV?.placeholderAvatar ?? thread.threadTitlebarBV.first.map(String.init) ?? "B"
         headerAvatarbarBV.backgroundColor = styleStorebarBV.purple
         statusLabelbarBV.text = contactbarBV?.onlineFlagbarBV == true ? "● Online" : "Offline"
         statusLabelbarBV.textColor = contactbarBV?.onlineFlagbarBV == true ? .systemGreen : styleStorebarBV.mutedText
@@ -654,7 +654,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
                 presentNoticebarBV(titlebarBV: "Copy", messagebarBV: "Only text messages can be copied.")
                 return
             }
-            UIPasteboard.general.string = messagebarBV.localMessageText
+            UIPasteboard.general.string = messagebarBV.messageCopybarBV
             presentNoticebarBV(titlebarBV: "Copied", messagebarBV: "Message text copied.")
         }
     }
@@ -688,7 +688,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
         let surfacebarBV = aiReplyDraftSurfacebarBV(
             messagebarBV: messagebarBV,
             replyNamebarBV: replyNamebarBV(messagebarBV: messagebarBV),
-            replyTimebarBV: replyTimebarBV(datebarBV: messagebarBV.localMessageTime),
+            replyTimebarBV: replyTimebarBV(datebarBV: messagebarBV.messageMomentbarBV),
             initialTonebarBV: store.selectedReplyTonebarBV,
             startRegeneratedbarBV: startRegeneratedbarBV
         )
@@ -777,7 +777,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
         if let contactbarBV = store.contactMatcherbarBV(contactSeed: messagebarBV.personaSeed) {
             return contactbarBV.placeholderNamebarBV.uppercased()
         }
-        return thread.localThreadTitle.uppercased()
+        return thread.threadTitlebarBV.uppercased()
     }
 
     private func replyTimebarBV(datebarBV: Date) -> String {
@@ -792,7 +792,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
     }
 
     private func actionPreviewTextbarBV(messagebarBV: messageFixturebarBV) -> String {
-        messagebarBV.localMessageText
+        messagebarBV.messageCopybarBV
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -816,7 +816,7 @@ final class threadPagebarBV: localSurfacebarBV, UITableViewDataSource, UITableVi
         let formatterbarBV = DateFormatter()
         formatterbarBV.locale = Locale(identifier: "en_US_POSIX")
         formatterbarBV.dateFormat = "EEEE, MMM d"
-        return formatterbarBV.string(from: messagebarBV?.localMessageTime ?? Date())
+        return formatterbarBV.string(from: messagebarBV?.messageMomentbarBV ?? Date())
     }
 }
 
@@ -1100,8 +1100,8 @@ final class coinShortageAlertSurfacebarBV: UIView {
     }
 }
 
-final class reportSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
-    private let storebarBV: localStorebarBV
+final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
+    private let storebarBV: barbVaultbarBV
     private let threadbarBV: threadFixturebarBV
     private let contactbarBV: trustedContact?
     private let messagebarBV: messageFixturebarBV?
@@ -1112,7 +1112,7 @@ final class reportSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
     private var reasonRowsbarBV: [reportReasonRowbarBV] = []
     private var selectedReasonbarBV: reportReasonbarBV? = .somethingElsebarBV
 
-    init(storebarBV: localStorebarBV, threadbarBV: threadFixturebarBV, contactbarBV: trustedContact?, messagebarBV: messageFixturebarBV?) {
+    init(storebarBV: barbVaultbarBV, threadbarBV: threadFixturebarBV, contactbarBV: trustedContact?, messagebarBV: messageFixturebarBV?) {
         self.storebarBV = storebarBV
         self.threadbarBV = threadbarBV
         self.contactbarBV = contactbarBV
@@ -1203,7 +1203,7 @@ final class reportSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         metabarBV.numberOfLines = 1
         styleStorebarBV.labelFitbarBV(metabarBV, factorbarBV: 0.68, linesbarBV: 1)
         let contentbarBV = UILabel()
-        contentbarBV.text = "\"\(messagebarBV?.localMessageText ?? "Report this conversation.")\""
+        contentbarBV.text = "\"\(messagebarBV?.messageCopybarBV ?? "Report this conversation.")\""
         contentbarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
         contentbarBV.textColor = .black
         contentbarBV.numberOfLines = 3
@@ -1335,12 +1335,12 @@ final class reportSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         if let messagebarBV, messagebarBV.sentFlag {
             return "FROM YOU"
         }
-        let namebarBV = contactbarBV?.placeholderNamebarBV.components(separatedBy: " ").first?.uppercased() ?? threadbarBV.localThreadTitle.uppercased()
+        let namebarBV = contactbarBV?.placeholderNamebarBV.components(separatedBy: " ").first?.uppercased() ?? threadbarBV.threadTitlebarBV.uppercased()
         return "FROM \(namebarBV)"
     }
 
     private func targetTimebarBV() -> String {
-        guard let datebarBV = messagebarBV?.localMessageTime else { return "Conversation" }
+        guard let datebarBV = messagebarBV?.messageMomentbarBV else { return "Conversation" }
         let formatterbarBV = DateFormatter()
         formatterbarBV.locale = Locale(identifier: "en_US_POSIX")
         formatterbarBV.dateFormat = "HH:mm"
@@ -1459,8 +1459,8 @@ final class reportChoiceMarkbarBV: UIView {
     }
 }
 
-final class inviteGroupSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITableViewDelegate {
-    private let storebarBV: localStorebarBV
+final class inviteGroupSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UITableViewDelegate {
+    private let storebarBV: barbVaultbarBV
     private let threadbarBV: threadFixturebarBV
     private let tableViewbarBV = UITableView(frame: .zero, style: .plain)
     private var selectedContactsbarBV: Set<UUID> = []
@@ -1469,7 +1469,7 @@ final class inviteGroupSurfacebarBV: localSurfacebarBV, UITableViewDataSource, U
         storebarBV.contactPoolbarBV.filter { !threadbarBV.personaPoolbarBV.contains($0.contactSeed) }
     }
 
-    init(storebarBV: localStorebarBV, threadbarBV: threadFixturebarBV) {
+    init(storebarBV: barbVaultbarBV, threadbarBV: threadFixturebarBV) {
         self.storebarBV = storebarBV
         self.threadbarBV = threadbarBV
         super.init(nibName: nil, bundle: nil)
@@ -1573,7 +1573,7 @@ final class inviteGroupSurfacebarBV: localSurfacebarBV, UITableViewDataSource, U
         iconbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         let namebarBV = UILabel()
-        namebarBV.text = threadbarBV.localThreadTitle
+        namebarBV.text = threadbarBV.threadTitlebarBV
         namebarBV.font = styleStorebarBV.fontbarBV(22, weight: .heavy)
         namebarBV.textAlignment = .center
         styleStorebarBV.labelFitbarBV(namebarBV, factorbarBV: 0.68, linesbarBV: 1)
@@ -1642,7 +1642,7 @@ final class inviteGroupSurfacebarBV: localSurfacebarBV, UITableViewDataSource, U
     }
 
     private func inviteLinkbarBV() -> String {
-        let slugbarBV = threadbarBV.localThreadTitle.lowercased().replacingOccurrences(of: " ", with: "-")
+        let slugbarBV = threadbarBV.threadTitlebarBV.lowercased().replacingOccurrences(of: " ", with: "-")
         return "barb.im/g/\(slugbarBV)-9k2"
     }
 
@@ -1740,8 +1740,8 @@ final class inviteContactCellbarBV: UITableViewCell {
     }
 }
 
-final class groupReportSurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+final class groupReportSurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let threadbarBV: threadFixturebarBV
     private let messagebarBV: messageFixturebarBV?
     private let stackbarBV = UIStackView()
@@ -1750,7 +1750,7 @@ final class groupReportSurfacebarBV: localSurfacebarBV {
     private var reasonRowsbarBV: [groupReportReasonRowbarBV] = []
     private var selectedReasonbarBV: groupReportReasonbarBV? = .otherGroupbarBV
 
-    init(storebarBV: localStorebarBV, threadbarBV: threadFixturebarBV, messagebarBV: messageFixturebarBV?) {
+    init(storebarBV: barbVaultbarBV, threadbarBV: threadFixturebarBV, messagebarBV: messageFixturebarBV?) {
         self.storebarBV = storebarBV
         self.threadbarBV = threadbarBV
         self.messagebarBV = messagebarBV
@@ -1793,7 +1793,7 @@ final class groupReportSurfacebarBV: localSurfacebarBV {
         stackbarBV.spacing = styleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18)
 
         let bannerbarBV = UILabel()
-        bannerbarBV.text = "  ↑ Reporting in group: \(threadbarBV.localThreadTitle)"
+        bannerbarBV.text = "  ↑ Reporting in group: \(threadbarBV.threadTitlebarBV)"
         bannerbarBV.font = styleStorebarBV.fontbarBV(15, weight: .regular)
         bannerbarBV.textColor = UIColor(red: 18 / 255, green: 154 / 255, blue: 77 / 255, alpha: 1)
         bannerbarBV.backgroundColor = UIColor(red: 225 / 255, green: 1, blue: 236 / 255, alpha: 0.95)
@@ -1844,7 +1844,7 @@ final class groupReportSurfacebarBV: localSurfacebarBV {
         metabarBV.textColor = UIColor(red: 50 / 255, green: 82 / 255, blue: 1, alpha: 1)
         styleStorebarBV.labelFitbarBV(metabarBV, factorbarBV: 0.6, linesbarBV: 1)
         let contentbarBV = UILabel()
-        contentbarBV.text = "\"\(messagebarBV?.localMessageText ?? "Report this group conversation.")\""
+        contentbarBV.text = "\"\(messagebarBV?.messageCopybarBV ?? "Report this group conversation.")\""
         contentbarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
         contentbarBV.textColor = .black
         contentbarBV.numberOfLines = 3
@@ -1967,7 +1967,7 @@ final class groupReportSurfacebarBV: localSurfacebarBV {
     }
 
     private func targetTimebarBV() -> String {
-        guard let datebarBV = messagebarBV?.localMessageTime else { return "Now" }
+        guard let datebarBV = messagebarBV?.messageMomentbarBV else { return "Now" }
         let formatterbarBV = DateFormatter()
         formatterbarBV.locale = Locale(identifier: "en_US_POSIX")
         formatterbarBV.dateFormat = "HH:mm"
@@ -2376,7 +2376,7 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
         quoteMetabarBV.numberOfLines = 1
         styleStorebarBV.labelFitbarBV(quoteMetabarBV, factorbarBV: 0.68, linesbarBV: 1)
 
-        quoteTextbarBV.text = "\"\(messagebarBV.localMessageText)\""
+        quoteTextbarBV.text = "\"\(messagebarBV.messageCopybarBV)\""
         quoteTextbarBV.font = styleStorebarBV.fontbarBV(14, weight: .regular)
         quoteTextbarBV.textColor = UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1)
         quoteTextbarBV.numberOfLines = 2
@@ -2614,13 +2614,13 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
 
     private func applyTonebarBV(regenbarBV: Bool) {
         tonePillbarBV.text = " •  \(selectedTonebarBV.rawValue) "
-        draftTextViewbarBV.text = generateLocalAIReplybarBV(tonebarBV: selectedTonebarBV, regenbarBV: regenbarBV)
+        draftTextViewbarBV.text = generateBarbAIReplybarBV(tonebarBV: selectedTonebarBV, regenbarBV: regenbarBV)
         updatePlaceholderbarBV()
         renderStyleButtonsbarBV()
     }
 
-    private func generateLocalAIReplybarBV(tonebarBV: replyStylebarBV, regenbarBV: Bool) -> String {
-        localStorebarBV.shared.generatedDraftbarBV(
+    private func generateBarbAIReplybarBV(tonebarBV: replyStylebarBV, regenbarBV: Bool) -> String {
+        barbVaultbarBV.shared.generatedDraftbarBV(
             for: messagebarBV,
             tone: tonebarBV,
             variantbarBV: regenbarBV ? regenCursorbarBV : nil
@@ -2657,7 +2657,7 @@ final class messageSurfacebarBV: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configurebarBV(messagebarBV: messageFixturebarBV, storebarBV: localStorebarBV, groupFlagbarBV: Bool = false) {
+    func configurebarBV(messagebarBV: messageFixturebarBV, storebarBV: barbVaultbarBV, groupFlagbarBV: Bool = false) {
         let sentbarBV = messagebarBV.sentFlag
         avatarbarBV.text = avatarTextbarBV(messagebarBV: messagebarBV, storebarBV: storebarBV)
         avatarbarBV.backgroundColor = sentbarBV ? styleStorebarBV.purple : styleStorebarBV.pink
@@ -2674,7 +2674,7 @@ final class messageSurfacebarBV: UITableViewCell {
             senderLabelbarBV.isHidden = false
         }
 
-        textLabelbarBV.text = messagebarBV.localMessageText
+        textLabelbarBV.text = messagebarBV.messageCopybarBV
         textLabelbarBV.isHidden = false
         updateAlignmentbarBV(sentbarBV: sentbarBV)
     }
@@ -2743,9 +2743,9 @@ final class messageSurfacebarBV: UITableViewCell {
         NSLayoutConstraint.activate(layoutConstraintsbarBV)
     }
 
-    private func avatarTextbarBV(messagebarBV: messageFixturebarBV, storebarBV: localStorebarBV) -> String {
+    private func avatarTextbarBV(messagebarBV: messageFixturebarBV, storebarBV: barbVaultbarBV) -> String {
         if messagebarBV.sentFlag {
-            if let profilebarBV = sessionStore.profileLocalbarBV {
+            if let profilebarBV = sessionStore.profileSnapshotbarBV {
                 if !profilebarBV.placeholderAvatar.isEmpty {
                     return profilebarBV.placeholderAvatar
                 }
@@ -2756,7 +2756,7 @@ final class messageSurfacebarBV: UITableViewCell {
         return storebarBV.contactMatcherbarBV(contactSeed: messagebarBV.personaSeed)?.placeholderAvatar ?? "M"
     }
 
-    private func senderNamebarBV(messagebarBV: messageFixturebarBV, storebarBV: localStorebarBV) -> String {
+    private func senderNamebarBV(messagebarBV: messageFixturebarBV, storebarBV: barbVaultbarBV) -> String {
         storebarBV.contactMatcherbarBV(contactSeed: messagebarBV.personaSeed)?.placeholderNamebarBV ?? "Group member"
     }
 }

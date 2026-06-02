@@ -1,6 +1,6 @@
 import UIKit
 
-final class materialPage: localSurfacebarBV {
+final class materialPage: barbCanvasbarBV {
     private let emailEntry: String
     private let privacySeed: String
     private let nameEntrybarBV = UITextField()
@@ -149,7 +149,7 @@ final class materialPage: localSurfacebarBV {
     }
 
     private func avatarUploadbarBV() {
-        let alert = UIAlertController(title: "Avatar", message: "Choose a local avatar initial.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Avatar", message: "Choose an avatar initial.", preferredStyle: .actionSheet)
         ["B", "M", "T", "A"].forEach { value in
             alert.addAction(UIAlertAction(title: value, style: .default) { [weak self] _ in
                 self?.avatarChoicebarBV = value

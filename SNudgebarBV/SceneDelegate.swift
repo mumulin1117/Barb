@@ -27,7 +27,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func rootSurfacebarBV() -> UIViewController {
         if sessionStore.activeStatebarBV {
-            return tabSurfacebarBV(store: localStorebarBV.shared)
+            return tabSurfacebarBV(store: barbVaultbarBV.shared)
         }
         return UINavigationController(rootViewController: loginPagebarBV())
     }

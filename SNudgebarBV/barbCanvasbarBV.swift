@@ -1,6 +1,6 @@
 import UIKit
 
-class localSurfacebarBV: UIViewController {
+class barbCanvasbarBV: UIViewController {
     private let backgroundbarBV = UIImageView(image: UIImage(named: "backgroundbarBV"))
 
     override func viewDidLoad() {

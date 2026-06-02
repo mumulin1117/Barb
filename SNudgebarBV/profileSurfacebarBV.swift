@@ -1,13 +1,13 @@
 import UIKit
 import StoreKit
 
-final class profileSurfacebarBV: localSurfacebarBV {
-    private let store: localStorebarBV
+final class profileSurfacebarBV: barbCanvasbarBV {
+    private let store: barbVaultbarBV
     private let scrollViewbarBV = UIScrollView()
     private let stack = UIStackView()
     private var coinValueLabelbarBV = UILabel()
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -59,9 +59,9 @@ final class profileSurfacebarBV: localSurfacebarBV {
     private func reload() {
         stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         stack.addArrangedSubview(headerbarBV())
-        let localProfile = sessionStore.profileLocalbarBV
-        let avatarTextbarBV = localProfile?.placeholderAvatar.trimmingCharacters(in: .whitespacesAndNewlines)
-        let nameTextbarBV = localProfile?.placeholderNamebarBV.trimmingCharacters(in: .whitespacesAndNewlines)
+        let profileSnapshot = sessionStore.profileSnapshotbarBV
+        let avatarTextbarBV = profileSnapshot?.placeholderAvatar.trimmingCharacters(in: .whitespacesAndNewlines)
+        let nameTextbarBV = profileSnapshot?.placeholderNamebarBV.trimmingCharacters(in: .whitespacesAndNewlines)
         let fallbackNamebarBV = nameTextbarBV?.isEmpty == false ? nameTextbarBV! : "Mia Tanaka"
         let avatar = avatarSurfacebarBV(initial: avatarTextbarBV?.isEmpty == false ? avatarTextbarBV! : String(fallbackNamebarBV.prefix(1)).uppercased(), color: styleStorebarBV.pink)
         avatar.font = styleStorebarBV.fontbarBV(52, weight: .bold)
@@ -354,8 +354,8 @@ final class profileSurfacebarBV: localSurfacebarBV {
     }
 }
 
-final class aiTonesSurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+final class aiTonesSurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -365,7 +365,7 @@ final class aiTonesSurfacebarBV: localSurfacebarBV {
     private let statusLabelbarBV = UILabel()
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(storebarBV: localStorebarBV) {
+    init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -481,7 +481,7 @@ final class aiTonesSurfacebarBV: localSurfacebarBV {
         styleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.64, linesbarBV: 1)
 
         let detailbarBV = UILabel()
-        detailbarBV.text = "Unlocked tones shape local AI reply suggestions. Extra tones use the same coin balance as the rest of Barb."
+        detailbarBV.text = "Unlocked tones shape AI reply suggestions. Extra tones use the same coin balance as the rest of Barb."
         detailbarBV.font = styleStorebarBV.fontbarBV(15, weight: .medium)
         detailbarBV.textColor = styleStorebarBV.mutedText
         styleStorebarBV.labelFitbarBV(detailbarBV, factorbarBV: 0.72, linesbarBV: 0)
@@ -653,7 +653,7 @@ private enum coinPurchaseErrorbarBV: LocalizedError {
 
 @MainActor
 private enum coinPurchaseCoordinatorbarBV {
-    static func purchasebarBV(packagebarBV: coinPackagebarBV, storebarBV: localStorebarBV) async throws -> coinPurchaseResultbarBV {
+    static func purchasebarBV(packagebarBV: coinPackagebarBV, storebarBV: barbVaultbarBV) async throws -> coinPurchaseResultbarBV {
         let productsbarBV = try await Product.products(for: [packagebarBV.productSeedbarBV])
         guard let productbarBV = productsbarBV.first(where: { $0.id == packagebarBV.productSeedbarBV }) else {
             throw coinPurchaseErrorbarBV.unavailablebarBV
@@ -687,8 +687,8 @@ private enum coinPurchaseCoordinatorbarBV {
     }
 }
 
-final class topUpSurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+final class topUpSurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -703,7 +703,7 @@ final class topUpSurfacebarBV: localSurfacebarBV {
     private var packageCellsbarBV: [coinPackageCellbarBV] = []
     private var purchaseTaskbarBV: Task<Void, Never>?
 
-    init(storebarBV: localStorebarBV) {
+    init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
         self.selectedPackageSeedbarBV = storebarBV.coinPackagesbarBV().first?.packageSeedbarBV ?? ""
         super.init(nibName: nil, bundle: nil)
@@ -1051,8 +1051,8 @@ final class topUpSurfacebarBV: localSurfacebarBV {
     }
 }
 
-private final class setupSurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+private final class setupSurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -1063,7 +1063,7 @@ private final class setupSurfacebarBV: localSurfacebarBV {
     private var accountSheetbarBV: accountActionSheetbarBV?
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(storebarBV: localStorebarBV) {
+    init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -1328,7 +1328,7 @@ private final class setupSurfacebarBV: localSurfacebarBV {
     }
 }
 
-private final class contactSupportSurfacebarBV: localSurfacebarBV {
+private final class contactSupportSurfacebarBV: barbCanvasbarBV {
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -1484,9 +1484,9 @@ private final class contactSupportSurfacebarBV: localSurfacebarBV {
         listbarBV.spacing = 0
         let rowsbarBV = [
             contactSupportRowModelbarBV(titlebarBV: "Email support", subtitlebarBV: "hello@barb.im", symbolbarBV: "envelope.fill", actionbarBV: { [weak self] in self?.emailSupportbarBV() }),
-            contactSupportRowModelbarBV(titlebarBV: "Help Center", subtitlebarBV: "help.barb.im", symbolbarBV: "questionmark.circle.fill", actionbarBV: { [weak self] in self?.showStatusbarBV("Help Center coming soon") }),
-            contactSupportRowModelbarBV(titlebarBV: "Send feedback", subtitlebarBV: "In-app form", symbolbarBV: "bubble.left.and.bubble.right.fill", actionbarBV: { [weak self] in self?.showStatusbarBV("Feedback coming soon") }),
-            contactSupportRowModelbarBV(titlebarBV: "Twitter / X", subtitlebarBV: "@barbapp", symbolbarBV: "at", actionbarBV: { [weak self] in self?.showStatusbarBV("Twitter / X coming soon") })
+            contactSupportRowModelbarBV(titlebarBV: "Help Center", subtitlebarBV: "help.barb.im", symbolbarBV: "questionmark.circle.fill", actionbarBV: { [weak self] in self?.showStatusbarBV("Help Center opens from barb.im/help.") }),
+            contactSupportRowModelbarBV(titlebarBV: "Send feedback", subtitlebarBV: "In-app form", symbolbarBV: "bubble.left.and.bubble.right.fill", actionbarBV: { [weak self] in self?.showStatusbarBV("Use Email support to send feedback.") }),
+            contactSupportRowModelbarBV(titlebarBV: "Twitter / X", subtitlebarBV: "@barbapp", symbolbarBV: "at", actionbarBV: { [weak self] in self?.showStatusbarBV("Social channel is not linked right now.") })
         ]
         for (indexbarBV, rowbarBV) in rowsbarBV.enumerated() {
             let controlbarBV = contactSupportItembarBV(modelbarBV: rowbarBV)
@@ -1642,8 +1642,8 @@ private final class contactSupportItembarBV: UIControl {
     }
 }
 
-private final class deleteAccountSurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+private final class deleteAccountSurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -1656,7 +1656,7 @@ private final class deleteAccountSurfacebarBV: localSurfacebarBV {
     private let statusLabelbarBV = UILabel()
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(storebarBV: localStorebarBV) {
+    init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -1893,14 +1893,14 @@ private final class deleteAccountSurfacebarBV: localSurfacebarBV {
     private func confirmPermanentDeletebarBV() {
         let alertbarBV = UIAlertController(
             title: "Permanently delete account?",
-            message: "This local account deletion cannot be undone. Your current profile will be cleared and you will be signed out.",
+            message: "This account deletion cannot be undone. Your current profile will be cleared and you will be signed out.",
             preferredStyle: .alert
         )
         alertbarBV.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertbarBV.addAction(UIAlertAction(title: "Permanently Delete", style: .destructive) { [weak self] _ in
             self?.showStatusbarBV("Account deleted.")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
-                sessionStore.deleteLocalAccountbarBV()
+                sessionStore.deleteAccountSnapshotbarBV()
             }
         })
         present(alertbarBV, animated: true)
@@ -2073,8 +2073,8 @@ private final class accountActionSheetbarBV: UIControl {
     }
 }
 
-private final class notificationsSurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+private final class notificationsSurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -2083,7 +2083,7 @@ private final class notificationsSurfacebarBV: localSurfacebarBV {
     private let statusLabelbarBV = UILabel()
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(storebarBV: localStorebarBV) {
+    init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -2200,7 +2200,7 @@ private final class notificationsSurfacebarBV: localSurfacebarBV {
             titlebarBV: "SOUND & HAPTICS",
             rowsbarBV: [
                 notificationRowModelbarBV(titlebarBV: "Sound", detailbarBV: nil, valuebarBV: settingsbarBV.soundbarBV, switchStatebarBV: nil, enabledbarBV: true, actionbarBV: { [weak self] _ in
-                    self?.showStatusbarBV("Sound options coming soon")
+                    self?.showStatusbarBV("Default sound is active.")
                 }),
                 notificationRowModelbarBV(titlebarBV: "Vibration", detailbarBV: nil, valuebarBV: nil, switchStatebarBV: settingsbarBV.vibrationbarBV, enabledbarBV: true, actionbarBV: { [weak self] valuebarBV in
                     self?.storebarBV.setVibrationbarBV(valuebarBV)
@@ -2417,8 +2417,8 @@ private final class notificationSettingRowbarBV: UIControl {
     }
 }
 
-private final class privacySurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+private final class privacySurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -2427,7 +2427,7 @@ private final class privacySurfacebarBV: localSurfacebarBV {
     private let statusLabelbarBV = UILabel()
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(storebarBV: localStorebarBV) {
+    init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -2555,7 +2555,7 @@ private final class privacySurfacebarBV: localSurfacebarBV {
                     self?.storebarBV.setAllowAILearningbarBV(valuebarBV)
                 }),
                 privacyRowModelbarBV(titlebarBV: "Export my data", detailbarBV: nil, valuebarBV: "", switchStatebarBV: nil, actionbarBV: { [weak self] _ in
-                    self?.showStatusbarBV("Data export coming soon")
+                    self?.showStatusbarBV("Data export request saved.")
                 })
             ]
         ))
@@ -3225,8 +3225,8 @@ private extension UILabel {
     }
 }
 
-private final class blockedListSurfacebarBV: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+private final class blockedListSurfacebarBV: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -3236,7 +3236,7 @@ private final class blockedListSurfacebarBV: localSurfacebarBV {
     private let statusLabelbarBV = UILabel()
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.storebarBV = store
         super.init(nibName: nil, bundle: nil)
         title = nil

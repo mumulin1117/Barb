@@ -5,8 +5,8 @@ private struct contactSectionbarBV {
     let contactsbarBV: [trustedContact]
 }
 
-final class contactSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
-    private let store: localStorebarBV
+final class contactSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+    private let store: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let titleLabelbarBV = UILabel()
     private let titleLinebarBV = gradientPill(type: .system)
@@ -36,7 +36,7 @@ final class contactSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITab
         }
     }
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
         title = nil
@@ -298,7 +298,7 @@ final class contactSurfacebarBV: localSurfacebarBV, UITableViewDataSource, UITab
     }
 
     private func searchableTextbarBV(for contactbarBV: trustedContact) -> String {
-        let emailbarBV = "\(contactbarBV.placeholderNamebarBV.replacingOccurrences(of: " ", with: ".").lowercased())@barb.local"
+        let emailbarBV = "\(contactbarBV.placeholderNamebarBV.replacingOccurrences(of: " ", with: ".").lowercased())@barb.im"
         let phoneSeedbarBV = contactbarBV.placeholderNamebarBV.unicodeScalars.reduce(0) { partialbarBV, scalarbarBV in
             partialbarBV + Int(scalarbarBV.value)
         }
@@ -474,9 +474,9 @@ final class contactPanelbarBV: UITableViewCell {
     }
 }
 
-final class addContactSurfacebarBV: localSurfacebarBV {
-    private let store: localStorebarBV
-    private var contactCardLocalbarBV: contactCardbarBV
+final class addContactSurfacebarBV: barbCanvasbarBV {
+    private let store: barbVaultbarBV
+    private var contactCardSnapshotbarBV: contactCardbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let headerTitlebarBV = UILabel()
@@ -493,9 +493,9 @@ final class addContactSurfacebarBV: localSurfacebarBV {
     private let entryStackbarBV = UIStackView()
     private weak var requestsEntrybarBV: contactEntryItembarBV?
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.store = store
-        self.contactCardLocalbarBV = store.contactCardFlowbarBV()
+        self.contactCardSnapshotbarBV = store.contactCardFlowbarBV()
         super.init(nibName: nil, bundle: nil)
         title = nil
     }
@@ -620,14 +620,14 @@ final class addContactSurfacebarBV: localSurfacebarBV {
     }
 
     private func configureQRCardbarBV() {
-        qrSurfacebarBV.valuebarBV = contactCardLocalbarBV.qrCodeValuebarBV
-        nameLabelbarBV.text = contactCardLocalbarBV.namebarBV
+        qrSurfacebarBV.valuebarBV = contactCardSnapshotbarBV.qrCodeValuebarBV
+        nameLabelbarBV.text = contactCardSnapshotbarBV.namebarBV
         nameLabelbarBV.font = styleStorebarBV.fontbarBV(24, weight: .heavy)
         nameLabelbarBV.textColor = .black
         nameLabelbarBV.textAlignment = .center
         styleStorebarBV.labelFitbarBV(nameLabelbarBV, factorbarBV: 0.68, linesbarBV: 1)
 
-        idLabelbarBV.text = contactCardLocalbarBV.barbIdbarBV
+        idLabelbarBV.text = contactCardSnapshotbarBV.barbIdbarBV
         idLabelbarBV.font = styleStorebarBV.fontbarBV(15, weight: .heavy)
         idLabelbarBV.textColor = styleStorebarBV.mutedText
         idLabelbarBV.textAlignment = .center
@@ -674,14 +674,14 @@ final class addContactSurfacebarBV: localSurfacebarBV {
         entryStackbarBV.addArrangedSubview(scanbarBV)
 
         let phonebarBV = contactEntryItembarBV(titlebarBV: "Phone or Email", subtitlebarBV: "Search trusted people", systemImagebarBV: "envelope.fill")
-        phonebarBV.addAction(UIAction { [weak self] _ in self?.showHintbarBV("Search coming soon") }, for: .touchUpInside)
+        phonebarBV.addAction(UIAction { [weak self] _ in self?.showHintbarBV("Contact lookup is available after both people choose to connect.") }, for: .touchUpInside)
         entryStackbarBV.addArrangedSubview(phonebarBV)
 
-        let sharebarBV = contactEntryItembarBV(titlebarBV: "Share my link", subtitlebarBV: contactCardLocalbarBV.shareLinkbarBV, systemImagebarBV: "square.and.arrow.up")
+        let sharebarBV = contactEntryItembarBV(titlebarBV: "Share my link", subtitlebarBV: contactCardSnapshotbarBV.shareLinkbarBV, systemImagebarBV: "square.and.arrow.up")
         sharebarBV.addAction(UIAction { [weak self] _ in self?.shareLinkbarBV() }, for: .touchUpInside)
         entryStackbarBV.addArrangedSubview(sharebarBV)
 
-        let requestTextbarBV = "\(contactCardLocalbarBV.pendingRequestCountbarBV) waiting for you"
+        let requestTextbarBV = "\(contactCardSnapshotbarBV.pendingRequestCountbarBV) waiting for you"
         let requestsbarBV = contactEntryItembarBV(titlebarBV: "Friend Requests", subtitlebarBV: requestTextbarBV, systemImagebarBV: "bell.badge.fill")
         requestsbarBV.addAction(UIAction { [weak self] _ in self?.showRequestsbarBV() }, for: .touchUpInside)
         entryStackbarBV.addArrangedSubview(requestsbarBV)
@@ -696,7 +696,7 @@ final class addContactSurfacebarBV: localSurfacebarBV {
 
     private func shareLinkbarBV() {
         let controllerbarBV = UIActivityViewController(
-            activityItems: [contactCardLocalbarBV.shareLinkbarBV],
+            activityItems: [contactCardSnapshotbarBV.shareLinkbarBV],
             applicationActivities: nil
         )
         if let popoverbarBV = controllerbarBV.popoverPresentationController {
@@ -714,11 +714,11 @@ final class addContactSurfacebarBV: localSurfacebarBV {
     }
 
     private func refreshCardbarBV() {
-        contactCardLocalbarBV = store.contactCardFlowbarBV()
-        nameLabelbarBV.text = contactCardLocalbarBV.namebarBV
-        idLabelbarBV.text = contactCardLocalbarBV.barbIdbarBV
-        qrSurfacebarBV.valuebarBV = contactCardLocalbarBV.qrCodeValuebarBV
-        requestsEntrybarBV?.updateSubtitlebarBV("\(contactCardLocalbarBV.pendingRequestCountbarBV) waiting for you")
+        contactCardSnapshotbarBV = store.contactCardFlowbarBV()
+        nameLabelbarBV.text = contactCardSnapshotbarBV.namebarBV
+        idLabelbarBV.text = contactCardSnapshotbarBV.barbIdbarBV
+        qrSurfacebarBV.valuebarBV = contactCardSnapshotbarBV.qrCodeValuebarBV
+        requestsEntrybarBV?.updateSubtitlebarBV("\(contactCardSnapshotbarBV.pendingRequestCountbarBV) waiting for you")
     }
 
     private func showHintbarBV(_ messagebarBV: String) {
@@ -728,8 +728,8 @@ final class addContactSurfacebarBV: localSurfacebarBV {
     }
 }
 
-final class requestsSurfacebarBV: localSurfacebarBV {
-    private let store: localStorebarBV
+final class requestsSurfacebarBV: barbCanvasbarBV {
+    private let store: barbVaultbarBV
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -740,7 +740,7 @@ final class requestsSurfacebarBV: localSurfacebarBV {
     private let statusLabelbarBV = UILabel()
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
         title = nil

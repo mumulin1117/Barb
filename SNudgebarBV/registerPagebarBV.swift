@@ -1,6 +1,6 @@
 import UIKit
 
-final class registerPagebarBV: localSurfacebarBV {
+final class registerPagebarBV: barbCanvasbarBV {
     private let emailEntrybarBV = UITextField()
     private let privacySeed = UITextField()
     private let stackSurfacebarBV = UIStackView()

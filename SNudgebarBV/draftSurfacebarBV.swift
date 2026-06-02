@@ -1,7 +1,7 @@
 import UIKit
 
 final class draftSurfacebarBV: UIViewController {
-    private let store: localStorebarBV
+    private let store: barbVaultbarBV
     private let thread: threadFixturebarBV
     private let targetMessage: messageFixturebarBV
     private var selectedTone: replyStylebarBV = .replyToneWarm
@@ -11,7 +11,7 @@ final class draftSurfacebarBV: UIViewController {
 
     var onSend: ((String) -> Void)?
 
-    init(store: localStorebarBV, thread: threadFixturebarBV, targetMessage: messageFixturebarBV) {
+    init(store: barbVaultbarBV, thread: threadFixturebarBV, targetMessage: messageFixturebarBV) {
         self.store = store
         self.thread = thread
         self.targetMessage = targetMessage
@@ -39,12 +39,12 @@ final class draftSurfacebarBV: UIViewController {
         titleLabel.font = styleStorebarBV.titleFont(28)
         styleStorebarBV.labelFitbarBV(titleLabel, factorbarBV: 0.72, linesbarBV: 1)
         let contextLabel = UILabel()
-        contextLabel.text = "Replying to \(thread.localThreadTitle)"
+        contextLabel.text = "Replying to \(thread.threadTitlebarBV)"
         contextLabel.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
         contextLabel.textColor = styleStorebarBV.purple
         styleStorebarBV.labelFitbarBV(contextLabel, factorbarBV: 0.68, linesbarBV: 1)
         let targetLabel = UILabel()
-        targetLabel.text = "\"\(targetMessage.localMessageText)\""
+        targetLabel.text = "\"\(targetMessage.messageCopybarBV)\""
         targetLabel.font = styleStorebarBV.fontbarBV(16, weight: .regular)
         targetLabel.numberOfLines = 2
         targetLabel.textColor = .darkGray

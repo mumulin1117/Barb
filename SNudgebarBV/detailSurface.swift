@@ -1,7 +1,7 @@
 import UIKit
 
-final class detailSurface: localSurfacebarBV {
-    private let storebarBV: localStorebarBV
+final class detailSurface: barbCanvasbarBV {
+    private let storebarBV: barbVaultbarBV
     private var contactbarBV: trustedContact
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
@@ -18,7 +18,7 @@ final class detailSurface: localSurfacebarBV {
     private let statusLabelbarBV = UILabel()
     private var statusWorkbarBV: DispatchWorkItem?
 
-    init(contact: trustedContact, store: localStorebarBV = .shared) {
+    init(contact: trustedContact, store: barbVaultbarBV = .shared) {
         self.contactbarBV = contact
         self.storebarBV = store
         super.init(nibName: nil, bundle: nil)
@@ -329,7 +329,7 @@ final class detailSurface: localSurfacebarBV {
     private func confirmRemovebarBV() {
         let alertbarBV = UIAlertController(
             title: "Remove from contacts?",
-            message: "This removes \(contactbarBV.placeholderNamebarBV) from your local Partner list. Existing chat data stays local.",
+            message: "This removes \(contactbarBV.placeholderNamebarBV) from your Partner list. Existing conversations stay in Barb unless you delete them separately.",
             preferredStyle: .alert
         )
         alertbarBV.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -342,7 +342,7 @@ final class detailSurface: localSurfacebarBV {
     private func confirmBlockbarBV() {
         let alertbarBV = UIAlertController(
             title: "Block \(contactbarBV.placeholderNamebarBV)?",
-            message: "They will be added to the local blocked list and removed from contacts and related local conversations.",
+            message: "They will be added to Blacklist and removed from contacts and related conversations.",
             preferredStyle: .alert
         )
         alertbarBV.addAction(UIAlertAction(title: "Cancel", style: .cancel))

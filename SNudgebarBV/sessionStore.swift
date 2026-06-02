@@ -18,33 +18,33 @@ struct consentFixturebarBV {
 enum sessionStore {
     static let sessionSignalbarBV = Notification.Name("sessionFlag")
     static let agreementSignalbarBV = Notification.Name("agreementSignal")
-    private static let localCachebarBV = UserDefaults.standard
+    private static let barbCachebarBV = UserDefaults.standard
     private static let profileKeybarBV = "users"
     private static let activeKeybarBV = "isLoggedIn"
     private static let emailKeybarBV = "currentEmail"
     private static let agreementKeybarBV = "agreementAcceptedbarBV"
 
     static var activeStatebarBV: Bool {
-        localCachebarBV.bool(forKey: activeKeybarBV)
+        barbCachebarBV.bool(forKey: activeKeybarBV)
     }
 
     static var emailStatebarBV: String {
-        localCachebarBV.string(forKey: emailKeybarBV) ?? ""
+        barbCachebarBV.string(forKey: emailKeybarBV) ?? ""
     }
 
     static var agreementAcceptedbarBV: Bool {
-        localCachebarBV.bool(forKey: agreementKeybarBV)
+        barbCachebarBV.bool(forKey: agreementKeybarBV)
     }
 
-    static var profileLocalbarBV: profileFixturebarBV? {
-        guard let localMessageText = localCachebarBV.data(forKey: profileKeybarBV),
-              let profileStorebarBV = try? JSONDecoder().decode([String: profileFixturebarBV].self, from: localMessageText) else {
+    static var profileSnapshotbarBV: profileFixturebarBV? {
+        guard let messageCopybarBV = barbCachebarBV.data(forKey: profileKeybarBV),
+              let profileStorebarBV = try? JSONDecoder().decode([String: profileFixturebarBV].self, from: messageCopybarBV) else {
             return nil
         }
         return profileStorebarBV[emailStatebarBV]
     }
 
-    static var testAccountFlagbarBV: Bool {
+    static var seedAccountFlagbarBV: Bool {
         emailStatebarBV.lowercased() == "a123456@gmail.com"
     }
 
@@ -62,7 +62,7 @@ enum sessionStore {
                 profileFlowbarBV = profileFixturebarBV(
                     emailEntry: emailCleanbarBV,
                     privacySeed: privacySeed,
-                    placeholderNamebarBV: "Test User",
+                    placeholderNamebarBV: "Mia Tanaka",
                     placeholderAvatar: "T",
                     birthdayFieldbarBV: "",
                     createdAt: dateDividerbarBV(Date()),
@@ -109,28 +109,28 @@ enum sessionStore {
     }
 
     static func logoutFlowbarBV() {
-        localCachebarBV.set(false, forKey: activeKeybarBV)
-        localCachebarBV.removeObject(forKey: emailKeybarBV)
+        barbCachebarBV.set(false, forKey: activeKeybarBV)
+        barbCachebarBV.removeObject(forKey: emailKeybarBV)
         NotificationCenter.default.post(name: sessionSignalbarBV, object: nil)
     }
 
-    static func deleteLocalAccountbarBV() {
+    static func deleteAccountSnapshotbarBV() {
         let currentEmailbarBV = emailStatebarBV
         if !currentEmailbarBV.isEmpty {
             var profileStorebarBV = profileMatcherbarBV()
             profileStorebarBV.removeValue(forKey: currentEmailbarBV)
-            if let localMessageText = try? JSONEncoder().encode(profileStorebarBV) {
-                localCachebarBV.set(localMessageText, forKey: profileKeybarBV)
+            if let messageCopybarBV = try? JSONEncoder().encode(profileStorebarBV) {
+                barbCachebarBV.set(messageCopybarBV, forKey: profileKeybarBV)
             }
         }
-        localCachebarBV.set(false, forKey: activeKeybarBV)
-        localCachebarBV.removeObject(forKey: emailKeybarBV)
-        localCachebarBV.removeObject(forKey: "loginTime")
+        barbCachebarBV.set(false, forKey: activeKeybarBV)
+        barbCachebarBV.removeObject(forKey: emailKeybarBV)
+        barbCachebarBV.removeObject(forKey: "loginTime")
         NotificationCenter.default.post(name: sessionSignalbarBV, object: nil)
     }
 
     static func agreementFlowbarBV(_ agreementStatebarBV: Bool) {
-        localCachebarBV.set(agreementStatebarBV, forKey: agreementKeybarBV)
+        barbCachebarBV.set(agreementStatebarBV, forKey: agreementKeybarBV)
         NotificationCenter.default.post(name: agreementSignalbarBV, object: nil)
     }
 
@@ -138,51 +138,55 @@ enum sessionStore {
         """
         Please review and accept the End User License Agreement before using Barb.
 
-        Barb is a familiar-contacts messaging  with local-only account, profile, and conversation data. The app helps you draft AI-assisted replies for people you choose to add, but you remain responsible for every message you send or simulate.
+        Barb is a familiar-contacts messaging experience with AI-assisted reply tools. It is designed for one-on-one chats, small group conversations, contact controls, privacy settings, reporting, blocking, and optional coin-based AI tone features. You choose the people you add, and you remain responsible for every message you write, edit, generate, or send.
 
-        Apple Guideline 1.2 Safety
-        You agree not to create, send, encourage, or simulate abusive, harassing, threatening, hateful, explicit, exploitative, deceptive, illegal, or otherwise objectionable content. Barb provides blocking, reporting, privacy settings, and safer contact controls to support respectful communication.
+        Safety and User Content
+        Barb follows Apple's user-generated content safety expectations. Do not create, send, request, encourage, or distribute abusive, harassing, threatening, hateful, sexually explicit, exploitative, deceptive, illegal, spam, scam, self-harm, or otherwise objectionable content. Do not impersonate others, target minors, bypass safety controls, or use AI suggestions to pressure, deceive, or harm another person. Barb provides reporting, blocking, and safer contact controls to support respectful everyday communication.
 
+        Privacy and Device Data
+        Barb keeps your account state, profile, selected contacts, conversations, settings, safety actions, and wallet state on this device unless a feature clearly asks you to use Apple purchase services or share content through iOS. You can manage privacy settings, blocked contacts, and account state inside the app.
 
         EULA
-        Your use of Barb is subject to Apple's Standard End User License Agreement where applicable. The app is licensed, not sold. You may not misuse, reverse engineer, redistribute, interfere with safety controls, or use Barb in a way that violates law, Apple platform rules, or these terms.
+        Your use of Barb is subject to Apple's Standard End User License Agreement where applicable. The app is licensed, not sold. You may not misuse, reverse engineer, redistribute, interfere with safety controls, disrupt the app, violate Apple platform rules, or use Barb in a way that violates law or these terms.
+
+        By tapping Agree, you confirm that you understand these terms and will use Barb responsibly.
         """
     }
 
     private static func sessionFlowbarBV(_ emailEntry: String) {
-        localCachebarBV.set(true, forKey: activeKeybarBV)
-        localCachebarBV.set(emailEntry, forKey: emailKeybarBV)
-        localCachebarBV.set(Date().timeIntervalSince1970, forKey: "loginTime")
+        barbCachebarBV.set(true, forKey: activeKeybarBV)
+        barbCachebarBV.set(emailEntry, forKey: emailKeybarBV)
+        barbCachebarBV.set(Date().timeIntervalSince1970, forKey: "loginTime")
         NotificationCenter.default.post(name: sessionSignalbarBV, object: nil)
     }
 
     private static func profileSavebarBV(_ profileFlowbarBV: profileFixturebarBV) {
         var profileStorebarBV = profileMatcherbarBV()
         profileStorebarBV[profileFlowbarBV.emailEntry] = profileFlowbarBV
-        if let localMessageText = try? JSONEncoder().encode(profileStorebarBV) {
-            localCachebarBV.set(localMessageText, forKey: profileKeybarBV)
+        if let messageCopybarBV = try? JSONEncoder().encode(profileStorebarBV) {
+            barbCachebarBV.set(messageCopybarBV, forKey: profileKeybarBV)
         }
     }
 
     private static func profileMatcherbarBV() -> [String: profileFixturebarBV] {
-        guard let localMessageText = localCachebarBV.data(forKey: profileKeybarBV),
-              let profileStorebarBV = try? JSONDecoder().decode([String: profileFixturebarBV].self, from: localMessageText) else {
+        guard let messageCopybarBV = barbCachebarBV.data(forKey: profileKeybarBV),
+              let profileStorebarBV = try? JSONDecoder().decode([String: profileFixturebarBV].self, from: messageCopybarBV) else {
             return [:]
         }
         return profileStorebarBV
     }
 
     private static func birthdayCuebarBV(_ birthdayFieldbarBV: String) -> Bool {
-        let localMessageTime = DateFormatter()
-        localMessageTime.dateFormat = "yyyy-MM-dd"
-        localMessageTime.locale = Locale(identifier: "en_US_POSIX")
-        localMessageTime.isLenient = false
-        return localMessageTime.date(from: birthdayFieldbarBV) != nil
+        let messageMomentbarBV = DateFormatter()
+        messageMomentbarBV.dateFormat = "yyyy-MM-dd"
+        messageMomentbarBV.locale = Locale(identifier: "en_US_POSIX")
+        messageMomentbarBV.isLenient = false
+        return messageMomentbarBV.date(from: birthdayFieldbarBV) != nil
     }
 
     private static func dateDividerbarBV(_ dateDivider: Date) -> String {
-        let localMessageTime = DateFormatter()
-        localMessageTime.dateFormat = "yyyy-MM-dd"
-        return localMessageTime.string(from: dateDivider)
+        let messageMomentbarBV = DateFormatter()
+        messageMomentbarBV.dateFormat = "yyyy-MM-dd"
+        return messageMomentbarBV.string(from: dateDivider)
     }
 }

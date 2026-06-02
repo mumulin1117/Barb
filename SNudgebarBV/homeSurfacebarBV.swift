@@ -1,7 +1,7 @@
 import UIKit
 
-final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
-    private let store: localStorebarBV
+final class homeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
+    private let store: barbVaultbarBV
     private let scrollSurfacebarBV = UIScrollView()
     private let stackSurfacebarBV = UIStackView()
     private var styleChoicebarBV: replyStylebarBV = .replyToneWarm
@@ -10,7 +10,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
     private var regenIndexbarBV = 0
     private weak var draftEntrybarBV: UITextView?
 
-    init(store: localStorebarBV) {
+    init(store: barbVaultbarBV) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
         title = "Barb"
@@ -111,7 +111,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         badgeSurfacebarBV.clipsToBounds = true
         bellSurfacebarBV.addSubview(badgeSurfacebarBV)
         badgeSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
-        let avatarSurfacebarBV = avatarSurfacebarBV(initial: sessionStore.profileLocalbarBV?.placeholderAvatar ?? "B", color: styleStorebarBV.pink)
+        let avatarSurfacebarBV = avatarSurfacebarBV(initial: sessionStore.profileSnapshotbarBV?.placeholderAvatar ?? "B", color: styleStorebarBV.pink)
         rowSurfacebarBV.addArrangedSubview(markSurfacebarBV)
         rowSurfacebarBV.addArrangedSubview(spacerSurfacebarBV)
         rowSurfacebarBV.addArrangedSubview(searchSurfacebarBV)
@@ -261,7 +261,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         cardSurfacebarBV.layer.cornerRadius = 36
         cardSurfacebarBV.layer.maskedCorners = [.layerMinXMaxYCorner]
         cardSurfacebarBV.clipsToBounds = true
-        let latestbarBV = store.localThreadPreviewbarBV(for: threadFlowbarBV)
+        let latestbarBV = store.threadPreviewbarBV(for: threadFlowbarBV)
         let contactbarBV = threadFlowbarBV.personaPoolbarBV.first.flatMap { store.contactMatcherbarBV(contactSeed: $0) }
         let topStripbarBV = cardStripbarBV()
         let tagSurfacebarBV = UILabel()
@@ -285,7 +285,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         timeSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
         let avatarSurfacebarBV = avatarSurfacebarBV(initial: contactbarBV?.placeholderAvatar ?? "M", color: styleStorebarBV.purple)
         let nameSurfacebarBV = UILabel()
-        nameSurfacebarBV.text = threadFlowbarBV.localThreadTitle
+        nameSurfacebarBV.text = threadFlowbarBV.threadTitlebarBV
         nameSurfacebarBV.font = styleStorebarBV.fontbarBV(25, weight: .heavy)
         styleStorebarBV.labelFitbarBV(nameSurfacebarBV, factorbarBV: 0.72, linesbarBV: 1)
         let noteSurfacebarBV = UILabel()
@@ -294,7 +294,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         noteSurfacebarBV.font = styleStorebarBV.fontbarBV(18, weight: .regular)
         styleStorebarBV.labelFitbarBV(noteSurfacebarBV, factorbarBV: 0.74, linesbarBV: 2)
         let textSurfacebarBV = UILabel()
-        textSurfacebarBV.text = "\"\(latestbarBV?.localMessageText ?? "Tap AI Reply to keep the conversation moving.")\""
+        textSurfacebarBV.text = "\"\(latestbarBV?.messageCopybarBV ?? "Tap AI Reply to keep the conversation moving.")\""
         textSurfacebarBV.font = styleStorebarBV.fontbarBV(22, weight: .regular)
         textSurfacebarBV.numberOfLines = 0
         textSurfacebarBV.lineBreakMode = .byWordWrapping
@@ -391,19 +391,19 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
         layerSurfacebarBV.layer.maskedCorners = [.layerMaxXMinYCorner]
         let cardSurfacebarBV = UIView()
         cardSurfacebarBV.backgroundColor = .white
-        let latestbarBV = store.localThreadPreviewbarBV(for: threadFlowbarBV)
+        let latestbarBV = store.threadPreviewbarBV(for: threadFlowbarBV)
         let headerSurfacebarBV = UIView()
         headerSurfacebarBV.backgroundColor = .white
         headerSurfacebarBV.layer.cornerRadius = 12
         let lineSurfacebarBV = UIView()
         lineSurfacebarBV.backgroundColor = styleStorebarBV.blue
         let metaSurfacebarBV = UILabel()
-        metaSurfacebarBV.text = "↳ REPLYING TO \(threadFlowbarBV.localThreadTitle.uppercased()) · 11:24"
+        metaSurfacebarBV.text = "↳ REPLYING TO \(threadFlowbarBV.threadTitlebarBV.uppercased()) · 11:24"
         metaSurfacebarBV.textColor = styleStorebarBV.blue
         metaSurfacebarBV.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
         styleStorebarBV.labelFitbarBV(metaSurfacebarBV, factorbarBV: 0.68, linesbarBV: 1)
         let quoteSurfacebarBV = UILabel()
-        quoteSurfacebarBV.text = "\"\(latestbarBV?.localMessageText ?? "")\""
+        quoteSurfacebarBV.text = "\"\(latestbarBV?.messageCopybarBV ?? "")\""
         quoteSurfacebarBV.font = styleStorebarBV.fontbarBV(17, weight: .regular)
         quoteSurfacebarBV.textColor = UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1)
         quoteSurfacebarBV.numberOfLines = 0
@@ -652,7 +652,7 @@ final class homeSurfacebarBV: localSurfacebarBV, UITextViewDelegate {
     }
 
     private func draftGeneratebarBV() {
-        guard let threadFlowbarBV = draftThreadbarBV, let latestbarBV = store.localThreadPreviewbarBV(for: threadFlowbarBV) else { return }
+        guard let threadFlowbarBV = draftThreadbarBV, let latestbarBV = store.threadPreviewbarBV(for: threadFlowbarBV) else { return }
         draftTextbarBV = store.generatedDraftbarBV(for: latestbarBV, tone: styleChoicebarBV, variantbarBV: regenIndexbarBV == 0 ? nil : regenIndexbarBV)
     }
 
@@ -743,15 +743,15 @@ final class gradientBadgebarBV: UIView {
     }
 }
 
-private final class homeSearchSurfacebarBV: localSurfacebarBV, UITextFieldDelegate {
-    private let storebarBV: localStorebarBV
+private final class homeSearchSurfacebarBV: barbCanvasbarBV, UITextFieldDelegate {
+    private let storebarBV: barbVaultbarBV
     private let scrollSurfacebarBV = UIScrollView()
     private let stackSurfacebarBV = UIStackView()
     private let fieldSurfacebarBV = UITextField()
     private let resultStackbarBV = UIStackView()
     private var visibleThreadsbarBV: [threadFixturebarBV] = []
 
-    init(storebarBV: localStorebarBV) {
+    init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
         super.init(nibName: nil, bundle: nil)
         title = "Search"
@@ -889,7 +889,7 @@ private final class homeSearchSurfacebarBV: localSurfacebarBV, UITextFieldDelega
     private func resultCardbarBV() -> UIView {
         let cardSurfacebarBV = cardSurfacebarBV(cornerRadius: 24)
         let titleSurfacebarBV = UILabel()
-        titleSurfacebarBV.text = "LOCAL RESULTS"
+        titleSurfacebarBV.text = "BARB RESULTS"
         titleSurfacebarBV.font = styleStorebarBV.fontbarBV(14, weight: .heavy)
         titleSurfacebarBV.textColor = UIColor.black.withAlphaComponent(0.62)
         titleSurfacebarBV.letterSpacingbarBV(1.2)
@@ -941,27 +941,27 @@ private final class homeSearchSurfacebarBV: localSurfacebarBV, UITextFieldDelega
     }
 
     private func searchableTextbarBV(for threadbarBV: threadFixturebarBV) -> String {
-        var partsbarBV = [threadbarBV.localThreadTitle, storebarBV.previewTextbarBV(for: threadbarBV)]
+        var partsbarBV = [threadbarBV.threadTitlebarBV, storebarBV.previewTextbarBV(for: threadbarBV)]
         for contactSeedbarBV in threadbarBV.personaPoolbarBV {
             if let contactbarBV = storebarBV.contactMatcherbarBV(contactSeed: contactSeedbarBV) {
                 partsbarBV.append(contactbarBV.placeholderNamebarBV)
                 partsbarBV.append(contactbarBV.placeholderNotebarBV)
-                partsbarBV.append(localEmailbarBV(for: contactbarBV))
-                partsbarBV.append(localPhonebarBV(for: contactbarBV))
+                partsbarBV.append(contactEmailAliasbarBV(for: contactbarBV))
+                partsbarBV.append(contactPhoneAliasbarBV(for: contactbarBV))
             }
         }
-        partsbarBV.append(contentsOf: storebarBV.messagePool(for: threadbarBV).map(\.localMessageText))
+        partsbarBV.append(contentsOf: storebarBV.messagePool(for: threadbarBV).map(\.messageCopybarBV))
         return partsbarBV.joined(separator: " ")
     }
 
-    private func localEmailbarBV(for contactbarBV: trustedContact) -> String {
+    private func contactEmailAliasbarBV(for contactbarBV: trustedContact) -> String {
         let slugbarBV = contactbarBV.placeholderNamebarBV
             .replacingOccurrences(of: " ", with: ".")
             .lowercased()
-        return "\(slugbarBV)@barb.local"
+        return "\(slugbarBV)@barb.im"
     }
 
-    private func localPhonebarBV(for contactbarBV: trustedContact) -> String {
+    private func contactPhoneAliasbarBV(for contactbarBV: trustedContact) -> String {
         let seedbarBV = abs(contactbarBV.placeholderNamebarBV.unicodeScalars.reduce(0) { partialbarBV, scalarbarBV in
             partialbarBV + Int(scalarbarBV.value)
         })
@@ -979,12 +979,12 @@ private final class homeSearchSurfacebarBV: localSurfacebarBV, UITextFieldDelega
         }, for: .touchUpInside)
 
         let contactbarBV = threadbarBV.personaPoolbarBV.first.flatMap { storebarBV.contactMatcherbarBV(contactSeed: $0) }
-        let avatarTextbarBV = threadbarBV.smallGroupFlag ? "G" : (contactbarBV?.placeholderAvatar ?? String(threadbarBV.localThreadTitle.prefix(1)).uppercased())
+        let avatarTextbarBV = threadbarBV.smallGroupFlag ? "G" : (contactbarBV?.placeholderAvatar ?? String(threadbarBV.threadTitlebarBV.prefix(1)).uppercased())
         let avatarSurfacebarBV = avatarSurfacebarBV(initial: avatarTextbarBV, color: threadbarBV.smallGroupFlag ? styleStorebarBV.mint : styleStorebarBV.purple)
         avatarSurfacebarBV.font = styleStorebarBV.fontbarBV(18, weight: .heavy)
 
         let titleSurfacebarBV = UILabel()
-        titleSurfacebarBV.text = threadbarBV.localThreadTitle
+        titleSurfacebarBV.text = threadbarBV.threadTitlebarBV
         titleSurfacebarBV.font = styleStorebarBV.fontbarBV(17, weight: .heavy)
         titleSurfacebarBV.textColor = .black
         styleStorebarBV.labelFitbarBV(titleSurfacebarBV, factorbarBV: 0.72, linesbarBV: 1)
@@ -1081,7 +1081,7 @@ private final class homeSearchSurfacebarBV: localSurfacebarBV, UITextFieldDelega
     }
 }
 
-private final class homeNotificationSurfacebarBV: localSurfacebarBV {
+private final class homeNotificationSurfacebarBV: barbCanvasbarBV {
     private let scrollSurfacebarBV = UIScrollView()
     private let stackSurfacebarBV = UIStackView()
 

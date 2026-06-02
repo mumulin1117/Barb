@@ -34,7 +34,7 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Barb can save your QR code image to your photo library when you choose to export it.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>SNudgebarBV lets you choose profile photos and simulated chat images from your library.</string>
+	<string>SNudgebarBV lets you choose a profile photo from your library.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

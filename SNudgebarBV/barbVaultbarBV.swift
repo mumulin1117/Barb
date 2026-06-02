@@ -47,7 +47,7 @@ final class barbVaultbarBV {
 
     func reloadAccountScopebarBV() {
         restorePersonalStatebarBV()
-        if sessionStore.seedAccountFlagbarBV {
+        if BaurbsessionStore.seedAccountFlagbarBV {
             seedFlow()
             restoreContactStatebarBV()
         } else {
@@ -179,7 +179,7 @@ final class barbVaultbarBV {
     }
 
     func contactCardFlowbarBV() -> contactCardbarBV {
-        let profilebarBV = sessionStore.profileSnapshotbarBV
+        let profilebarBV = BaurbsessionStore.profileSnapshotbarBV
         let cleanNamebarBV = profilebarBV?.placeholderNamebarBV.trimmingCharacters(in: .whitespacesAndNewlines)
         let displayNamebarBV: String
         if let cleanNamebarBV, !cleanNamebarBV.isEmpty {
@@ -793,7 +793,7 @@ final class barbVaultbarBV {
     }
 
     private func accountSuffixbarBV() -> String {
-        let emailbarBV = sessionStore.emailStatebarBV.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let emailbarBV = BaurbsessionStore.emailStatebarBV.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         return emailbarBV.isEmpty ? "guestbarBV" : emailbarBV
     }
 
@@ -809,23 +809,23 @@ final class barbVaultbarBV {
             let storedBalancebarBV = UserDefaults.standard.integer(forKey: balanceKeybarBV)
             let purchaseRecordsMissingbarBV = UserDefaults.standard.data(forKey: transactionKeybarBV) == nil
                 && UserDefaults.standard.array(forKey: purchaseKeybarBV) == nil
-            if !sessionStore.seedAccountFlagbarBV, purchaseRecordsMissingbarBV, storedBalancebarBV > 0 {
+            if !BaurbsessionStore.seedAccountFlagbarBV, purchaseRecordsMissingbarBV, storedBalancebarBV > 0 {
                 coinBalance = 0
                 persistCoinBalancebarBV()
             } else {
                 coinBalance = storedBalancebarBV
             }
-        } else if sessionStore.seedAccountFlagbarBV, UserDefaults.standard.object(forKey: coinBalanceKeybarBV) != nil {
+        } else if BaurbsessionStore.seedAccountFlagbarBV, UserDefaults.standard.object(forKey: coinBalanceKeybarBV) != nil {
             coinBalance = UserDefaults.standard.integer(forKey: coinBalanceKeybarBV)
             persistCoinBalancebarBV()
         } else {
-            coinBalance = sessionStore.seedAccountFlagbarBV ? 2222 : 0
+            coinBalance = BaurbsessionStore.seedAccountFlagbarBV ? 2222 : 0
             persistCoinBalancebarBV()
         }
         if let databarBV = UserDefaults.standard.data(forKey: transactionKeybarBV),
            let recordsbarBV = try? JSONDecoder().decode([coinTransactionbarBV].self, from: databarBV) {
             coinTransactionsbarBV = recordsbarBV
-        } else if sessionStore.seedAccountFlagbarBV,
+        } else if BaurbsessionStore.seedAccountFlagbarBV,
                   let databarBV = UserDefaults.standard.data(forKey: coinTransactionsKeybarBV),
                   let recordsbarBV = try? JSONDecoder().decode([coinTransactionbarBV].self, from: databarBV) {
             coinTransactionsbarBV = recordsbarBV
@@ -835,7 +835,7 @@ final class barbVaultbarBV {
         }
         if let seedsbarBV = UserDefaults.standard.array(forKey: purchaseKeybarBV) as? [String] {
             coinPurchaseSeedsbarBV = Set(seedsbarBV)
-        } else if sessionStore.seedAccountFlagbarBV,
+        } else if BaurbsessionStore.seedAccountFlagbarBV,
                   let seedsbarBV = UserDefaults.standard.array(forKey: coinPurchaseSeedKeybarBV) as? [String] {
             coinPurchaseSeedsbarBV = Set(seedsbarBV)
             persistCoinPurchaseSeedsbarBV()
@@ -852,7 +852,7 @@ final class barbVaultbarBV {
         if let toneRawPoolbarBV = UserDefaults.standard.array(forKey: unlockedToneKeybarBV) as? [String] {
             let restoredbarBV = toneRawPoolbarBV.compactMap { replyStylebarBV(rawValue: $0) }
             styleUnlock.formUnion(restoredbarBV)
-        } else if sessionStore.seedAccountFlagbarBV,
+        } else if BaurbsessionStore.seedAccountFlagbarBV,
                   let toneRawPoolbarBV = UserDefaults.standard.array(forKey: unlockedReplyToneKeybarBV) as? [String] {
             let restoredbarBV = toneRawPoolbarBV.compactMap { replyStylebarBV(rawValue: $0) }
             styleUnlock.formUnion(restoredbarBV)
@@ -864,7 +864,7 @@ final class barbVaultbarBV {
            let tonebarBV = replyStylebarBV(rawValue: toneRawbarBV),
            styleUnlock.contains(tonebarBV) {
             selectedReplyTonebarBV = tonebarBV
-        } else if sessionStore.seedAccountFlagbarBV,
+        } else if BaurbsessionStore.seedAccountFlagbarBV,
                   let toneRawbarBV = UserDefaults.standard.string(forKey: selectedReplyToneKeybarBV),
                   let tonebarBV = replyStylebarBV(rawValue: toneRawbarBV),
                   styleUnlock.contains(tonebarBV) {

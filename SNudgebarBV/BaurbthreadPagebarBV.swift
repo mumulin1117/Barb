@@ -1,6 +1,6 @@
 import UIKit
 
-final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableViewDelegate {
+final class BaurbthreadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableViewDelegate {
     private let store: barbVaultbarBV
     private var thread: threadFixturebarBV
     private let headerBarbarBV = UIView()
@@ -110,15 +110,15 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         }, for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: moreButtonbarBV)
 
-        titleLabelbarBV.font = styleStorebarBV.fontbarBV(18, weight: .heavy)
+        titleLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .heavy)
         titleLabelbarBV.textColor = .black
         titleLabelbarBV.numberOfLines = 1
         titleLabelbarBV.lineBreakMode = .byTruncatingTail
-        statusLabelbarBV.font = styleStorebarBV.fontbarBV(13, weight: .semibold)
+        statusLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(13, weight: .semibold)
         statusLabelbarBV.numberOfLines = 1
         statusLabelbarBV.lineBreakMode = .byTruncatingTail
-        styleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
-        styleStorebarBV.labelFitbarBV(statusLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(statusLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
         titleLabelbarBV.lineBreakMode = .byTruncatingTail
         statusLabelbarBV.lineBreakMode = .byTruncatingTail
         titleLabelbarBV.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
@@ -133,30 +133,30 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         let titleStackbarBV = UIStackView(arrangedSubviews: [headerAvatarbarBV, headerGroupAvatarbarBV, headerTextStackbarBV])
         titleStackbarBV.axis = .horizontal
         titleStackbarBV.alignment = .center
-        titleStackbarBV.spacing = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        titleStackbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
         titleContainerbarBV.addSubview(titleStackbarBV)
         titleStackbarBV.translatesAutoresizingMaskIntoConstraints = false
         headerAvatarbarBV.translatesAutoresizingMaskIntoConstraints = false
         headerGroupAvatarbarBV.translatesAutoresizingMaskIntoConstraints = false
         headerTextStackbarBV.translatesAutoresizingMaskIntoConstraints = false
 
-        let titleWidthbarBV = min(UIScreen.main.bounds.width - styleStorebarBV.metricbarBV(144, minimumbarBV: 128, maximumbarBV: 156), styleStorebarBV.metricbarBV(220, minimumbarBV: 176, maximumbarBV: 232))
-        let avatarSizebarBV = styleStorebarBV.metricbarBV(34, minimumbarBV: 30, maximumbarBV: 36)
-        let buttonSizebarBV = styleStorebarBV.controlbarBV(44)
+        let titleWidthbarBV = min(UIScreen.main.bounds.width - BaurbstyleStorebarBV.metricbarBV(144, minimumbarBV: 128, maximumbarBV: 156), BaurbstyleStorebarBV.metricbarBV(220, minimumbarBV: 176, maximumbarBV: 232))
+        let avatarSizebarBV = BaurbstyleStorebarBV.metricbarBV(34, minimumbarBV: 30, maximumbarBV: 36)
+        let buttonSizebarBV = BaurbstyleStorebarBV.controlbarBV(44)
         NSLayoutConstraint.activate([
             backButtonbarBV.widthAnchor.constraint(equalToConstant: buttonSizebarBV),
             backButtonbarBV.heightAnchor.constraint(equalToConstant: buttonSizebarBV),
 
             headerAvatarbarBV.widthAnchor.constraint(equalToConstant: avatarSizebarBV),
             headerAvatarbarBV.heightAnchor.constraint(equalToConstant: avatarSizebarBV),
-            headerGroupAvatarbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(54, minimumbarBV: 48, maximumbarBV: 58)),
+            headerGroupAvatarbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(54, minimumbarBV: 48, maximumbarBV: 58)),
             headerGroupAvatarbarBV.heightAnchor.constraint(equalToConstant: avatarSizebarBV),
 
             moreButtonbarBV.widthAnchor.constraint(equalToConstant: buttonSizebarBV),
             moreButtonbarBV.heightAnchor.constraint(equalToConstant: buttonSizebarBV),
 
-            titleContainerbarBV.widthAnchor.constraint(equalToConstant: max(titleWidthbarBV, styleStorebarBV.metricbarBV(148, minimumbarBV: 132, maximumbarBV: 164))),
-            titleContainerbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(44, minimumbarBV: 40, maximumbarBV: 46)),
+            titleContainerbarBV.widthAnchor.constraint(equalToConstant: max(titleWidthbarBV, BaurbstyleStorebarBV.metricbarBV(148, minimumbarBV: 132, maximumbarBV: 164))),
+            titleContainerbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(44, minimumbarBV: 40, maximumbarBV: 46)),
             titleStackbarBV.topAnchor.constraint(greaterThanOrEqualTo: titleContainerbarBV.topAnchor),
             titleStackbarBV.leadingAnchor.constraint(equalTo: titleContainerbarBV.leadingAnchor),
             titleStackbarBV.trailingAnchor.constraint(equalTo: titleContainerbarBV.trailingAnchor),
@@ -177,16 +177,16 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
             }
             headerGroupAvatarbarBV.configurebarBV(initialsbarBV: initialsbarBV)
             statusLabelbarBV.text = "\(store.groupMemberCountbarBV(for: thread)) members"
-            statusLabelbarBV.textColor = styleStorebarBV.mutedText
+            statusLabelbarBV.textColor = BaurbstyleStorebarBV.mutedText
             return
         }
         headerAvatarbarBV.isHidden = false
         headerGroupAvatarbarBV.isHidden = true
         let contactbarBV = thread.personaPoolbarBV.first.flatMap { store.contactMatcherbarBV(contactSeed: $0) }
         headerAvatarbarBV.text = contactbarBV?.placeholderAvatar ?? thread.threadTitlebarBV.first.map(String.init) ?? "B"
-        headerAvatarbarBV.backgroundColor = styleStorebarBV.purple
+        headerAvatarbarBV.backgroundColor = BaurbstyleStorebarBV.purple
         statusLabelbarBV.text = contactbarBV?.onlineFlagbarBV == true ? "● Online" : "Offline"
-        statusLabelbarBV.textColor = contactbarBV?.onlineFlagbarBV == true ? .systemGreen : styleStorebarBV.mutedText
+        statusLabelbarBV.textColor = contactbarBV?.onlineFlagbarBV == true ? .systemGreen : BaurbstyleStorebarBV.mutedText
     }
 
     private func refreshBlockedStatebarBV() {
@@ -194,7 +194,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         let blockedbarBV = store.blockedFlagbarBV(contactSeedbarBV: contactbarBV.contactSeed) || contactbarBV.blockFlag
         if blockedbarBV {
             statusLabelbarBV.text = "Blocked"
-            statusLabelbarBV.textColor = styleStorebarBV.mutedText
+            statusLabelbarBV.textColor = BaurbstyleStorebarBV.mutedText
             composer.text = nil
             composer.placeholder = "You blocked this user."
             composer.isEnabled = false
@@ -216,13 +216,13 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = styleStorebarBV.metricbarBV(72, minimumbarBV: 58, maximumbarBV: 86)
+        tableView.estimatedRowHeight = BaurbstyleStorebarBV.metricbarBV(72, minimumbarBV: 58, maximumbarBV: 86)
         tableView.keyboardDismissMode = .interactive
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInset = UIEdgeInsets(
-            top: styleStorebarBV.spacebarBV(6, minimumbarBV: 4, maximumbarBV: 8),
+            top: BaurbstyleStorebarBV.spacebarBV(6, minimumbarBV: 4, maximumbarBV: 8),
             left: 0,
-            bottom: styleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12),
+            bottom: BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12),
             right: 0
         )
         tableView.register(messageDateSurfacebarBV.self, forCellReuseIdentifier: messageDateSurfacebarBV.reuseID)
@@ -247,22 +247,22 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
 
         sendTextButtonbarBV.setTitle("Send", for: .normal)
         sendTextButtonbarBV.setTitleColor(.black, for: .normal)
-        sendTextButtonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(15, weight: .heavy)
-        styleStorebarBV.buttonFitbarBV(sendTextButtonbarBV)
-        sendTextButtonbarBV.colorsbarBV = [styleStorebarBV.mint, UIColor(red: 1, green: 215 / 255, blue: 251 / 255, alpha: 0.7), styleStorebarBV.pink, styleStorebarBV.mint]
+        sendTextButtonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(15, weight: .heavy)
+        BaurbstyleStorebarBV.buttonFitbarBV(sendTextButtonbarBV)
+        sendTextButtonbarBV.colorsbarBV = [BaurbstyleStorebarBV.mint, UIColor(red: 1, green: 215 / 255, blue: 251 / 255, alpha: 0.7), BaurbstyleStorebarBV.pink, BaurbstyleStorebarBV.mint]
         sendTextButtonbarBV.addAction(UIAction { [weak self] _ in
             self?.sendTypedMessagebarBV()
         }, for: .touchUpInside)
 
         composer.placeholder = "Type a message..."
-        composer.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        composer.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         composer.textColor = .black
         composer.backgroundColor = UIColor.systemGray6
-        let inputHeightbarBV = styleStorebarBV.controlbarBV(46)
+        let inputHeightbarBV = BaurbstyleStorebarBV.controlbarBV(46)
         composer.layer.cornerRadius = inputHeightbarBV / 2
-        composer.leftView = UIView(frame: CGRect(x: 0, y: 0, width: styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18), height: 1))
+        composer.leftView = UIView(frame: CGRect(x: 0, y: 0, width: BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18), height: 1))
         composer.leftViewMode = .always
-        composer.rightView = UIView(frame: CGRect(x: 0, y: 0, width: styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10), height: 1))
+        composer.rightView = UIView(frame: CGRect(x: 0, y: 0, width: BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10), height: 1))
         composer.rightViewMode = .always
         composer.returnKeyType = .send
         composer.enablesReturnKeyAutomatically = true
@@ -277,10 +277,10 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         }
         composerBarbarBV.translatesAutoresizingMaskIntoConstraints = false
 
-        let composerHeightbarBV = styleStorebarBV.metricbarBV(70, minimumbarBV: 62, maximumbarBV: 74)
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)
-        let controlGapbarBV = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
-        let sendWidthbarBV = styleStorebarBV.metricbarBV(74, minimumbarBV: 66, maximumbarBV: 82)
+        let composerHeightbarBV = BaurbstyleStorebarBV.metricbarBV(70, minimumbarBV: 62, maximumbarBV: 74)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)
+        let controlGapbarBV = BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        let sendWidthbarBV = BaurbstyleStorebarBV.metricbarBV(74, minimumbarBV: 66, maximumbarBV: 82)
         NSLayoutConstraint.activate([
             composerBarbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             composerBarbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -315,10 +315,10 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         groupInviteButtonbarBV.isHidden = !thread.smallGroupFlag
         view.addSubview(groupInviteButtonbarBV)
         groupInviteButtonbarBV.translatesAutoresizingMaskIntoConstraints = false
-        let buttonSizebarBV = styleStorebarBV.metricbarBV(62, minimumbarBV: 54, maximumbarBV: 66)
+        let buttonSizebarBV = BaurbstyleStorebarBV.metricbarBV(62, minimumbarBV: 54, maximumbarBV: 66)
         NSLayoutConstraint.activate([
-            groupInviteButtonbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -styleStorebarBV.metricbarBV(24, minimumbarBV: 18, maximumbarBV: 28)),
-            groupInviteButtonbarBV.bottomAnchor.constraint(equalTo: composerBarbarBV.topAnchor, constant: -styleStorebarBV.spacebarBV(28, minimumbarBV: 18, maximumbarBV: 34)),
+            groupInviteButtonbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(24, minimumbarBV: 18, maximumbarBV: 28)),
+            groupInviteButtonbarBV.bottomAnchor.constraint(equalTo: composerBarbarBV.topAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(28, minimumbarBV: 18, maximumbarBV: 34)),
             groupInviteButtonbarBV.widthAnchor.constraint(equalToConstant: buttonSizebarBV),
             groupInviteButtonbarBV.heightAnchor.constraint(equalToConstant: buttonSizebarBV)
         ])
@@ -404,7 +404,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         overlaybarBV.addSubview(menubarBV)
         menubarBV.translatesAutoresizingMaskIntoConstraints = false
 
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(15, minimumbarBV: 14, maximumbarBV: 18)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(15, minimumbarBV: 14, maximumbarBV: 18)
         NSLayoutConstraint.activate([
             overlaybarBV.topAnchor.constraint(equalTo: containerbarBV.topAnchor),
             overlaybarBV.leadingAnchor.constraint(equalTo: containerbarBV.leadingAnchor),
@@ -413,7 +413,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
 
             menubarBV.leadingAnchor.constraint(equalTo: overlaybarBV.leadingAnchor, constant: sideInsetbarBV),
             menubarBV.trailingAnchor.constraint(equalTo: overlaybarBV.trailingAnchor, constant: -sideInsetbarBV),
-            menubarBV.bottomAnchor.constraint(equalTo: containerbarBV.safeAreaLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14))
+            menubarBV.bottomAnchor.constraint(equalTo: containerbarBV.safeAreaLayoutGuide.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14))
         ])
         moreOverlaybarBV = overlaybarBV
     }
@@ -489,7 +489,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         overlaybarBV.addSubview(alertbarBV)
         alertbarBV.translatesAutoresizingMaskIntoConstraints = false
 
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(24, minimumbarBV: 18, maximumbarBV: 28)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(24, minimumbarBV: 18, maximumbarBV: 28)
         NSLayoutConstraint.activate([
             overlaybarBV.topAnchor.constraint(equalTo: view.topAnchor),
             overlaybarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -500,7 +500,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
             alertbarBV.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
             alertbarBV.leadingAnchor.constraint(greaterThanOrEqualTo: overlaybarBV.leadingAnchor, constant: sideInsetbarBV),
             alertbarBV.trailingAnchor.constraint(lessThanOrEqualTo: overlaybarBV.trailingAnchor, constant: -sideInsetbarBV),
-            alertbarBV.widthAnchor.constraint(lessThanOrEqualToConstant: styleStorebarBV.metricbarBV(360, minimumbarBV: 300, maximumbarBV: 380))
+            alertbarBV.widthAnchor.constraint(lessThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(360, minimumbarBV: 300, maximumbarBV: 380))
         ])
         blockOverlaybarBV = overlaybarBV
     }
@@ -540,7 +540,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         overlaybarBV.addSubview(alertbarBV)
         alertbarBV.translatesAutoresizingMaskIntoConstraints = false
 
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 24)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 24)
         NSLayoutConstraint.activate([
             overlaybarBV.topAnchor.constraint(equalTo: view.topAnchor),
             overlaybarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -551,7 +551,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
             alertbarBV.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
             alertbarBV.leadingAnchor.constraint(greaterThanOrEqualTo: overlaybarBV.leadingAnchor, constant: sideInsetbarBV),
             alertbarBV.trailingAnchor.constraint(lessThanOrEqualTo: overlaybarBV.trailingAnchor, constant: -sideInsetbarBV),
-            alertbarBV.widthAnchor.constraint(lessThanOrEqualToConstant: styleStorebarBV.metricbarBV(360, minimumbarBV: 300, maximumbarBV: 380))
+            alertbarBV.widthAnchor.constraint(lessThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(360, minimumbarBV: 300, maximumbarBV: 380))
         ])
         coinOverlaybarBV = overlaybarBV
     }
@@ -610,9 +610,9 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
 
         view.layoutIfNeeded()
         let safeFramebarBV = view.safeAreaLayoutGuide.layoutFrame
-        let menuWidthbarBV = styleStorebarBV.metricbarBV(300, minimumbarBV: 252, maximumbarBV: 320)
-        let menuHeightbarBV = styleStorebarBV.metricbarBV(250, minimumbarBV: 224, maximumbarBV: 268)
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)
+        let menuWidthbarBV = BaurbstyleStorebarBV.metricbarBV(300, minimumbarBV: 252, maximumbarBV: 320)
+        let menuHeightbarBV = BaurbstyleStorebarBV.metricbarBV(250, minimumbarBV: 224, maximumbarBV: 268)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)
         let targetXbarBV = messagebarBV.sentFlag ? view.bounds.width - menuWidthbarBV - sideInsetbarBV : sideInsetbarBV
         let targetYbarBV = sourceRectbarBV.midY - menuHeightbarBV / 2
         let maxXbarBV = max(sideInsetbarBV, view.bounds.width - menuWidthbarBV - sideInsetbarBV)
@@ -716,7 +716,7 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
         contentbarBV.addSubview(surfacebarBV)
         [scrollbarBV, contentbarBV, surfacebarBV].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(15, minimumbarBV: 12, maximumbarBV: 18)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(15, minimumbarBV: 12, maximumbarBV: 18)
         let widthLockbarBV = surfacebarBV.widthAnchor.constraint(equalTo: contentbarBV.widthAnchor, constant: -sideInsetbarBV * 2)
         widthLockbarBV.priority = .defaultHigh
         let centerLockbarBV = surfacebarBV.centerYAnchor.constraint(equalTo: contentbarBV.centerYAnchor)
@@ -728,10 +728,10 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
             overlaybarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             overlaybarBV.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
-            scrollbarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
+            scrollbarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
             scrollbarBV.leadingAnchor.constraint(equalTo: overlaybarBV.leadingAnchor),
             scrollbarBV.trailingAnchor.constraint(equalTo: overlaybarBV.trailingAnchor),
-            scrollbarBV.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -styleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
+            scrollbarBV.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
 
             contentbarBV.topAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.topAnchor),
             contentbarBV.leadingAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.leadingAnchor),
@@ -742,9 +742,9 @@ final class threadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITableView
 
             surfacebarBV.centerXAnchor.constraint(equalTo: contentbarBV.centerXAnchor),
             centerLockbarBV,
-            surfacebarBV.topAnchor.constraint(greaterThanOrEqualTo: contentbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
-            surfacebarBV.bottomAnchor.constraint(lessThanOrEqualTo: contentbarBV.bottomAnchor, constant: -styleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
-            surfacebarBV.widthAnchor.constraint(lessThanOrEqualToConstant: styleStorebarBV.metricbarBV(540, minimumbarBV: 330, maximumbarBV: 560)),
+            surfacebarBV.topAnchor.constraint(greaterThanOrEqualTo: contentbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            surfacebarBV.bottomAnchor.constraint(lessThanOrEqualTo: contentbarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            surfacebarBV.widthAnchor.constraint(lessThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(540, minimumbarBV: 330, maximumbarBV: 560)),
             widthLockbarBV
         ])
 
@@ -830,18 +830,18 @@ final class messageDateSurfacebarBV: UITableViewCell {
         selectionStyle = .none
         contentView.addSubview(pillLabelbarBV)
         pillLabelbarBV.translatesAutoresizingMaskIntoConstraints = false
-        pillLabelbarBV.font = styleStorebarBV.fontbarBV(13, weight: .semibold)
-        pillLabelbarBV.textColor = styleStorebarBV.mutedText
+        pillLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(13, weight: .semibold)
+        pillLabelbarBV.textColor = BaurbstyleStorebarBV.mutedText
         pillLabelbarBV.textAlignment = .center
         pillLabelbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.78)
-        pillLabelbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 15)
+        pillLabelbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 15)
         pillLabelbarBV.layer.masksToBounds = true
         NSLayoutConstraint.activate([
-            pillLabelbarBV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: styleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
-            pillLabelbarBV.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -styleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            pillLabelbarBV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
+            pillLabelbarBV.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
             pillLabelbarBV.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            pillLabelbarBV.heightAnchor.constraint(greaterThanOrEqualToConstant: styleStorebarBV.metricbarBV(28, minimumbarBV: 24, maximumbarBV: 30)),
-            pillLabelbarBV.widthAnchor.constraint(greaterThanOrEqualToConstant: styleStorebarBV.metricbarBV(132, minimumbarBV: 112, maximumbarBV: 148))
+            pillLabelbarBV.heightAnchor.constraint(greaterThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(28, minimumbarBV: 24, maximumbarBV: 30)),
+            pillLabelbarBV.widthAnchor.constraint(greaterThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(132, minimumbarBV: 112, maximumbarBV: 148))
         ])
     }
 
@@ -887,7 +887,7 @@ final class moreMenuSurfacebarBV: UIView {
     private func configurebarBV() {
         backgroundColor = .clear
         stackbarBV.axis = .vertical
-        stackbarBV.spacing = styleStorebarBV.spacebarBV(12, minimumbarBV: 11, maximumbarBV: 14)
+        stackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(12, minimumbarBV: 11, maximumbarBV: 14)
         addSubview(stackbarBV)
         stackbarBV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -911,9 +911,9 @@ final class moreMenuSurfacebarBV: UIView {
         let buttonbarBV: UIButton = gradientbarBV ? gradientPill(type: .system) : UIButton(type: .system)
         buttonbarBV.setTitle(titlebarBV, for: .normal)
         buttonbarBV.setTitleColor(.black, for: .normal)
-        buttonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(18, weight: .heavy)
+        buttonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .heavy)
         buttonbarBV.backgroundColor = gradientbarBV ? .clear : UIColor.white.withAlphaComponent(0.98)
-        let heightbarBV = styleStorebarBV.controlbarBV(56)
+        let heightbarBV = BaurbstyleStorebarBV.controlbarBV(56)
         buttonbarBV.layer.cornerRadius = heightbarBV / 2
         buttonbarBV.layer.masksToBounds = false
         buttonbarBV.layer.shadowColor = UIColor.black.cgColor
@@ -922,13 +922,13 @@ final class moreMenuSurfacebarBV: UIView {
         buttonbarBV.layer.shadowOffset = CGSize(width: 0, height: gradientbarBV ? 6 : 2)
         if let pillbarBV = buttonbarBV as? gradientPill {
             pillbarBV.cornerRadiusbarBV = heightbarBV / 2
-            pillbarBV.colorsbarBV = styleStorebarBV.cardStripColorsbarBV
-            pillbarBV.locationsbarBV = styleStorebarBV.cardStripLocationsbarBV
+            pillbarBV.colorsbarBV = BaurbstyleStorebarBV.cardStripColorsbarBV
+            pillbarBV.locationsbarBV = BaurbstyleStorebarBV.cardStripLocationsbarBV
         }
         buttonbarBV.addAction(UIAction { [weak self] _ in
             self?.onChoosebarBV?(actionbarBV)
         }, for: .touchUpInside)
-        styleStorebarBV.buttonFitbarBV(buttonbarBV)
+        BaurbstyleStorebarBV.buttonFitbarBV(buttonbarBV)
         buttonbarBV.heightAnchor.constraint(equalToConstant: heightbarBV).isActive = true
         return buttonbarBV
     }
@@ -951,34 +951,34 @@ final class blockUserAlertSurfacebarBV: UIView {
 
     private func configurebarBV() {
         backgroundColor = .white
-        layer.cornerRadius = styleStorebarBV.metricbarBV(24, minimumbarBV: 20, maximumbarBV: 26)
+        layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(24, minimumbarBV: 20, maximumbarBV: 26)
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.18
         layer.shadowRadius = 18
         layer.shadowOffset = CGSize(width: 0, height: 8)
 
-        let avatarbarBV = avatarSurfacebarBV(initial: contactbarBV.placeholderAvatar, color: styleStorebarBV.pink)
+        let avatarbarBV = avatarSurfacebarBV(initial: contactbarBV.placeholderAvatar, color: BaurbstyleStorebarBV.pink)
         let titlebarBV = UILabel()
         titlebarBV.text = "Block \(contactbarBV.placeholderNamebarBV)?"
-        titlebarBV.font = styleStorebarBV.fontbarBV(22, weight: .heavy)
+        titlebarBV.font = BaurbstyleStorebarBV.fontbarBV(22, weight: .heavy)
         titlebarBV.textColor = .black
         titlebarBV.textAlignment = .center
         titlebarBV.numberOfLines = 2
-        styleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.68, linesbarBV: 2)
+        BaurbstyleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.68, linesbarBV: 2)
 
         let bodybarBV = UILabel()
         bodybarBV.text = "They won't be able to message you, see your profile, or add you again. You can unblock anytime in Privacy -> Blocked List."
-        bodybarBV.font = styleStorebarBV.fontbarBV(14, weight: .regular)
-        bodybarBV.textColor = styleStorebarBV.mutedText
+        bodybarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .regular)
+        bodybarBV.textColor = BaurbstyleStorebarBV.mutedText
         bodybarBV.textAlignment = .center
         bodybarBV.numberOfLines = 0
 
         let cancelbarBV = UIButton(type: .system)
         cancelbarBV.setTitle("Cancel", for: .normal)
         cancelbarBV.setTitleColor(UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1), for: .normal)
-        cancelbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(16, weight: .heavy)
+        cancelbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .heavy)
         cancelbarBV.backgroundColor = UIColor.systemGray6
-        cancelbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
+        cancelbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
         cancelbarBV.addAction(UIAction { [weak self] _ in
             self?.onCancelbarBV?()
         }, for: .touchUpInside)
@@ -986,36 +986,36 @@ final class blockUserAlertSurfacebarBV: UIView {
         let blockbarBV = gradientPill(type: .system)
         blockbarBV.setTitle("Block", for: .normal)
         blockbarBV.setTitleColor(.black, for: .normal)
-        blockbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(16, weight: .heavy)
+        blockbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .heavy)
         blockbarBV.addAction(UIAction { [weak self] _ in
             self?.onBlockbarBV?()
         }, for: .touchUpInside)
 
         let actionsbarBV = UIStackView(arrangedSubviews: [cancelbarBV, blockbarBV])
         actionsbarBV.axis = .horizontal
-        actionsbarBV.spacing = styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
+        actionsbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
         actionsbarBV.distribution = .fillEqually
 
         let stackbarBV = UIStackView(arrangedSubviews: [avatarbarBV, titlebarBV, bodybarBV, actionsbarBV])
         stackbarBV.axis = .vertical
         stackbarBV.alignment = .center
-        stackbarBV.spacing = styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)
+        stackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)
         addSubview(stackbarBV)
         stackbarBV.translatesAutoresizingMaskIntoConstraints = false
         avatarbarBV.translatesAutoresizingMaskIntoConstraints = false
         actionsbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            stackbarBV.topAnchor.constraint(equalTo: topAnchor, constant: styleStorebarBV.spacebarBV(22, minimumbarBV: 18, maximumbarBV: 24)),
-            stackbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
-            stackbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
-            stackbarBV.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -styleStorebarBV.spacebarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
-            avatarbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(62, minimumbarBV: 52, maximumbarBV: 68)),
+            stackbarBV.topAnchor.constraint(equalTo: topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(22, minimumbarBV: 18, maximumbarBV: 24)),
+            stackbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
+            stackbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
+            stackbarBV.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
+            avatarbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(62, minimumbarBV: 52, maximumbarBV: 68)),
             avatarbarBV.heightAnchor.constraint(equalTo: avatarbarBV.widthAnchor),
             titlebarBV.widthAnchor.constraint(equalTo: stackbarBV.widthAnchor),
             bodybarBV.widthAnchor.constraint(equalTo: stackbarBV.widthAnchor),
             actionsbarBV.widthAnchor.constraint(equalTo: stackbarBV.widthAnchor),
-            actionsbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(50))
+            actionsbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(50))
         ])
     }
 }
@@ -1036,7 +1036,7 @@ final class coinShortageAlertSurfacebarBV: UIView {
 
     private func configurebarBV() {
         backgroundColor = .white
-        layer.cornerRadius = styleStorebarBV.metricbarBV(26, minimumbarBV: 22, maximumbarBV: 28)
+        layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(26, minimumbarBV: 22, maximumbarBV: 28)
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.18
         layer.shadowRadius = 18
@@ -1044,25 +1044,25 @@ final class coinShortageAlertSurfacebarBV: UIView {
 
         let titlebarBV = UILabel()
         titlebarBV.text = "Not enough coins"
-        titlebarBV.font = styleStorebarBV.fontbarBV(24, weight: .heavy)
+        titlebarBV.font = BaurbstyleStorebarBV.fontbarBV(24, weight: .heavy)
         titlebarBV.textColor = .black
         titlebarBV.textAlignment = .center
-        styleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.62, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.62, linesbarBV: 1)
 
         let messagebarBV = UILabel()
         messagebarBV.text = "Sorry, you don't have enough coins to pay, please go to recharge"
-        messagebarBV.font = styleStorebarBV.fontbarBV(17, weight: .regular)
-        messagebarBV.textColor = styleStorebarBV.mutedText
+        messagebarBV.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .regular)
+        messagebarBV.textColor = BaurbstyleStorebarBV.mutedText
         messagebarBV.textAlignment = .center
         messagebarBV.numberOfLines = 0
-        styleStorebarBV.labelFitbarBV(messagebarBV, factorbarBV: 0.72, linesbarBV: 0)
+        BaurbstyleStorebarBV.labelFitbarBV(messagebarBV, factorbarBV: 0.72, linesbarBV: 0)
 
         let cancelbarBV = UIButton(type: .system)
         cancelbarBV.setTitle("Cancel", for: .normal)
         cancelbarBV.setTitleColor(.black, for: .normal)
-        cancelbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(18, weight: .heavy)
+        cancelbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .heavy)
         cancelbarBV.backgroundColor = UIColor.systemGray6
-        cancelbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(16, minimumbarBV: 14, maximumbarBV: 18)
+        cancelbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 14, maximumbarBV: 18)
         cancelbarBV.layer.masksToBounds = true
         cancelbarBV.addAction(UIAction { [weak self] _ in
             self?.onCancelbarBV?()
@@ -1071,8 +1071,8 @@ final class coinShortageAlertSurfacebarBV: UIView {
         let buybarBV = gradientPill(type: .system)
         buybarBV.setTitle("🟡 Buy", for: .normal)
         buybarBV.setTitleColor(.black, for: .normal)
-        buybarBV.titleLabel?.font = styleStorebarBV.fontbarBV(18, weight: .heavy)
-        buybarBV.colorsbarBV = [styleStorebarBV.mint, UIColor(red: 1, green: 215 / 255, blue: 251 / 255, alpha: 0.58), styleStorebarBV.pink, styleStorebarBV.mint]
+        buybarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .heavy)
+        buybarBV.colorsbarBV = [BaurbstyleStorebarBV.mint, UIColor(red: 1, green: 215 / 255, blue: 251 / 255, alpha: 0.58), BaurbstyleStorebarBV.pink, BaurbstyleStorebarBV.mint]
         buybarBV.addAction(UIAction { [weak self] _ in
             self?.onBuybarBV?()
         }, for: .touchUpInside)
@@ -1080,22 +1080,22 @@ final class coinShortageAlertSurfacebarBV: UIView {
         let actionsbarBV = UIStackView(arrangedSubviews: [cancelbarBV, buybarBV])
         actionsbarBV.axis = .horizontal
         actionsbarBV.distribution = .fillEqually
-        actionsbarBV.spacing = styleStorebarBV.metricbarBV(12, minimumbarBV: 9, maximumbarBV: 14)
+        actionsbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(12, minimumbarBV: 9, maximumbarBV: 14)
 
         let stackbarBV = UIStackView(arrangedSubviews: [titlebarBV, messagebarBV, actionsbarBV])
         stackbarBV.axis = .vertical
         stackbarBV.alignment = .fill
-        stackbarBV.spacing = styleStorebarBV.spacebarBV(20, minimumbarBV: 16, maximumbarBV: 24)
+        stackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(20, minimumbarBV: 16, maximumbarBV: 24)
         addSubview(stackbarBV)
         stackbarBV.translatesAutoresizingMaskIntoConstraints = false
         actionsbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            stackbarBV.topAnchor.constraint(equalTo: topAnchor, constant: styleStorebarBV.spacebarBV(30, minimumbarBV: 24, maximumbarBV: 34)),
-            stackbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: styleStorebarBV.metricbarBV(26, minimumbarBV: 20, maximumbarBV: 30)),
-            stackbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -styleStorebarBV.metricbarBV(26, minimumbarBV: 20, maximumbarBV: 30)),
-            stackbarBV.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -styleStorebarBV.spacebarBV(24, minimumbarBV: 20, maximumbarBV: 28)),
-            actionsbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(54))
+            stackbarBV.topAnchor.constraint(equalTo: topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(30, minimumbarBV: 24, maximumbarBV: 34)),
+            stackbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(26, minimumbarBV: 20, maximumbarBV: 30)),
+            stackbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(26, minimumbarBV: 20, maximumbarBV: 30)),
+            stackbarBV.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 20, maximumbarBV: 28)),
+            actionsbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(54))
         ])
     }
 }
@@ -1140,8 +1140,8 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
             self?.navigationController?.popViewController(animated: true)
         }, for: .touchUpInside)
         NSLayoutConstraint.activate([
-            backbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(44)),
-            backbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(44))
+            backbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(44)),
+            backbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(44))
         ])
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbarBV)
     }
@@ -1155,18 +1155,18 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
         stackSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
 
         stackSurfacebarBV.axis = .vertical
-        stackSurfacebarBV.spacing = styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)
+        stackSurfacebarBV.spacing = BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)
 
         let titlebarBV = UILabel()
         titlebarBV.text = "What's the issue?"
-        titlebarBV.font = styleStorebarBV.fontbarBV(31, weight: .heavy)
+        titlebarBV.font = BaurbstyleStorebarBV.fontbarBV(31, weight: .heavy)
         titlebarBV.textColor = .black
         titlebarBV.numberOfLines = 2
-        styleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.66, linesbarBV: 2)
+        BaurbstyleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.66, linesbarBV: 2)
 
         let subtitlebarBV = UILabel()
         subtitlebarBV.text = "Your report stays anonymous. We review every one."
-        subtitlebarBV.font = styleStorebarBV.fontbarBV(15, weight: .regular)
+        subtitlebarBV.font = BaurbstyleStorebarBV.fontbarBV(15, weight: .regular)
         subtitlebarBV.textColor = UIColor.darkGray
         subtitlebarBV.numberOfLines = 2
 
@@ -1174,17 +1174,17 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
             stackSurfacebarBV.addArrangedSubview($0)
         }
 
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
         NSLayoutConstraint.activate([
             scrollSurfacebarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollSurfacebarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollSurfacebarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollSurfacebarBV.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor),
 
-            stackSurfacebarBV.topAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24)),
+            stackSurfacebarBV.topAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24)),
             stackSurfacebarBV.leadingAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.leadingAnchor, constant: sideInsetbarBV),
             stackSurfacebarBV.trailingAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.trailingAnchor, constant: -sideInsetbarBV),
-            stackSurfacebarBV.bottomAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28)),
+            stackSurfacebarBV.bottomAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28)),
             stackSurfacebarBV.widthAnchor.constraint(equalTo: scrollSurfacebarBV.frameLayoutGuide.widthAnchor, constant: -sideInsetbarBV * 2)
         ])
     }
@@ -1192,19 +1192,19 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
     private func targetCardbarBV() -> UIView {
         let cardbarBV = UIView()
         cardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         cardbarBV.layer.masksToBounds = true
         let linebarBV = UIView()
-        linebarBV.backgroundColor = styleStorebarBV.blue
+        linebarBV.backgroundColor = BaurbstyleStorebarBV.blue
         let metabarBV = UILabel()
         metabarBV.text = "\(targetLabelbarBV()) · \(targetTimebarBV())"
-        metabarBV.font = styleStorebarBV.fontbarBV(13, weight: .heavy)
-        metabarBV.textColor = styleStorebarBV.blue
+        metabarBV.font = BaurbstyleStorebarBV.fontbarBV(13, weight: .heavy)
+        metabarBV.textColor = BaurbstyleStorebarBV.blue
         metabarBV.numberOfLines = 1
-        styleStorebarBV.labelFitbarBV(metabarBV, factorbarBV: 0.68, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(metabarBV, factorbarBV: 0.68, linesbarBV: 1)
         let contentbarBV = UILabel()
         contentbarBV.text = "\"\(messagebarBV?.messageCopybarBV ?? "Report this conversation.")\""
-        contentbarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        contentbarBV.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         contentbarBV.textColor = .black
         contentbarBV.numberOfLines = 3
         [linebarBV, metabarBV, contentbarBV].forEach {
@@ -1215,14 +1215,14 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
             linebarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor),
             linebarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor),
             linebarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor),
-            linebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(3, minimumbarBV: 2, maximumbarBV: 3)),
-            metabarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
-            metabarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            metabarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            contentbarBV.topAnchor.constraint(equalTo: metabarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(10, minimumbarBV: 7, maximumbarBV: 12)),
+            linebarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(3, minimumbarBV: 2, maximumbarBV: 3)),
+            metabarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            metabarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            metabarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            contentbarBV.topAnchor.constraint(equalTo: metabarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 7, maximumbarBV: 12)),
             contentbarBV.leadingAnchor.constraint(equalTo: metabarBV.leadingAnchor),
             contentbarBV.trailingAnchor.constraint(equalTo: metabarBV.trailingAnchor),
-            contentbarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor, constant: -styleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18))
+            contentbarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18))
         ])
         return cardbarBV
     }
@@ -1230,7 +1230,7 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
     private func reasonCardbarBV() -> UIView {
         let cardbarBV = UIView()
         cardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
         cardbarBV.layer.masksToBounds = true
         let stackbarBV = UIStackView()
         stackbarBV.axis = .vertical
@@ -1249,7 +1249,7 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
             rowbarBV.addAction(UIAction { [weak self] _ in
                 self?.selectReasonbarBV(reasonbarBV)
             }, for: .touchUpInside)
-            rowbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(56)).isActive = true
+            rowbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(56)).isActive = true
             reasonRowsbarBV.append(rowbarBV)
             stackbarBV.addArrangedSubview(rowbarBV)
         }
@@ -1259,22 +1259,22 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
     private func detailCardbarBV() -> UIView {
         let cardbarBV = UIView()
         cardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
         cardbarBV.layer.masksToBounds = true
         detailEntrybarBV.backgroundColor = .clear
-        detailEntrybarBV.font = styleStorebarBV.fontbarBV(17, weight: .regular)
+        detailEntrybarBV.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .regular)
         detailEntrybarBV.textColor = .black
         detailEntrybarBV.delegate = self
         detailEntrybarBV.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         detailPlaceholderbarBV.text = "Add details (optional)..."
-        detailPlaceholderbarBV.font = styleStorebarBV.fontbarBV(17, weight: .regular)
-        detailPlaceholderbarBV.textColor = styleStorebarBV.mutedText
+        detailPlaceholderbarBV.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .regular)
+        detailPlaceholderbarBV.textColor = BaurbstyleStorebarBV.mutedText
         cardbarBV.addSubview(detailEntrybarBV)
         detailEntrybarBV.addSubview(detailPlaceholderbarBV)
         detailEntrybarBV.translatesAutoresizingMaskIntoConstraints = false
         detailPlaceholderbarBV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cardbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(112, minimumbarBV: 96, maximumbarBV: 124)),
+            cardbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(112, minimumbarBV: 96, maximumbarBV: 124)),
             detailEntrybarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor),
             detailEntrybarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor),
             detailEntrybarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor),
@@ -1290,12 +1290,12 @@ final class reportSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
         let buttonbarBV = gradientPill(type: .system)
         buttonbarBV.setTitle("Submit Report", for: .normal)
         buttonbarBV.setTitleColor(.black, for: .normal)
-        buttonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(18, weight: .heavy)
+        buttonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .heavy)
         buttonbarBV.addAction(UIAction { [weak self] _ in
             self?.submitReportbarBV()
         }, for: .touchUpInside)
-        styleStorebarBV.buttonFitbarBV(buttonbarBV)
-        buttonbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(56)).isActive = true
+        BaurbstyleStorebarBV.buttonFitbarBV(buttonbarBV)
+        buttonbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(56)).isActive = true
         return buttonbarBV
     }
 
@@ -1374,10 +1374,10 @@ final class reportReasonRowbarBV: UIControl {
     private func configurebarBV() {
         let labelbarBV = UILabel()
         labelbarBV.text = reasonbarBV.rawValue
-        labelbarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        labelbarBV.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         labelbarBV.textColor = .black
         labelbarBV.isUserInteractionEnabled = false
-        styleStorebarBV.labelFitbarBV(labelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(labelbarBV, factorbarBV: 0.72, linesbarBV: 1)
         let dividerbarBV = UIView()
         dividerbarBV.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.75)
         dividerbarBV.isUserInteractionEnabled = false
@@ -1387,12 +1387,12 @@ final class reportReasonRowbarBV: UIControl {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         NSLayoutConstraint.activate([
-            labelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            labelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             labelbarBV.centerYAnchor.constraint(equalTo: centerYAnchor),
-            labelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: choicebarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
-            choicebarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            labelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: choicebarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            choicebarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             choicebarBV.centerYAnchor.constraint(equalTo: centerYAnchor),
-            choicebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(24, minimumbarBV: 22, maximumbarBV: 26)),
+            choicebarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(24, minimumbarBV: 22, maximumbarBV: 26)),
             choicebarBV.heightAnchor.constraint(equalTo: choicebarBV.widthAnchor),
             dividerbarBV.leadingAnchor.constraint(equalTo: leadingAnchor),
             dividerbarBV.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -1448,10 +1448,10 @@ final class reportChoiceMarkbarBV: UIView {
         checkbarBV.isHidden = !selectedFlagbarBV
         backgroundColor = .clear
         guard selectedFlagbarBV else { return }
-        let gradientbarBV = styleStorebarBV.gradientLayer(
+        let gradientbarBV = BaurbstyleStorebarBV.gradientLayer(
             bounds: bounds,
             cornerRadius: min(bounds.width, bounds.height) / 2,
-            colorsbarBV: [styleStorebarBV.mint, styleStorebarBV.purple, styleStorebarBV.pink],
+            colorsbarBV: [BaurbstyleStorebarBV.mint, BaurbstyleStorebarBV.purple, BaurbstyleStorebarBV.pink],
             locationsbarBV: nil
         )
         gradientbarBV.name = "reportChoiceGradientbarBV"
@@ -1495,8 +1495,8 @@ final class inviteGroupSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UIT
             self?.navigationController?.popViewController(animated: true)
         }, for: .touchUpInside)
         NSLayoutConstraint.activate([
-            backbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(44)),
-            backbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(44))
+            backbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(44)),
+            backbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(44))
         ])
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbarBV)
     }
@@ -1508,12 +1508,12 @@ final class inviteGroupSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UIT
             string: "INVITE FROM CONTACTS (\(contactListbarBV.count))",
             attributes: [
                 .kern: 2,
-                .font: styleStorebarBV.fontbarBV(17, weight: .heavy),
+                .font: BaurbstyleStorebarBV.fontbarBV(17, weight: .heavy),
                 .foregroundColor: UIColor.black
             ]
         )
         tableViewbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        tableViewbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)
+        tableViewbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)
         tableViewbarBV.layer.masksToBounds = true
         tableViewbarBV.separatorStyle = .singleLine
         tableViewbarBV.separatorColor = UIColor.systemGray5
@@ -1524,7 +1524,7 @@ final class inviteGroupSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UIT
         let donebarBV = gradientPill(type: .system)
         donebarBV.setTitle("Done", for: .normal)
         donebarBV.setTitleColor(.black, for: .normal)
-        donebarBV.titleLabel?.font = styleStorebarBV.fontbarBV(22, weight: .heavy)
+        donebarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(22, weight: .heavy)
         donebarBV.addAction(UIAction { [weak self] _ in
             self?.finishInvitebarBV()
         }, for: .touchUpInside)
@@ -1534,70 +1534,70 @@ final class inviteGroupSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UIT
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
-        let sidebarBV = styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)
+        let sidebarBV = BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)
         NSLayoutConstraint.activate([
-            topCardbarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(22, minimumbarBV: 14, maximumbarBV: 26)),
+            topCardbarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(22, minimumbarBV: 14, maximumbarBV: 26)),
             topCardbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sidebarBV),
             topCardbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sidebarBV),
-            topCardbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(230, minimumbarBV: 190, maximumbarBV: 244)),
+            topCardbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(230, minimumbarBV: 190, maximumbarBV: 244)),
 
-            titlebarBV.topAnchor.constraint(equalTo: topCardbarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28)),
+            titlebarBV.topAnchor.constraint(equalTo: topCardbarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28)),
             titlebarBV.leadingAnchor.constraint(equalTo: topCardbarBV.leadingAnchor),
             titlebarBV.trailingAnchor.constraint(equalTo: topCardbarBV.trailingAnchor),
 
-            tableViewbarBV.topAnchor.constraint(equalTo: titlebarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
+            tableViewbarBV.topAnchor.constraint(equalTo: titlebarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
             tableViewbarBV.leadingAnchor.constraint(equalTo: topCardbarBV.leadingAnchor),
             tableViewbarBV.trailingAnchor.constraint(equalTo: topCardbarBV.trailingAnchor),
-            tableViewbarBV.bottomAnchor.constraint(equalTo: donebarBV.topAnchor, constant: -styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
+            tableViewbarBV.bottomAnchor.constraint(equalTo: donebarBV.topAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
 
             donebarBV.leadingAnchor.constraint(equalTo: topCardbarBV.leadingAnchor),
             donebarBV.trailingAnchor.constraint(equalTo: topCardbarBV.trailingAnchor),
-            donebarBV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
-            donebarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(58))
+            donebarBV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            donebarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(58))
         ])
     }
 
     private func inviteCardbarBV() -> UIView {
         let cardbarBV = UIView()
         cardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)
         cardbarBV.layer.masksToBounds = true
 
         let iconShellbarBV = UIView()
         iconShellbarBV.backgroundColor = UIColor(red: 232 / 255, green: 241 / 255, blue: 1, alpha: 1)
-        iconShellbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)
+        iconShellbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)
         let iconbarBV = UIImageView(image: UIImage(systemName: "person.2"))
-        iconbarBV.tintColor = styleStorebarBV.purple
+        iconbarBV.tintColor = BaurbstyleStorebarBV.purple
         iconbarBV.contentMode = .scaleAspectFit
         iconShellbarBV.addSubview(iconbarBV)
         iconbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         let namebarBV = UILabel()
         namebarBV.text = threadbarBV.threadTitlebarBV
-        namebarBV.font = styleStorebarBV.fontbarBV(22, weight: .heavy)
+        namebarBV.font = BaurbstyleStorebarBV.fontbarBV(22, weight: .heavy)
         namebarBV.textAlignment = .center
-        styleStorebarBV.labelFitbarBV(namebarBV, factorbarBV: 0.68, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(namebarBV, factorbarBV: 0.68, linesbarBV: 1)
         let metabarBV = UILabel()
         metabarBV.text = "\(storebarBV.groupMemberCountbarBV(for: threadbarBV)) members · Invite-only"
-        metabarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
-        metabarBV.textColor = styleStorebarBV.mutedText
+        metabarBV.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
+        metabarBV.textColor = BaurbstyleStorebarBV.mutedText
         metabarBV.textAlignment = .center
 
         let linkRowbarBV = UIControl()
         linkRowbarBV.backgroundColor = UIColor.systemGray6
-        linkRowbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+        linkRowbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         linkRowbarBV.addAction(UIAction { [weak self] _ in
             UIPasteboard.general.string = self?.inviteLinkbarBV()
             self?.noticebarBV(titlebarBV: "Copied", messagebarBV: "Invite link copied .")
         }, for: .touchUpInside)
         let linkbarBV = UILabel()
         linkbarBV.text = inviteLinkbarBV()
-        linkbarBV.font = styleStorebarBV.fontbarBV(15, weight: .regular)
+        linkbarBV.font = BaurbstyleStorebarBV.fontbarBV(15, weight: .regular)
         linkbarBV.textColor = UIColor.darkGray
         linkbarBV.lineBreakMode = .byTruncatingMiddle
         let copybarBV = UILabel()
         copybarBV.text = "COPY"
-        copybarBV.font = styleStorebarBV.fontbarBV(14, weight: .heavy)
+        copybarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .heavy)
         copybarBV.textColor = UIColor(red: 50 / 255, green: 82 / 255, blue: 1, alpha: 1)
         [linkbarBV, copybarBV].forEach {
             linkRowbarBV.addSubview($0)
@@ -1607,35 +1607,35 @@ final class inviteGroupSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UIT
 
         let hintbarBV = UILabel()
         hintbarBV.text = "Anyone with this link must request to join."
-        hintbarBV.font = styleStorebarBV.fontbarBV(14, weight: .regular)
-        hintbarBV.textColor = styleStorebarBV.mutedText
+        hintbarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .regular)
+        hintbarBV.textColor = BaurbstyleStorebarBV.mutedText
         hintbarBV.textAlignment = .center
 
         let stackbarBV = UIStackView(arrangedSubviews: [iconShellbarBV, namebarBV, metabarBV, linkRowbarBV, hintbarBV])
         stackbarBV.axis = .vertical
         stackbarBV.alignment = .center
-        stackbarBV.spacing = styleStorebarBV.spacebarBV(10, minimumbarBV: 7, maximumbarBV: 12)
+        stackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 7, maximumbarBV: 12)
         cardbarBV.addSubview(stackbarBV)
         stackbarBV.translatesAutoresizingMaskIntoConstraints = false
         iconShellbarBV.translatesAutoresizingMaskIntoConstraints = false
         linkRowbarBV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackbarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(20, minimumbarBV: 14, maximumbarBV: 22)),
-            stackbarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(20, minimumbarBV: 14, maximumbarBV: 24)),
-            stackbarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(20, minimumbarBV: 14, maximumbarBV: 24)),
-            stackbarBV.bottomAnchor.constraint(lessThanOrEqualTo: cardbarBV.bottomAnchor, constant: -styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 18)),
-            iconShellbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(64, minimumbarBV: 54, maximumbarBV: 70)),
+            stackbarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(20, minimumbarBV: 14, maximumbarBV: 22)),
+            stackbarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 14, maximumbarBV: 24)),
+            stackbarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 14, maximumbarBV: 24)),
+            stackbarBV.bottomAnchor.constraint(lessThanOrEqualTo: cardbarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 18)),
+            iconShellbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(64, minimumbarBV: 54, maximumbarBV: 70)),
             iconShellbarBV.heightAnchor.constraint(equalTo: iconShellbarBV.widthAnchor),
             iconbarBV.centerXAnchor.constraint(equalTo: iconShellbarBV.centerXAnchor),
             iconbarBV.centerYAnchor.constraint(equalTo: iconShellbarBV.centerYAnchor),
             iconbarBV.widthAnchor.constraint(equalTo: iconShellbarBV.widthAnchor, multiplier: 0.58),
             iconbarBV.heightAnchor.constraint(equalTo: iconbarBV.widthAnchor),
             linkRowbarBV.widthAnchor.constraint(equalTo: stackbarBV.widthAnchor),
-            linkRowbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(52)),
-            linkbarBV.leadingAnchor.constraint(equalTo: linkRowbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            linkRowbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(52)),
+            linkbarBV.leadingAnchor.constraint(equalTo: linkRowbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             linkbarBV.centerYAnchor.constraint(equalTo: linkRowbarBV.centerYAnchor),
-            linkbarBV.trailingAnchor.constraint(equalTo: copybarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
-            copybarBV.trailingAnchor.constraint(equalTo: linkRowbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            linkbarBV.trailingAnchor.constraint(equalTo: copybarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            copybarBV.trailingAnchor.constraint(equalTo: linkRowbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             copybarBV.centerYAnchor.constraint(equalTo: linkRowbarBV.centerYAnchor)
         ])
         return cardbarBV
@@ -1667,7 +1667,7 @@ final class inviteGroupSurfacebarBV: barbCanvasbarBV, UITableViewDataSource, UIT
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        styleStorebarBV.metricbarBV(74, minimumbarBV: 64, maximumbarBV: 80)
+        BaurbstyleStorebarBV.metricbarBV(74, minimumbarBV: 64, maximumbarBV: 80)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -1704,25 +1704,25 @@ final class inviteContactCellbarBV: UITableViewCell {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        namebarBV.font = styleStorebarBV.fontbarBV(17, weight: .heavy)
+        namebarBV.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .heavy)
         namebarBV.textColor = UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1)
-        groupbarBV.font = styleStorebarBV.fontbarBV(14, weight: .regular)
+        groupbarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .regular)
         groupbarBV.textColor = UIColor.darkGray
         choicebarBV.isUserInteractionEnabled = false
         NSLayoutConstraint.activate([
-            avatarbarBV.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            avatarbarBV.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             avatarbarBV.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            avatarbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(48, minimumbarBV: 42, maximumbarBV: 52)),
+            avatarbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(48, minimumbarBV: 42, maximumbarBV: 52)),
             avatarbarBV.heightAnchor.constraint(equalTo: avatarbarBV.widthAnchor),
-            namebarBV.leadingAnchor.constraint(equalTo: avatarbarBV.trailingAnchor, constant: styleStorebarBV.metricbarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
-            namebarBV.trailingAnchor.constraint(lessThanOrEqualTo: choicebarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
-            namebarBV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: styleStorebarBV.spacebarBV(15, minimumbarBV: 10, maximumbarBV: 17)),
+            namebarBV.leadingAnchor.constraint(equalTo: avatarbarBV.trailingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
+            namebarBV.trailingAnchor.constraint(lessThanOrEqualTo: choicebarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            namebarBV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(15, minimumbarBV: 10, maximumbarBV: 17)),
             groupbarBV.leadingAnchor.constraint(equalTo: namebarBV.leadingAnchor),
             groupbarBV.trailingAnchor.constraint(equalTo: namebarBV.trailingAnchor),
             groupbarBV.topAnchor.constraint(equalTo: namebarBV.bottomAnchor, constant: 3),
-            choicebarBV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            choicebarBV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             choicebarBV.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            choicebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(26, minimumbarBV: 22, maximumbarBV: 28)),
+            choicebarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(26, minimumbarBV: 22, maximumbarBV: 28)),
             choicebarBV.heightAnchor.constraint(equalTo: choicebarBV.widthAnchor)
         ])
     }
@@ -1733,7 +1733,7 @@ final class inviteContactCellbarBV: UITableViewCell {
 
     func configurebarBV(contactbarBV: trustedContact, selectedbarBV: Bool) {
         avatarbarBV.text = contactbarBV.placeholderAvatar
-        avatarbarBV.backgroundColor = contactbarBV.groupFilter == .familyFilterbarBV ? styleStorebarBV.pink : styleStorebarBV.blue
+        avatarbarBV.backgroundColor = contactbarBV.groupFilter == .familyFilterbarBV ? BaurbstyleStorebarBV.pink : BaurbstyleStorebarBV.blue
         namebarBV.text = contactbarBV.placeholderNamebarBV
         groupbarBV.text = contactbarBV.groupFilter.rawValue
         choicebarBV.selectedFlagbarBV = selectedbarBV
@@ -1777,8 +1777,8 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
             self?.navigationController?.popViewController(animated: true)
         }, for: .touchUpInside)
         NSLayoutConstraint.activate([
-            backbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(44)),
-            backbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(44))
+            backbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(44)),
+            backbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(44))
         ])
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbarBV)
     }
@@ -1790,25 +1790,25 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
         scrollbarBV.translatesAutoresizingMaskIntoConstraints = false
         stackbarBV.translatesAutoresizingMaskIntoConstraints = false
         stackbarBV.axis = .vertical
-        stackbarBV.spacing = styleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18)
+        stackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18)
 
         let bannerbarBV = UILabel()
         bannerbarBV.text = "  ↑ Reporting in group: \(threadbarBV.threadTitlebarBV)"
-        bannerbarBV.font = styleStorebarBV.fontbarBV(15, weight: .regular)
+        bannerbarBV.font = BaurbstyleStorebarBV.fontbarBV(15, weight: .regular)
         bannerbarBV.textColor = UIColor(red: 18 / 255, green: 154 / 255, blue: 77 / 255, alpha: 1)
         bannerbarBV.backgroundColor = UIColor(red: 225 / 255, green: 1, blue: 236 / 255, alpha: 0.95)
-        bannerbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)
+        bannerbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)
         bannerbarBV.layer.masksToBounds = true
 
         let titlebarBV = UILabel()
         titlebarBV.text = "What's the issue?"
-        titlebarBV.font = styleStorebarBV.fontbarBV(31, weight: .heavy)
+        titlebarBV.font = BaurbstyleStorebarBV.fontbarBV(31, weight: .heavy)
         titlebarBV.textColor = .black
         titlebarBV.numberOfLines = 2
-        styleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.64, linesbarBV: 2)
+        BaurbstyleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.64, linesbarBV: 2)
         let subtitlebarBV = UILabel()
         subtitlebarBV.text = "Group admins and Barb safety team will review."
-        subtitlebarBV.font = styleStorebarBV.fontbarBV(15, weight: .regular)
+        subtitlebarBV.font = BaurbstyleStorebarBV.fontbarBV(15, weight: .regular)
         subtitlebarBV.textColor = UIColor.darkGray
         subtitlebarBV.numberOfLines = 2
 
@@ -1816,36 +1816,36 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
             stackbarBV.addArrangedSubview($0)
         }
 
-        let sidebarBV = styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
+        let sidebarBV = BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
         NSLayoutConstraint.activate([
             scrollbarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollbarBV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            stackbarBV.topAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(18, minimumbarBV: 12, maximumbarBV: 22)),
+            stackbarBV.topAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(18, minimumbarBV: 12, maximumbarBV: 22)),
             stackbarBV.leadingAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.leadingAnchor, constant: sidebarBV),
             stackbarBV.trailingAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.trailingAnchor, constant: -sidebarBV),
-            stackbarBV.bottomAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24)),
+            stackbarBV.bottomAnchor.constraint(equalTo: scrollbarBV.contentLayoutGuide.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24)),
             stackbarBV.widthAnchor.constraint(equalTo: scrollbarBV.frameLayoutGuide.widthAnchor, constant: -sidebarBV * 2),
-            bannerbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(48))
+            bannerbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(48))
         ])
     }
 
     private func targetCardbarBV() -> UIView {
         let cardbarBV = UIView()
         cardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         cardbarBV.layer.masksToBounds = true
         let linebarBV = UIView()
         linebarBV.backgroundColor = UIColor(red: 50 / 255, green: 82 / 255, blue: 1, alpha: 1)
         let metabarBV = UILabel()
         metabarBV.text = "FROM \(senderNamebarBV().uppercased()) · \(targetTimebarBV()) · GROUP MEMBER"
-        metabarBV.font = styleStorebarBV.fontbarBV(13, weight: .heavy)
+        metabarBV.font = BaurbstyleStorebarBV.fontbarBV(13, weight: .heavy)
         metabarBV.textColor = UIColor(red: 50 / 255, green: 82 / 255, blue: 1, alpha: 1)
-        styleStorebarBV.labelFitbarBV(metabarBV, factorbarBV: 0.6, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(metabarBV, factorbarBV: 0.6, linesbarBV: 1)
         let contentbarBV = UILabel()
         contentbarBV.text = "\"\(messagebarBV?.messageCopybarBV ?? "Report this group conversation.")\""
-        contentbarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        contentbarBV.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         contentbarBV.textColor = .black
         contentbarBV.numberOfLines = 3
         [linebarBV, metabarBV, contentbarBV].forEach {
@@ -1857,13 +1857,13 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
             linebarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor),
             linebarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor),
             linebarBV.widthAnchor.constraint(equalToConstant: 3),
-            metabarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(15, minimumbarBV: 12, maximumbarBV: 18)),
-            metabarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            metabarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
-            contentbarBV.topAnchor.constraint(equalTo: metabarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            metabarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(15, minimumbarBV: 12, maximumbarBV: 18)),
+            metabarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            metabarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            contentbarBV.topAnchor.constraint(equalTo: metabarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
             contentbarBV.leadingAnchor.constraint(equalTo: metabarBV.leadingAnchor),
             contentbarBV.trailingAnchor.constraint(equalTo: metabarBV.trailingAnchor),
-            contentbarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor, constant: -styleStorebarBV.spacebarBV(15, minimumbarBV: 12, maximumbarBV: 18))
+            contentbarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(15, minimumbarBV: 12, maximumbarBV: 18))
         ])
         return cardbarBV
     }
@@ -1871,30 +1871,30 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
     private func visibilityCardbarBV() -> UIView {
         let cardbarBV = UIView()
         cardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
         let titlebarBV = UILabel()
         titlebarBV.text = "Hide my name from member"
-        titlebarBV.font = styleStorebarBV.fontbarBV(17, weight: .regular)
+        titlebarBV.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .regular)
         titlebarBV.textColor = .black
         let hintbarBV = UILabel()
         hintbarBV.text = "Only Barb safety team will see who reported"
-        hintbarBV.font = styleStorebarBV.fontbarBV(12, weight: .regular)
-        hintbarBV.textColor = styleStorebarBV.mutedText
+        hintbarBV.font = BaurbstyleStorebarBV.fontbarBV(12, weight: .regular)
+        hintbarBV.textColor = BaurbstyleStorebarBV.mutedText
         visibilitySwitchbarBV.isOn = true
-        visibilitySwitchbarBV.onTintColor = styleStorebarBV.purple
+        visibilitySwitchbarBV.onTintColor = BaurbstyleStorebarBV.purple
         [titlebarBV, hintbarBV, visibilitySwitchbarBV].forEach {
             cardbarBV.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         NSLayoutConstraint.activate([
-            cardbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(84, minimumbarBV: 72, maximumbarBV: 92)),
-            titlebarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            cardbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(84, minimumbarBV: 72, maximumbarBV: 92)),
+            titlebarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             titlebarBV.trailingAnchor.constraint(lessThanOrEqualTo: visibilitySwitchbarBV.leadingAnchor, constant: -12),
-            titlebarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(18, minimumbarBV: 13, maximumbarBV: 20)),
+            titlebarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(18, minimumbarBV: 13, maximumbarBV: 20)),
             hintbarBV.leadingAnchor.constraint(equalTo: titlebarBV.leadingAnchor),
             hintbarBV.trailingAnchor.constraint(lessThanOrEqualTo: visibilitySwitchbarBV.leadingAnchor, constant: -12),
             hintbarBV.topAnchor.constraint(equalTo: titlebarBV.bottomAnchor, constant: 4),
-            visibilitySwitchbarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            visibilitySwitchbarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             visibilitySwitchbarBV.centerYAnchor.constraint(equalTo: cardbarBV.centerYAnchor)
         ])
         return cardbarBV
@@ -1903,7 +1903,7 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
     private func reasonCardbarBV() -> UIView {
         let cardbarBV = UIView()
         cardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.96)
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 13, maximumbarBV: 18)
         cardbarBV.layer.masksToBounds = true
         let stackbarBV = UIStackView()
         stackbarBV.axis = .vertical
@@ -1921,7 +1921,7 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
             rowbarBV.addAction(UIAction { [weak self] _ in
                 self?.selectReasonbarBV(reasonbarBV)
             }, for: .touchUpInside)
-            rowbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(58)).isActive = true
+            rowbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(58)).isActive = true
             reasonRowsbarBV.append(rowbarBV)
             stackbarBV.addArrangedSubview(rowbarBV)
         }
@@ -1932,11 +1932,11 @@ final class groupReportSurfacebarBV: barbCanvasbarBV {
         let buttonbarBV = gradientPill(type: .system)
         buttonbarBV.setTitle("Submit Report", for: .normal)
         buttonbarBV.setTitleColor(.black, for: .normal)
-        buttonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(20, weight: .heavy)
+        buttonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(20, weight: .heavy)
         buttonbarBV.addAction(UIAction { [weak self] _ in
             self?.submitbarBV()
         }, for: .touchUpInside)
-        buttonbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(58)).isActive = true
+        buttonbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(58)).isActive = true
         return buttonbarBV
     }
 
@@ -1997,7 +1997,7 @@ final class groupReportReasonRowbarBV: UIControl {
     private func configurebarBV() {
         let labelbarBV = UILabel()
         labelbarBV.text = reasonbarBV.rawValue
-        labelbarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        labelbarBV.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         labelbarBV.textColor = .black
         labelbarBV.isUserInteractionEnabled = false
         let dividerbarBV = UIView()
@@ -2009,12 +2009,12 @@ final class groupReportReasonRowbarBV: UIControl {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         NSLayoutConstraint.activate([
-            labelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            labelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             labelbarBV.centerYAnchor.constraint(equalTo: centerYAnchor),
-            labelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: choicebarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
-            choicebarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            labelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: choicebarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)),
+            choicebarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
             choicebarBV.centerYAnchor.constraint(equalTo: centerYAnchor),
-            choicebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(24, minimumbarBV: 22, maximumbarBV: 26)),
+            choicebarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(24, minimumbarBV: 22, maximumbarBV: 26)),
             choicebarBV.heightAnchor.constraint(equalTo: choicebarBV.widthAnchor),
             dividerbarBV.leadingAnchor.constraint(equalTo: leadingAnchor),
             dividerbarBV.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -2053,22 +2053,22 @@ final class messageMenuSurfacebarBV: UIView {
 
     private func configurebarBV() {
         backgroundColor = UIColor.white.withAlphaComponent(0.98)
-        layer.cornerRadius = styleStorebarBV.metricbarBV(22, minimumbarBV: 18, maximumbarBV: 24)
+        layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(22, minimumbarBV: 18, maximumbarBV: 24)
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.16
         layer.shadowRadius = 18
         layer.shadowOffset = CGSize(width: 0, height: 8)
 
         previewLabelbarBV.text = previewTextbarBV
-        previewLabelbarBV.font = styleStorebarBV.fontbarBV(20, weight: .regular)
+        previewLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(20, weight: .regular)
         previewLabelbarBV.textColor = .black
         previewLabelbarBV.numberOfLines = 2
         previewLabelbarBV.lineBreakMode = .byTruncatingTail
-        styleStorebarBV.labelFitbarBV(previewLabelbarBV, factorbarBV: 0.62, linesbarBV: 2)
+        BaurbstyleStorebarBV.labelFitbarBV(previewLabelbarBV, factorbarBV: 0.62, linesbarBV: 2)
 
         let actionPanelbarBV = UIView()
         actionPanelbarBV.backgroundColor = UIColor.systemGray6.withAlphaComponent(0.92)
-        actionPanelbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(22, minimumbarBV: 18, maximumbarBV: 24)
+        actionPanelbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(22, minimumbarBV: 18, maximumbarBV: 24)
         actionPanelbarBV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         actionPanelbarBV.layer.masksToBounds = true
         stackbarBV.axis = .vertical
@@ -2079,15 +2079,15 @@ final class messageMenuSurfacebarBV: UIView {
         actionPanelbarBV.addSubview(stackbarBV)
         [previewLabelbarBV, actionPanelbarBV, stackbarBV].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         NSLayoutConstraint.activate([
-            previewLabelbarBV.topAnchor.constraint(equalTo: topAnchor, constant: styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
-            previewLabelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            previewLabelbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            previewLabelbarBV.bottomAnchor.constraint(equalTo: actionPanelbarBV.topAnchor, constant: -styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
+            previewLabelbarBV.topAnchor.constraint(equalTo: topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
+            previewLabelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            previewLabelbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            previewLabelbarBV.bottomAnchor.constraint(equalTo: actionPanelbarBV.topAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
 
             actionPanelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor),
             actionPanelbarBV.trailingAnchor.constraint(equalTo: trailingAnchor),
             actionPanelbarBV.bottomAnchor.constraint(equalTo: bottomAnchor),
-            actionPanelbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(168, minimumbarBV: 154, maximumbarBV: 178)),
+            actionPanelbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(168, minimumbarBV: 154, maximumbarBV: 178)),
 
             stackbarBV.topAnchor.constraint(equalTo: actionPanelbarBV.topAnchor),
             stackbarBV.leadingAnchor.constraint(equalTo: actionPanelbarBV.leadingAnchor),
@@ -2133,13 +2133,13 @@ final class messageMenuSurfacebarBV: UIView {
         let dividerbarBV = UIView()
 
         rowbarBV.isEnabled = enabledbarBV
-        let mainColorbarBV = enabledbarBV ? (emphasizedbarBV ? styleStorebarBV.purple : UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1)) : UIColor.systemGray3
+        let mainColorbarBV = enabledbarBV ? (emphasizedbarBV ? BaurbstyleStorebarBV.purple : UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1)) : UIColor.systemGray3
         iconViewbarBV.tintColor = mainColorbarBV
         iconViewbarBV.contentMode = .scaleAspectFit
         titleLabelbarBV.text = titlebarBV
-        titleLabelbarBV.font = styleStorebarBV.fontbarBV(20, weight: .heavy)
+        titleLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(20, weight: .heavy)
         titleLabelbarBV.textColor = mainColorbarBV
-        styleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
         costPillbarBV.isHidden = valuebarBV == nil
         costPillbarBV.configurebarBV(valuebarBV: valuebarBV ?? "")
         dividerbarBV.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.9)
@@ -2154,19 +2154,19 @@ final class messageMenuSurfacebarBV: UIView {
         }, for: .touchUpInside)
 
         NSLayoutConstraint.activate([
-            iconViewbarBV.leadingAnchor.constraint(equalTo: rowbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            iconViewbarBV.leadingAnchor.constraint(equalTo: rowbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
             iconViewbarBV.centerYAnchor.constraint(equalTo: rowbarBV.centerYAnchor),
-            iconViewbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(25, minimumbarBV: 22, maximumbarBV: 27)),
+            iconViewbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(25, minimumbarBV: 22, maximumbarBV: 27)),
             iconViewbarBV.heightAnchor.constraint(equalTo: iconViewbarBV.widthAnchor),
 
-            titleLabelbarBV.leadingAnchor.constraint(equalTo: iconViewbarBV.trailingAnchor, constant: styleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)),
+            titleLabelbarBV.leadingAnchor.constraint(equalTo: iconViewbarBV.trailingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)),
             titleLabelbarBV.centerYAnchor.constraint(equalTo: rowbarBV.centerYAnchor),
-            titleLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: costPillbarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
+            titleLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: costPillbarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
 
-            costPillbarBV.trailingAnchor.constraint(equalTo: rowbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            costPillbarBV.trailingAnchor.constraint(equalTo: rowbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
             costPillbarBV.centerYAnchor.constraint(equalTo: rowbarBV.centerYAnchor),
-            costPillbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(86, minimumbarBV: 74, maximumbarBV: 92)),
-            costPillbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(32, minimumbarBV: 28, maximumbarBV: 34)),
+            costPillbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(86, minimumbarBV: 74, maximumbarBV: 92)),
+            costPillbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(32, minimumbarBV: 28, maximumbarBV: 34)),
 
             dividerbarBV.leadingAnchor.constraint(equalTo: rowbarBV.leadingAnchor),
             dividerbarBV.trailingAnchor.constraint(equalTo: rowbarBV.trailingAnchor),
@@ -2205,15 +2205,15 @@ final class messageCostPillbarBV: UIView {
 
     private func configurebarBV() {
         clipsToBounds = true
-        gradientbarBV.colors = [styleStorebarBV.mint.cgColor, styleStorebarBV.purple.cgColor, styleStorebarBV.pink.cgColor]
+        gradientbarBV.colors = [BaurbstyleStorebarBV.mint.cgColor, BaurbstyleStorebarBV.purple.cgColor, BaurbstyleStorebarBV.pink.cgColor]
         gradientbarBV.startPoint = CGPoint(x: 0, y: 0.5)
         gradientbarBV.endPoint = CGPoint(x: 1, y: 0.5)
         layer.insertSublayer(gradientbarBV, at: 0)
 
-        valueLabelbarBV.font = styleStorebarBV.fontbarBV(14, weight: .bold)
+        valueLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .bold)
         valueLabelbarBV.textColor = .white
         valueLabelbarBV.textAlignment = .right
-        styleStorebarBV.labelFitbarBV(valueLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(valueLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
         coinIconbarBV.tintColor = UIColor(red: 1, green: 210 / 255, blue: 64 / 255, alpha: 1)
         coinIconbarBV.contentMode = .scaleAspectFit
 
@@ -2223,13 +2223,13 @@ final class messageCostPillbarBV: UIView {
         }
 
         NSLayoutConstraint.activate([
-            valueLabelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 11)),
+            valueLabelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 11)),
             valueLabelbarBV.centerYAnchor.constraint(equalTo: centerYAnchor),
-            valueLabelbarBV.trailingAnchor.constraint(equalTo: coinIconbarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(4, minimumbarBV: 3, maximumbarBV: 5)),
+            valueLabelbarBV.trailingAnchor.constraint(equalTo: coinIconbarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(4, minimumbarBV: 3, maximumbarBV: 5)),
 
-            coinIconbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 11)),
+            coinIconbarBV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 11)),
             coinIconbarBV.centerYAnchor.constraint(equalTo: centerYAnchor),
-            coinIconbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(13, minimumbarBV: 11, maximumbarBV: 14)),
+            coinIconbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(13, minimumbarBV: 11, maximumbarBV: 14)),
             coinIconbarBV.heightAnchor.constraint(equalTo: coinIconbarBV.widthAnchor)
         ])
     }
@@ -2290,7 +2290,7 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
 
     private func configurebarBV() {
         stackbarBV.axis = .vertical
-        stackbarBV.spacing = styleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14)
+        stackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14)
         addSubview(stackbarBV)
         stackbarBV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -2307,17 +2307,17 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
 
     private func configureDraftCardbarBV() {
         cardbarBV.backgroundColor = .white
-        cardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(28, minimumbarBV: 22, maximumbarBV: 31)
+        cardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(28, minimumbarBV: 22, maximumbarBV: 31)
         cardbarBV.layer.masksToBounds = true
         cardbarBV.addSubview(stripbarBV)
         cardbarBV.addSubview(cardStackbarBV)
         [stripbarBV, cardStackbarBV].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        stripbarBV.colorsbarBV = styleStorebarBV.cardStripColorsbarBV
-        stripbarBV.locationsbarBV = styleStorebarBV.cardStripLocationsbarBV
+        stripbarBV.colorsbarBV = BaurbstyleStorebarBV.cardStripColorsbarBV
+        stripbarBV.locationsbarBV = BaurbstyleStorebarBV.cardStripLocationsbarBV
         stripbarBV.alpha = 0.9
 
         cardStackbarBV.axis = .vertical
-        cardStackbarBV.spacing = styleStorebarBV.spacebarBV(13, minimumbarBV: 10, maximumbarBV: 15)
+        cardStackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(13, minimumbarBV: 10, maximumbarBV: 15)
         cardStackbarBV.alignment = .fill
 
         configureQuoteCardbarBV()
@@ -2332,36 +2332,36 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
 
         let actionRowbarBV = UIStackView(arrangedSubviews: [regenButtonbarBV, editButtonbarBV, sendButtonbarBV])
         actionRowbarBV.axis = .horizontal
-        actionRowbarBV.spacing = styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
+        actionRowbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
         actionRowbarBV.distribution = .fillEqually
 
         [quoteCardbarBV, toneRowbarBV, draftBoxbarBV, actionRowbarBV].forEach {
             cardStackbarBV.addArrangedSubview($0)
         }
 
-        let draftHeightbarBV = styleStorebarBV.metricbarBV(styleStorebarBV.compactHeightbarBV ? 104 : 118, minimumbarBV: 96, maximumbarBV: 132)
+        let draftHeightbarBV = BaurbstyleStorebarBV.metricbarBV(BaurbstyleStorebarBV.compactHeightbarBV ? 104 : 118, minimumbarBV: 96, maximumbarBV: 132)
         NSLayoutConstraint.activate([
             stripbarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor),
             stripbarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor),
             stripbarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor),
-            stripbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(112, minimumbarBV: 92, maximumbarBV: 120)),
+            stripbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(112, minimumbarBV: 92, maximumbarBV: 120)),
 
-            cardStackbarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            cardStackbarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            cardStackbarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            cardStackbarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor, constant: -styleStorebarBV.spacebarBV(20, minimumbarBV: 16, maximumbarBV: 22)),
+            cardStackbarBV.topAnchor.constraint(equalTo: cardbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            cardStackbarBV.leadingAnchor.constraint(equalTo: cardbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            cardStackbarBV.trailingAnchor.constraint(equalTo: cardbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            cardStackbarBV.bottomAnchor.constraint(equalTo: cardbarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(20, minimumbarBV: 16, maximumbarBV: 22)),
 
-            quoteCardbarBV.heightAnchor.constraint(greaterThanOrEqualToConstant: styleStorebarBV.metricbarBV(92, minimumbarBV: 78, maximumbarBV: 98)),
-            tonePillbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(36)),
-            tonePillbarBV.widthAnchor.constraint(greaterThanOrEqualToConstant: styleStorebarBV.metricbarBV(100, minimumbarBV: 88, maximumbarBV: 112)),
+            quoteCardbarBV.heightAnchor.constraint(greaterThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(92, minimumbarBV: 78, maximumbarBV: 98)),
+            tonePillbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(36)),
+            tonePillbarBV.widthAnchor.constraint(greaterThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(100, minimumbarBV: 88, maximumbarBV: 112)),
             draftBoxbarBV.heightAnchor.constraint(equalToConstant: draftHeightbarBV),
-            actionRowbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(48))
+            actionRowbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(48))
         ])
     }
 
     private func configureQuoteCardbarBV() {
         quoteCardbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.98)
-        quoteCardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+        quoteCardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         quoteCardbarBV.layer.masksToBounds = true
         quoteCardbarBV.addSubview(quoteLinebarBV)
         quoteCardbarBV.addSubview(quoteMetabarBV)
@@ -2369,43 +2369,43 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
         quoteCardbarBV.addSubview(draftBadgebarBV)
         [quoteLinebarBV, quoteMetabarBV, quoteTextbarBV, draftBadgebarBV].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
-        quoteLinebarBV.backgroundColor = styleStorebarBV.blue
+        quoteLinebarBV.backgroundColor = BaurbstyleStorebarBV.blue
         quoteMetabarBV.text = "↳ REPLYING TO \(replyNamebarBV) · \(replyTimebarBV)"
-        quoteMetabarBV.font = styleStorebarBV.fontbarBV(11, weight: .heavy)
-        quoteMetabarBV.textColor = styleStorebarBV.blue
+        quoteMetabarBV.font = BaurbstyleStorebarBV.fontbarBV(11, weight: .heavy)
+        quoteMetabarBV.textColor = BaurbstyleStorebarBV.blue
         quoteMetabarBV.numberOfLines = 1
-        styleStorebarBV.labelFitbarBV(quoteMetabarBV, factorbarBV: 0.68, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(quoteMetabarBV, factorbarBV: 0.68, linesbarBV: 1)
 
         quoteTextbarBV.text = "\"\(messagebarBV.messageCopybarBV)\""
-        quoteTextbarBV.font = styleStorebarBV.fontbarBV(14, weight: .regular)
+        quoteTextbarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .regular)
         quoteTextbarBV.textColor = UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1)
         quoteTextbarBV.numberOfLines = 2
         quoteTextbarBV.lineBreakMode = .byTruncatingTail
 
         draftBadgebarBV.setTitle("AI DRAFT", for: .normal)
         draftBadgebarBV.setTitleColor(.white, for: .normal)
-        draftBadgebarBV.titleLabel?.font = styleStorebarBV.fontbarBV(13, weight: .heavy)
+        draftBadgebarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(13, weight: .heavy)
         draftBadgebarBV.isUserInteractionEnabled = false
 
         NSLayoutConstraint.activate([
             quoteLinebarBV.leadingAnchor.constraint(equalTo: quoteCardbarBV.leadingAnchor),
             quoteLinebarBV.topAnchor.constraint(equalTo: quoteCardbarBV.topAnchor),
             quoteLinebarBV.bottomAnchor.constraint(equalTo: quoteCardbarBV.bottomAnchor),
-            quoteLinebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(3, minimumbarBV: 2, maximumbarBV: 3)),
+            quoteLinebarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(3, minimumbarBV: 2, maximumbarBV: 3)),
 
-            quoteMetabarBV.leadingAnchor.constraint(equalTo: quoteCardbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
-            quoteMetabarBV.trailingAnchor.constraint(lessThanOrEqualTo: draftBadgebarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
-            quoteMetabarBV.topAnchor.constraint(equalTo: quoteCardbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            quoteMetabarBV.leadingAnchor.constraint(equalTo: quoteCardbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 20)),
+            quoteMetabarBV.trailingAnchor.constraint(lessThanOrEqualTo: draftBadgebarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)),
+            quoteMetabarBV.topAnchor.constraint(equalTo: quoteCardbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
 
             quoteTextbarBV.leadingAnchor.constraint(equalTo: quoteMetabarBV.leadingAnchor),
-            quoteTextbarBV.trailingAnchor.constraint(equalTo: quoteCardbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
-            quoteTextbarBV.topAnchor.constraint(equalTo: quoteMetabarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(7, minimumbarBV: 5, maximumbarBV: 8)),
-            quoteTextbarBV.bottomAnchor.constraint(lessThanOrEqualTo: quoteCardbarBV.bottomAnchor, constant: -styleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14)),
+            quoteTextbarBV.trailingAnchor.constraint(equalTo: quoteCardbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 12, maximumbarBV: 18)),
+            quoteTextbarBV.topAnchor.constraint(equalTo: quoteMetabarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(7, minimumbarBV: 5, maximumbarBV: 8)),
+            quoteTextbarBV.bottomAnchor.constraint(lessThanOrEqualTo: quoteCardbarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14)),
 
             draftBadgebarBV.trailingAnchor.constraint(equalTo: quoteCardbarBV.trailingAnchor),
             draftBadgebarBV.topAnchor.constraint(equalTo: quoteCardbarBV.topAnchor),
-            draftBadgebarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(122, minimumbarBV: 104, maximumbarBV: 128)),
-            draftBadgebarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(38))
+            draftBadgebarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(122, minimumbarBV: 104, maximumbarBV: 128)),
+            draftBadgebarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(38))
         ])
     }
 
@@ -2413,42 +2413,42 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
         tonePillbarBV.backgroundColor = UIColor(red: 247 / 255, green: 45 / 255, blue: 155 / 255, alpha: 1)
         tonePillbarBV.textColor = .white
         tonePillbarBV.textAlignment = .center
-        tonePillbarBV.font = styleStorebarBV.fontbarBV(15, weight: .heavy)
-        tonePillbarBV.layer.cornerRadius = styleStorebarBV.controlbarBV(36) / 2
+        tonePillbarBV.font = BaurbstyleStorebarBV.fontbarBV(15, weight: .heavy)
+        tonePillbarBV.layer.cornerRadius = BaurbstyleStorebarBV.controlbarBV(36) / 2
         tonePillbarBV.layer.masksToBounds = true
-        styleStorebarBV.labelFitbarBV(tonePillbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(tonePillbarBV, factorbarBV: 0.72, linesbarBV: 1)
 
         freeLabelbarBV.text = "FREE THIS DRAFT"
-        freeLabelbarBV.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
+        freeLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(12, weight: .heavy)
         freeLabelbarBV.textColor = UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1)
         freeLabelbarBV.textAlignment = .right
-        styleStorebarBV.labelFitbarBV(freeLabelbarBV, factorbarBV: 0.68, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(freeLabelbarBV, factorbarBV: 0.68, linesbarBV: 1)
     }
 
     private func configureDraftBoxbarBV() {
         draftBoxbarBV.backgroundColor = .white
-        draftBoxbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+        draftBoxbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         draftBoxbarBV.layer.borderWidth = 1
         draftBoxbarBV.layer.borderColor = UIColor(red: 192 / 255, green: 235 / 255, blue: 1, alpha: 1).cgColor
         draftBoxbarBV.addSubview(draftTextViewbarBV)
         draftTextViewbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         draftTextViewbarBV.backgroundColor = .clear
-        draftTextViewbarBV.font = styleStorebarBV.fontbarBV(17, weight: .regular)
+        draftTextViewbarBV.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .regular)
         draftTextViewbarBV.textColor = .black
         draftTextViewbarBV.isEditable = false
         draftTextViewbarBV.isScrollEnabled = true
         draftTextViewbarBV.delegate = self
         draftTextViewbarBV.textContainerInset = UIEdgeInsets(
-            top: styleStorebarBV.spacebarBV(12, minimumbarBV: 9, maximumbarBV: 14),
-            left: styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12),
-            bottom: styleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12),
-            right: styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
+            top: BaurbstyleStorebarBV.spacebarBV(12, minimumbarBV: 9, maximumbarBV: 14),
+            left: BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12),
+            bottom: BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 8, maximumbarBV: 12),
+            right: BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
         )
 
         draftPlaceholderbarBV.text = "Please enter your reply..."
-        draftPlaceholderbarBV.font = styleStorebarBV.fontbarBV(17, weight: .regular)
-        draftPlaceholderbarBV.textColor = styleStorebarBV.mutedText
+        draftPlaceholderbarBV.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .regular)
+        draftPlaceholderbarBV.textColor = BaurbstyleStorebarBV.mutedText
         draftTextViewbarBV.addSubview(draftPlaceholderbarBV)
         draftPlaceholderbarBV.translatesAutoresizingMaskIntoConstraints = false
 
@@ -2479,8 +2479,8 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
 
         sendButtonbarBV.setTitle("Send", for: .normal)
         sendButtonbarBV.setTitleColor(.black, for: .normal)
-        sendButtonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(16, weight: .heavy)
-        sendButtonbarBV.colorsbarBV = [styleStorebarBV.mint, UIColor(red: 1, green: 215 / 255, blue: 251 / 255, alpha: 0.6), styleStorebarBV.pink, styleStorebarBV.mint]
+        sendButtonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .heavy)
+        sendButtonbarBV.colorsbarBV = [BaurbstyleStorebarBV.mint, UIColor(red: 1, green: 215 / 255, blue: 251 / 255, alpha: 0.6), BaurbstyleStorebarBV.pink, BaurbstyleStorebarBV.mint]
         sendButtonbarBV.addAction(UIAction { [weak self] _ in
             self?.sendDraftbarBV()
         }, for: .touchUpInside)
@@ -2489,26 +2489,26 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
     private func configureActionButtonbarBV(_ buttonbarBV: UIButton, titlebarBV: String, backgroundbarBV: UIColor) {
         buttonbarBV.setTitle(titlebarBV, for: .normal)
         buttonbarBV.setTitleColor(UIColor(red: 37 / 255, green: 15 / 255, blue: 73 / 255, alpha: 1), for: .normal)
-        buttonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(16, weight: .bold)
+        buttonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .bold)
         buttonbarBV.backgroundColor = backgroundbarBV
-        buttonbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+        buttonbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         buttonbarBV.layer.masksToBounds = true
-        styleStorebarBV.buttonFitbarBV(buttonbarBV)
+        BaurbstyleStorebarBV.buttonFitbarBV(buttonbarBV)
     }
 
     private func configureStyleCardbarBV() {
         styleCardbarBV.backgroundColor = .white
-        styleCardbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(16, minimumbarBV: 14, maximumbarBV: 18)
+        styleCardbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(16, minimumbarBV: 14, maximumbarBV: 18)
         styleCardbarBV.layer.masksToBounds = true
 
         let titleIconbarBV = UIImageView(image: UIImage(systemName: "sparkles"))
-        titleIconbarBV.tintColor = styleStorebarBV.purple
+        titleIconbarBV.tintColor = BaurbstyleStorebarBV.purple
         titleIconbarBV.contentMode = .scaleAspectFit
         let titlebarBV = UILabel()
         titlebarBV.text = "AI REPLY STYLE"
-        titlebarBV.font = styleStorebarBV.fontbarBV(13, weight: .heavy)
+        titlebarBV.font = BaurbstyleStorebarBV.fontbarBV(13, weight: .heavy)
         titlebarBV.textColor = .black
-        styleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(titlebarBV, factorbarBV: 0.72, linesbarBV: 1)
         let robotbarBV = UIImageView(image: UIImage(named: "AIIconbarBV") ?? UIImage(systemName: "sparkles"))
         robotbarBV.contentMode = .scaleAspectFit
         let entrybarBV = UIButton(type: .system)
@@ -2522,31 +2522,31 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
         let headerbarBV = UIStackView(arrangedSubviews: [titleIconbarBV, titlebarBV, UIView(), robotbarBV, entrybarBV])
         headerbarBV.axis = .horizontal
         headerbarBV.alignment = .center
-        headerbarBV.spacing = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        headerbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
 
         styleOptionsbarBV.axis = .horizontal
         styleOptionsbarBV.alignment = .fill
         styleOptionsbarBV.distribution = .fillEqually
-        styleOptionsbarBV.spacing = styleStorebarBV.metricbarBV(9, minimumbarBV: 7, maximumbarBV: 11)
+        styleOptionsbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(9, minimumbarBV: 7, maximumbarBV: 11)
 
         let styleStackbarBV = UIStackView(arrangedSubviews: [headerbarBV, styleOptionsbarBV])
         styleStackbarBV.axis = .vertical
-        styleStackbarBV.spacing = styleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14)
+        styleStackbarBV.spacing = BaurbstyleStorebarBV.spacebarBV(12, minimumbarBV: 10, maximumbarBV: 14)
         styleCardbarBV.addSubview(styleStackbarBV)
         styleStackbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            styleStackbarBV.topAnchor.constraint(equalTo: styleCardbarBV.topAnchor, constant: styleStorebarBV.spacebarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
-            styleStackbarBV.leadingAnchor.constraint(equalTo: styleCardbarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(15, minimumbarBV: 12, maximumbarBV: 18)),
-            styleStackbarBV.trailingAnchor.constraint(equalTo: styleCardbarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(15, minimumbarBV: 12, maximumbarBV: 18)),
-            styleStackbarBV.bottomAnchor.constraint(equalTo: styleCardbarBV.bottomAnchor, constant: -styleStorebarBV.spacebarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
-            titleIconbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(18, minimumbarBV: 16, maximumbarBV: 20)),
+            styleStackbarBV.topAnchor.constraint(equalTo: styleCardbarBV.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
+            styleStackbarBV.leadingAnchor.constraint(equalTo: styleCardbarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(15, minimumbarBV: 12, maximumbarBV: 18)),
+            styleStackbarBV.trailingAnchor.constraint(equalTo: styleCardbarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(15, minimumbarBV: 12, maximumbarBV: 18)),
+            styleStackbarBV.bottomAnchor.constraint(equalTo: styleCardbarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
+            titleIconbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 16, maximumbarBV: 20)),
             titleIconbarBV.heightAnchor.constraint(equalTo: titleIconbarBV.widthAnchor),
-            robotbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(38, minimumbarBV: 32, maximumbarBV: 42)),
+            robotbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(38, minimumbarBV: 32, maximumbarBV: 42)),
             robotbarBV.heightAnchor.constraint(equalTo: robotbarBV.widthAnchor),
-            entrybarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
-            entrybarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
-            styleOptionsbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(48))
+            entrybarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
+            entrybarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
+            styleOptionsbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(48))
         ])
         renderStyleButtonsbarBV()
     }
@@ -2564,16 +2564,16 @@ final class aiReplyDraftSurfacebarBV: UIView, UITextViewDelegate {
             let selectedbarBV = tonebarBV == selectedTonebarBV
             let buttonbarBV: UIButton = selectedbarBV ? gradientPill(type: .system) : UIButton(type: .system)
             if let gradientbarBV = buttonbarBV as? gradientPill {
-                gradientbarBV.colorsbarBV = styleStorebarBV.replyChoiceColorsbarBV
-                gradientbarBV.locationsbarBV = styleStorebarBV.replyChoiceLocationsbarBV
+                gradientbarBV.colorsbarBV = BaurbstyleStorebarBV.replyChoiceColorsbarBV
+                gradientbarBV.locationsbarBV = BaurbstyleStorebarBV.replyChoiceLocationsbarBV
             }
             buttonbarBV.setTitle(tonebarBV.rawValue, for: .normal)
             buttonbarBV.setTitleColor(selectedbarBV ? .white : .darkGray, for: .normal)
-            buttonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(tonesbarBV.count > 3 ? 13 : 15, weight: .heavy)
+            buttonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(tonesbarBV.count > 3 ? 13 : 15, weight: .heavy)
             buttonbarBV.backgroundColor = selectedbarBV ? .clear : UIColor.systemGray6
-            buttonbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)
+            buttonbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)
             buttonbarBV.layer.masksToBounds = true
-            styleStorebarBV.buttonFitbarBV(buttonbarBV)
+            BaurbstyleStorebarBV.buttonFitbarBV(buttonbarBV)
             buttonbarBV.addAction(UIAction { [weak self] _ in
                 self?.selectTonebarBV(tonebarBV)
             }, for: .touchUpInside)
@@ -2660,15 +2660,15 @@ final class messageSurfacebarBV: UITableViewCell {
     func configurebarBV(messagebarBV: messageFixturebarBV, storebarBV: barbVaultbarBV, groupFlagbarBV: Bool = false) {
         let sentbarBV = messagebarBV.sentFlag
         avatarbarBV.text = avatarTextbarBV(messagebarBV: messagebarBV, storebarBV: storebarBV)
-        avatarbarBV.backgroundColor = sentbarBV ? styleStorebarBV.purple : styleStorebarBV.pink
-        bubblebarBV.backgroundColor = sentbarBV ? styleStorebarBV.blue : UIColor.white.withAlphaComponent(0.96)
+        avatarbarBV.backgroundColor = sentbarBV ? BaurbstyleStorebarBV.purple : BaurbstyleStorebarBV.pink
+        bubblebarBV.backgroundColor = sentbarBV ? BaurbstyleStorebarBV.blue : UIColor.white.withAlphaComponent(0.96)
         bubblebarBV.layer.borderWidth = sentbarBV ? 0 : 1
         bubblebarBV.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
         textLabelbarBV.textColor = sentbarBV ? .white : .black
 
         textLabelbarBV.isHidden = true
         senderLabelbarBV.isHidden = true
-        bubblebarBV.backgroundColor = sentbarBV ? styleStorebarBV.blue : UIColor.white.withAlphaComponent(0.96)
+        bubblebarBV.backgroundColor = sentbarBV ? BaurbstyleStorebarBV.blue : UIColor.white.withAlphaComponent(0.96)
         if groupFlagbarBV && !sentbarBV {
             senderLabelbarBV.text = senderNamebarBV(messagebarBV: messagebarBV, storebarBV: storebarBV)
             senderLabelbarBV.isHidden = false
@@ -2684,60 +2684,60 @@ final class messageSurfacebarBV: UITableViewCell {
         contentView.addSubview(bubblebarBV)
         avatarbarBV.translatesAutoresizingMaskIntoConstraints = false
         bubblebarBV.translatesAutoresizingMaskIntoConstraints = false
-        bubblebarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(20, minimumbarBV: 17, maximumbarBV: 22)
+        bubblebarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 17, maximumbarBV: 22)
         bubblebarBV.layer.masksToBounds = true
 
         contentStackbarBV.axis = .vertical
         contentStackbarBV.alignment = .fill
-        contentStackbarBV.spacing = styleStorebarBV.metricbarBV(6, minimumbarBV: 4, maximumbarBV: 7)
+        contentStackbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(6, minimumbarBV: 4, maximumbarBV: 7)
         bubblebarBV.addSubview(contentStackbarBV)
         contentStackbarBV.translatesAutoresizingMaskIntoConstraints = false
 
-        textLabelbarBV.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        textLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         textLabelbarBV.numberOfLines = 0
         textLabelbarBV.lineBreakMode = .byWordWrapping
-        senderLabelbarBV.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
-        senderLabelbarBV.textColor = styleStorebarBV.purple
+        senderLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(12, weight: .heavy)
+        senderLabelbarBV.textColor = BaurbstyleStorebarBV.purple
         senderLabelbarBV.numberOfLines = 1
         senderLabelbarBV.lineBreakMode = .byTruncatingTail
         contentStackbarBV.addArrangedSubview(senderLabelbarBV)
         contentStackbarBV.addArrangedSubview(textLabelbarBV)
 
         NSLayoutConstraint.activate([
-            avatarbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(34, minimumbarBV: 30, maximumbarBV: 36)),
+            avatarbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(34, minimumbarBV: 30, maximumbarBV: 36)),
             avatarbarBV.heightAnchor.constraint(equalTo: avatarbarBV.widthAnchor),
             bubblebarBV.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, multiplier: 0.72),
-            contentStackbarBV.topAnchor.constraint(equalTo: bubblebarBV.topAnchor, constant: styleStorebarBV.metricbarBV(11, minimumbarBV: 9, maximumbarBV: 12)),
-            contentStackbarBV.leadingAnchor.constraint(equalTo: bubblebarBV.leadingAnchor, constant: styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
-            contentStackbarBV.trailingAnchor.constraint(equalTo: bubblebarBV.trailingAnchor, constant: -styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
-            contentStackbarBV.bottomAnchor.constraint(equalTo: bubblebarBV.bottomAnchor, constant: -styleStorebarBV.metricbarBV(11, minimumbarBV: 9, maximumbarBV: 12))
+            contentStackbarBV.topAnchor.constraint(equalTo: bubblebarBV.topAnchor, constant: BaurbstyleStorebarBV.metricbarBV(11, minimumbarBV: 9, maximumbarBV: 12)),
+            contentStackbarBV.leadingAnchor.constraint(equalTo: bubblebarBV.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
+            contentStackbarBV.trailingAnchor.constraint(equalTo: bubblebarBV.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)),
+            contentStackbarBV.bottomAnchor.constraint(equalTo: bubblebarBV.bottomAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(11, minimumbarBV: 9, maximumbarBV: 12))
         ])
     }
 
     private func configureLayoutbarBV() {
         NSLayoutConstraint.activate([
-            bubblebarBV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: styleStorebarBV.spacebarBV(5, minimumbarBV: 4, maximumbarBV: 7)),
-            bubblebarBV.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -styleStorebarBV.spacebarBV(5, minimumbarBV: 4, maximumbarBV: 7))
+            bubblebarBV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(5, minimumbarBV: 4, maximumbarBV: 7)),
+            bubblebarBV.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(5, minimumbarBV: 4, maximumbarBV: 7))
         ])
     }
 
     private func updateAlignmentbarBV(sentbarBV: Bool) {
         NSLayoutConstraint.deactivate(layoutConstraintsbarBV)
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 18)
-        let avatarGapbarBV = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 18)
+        let avatarGapbarBV = BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
         if sentbarBV {
             layoutConstraintsbarBV = [
                 avatarbarBV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -sideInsetbarBV),
                 avatarbarBV.bottomAnchor.constraint(equalTo: bubblebarBV.bottomAnchor),
                 bubblebarBV.trailingAnchor.constraint(equalTo: avatarbarBV.leadingAnchor, constant: -avatarGapbarBV),
-                bubblebarBV.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: styleStorebarBV.metricbarBV(72, minimumbarBV: 58, maximumbarBV: 82))
+                bubblebarBV.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(72, minimumbarBV: 58, maximumbarBV: 82))
             ]
         } else {
             layoutConstraintsbarBV = [
                 avatarbarBV.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: sideInsetbarBV),
                 avatarbarBV.bottomAnchor.constraint(equalTo: bubblebarBV.bottomAnchor),
                 bubblebarBV.leadingAnchor.constraint(equalTo: avatarbarBV.trailingAnchor, constant: avatarGapbarBV),
-                bubblebarBV.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -styleStorebarBV.metricbarBV(72, minimumbarBV: 58, maximumbarBV: 82))
+                bubblebarBV.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(72, minimumbarBV: 58, maximumbarBV: 82))
             ]
         }
         NSLayoutConstraint.activate(layoutConstraintsbarBV)
@@ -2745,7 +2745,7 @@ final class messageSurfacebarBV: UITableViewCell {
 
     private func avatarTextbarBV(messagebarBV: messageFixturebarBV, storebarBV: barbVaultbarBV) -> String {
         if messagebarBV.sentFlag {
-            if let profilebarBV = sessionStore.profileSnapshotbarBV {
+            if let profilebarBV = BaurbsessionStore.profileSnapshotbarBV {
                 if !profilebarBV.placeholderAvatar.isEmpty {
                     return profilebarBV.placeholderAvatar
                 }

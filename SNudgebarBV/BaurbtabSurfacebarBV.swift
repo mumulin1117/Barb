@@ -1,6 +1,6 @@
 import UIKit
 
-final class tabSurfacebarBV: UITabBarController {
+final class BaurbtabSurfacebarBV: UITabBarController {
     private let store: barbVaultbarBV
 
     init(store: barbVaultbarBV) {
@@ -15,14 +15,14 @@ final class tabSurfacebarBV: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         store.reloadAccountScopebarBV()
-        tabBar.tintColor = styleStorebarBV.purple
+        tabBar.tintColor = BaurbstyleStorebarBV.purple
         tabBar.unselectedItemTintColor = .systemGray3
         tabBar.backgroundColor = .white
         viewControllers = [
-            nav(homeSurfacebarBV(store: store),  "tabHomeIdlebarBV", "tabHomeSelectedbarBV"),
-            nav(inboxSurfacebarBV(store: store),  "tabMessagesIdlebarBV", "tabMessagesSelectedbarBV"),
-            nav(contactSurfacebarBV(store: store),  "tabContactsIdlebarBV", "tabContactsSelectedbarBV"),
-            nav(profileSurfacebarBV(store: store),  "tabPersonalIdlebarBV", "tabPersonalSelectedbarBV")
+            nav(BaurbhomeSurfacebarBV(store: store),  "tabHomeIdlebarBV", "tabHomeSelectedbarBV"),
+            nav(BaurbinboxSurfacebarBV(store: store),  "tabMessagesIdlebarBV", "tabMessagesSelectedbarBV"),
+            nav(BaurbcontactSurfacebarBV(store: store),  "tabContactsIdlebarBV", "tabContactsSelectedbarBV"),
+            nav(BaurbprofileSurfacebarBV(store: store),  "tabPersonalIdlebarBV", "tabPersonalSelectedbarBV")
         ]
     }
 

@@ -1,6 +1,6 @@
 import UIKit
 
-final class agreementPage: barbCanvasbarBV {
+final class BaurbagreementPage: barbCanvasbarBV {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "User Agreement"
@@ -15,9 +15,9 @@ final class agreementPage: barbCanvasbarBV {
         scroll.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        label.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         label.textColor = .black
-        styleStorebarBV.labelFitbarBV(label, factorbarBV: 0.72, linesbarBV: 0)
+        BaurbstyleStorebarBV.labelFitbarBV(label, factorbarBV: 0.72, linesbarBV: 0)
         label.text = """
         User Agreement
 
@@ -49,16 +49,16 @@ final class agreementPage: barbCanvasbarBV {
 
         By continuing to use Barb, you agree to this User Agreement, the Privacy Policy, and the applicable Apple EULA.
         """
-        let insetbarBV = styleStorebarBV.metricbarBV(22, minimumbarBV: 16, maximumbarBV: 24)
+        let insetbarBV = BaurbstyleStorebarBV.metricbarBV(22, minimumbarBV: 16, maximumbarBV: 24)
         NSLayoutConstraint.activate([
             scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scroll.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scroll.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scroll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            label.topAnchor.constraint(equalTo: scroll.contentLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24)),
+            label.topAnchor.constraint(equalTo: scroll.contentLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24)),
             label.leadingAnchor.constraint(equalTo: scroll.frameLayoutGuide.leadingAnchor, constant: insetbarBV),
             label.trailingAnchor.constraint(equalTo: scroll.frameLayoutGuide.trailingAnchor, constant: -insetbarBV),
-            label.bottomAnchor.constraint(equalTo: scroll.contentLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24))
+            label.bottomAnchor.constraint(equalTo: scroll.contentLayoutGuide.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(22, minimumbarBV: 16, maximumbarBV: 24))
         ])
     }
 }

@@ -5,7 +5,7 @@ class barbCanvasbarBV: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = styleStorebarBV.backgroundTop
+        view.backgroundColor = BaurbstyleStorebarBV.backgroundTop
         backgroundbarBV.contentMode = .scaleAspectFill
         backgroundbarBV.clipsToBounds = true
         view.insertSubview(backgroundbarBV, at: 0)
@@ -19,7 +19,7 @@ class barbCanvasbarBV: UIViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [
-            .font: styleStorebarBV.fontbarBV(28, weight: .heavy),
+            .font: BaurbstyleStorebarBV.fontbarBV(28, weight: .heavy),
             .foregroundColor: UIColor.black
         ]
         navigationController?.navigationBar.standardAppearance = appearance
@@ -46,9 +46,9 @@ final class offlineSurfacebarBV: UIView {
     private func configure() {
         guard let layer = layer as? CAGradientLayer else { return }
         layer.colors = [
-            styleStorebarBV.backgroundTop.cgColor,
+            BaurbstyleStorebarBV.backgroundTop.cgColor,
             UIColor.white.cgColor,
-            styleStorebarBV.backgroundBottom.cgColor,
+            BaurbstyleStorebarBV.backgroundBottom.cgColor,
             UIColor(red: 210 / 255, green: 249 / 255, blue: 246 / 255, alpha: 1).cgColor
         ]
         layer.locations = [0, 0.4, 0.72, 1]
@@ -64,10 +64,10 @@ final class gradientPill: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        styleStorebarBV.buttonFitbarBV(self)
+        BaurbstyleStorebarBV.buttonFitbarBV(self)
         layer.sublayers?.removeAll { $0.name == "gradient" }
         let radiusbarBV = cornerRadiusbarBV ?? bounds.height / 2
-        let gradient = styleStorebarBV.gradientLayer(
+        let gradient = BaurbstyleStorebarBV.gradientLayer(
             bounds: bounds,
             cornerRadius: radiusbarBV,
             colorsbarBV: colorsbarBV,
@@ -83,7 +83,7 @@ final class gradientPill: UIButton {
 final class cardSurfacebarBV: UIView {
     init(cornerRadius: CGFloat = 24) {
         super.init(frame: .zero)
-        backgroundColor = styleStorebarBV.card
+        backgroundColor = BaurbstyleStorebarBV.card
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
     }
@@ -94,15 +94,15 @@ final class cardSurfacebarBV: UIView {
 }
 
 final class avatarSurfacebarBV: UILabel {
-    init(initial: String, color: UIColor = styleStorebarBV.purple) {
+    init(initial: String, color: UIColor = BaurbstyleStorebarBV.purple) {
         super.init(frame: .zero)
         text = initial
         textAlignment = .center
         textColor = .white
-        font = styleStorebarBV.fontbarBV(24, weight: .bold)
+        font = BaurbstyleStorebarBV.fontbarBV(24, weight: .bold)
         backgroundColor = color
         clipsToBounds = true
-        styleStorebarBV.labelFitbarBV(self, factorbarBV: 0.65, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(self, factorbarBV: 0.65, linesbarBV: 1)
     }
 
     required init?(coder: NSCoder) {
@@ -122,10 +122,10 @@ final class groupAvatarSurfacebarBV: UIView {
         avatarLabelsbarBV.forEach { $0.removeFromSuperview() }
         avatarLabelsbarBV.removeAll()
         let fallbackbarBV = initialsbarBV.isEmpty ? ["G"] : Array(initialsbarBV.prefix(4))
-        let colorsbarBV: [UIColor] = [styleStorebarBV.pink, styleStorebarBV.purple, styleStorebarBV.blue, styleStorebarBV.mint]
+        let colorsbarBV: [UIColor] = [BaurbstyleStorebarBV.pink, BaurbstyleStorebarBV.purple, BaurbstyleStorebarBV.blue, BaurbstyleStorebarBV.mint]
         for (indexbarBV, initialbarBV) in fallbackbarBV.enumerated() {
             let avatarbarBV = avatarSurfacebarBV(initial: initialbarBV, color: colorsbarBV[indexbarBV % colorsbarBV.count])
-            avatarbarBV.font = styleStorebarBV.fontbarBV(14, weight: .heavy)
+            avatarbarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .heavy)
             avatarbarBV.layer.borderColor = UIColor.white.cgColor
             avatarbarBV.layer.borderWidth = 1.5
             addSubview(avatarbarBV)

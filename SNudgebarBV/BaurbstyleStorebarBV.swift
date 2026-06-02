@@ -1,7 +1,7 @@
 import UIKit
 
-enum 
-barBV {
+enum
+BaurbstyleStorebarBV {
     static let backgroundTop = UIColor(red: 220 / 255, green: 250 / 255, blue: 1, alpha: 1)
     static let backgroundBottom = UIColor(red: 253 / 255, green: 237 / 255, blue: 245 / 255, alpha: 1)
     static let blue = UIColor(red: 48 / 255, green: 158 / 255, blue: 246 / 255, alpha: 1)

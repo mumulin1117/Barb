@@ -1,6 +1,6 @@
 import UIKit
 
-final class draftSurfacebarBV: UIViewController {
+final class BaurbdraftSurfacebarBV: UIViewController {
     private let store: barbVaultbarBV
     private let thread: threadFixturebarBV
     private let targetMessage: messageFixturebarBV
@@ -36,28 +36,28 @@ final class draftSurfacebarBV: UIViewController {
     private func configureLayout() {
         let titleLabel = UILabel()
         titleLabel.text = "AI Draft"
-        titleLabel.font = styleStorebarBV.titleFont(28)
-        styleStorebarBV.labelFitbarBV(titleLabel, factorbarBV: 0.72, linesbarBV: 1)
+        titleLabel.font = BaurbstyleStorebarBV.titleFont(28)
+        BaurbstyleStorebarBV.labelFitbarBV(titleLabel, factorbarBV: 0.72, linesbarBV: 1)
         let contextLabel = UILabel()
         contextLabel.text = "Replying to \(thread.threadTitlebarBV)"
-        contextLabel.font = styleStorebarBV.fontbarBV(12, weight: .heavy)
-        contextLabel.textColor = styleStorebarBV.purple
-        styleStorebarBV.labelFitbarBV(contextLabel, factorbarBV: 0.68, linesbarBV: 1)
+        contextLabel.font = BaurbstyleStorebarBV.fontbarBV(12, weight: .heavy)
+        contextLabel.textColor = BaurbstyleStorebarBV.purple
+        BaurbstyleStorebarBV.labelFitbarBV(contextLabel, factorbarBV: 0.68, linesbarBV: 1)
         let targetLabel = UILabel()
         targetLabel.text = "\"\(targetMessage.messageCopybarBV)\""
-        targetLabel.font = styleStorebarBV.fontbarBV(16, weight: .regular)
+        targetLabel.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .regular)
         targetLabel.numberOfLines = 2
         targetLabel.textColor = .darkGray
-        styleStorebarBV.labelFitbarBV(targetLabel, factorbarBV: 0.72, linesbarBV: 2)
-        draftTextView.font = styleStorebarBV.fontbarBV(22, weight: .regular)
+        BaurbstyleStorebarBV.labelFitbarBV(targetLabel, factorbarBV: 0.72, linesbarBV: 2)
+        draftTextView.font = BaurbstyleStorebarBV.fontbarBV(22, weight: .regular)
         draftTextView.layer.borderColor = UIColor.systemGray5.cgColor
         draftTextView.layer.borderWidth = 1
-        draftTextView.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+        draftTextView.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
         let toneTitle = UILabel()
         toneTitle.text = "AI REPLY STYLE"
-        toneTitle.font = styleStorebarBV.fontbarBV(14, weight: .heavy)
+        toneTitle.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .heavy)
         toneTitle.textColor = .black
-        styleStorebarBV.labelFitbarBV(toneTitle, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(toneTitle, factorbarBV: 0.72, linesbarBV: 1)
         let toneEntry = UIButton(type: .system)
         toneEntry.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         toneEntry.tintColor = UIColor.black.withAlphaComponent(0.38)
@@ -73,7 +73,7 @@ final class draftSurfacebarBV: UIViewController {
         toneHeader.axis = .horizontal
         toneHeader.alignment = .center
         toneStack.axis = .horizontal
-        toneStack.spacing = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        toneStack.spacing = BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
         toneStack.distribution = .fillEqually
         var tonesbarBV: [replyStylebarBV] = [.replyToneWarm, .replyToneShortbarBV, .replyTonePolite]
         if !tonesbarBV.contains(selectedTone) {
@@ -82,9 +82,9 @@ final class draftSurfacebarBV: UIViewController {
         for tone in tonesbarBV {
             let button = UIButton(type: .system)
             button.setTitle(tone.rawValue, for: .normal)
-            button.titleLabel?.font = styleStorebarBV.fontbarBV(tonesbarBV.count > 3 ? 14 : 16, weight: .bold)
-            styleStorebarBV.buttonFitbarBV(button, factorbarBV: 0.68)
-            button.layer.cornerRadius = styleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)
+            button.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(tonesbarBV.count > 3 ? 14 : 16, weight: .bold)
+            BaurbstyleStorebarBV.buttonFitbarBV(button, factorbarBV: 0.68)
+            button.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(12, minimumbarBV: 10, maximumbarBV: 14)
             button.addAction(UIAction { [weak self] _ in
                 self?.selectedTone = tone
                 self?.regenCounterbarBV = 0
@@ -93,7 +93,7 @@ final class draftSurfacebarBV: UIViewController {
             toneStack.addArrangedSubview(button)
         }
         let actions = UIStackView()
-        actions.spacing = styleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
+        actions.spacing = BaurbstyleStorebarBV.metricbarBV(10, minimumbarBV: 8, maximumbarBV: 12)
         actions.distribution = .fillEqually
         let regen = UIButton(type: .system)
         regen.setTitle("Regen", for: .normal)
@@ -107,27 +107,27 @@ final class draftSurfacebarBV: UIViewController {
             self.dismiss(animated: true)
         }, for: .touchUpInside)
         [regen, send].forEach {
-            $0.titleLabel?.font = styleStorebarBV.fontbarBV(19, weight: .bold)
-            styleStorebarBV.buttonFitbarBV($0)
-            $0.layer.cornerRadius = styleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
+            $0.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(19, weight: .bold)
+            BaurbstyleStorebarBV.buttonFitbarBV($0)
+            $0.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 12, maximumbarBV: 16)
             $0.backgroundColor = $0 === regen ? UIColor.systemGray6 : .clear
             actions.addArrangedSubview($0)
         }
         let stack = UIStackView(arrangedSubviews: [titleLabel, contextLabel, targetLabel, toneHeader, toneStack, draftTextView, actions])
         stack.axis = .vertical
-        stack.spacing = styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)
+        stack.spacing = BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)
         view.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28)),
-            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)),
-            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)),
-            draftTextView.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(154, minimumbarBV: 132, maximumbarBV: 170)),
-            toneHeader.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
-            toneEntry.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
-            toneEntry.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
-            toneStack.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(48)),
-            actions.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(52))
+            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28)),
+            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)),
+            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)),
+            draftTextView.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(154, minimumbarBV: 132, maximumbarBV: 170)),
+            toneHeader.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
+            toneEntry.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
+            toneEntry.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(30, minimumbarBV: 28, maximumbarBV: 32)),
+            toneStack.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(48)),
+            actions.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(52))
         ])
     }
 
@@ -135,7 +135,7 @@ final class draftSurfacebarBV: UIViewController {
         draftTextView.text = store.generatedDraftbarBV(for: targetMessage, tone: selectedTone, variantbarBV: regenCounterbarBV == 0 ? nil : regenCounterbarBV)
         for case let button as UIButton in toneStack.arrangedSubviews {
             let isSelected = button.title(for: .normal) == selectedTone.rawValue
-            button.backgroundColor = isSelected ? styleStorebarBV.pink : UIColor.systemGray6
+            button.backgroundColor = isSelected ? BaurbstyleStorebarBV.pink : UIColor.systemGray6
             button.setTitleColor(isSelected ? .white : .darkGray, for: .normal)
         }
     }

@@ -17,7 +17,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.agreementAlertbarBV()
         }
-        sessionSignalbarBV = NotificationCenter.default.addObserver(forName: sessionStore.sessionSignalbarBV, object: nil, queue: .main) { [weak self] _ in
+        sessionSignalbarBV = NotificationCenter.default.addObserver(forName: BaurbsessionStore.sessionSignalbarBV, object: nil, queue: .main) { [weak self] _ in
             self?.window?.rootViewController = self?.rootSurfacebarBV()
             DispatchQueue.main.async {
                 self?.agreementAlertbarBV()
@@ -26,19 +26,19 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func rootSurfacebarBV() -> UIViewController {
-        if sessionStore.activeStatebarBV {
-            return tabSurfacebarBV(store: barbVaultbarBV.shared)
+        if BaurbsessionStore.activeStatebarBV {
+            return BaurbtabSurfacebarBV(store: barbVaultbarBV.shared)
         }
-        return UINavigationController(rootViewController: loginPagebarBV())
+        return UINavigationController(rootViewController: BaurbBoardPagebarBV())
     }
 
     private func agreementAlertbarBV() {
-        guard sessionStore.activeStatebarBV, !sessionStore.agreementAcceptedbarBV else { return }
+        guard BaurbsessionStore.activeStatebarBV, !BaurbsessionStore.agreementAcceptedbarBV else { return }
         guard let root = window?.rootViewController, root.presentedViewController == nil else { return }
-        let alert = UIAlertController(title: "End User License Agreement", message: sessionStore.agreementCopybarBV(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "End User License Agreement", message: BaurbsessionStore.agreementCopybarBV(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Decline", style: .cancel))
         alert.addAction(UIAlertAction(title: "Agree", style: .default) { _ in
-            sessionStore.agreementFlowbarBV(true)
+            BaurbsessionStore.agreementFlowbarBV(true)
         })
         root.present(alert, animated: true)
     }

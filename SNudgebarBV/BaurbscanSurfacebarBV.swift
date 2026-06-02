@@ -1,7 +1,7 @@
 import UIKit
 
-// TODO: When real scanning is approved, add camera permission text, AVFoundation scanning, QR parsing, and the friend-request handoff.
-final class scanSurfacebarBV: UIViewController {
+
+final class BaurbscanSurfacebarBV: UIViewController {
     private let headerBarbarBV = UIView()
     private let backButtonbarBV = UIButton(type: .system)
     private let titleLabelbarBV = UILabel()
@@ -44,21 +44,21 @@ final class scanSurfacebarBV: UIViewController {
         backButtonbarBV.setImage(UIImage(systemName: "arrow.left"), for: .normal)
         backButtonbarBV.tintColor = .white
         backButtonbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.10)
-        backButtonbarBV.layer.cornerRadius = styleStorebarBV.controlbarBV(44) / 2
+        backButtonbarBV.layer.cornerRadius = BaurbstyleStorebarBV.controlbarBV(44) / 2
         backButtonbarBV.addAction(UIAction { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }, for: .touchUpInside)
 
         titleLabelbarBV.text = "Scan"
         titleLabelbarBV.textColor = .white
-        titleLabelbarBV.font = styleStorebarBV.fontbarBV(21, weight: .heavy)
+        titleLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(21, weight: .heavy)
         titleLabelbarBV.textAlignment = .center
-        styleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
 
         flashButtonbarBV.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
         flashButtonbarBV.tintColor = .white
         flashButtonbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.10)
-        flashButtonbarBV.layer.cornerRadius = styleStorebarBV.controlbarBV(44) / 2
+        flashButtonbarBV.layer.cornerRadius = BaurbstyleStorebarBV.controlbarBV(44) / 2
         flashButtonbarBV.addAction(UIAction { [weak self] _ in
             self?.toggleFlashbarBV()
         }, for: .touchUpInside)
@@ -70,13 +70,13 @@ final class scanSurfacebarBV: UIViewController {
         }
         headerBarbarBV.translatesAutoresizingMaskIntoConstraints = false
 
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(24, minimumbarBV: 18, maximumbarBV: 28)
-        let buttonSizebarBV = styleStorebarBV.controlbarBV(44)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(24, minimumbarBV: 18, maximumbarBV: 28)
+        let buttonSizebarBV = BaurbstyleStorebarBV.controlbarBV(44)
         NSLayoutConstraint.activate([
-            headerBarbarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(10, minimumbarBV: 6, maximumbarBV: 14)),
+            headerBarbarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(10, minimumbarBV: 6, maximumbarBV: 14)),
             headerBarbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideInsetbarBV),
             headerBarbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideInsetbarBV),
-            headerBarbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(50, minimumbarBV: 46, maximumbarBV: 54)),
+            headerBarbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(50, minimumbarBV: 46, maximumbarBV: 54)),
 
             backButtonbarBV.leadingAnchor.constraint(equalTo: headerBarbarBV.leadingAnchor),
             backButtonbarBV.centerYAnchor.constraint(equalTo: headerBarbarBV.centerYAnchor),
@@ -90,8 +90,8 @@ final class scanSurfacebarBV: UIViewController {
 
             titleLabelbarBV.centerXAnchor.constraint(equalTo: headerBarbarBV.centerXAnchor),
             titleLabelbarBV.centerYAnchor.constraint(equalTo: headerBarbarBV.centerYAnchor),
-            titleLabelbarBV.leadingAnchor.constraint(greaterThanOrEqualTo: backButtonbarBV.trailingAnchor, constant: styleStorebarBV.metricbarBV(12, minimumbarBV: 8, maximumbarBV: 14)),
-            titleLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: flashButtonbarBV.leadingAnchor, constant: -styleStorebarBV.metricbarBV(12, minimumbarBV: 8, maximumbarBV: 14))
+            titleLabelbarBV.leadingAnchor.constraint(greaterThanOrEqualTo: backButtonbarBV.trailingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(12, minimumbarBV: 8, maximumbarBV: 14)),
+            titleLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: flashButtonbarBV.leadingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(12, minimumbarBV: 8, maximumbarBV: 14))
         ])
     }
 
@@ -100,8 +100,8 @@ final class scanSurfacebarBV: UIViewController {
         hintLabelbarBV.textColor = UIColor.white.withAlphaComponent(0.68)
         hintLabelbarBV.textAlignment = .center
         hintLabelbarBV.numberOfLines = 0
-        hintLabelbarBV.font = styleStorebarBV.fontbarBV(16, weight: .semibold)
-        styleStorebarBV.labelFitbarBV(hintLabelbarBV, factorbarBV: 0.72, linesbarBV: 0)
+        hintLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(16, weight: .semibold)
+        BaurbstyleStorebarBV.labelFitbarBV(hintLabelbarBV, factorbarBV: 0.72, linesbarBV: 0)
 
         view.addSubview(scanFramebarBV)
         view.addSubview(hintLabelbarBV)
@@ -110,21 +110,21 @@ final class scanSurfacebarBV: UIViewController {
 
         let widthRulebarBV = scanFramebarBV.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.68)
         widthRulebarBV.priority = .defaultHigh
-        let centerRulebarBV = scanFramebarBV.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -styleStorebarBV.spacebarBV(68, minimumbarBV: 44, maximumbarBV: 84))
+        let centerRulebarBV = scanFramebarBV.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(68, minimumbarBV: 44, maximumbarBV: 84))
         centerRulebarBV.priority = .defaultHigh
 
         NSLayoutConstraint.activate([
             scanFramebarBV.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            scanFramebarBV.topAnchor.constraint(greaterThanOrEqualTo: headerBarbarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(44, minimumbarBV: 28, maximumbarBV: 56)),
-            scanFramebarBV.widthAnchor.constraint(lessThanOrEqualToConstant: styleStorebarBV.metricbarBV(286, minimumbarBV: 238, maximumbarBV: 304)),
-            scanFramebarBV.widthAnchor.constraint(greaterThanOrEqualToConstant: styleStorebarBV.metricbarBV(210, minimumbarBV: 188, maximumbarBV: 222)),
+            scanFramebarBV.topAnchor.constraint(greaterThanOrEqualTo: headerBarbarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(44, minimumbarBV: 28, maximumbarBV: 56)),
+            scanFramebarBV.widthAnchor.constraint(lessThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(286, minimumbarBV: 238, maximumbarBV: 304)),
+            scanFramebarBV.widthAnchor.constraint(greaterThanOrEqualToConstant: BaurbstyleStorebarBV.metricbarBV(210, minimumbarBV: 188, maximumbarBV: 222)),
             scanFramebarBV.heightAnchor.constraint(equalTo: scanFramebarBV.widthAnchor),
             widthRulebarBV,
             centerRulebarBV,
 
-            hintLabelbarBV.topAnchor.constraint(equalTo: scanFramebarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(34, minimumbarBV: 20, maximumbarBV: 42)),
-            hintLabelbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: styleStorebarBV.metricbarBV(34, minimumbarBV: 24, maximumbarBV: 42)),
-            hintLabelbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -styleStorebarBV.metricbarBV(34, minimumbarBV: 24, maximumbarBV: 42))
+            hintLabelbarBV.topAnchor.constraint(equalTo: scanFramebarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(34, minimumbarBV: 20, maximumbarBV: 42)),
+            hintLabelbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(34, minimumbarBV: 24, maximumbarBV: 42)),
+            hintLabelbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(34, minimumbarBV: 24, maximumbarBV: 42))
         ])
     }
 
@@ -132,7 +132,7 @@ final class scanSurfacebarBV: UIViewController {
         actionStackbarBV.axis = .horizontal
         actionStackbarBV.distribution = .fillEqually
         actionStackbarBV.alignment = .fill
-        actionStackbarBV.spacing = styleStorebarBV.metricbarBV(18, minimumbarBV: 12, maximumbarBV: 24)
+        actionStackbarBV.spacing = BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 12, maximumbarBV: 24)
 
         albumActionbarBV.addAction(UIAction { [weak self] _ in
             self?.showStatusbarBV("Album scan is unavailable right now.")
@@ -149,31 +149,31 @@ final class scanSurfacebarBV: UIViewController {
         actionStackbarBV.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            actionStackbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: styleStorebarBV.metricbarBV(30, minimumbarBV: 22, maximumbarBV: 38)),
-            actionStackbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -styleStorebarBV.metricbarBV(30, minimumbarBV: 22, maximumbarBV: 38)),
-            actionStackbarBV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(20, minimumbarBV: 12, maximumbarBV: 26)),
-            actionStackbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(78, minimumbarBV: 68, maximumbarBV: 84)),
-            hintLabelbarBV.bottomAnchor.constraint(lessThanOrEqualTo: actionStackbarBV.topAnchor, constant: -styleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 32))
+            actionStackbarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(30, minimumbarBV: 22, maximumbarBV: 38)),
+            actionStackbarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(30, minimumbarBV: 22, maximumbarBV: 38)),
+            actionStackbarBV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(20, minimumbarBV: 12, maximumbarBV: 26)),
+            actionStackbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(78, minimumbarBV: 68, maximumbarBV: 84)),
+            hintLabelbarBV.bottomAnchor.constraint(lessThanOrEqualTo: actionStackbarBV.topAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 32))
         ])
     }
 
     private func configureStatusbarBV() {
         statusLabelbarBV.alpha = 0
         statusLabelbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.16)
-        statusLabelbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(17, minimumbarBV: 15, maximumbarBV: 18)
+        statusLabelbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(17, minimumbarBV: 15, maximumbarBV: 18)
         statusLabelbarBV.layer.masksToBounds = true
         statusLabelbarBV.textColor = .white
         statusLabelbarBV.textAlignment = .center
-        statusLabelbarBV.font = styleStorebarBV.fontbarBV(14, weight: .bold)
-        styleStorebarBV.labelFitbarBV(statusLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        statusLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .bold)
+        BaurbstyleStorebarBV.labelFitbarBV(statusLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
         view.addSubview(statusLabelbarBV)
         statusLabelbarBV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             statusLabelbarBV.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            statusLabelbarBV.bottomAnchor.constraint(equalTo: actionStackbarBV.topAnchor, constant: -styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
-            statusLabelbarBV.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: styleStorebarBV.metricbarBV(42, minimumbarBV: 30, maximumbarBV: 48)),
-            statusLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -styleStorebarBV.metricbarBV(42, minimumbarBV: 30, maximumbarBV: 48)),
-            statusLabelbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(34, minimumbarBV: 30, maximumbarBV: 36))
+            statusLabelbarBV.bottomAnchor.constraint(equalTo: actionStackbarBV.topAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
+            statusLabelbarBV.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(42, minimumbarBV: 30, maximumbarBV: 48)),
+            statusLabelbarBV.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(42, minimumbarBV: 30, maximumbarBV: 48)),
+            statusLabelbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(34, minimumbarBV: 30, maximumbarBV: 36))
         ])
     }
 
@@ -183,7 +183,7 @@ final class scanSurfacebarBV: UIViewController {
     }
 
     private func updateFlashbarBV() {
-        let colorbarBV = isFlashOnbarBV ? styleStorebarBV.purple : UIColor.white.withAlphaComponent(0.10)
+        let colorbarBV = isFlashOnbarBV ? BaurbstyleStorebarBV.purple : UIColor.white.withAlphaComponent(0.10)
         let tintbarBV = isFlashOnbarBV ? .white : UIColor.white.withAlphaComponent(0.92)
         flashButtonbarBV.backgroundColor = colorbarBV
         flashButtonbarBV.tintColor = tintbarBV
@@ -213,7 +213,7 @@ final class scanFrameSurfacebarBV: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white.withAlphaComponent(0.03)
-        layer.cornerRadius = styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
+        layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
         layer.masksToBounds = false
         addSubview(scanLinebarBV)
     }
@@ -238,8 +238,8 @@ final class scanFrameSurfacebarBV: UIView {
     override func draw(_ rect: CGRect) {
         let pathbarBV = UIBezierPath()
         let lengthbarBV = min(rect.width, rect.height) * 0.22
-        let insetbarBV = max(3, styleStorebarBV.metricbarBV(4, minimumbarBV: 3, maximumbarBV: 5))
-        let radiusbarBV = styleStorebarBV.metricbarBV(14, minimumbarBV: 11, maximumbarBV: 16)
+        let insetbarBV = max(3, BaurbstyleStorebarBV.metricbarBV(4, minimumbarBV: 3, maximumbarBV: 5))
+        let radiusbarBV = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 11, maximumbarBV: 16)
 
         func cornerbarBV(from startbarBV: CGPoint, through midbarBV: CGPoint, to endbarBV: CGPoint) {
             pathbarBV.move(to: startbarBV)
@@ -290,7 +290,7 @@ final class scanFrameSurfacebarBV: UIView {
         pathbarBV.addLine(to: CGPoint(x: rect.maxX - insetbarBV, y: rect.maxY - insetbarBV - lengthbarBV))
 
         UIColor.white.setStroke()
-        pathbarBV.lineWidth = styleStorebarBV.metricbarBV(5, minimumbarBV: 4, maximumbarBV: 6)
+        pathbarBV.lineWidth = BaurbstyleStorebarBV.metricbarBV(5, minimumbarBV: 4, maximumbarBV: 6)
         pathbarBV.lineCapStyle = .round
         pathbarBV.stroke()
     }
@@ -328,8 +328,8 @@ final class scanLineSurfacebarBV: UIView {
         if let layerbarBV = layer as? CAGradientLayer {
             layerbarBV.colors = [
                 UIColor.clear.cgColor,
-                styleStorebarBV.purple.cgColor,
-                styleStorebarBV.pink.cgColor,
+                BaurbstyleStorebarBV.purple.cgColor,
+                BaurbstyleStorebarBV.pink.cgColor,
                 UIColor.clear.cgColor
             ]
             layerbarBV.locations = [0, 0.22, 0.78, 1]
@@ -369,13 +369,13 @@ final class scanActionButtonbarBV: UIControl {
 
     private func configurebarBV() {
         iconShellbarBV.backgroundColor = UIColor.white.withAlphaComponent(0.12)
-        iconShellbarBV.layer.cornerRadius = styleStorebarBV.metricbarBV(22, minimumbarBV: 20, maximumbarBV: 24)
+        iconShellbarBV.layer.cornerRadius = BaurbstyleStorebarBV.metricbarBV(22, minimumbarBV: 20, maximumbarBV: 24)
         iconViewbarBV.tintColor = .white
         iconViewbarBV.contentMode = .scaleAspectFit
         titleLabelbarBV.textColor = UIColor.white.withAlphaComponent(0.84)
         titleLabelbarBV.textAlignment = .center
-        titleLabelbarBV.font = styleStorebarBV.fontbarBV(14, weight: .bold)
-        styleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
+        titleLabelbarBV.font = BaurbstyleStorebarBV.fontbarBV(14, weight: .bold)
+        BaurbstyleStorebarBV.labelFitbarBV(titleLabelbarBV, factorbarBV: 0.72, linesbarBV: 1)
 
         iconShellbarBV.addSubview(iconViewbarBV)
         [iconShellbarBV, titleLabelbarBV].forEach {
@@ -387,15 +387,15 @@ final class scanActionButtonbarBV: UIControl {
         NSLayoutConstraint.activate([
             iconShellbarBV.topAnchor.constraint(equalTo: topAnchor),
             iconShellbarBV.centerXAnchor.constraint(equalTo: centerXAnchor),
-            iconShellbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(46, minimumbarBV: 40, maximumbarBV: 50)),
+            iconShellbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(46, minimumbarBV: 40, maximumbarBV: 50)),
             iconShellbarBV.heightAnchor.constraint(equalTo: iconShellbarBV.widthAnchor),
 
             iconViewbarBV.centerXAnchor.constraint(equalTo: iconShellbarBV.centerXAnchor),
             iconViewbarBV.centerYAnchor.constraint(equalTo: iconShellbarBV.centerYAnchor),
-            iconViewbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(22, minimumbarBV: 19, maximumbarBV: 24)),
+            iconViewbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(22, minimumbarBV: 19, maximumbarBV: 24)),
             iconViewbarBV.heightAnchor.constraint(equalTo: iconViewbarBV.widthAnchor),
 
-            titleLabelbarBV.topAnchor.constraint(equalTo: iconShellbarBV.bottomAnchor, constant: styleStorebarBV.spacebarBV(8, minimumbarBV: 5, maximumbarBV: 9)),
+            titleLabelbarBV.topAnchor.constraint(equalTo: iconShellbarBV.bottomAnchor, constant: BaurbstyleStorebarBV.spacebarBV(8, minimumbarBV: 5, maximumbarBV: 9)),
             titleLabelbarBV.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabelbarBV.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLabelbarBV.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor)
@@ -403,7 +403,7 @@ final class scanActionButtonbarBV: UIControl {
     }
 
     func setActivebarBV(_ activebarBV: Bool) {
-        iconShellbarBV.backgroundColor = activebarBV ? styleStorebarBV.purple : UIColor.white.withAlphaComponent(0.12)
+        iconShellbarBV.backgroundColor = activebarBV ? BaurbstyleStorebarBV.purple : UIColor.white.withAlphaComponent(0.12)
         iconViewbarBV.tintColor = .white
         titleLabelbarBV.textColor = activebarBV ? .white : UIColor.white.withAlphaComponent(0.84)
     }

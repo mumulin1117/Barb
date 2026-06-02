@@ -1,6 +1,6 @@
 import UIKit
 
-final class loginPagebarBV: barbCanvasbarBV {
+final class BaurbBoardPagebarBV: barbCanvasbarBV {
     private let emailEntrybarBV = UITextField()
     private let privacySeed = UITextField()
     private let consentMarkbarBV = UIButton(type: .system)
@@ -14,7 +14,7 @@ final class loginPagebarBV: barbCanvasbarBV {
         title = "Log in"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: nil, action: nil)
         layoutFlowbarBV()
-        agreementSignalbarBV = NotificationCenter.default.addObserver(forName: sessionStore.agreementSignalbarBV, object: nil, queue: .main) { [weak self] _ in
+        agreementSignalbarBV = NotificationCenter.default.addObserver(forName: BaurbsessionStore.agreementSignalbarBV, object: nil, queue: .main) { [weak self] _ in
             self?.agreementRefreshbarBV()
         }
     }
@@ -26,7 +26,7 @@ final class loginPagebarBV: barbCanvasbarBV {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !sessionStore.agreementAcceptedbarBV, !firstAgreementbarBV else { return }
+        guard !BaurbsessionStore.agreementAcceptedbarBV, !firstAgreementbarBV else { return }
         firstAgreementbarBV = true
         agreementAlertbarBV()
     }
@@ -49,20 +49,20 @@ final class loginPagebarBV: barbCanvasbarBV {
         stackSurfacebarBV.spacing = 0
         scrollSurfacebarBV.addSubview(stackSurfacebarBV)
         stackSurfacebarBV.translatesAutoresizingMaskIntoConstraints = false
-        let sideInsetbarBV = styleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
+        let sideInsetbarBV = BaurbstyleStorebarBV.metricbarBV(20, minimumbarBV: 16, maximumbarBV: 22)
         NSLayoutConstraint.activate([
             scrollSurfacebarBV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollSurfacebarBV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollSurfacebarBV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollSurfacebarBV.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor),
-            stackSurfacebarBV.topAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.topAnchor, constant: styleStorebarBV.spacebarBV(40, minimumbarBV: 22, maximumbarBV: 52)),
+            stackSurfacebarBV.topAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.topAnchor, constant: BaurbstyleStorebarBV.spacebarBV(40, minimumbarBV: 22, maximumbarBV: 52)),
             stackSurfacebarBV.leadingAnchor.constraint(equalTo: scrollSurfacebarBV.frameLayoutGuide.leadingAnchor, constant: sideInsetbarBV),
             stackSurfacebarBV.trailingAnchor.constraint(equalTo: scrollSurfacebarBV.frameLayoutGuide.trailingAnchor, constant: -sideInsetbarBV),
-            stackSurfacebarBV.bottomAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.bottomAnchor, constant: -styleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28))
+            stackSurfacebarBV.bottomAnchor.constraint(equalTo: scrollSurfacebarBV.contentLayoutGuide.bottomAnchor, constant: -BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 16, maximumbarBV: 28))
         ])
         let titleTextbarBV = UILabel()
         titleTextbarBV.text = "Sign in with email"
-        titleTextbarBV.font = styleStorebarBV.titleFont(34)
+        titleTextbarBV.font = BaurbstyleStorebarBV.titleFont(34)
         titleTextbarBV.textAlignment = .center
         titleTextbarBV.numberOfLines = 0
         titleTextbarBV.adjustsFontSizeToFitWidth = true
@@ -70,11 +70,11 @@ final class loginPagebarBV: barbCanvasbarBV {
         titleTextbarBV.lineBreakMode = .byWordWrapping
         let subtitleTextbarBV = UILabel()
         subtitleTextbarBV.text = ""//"We'll send you a code to verify it's you."
-        subtitleTextbarBV.font = styleStorebarBV.fontbarBV(20, weight: .regular)
+        subtitleTextbarBV.font = BaurbstyleStorebarBV.fontbarBV(20, weight: .regular)
         subtitleTextbarBV.textColor = UIColor.black.withAlphaComponent(0.65)
         subtitleTextbarBV.textAlignment = .center
         subtitleTextbarBV.numberOfLines = 0
-        styleStorebarBV.labelFitbarBV(subtitleTextbarBV, factorbarBV: 0.72, linesbarBV: 0)
+        BaurbstyleStorebarBV.labelFitbarBV(subtitleTextbarBV, factorbarBV: 0.72, linesbarBV: 0)
         emailEntrybarBV.keyboardType = .emailAddress
         emailEntrybarBV.autocapitalizationType = .none
         emailEntrybarBV.textContentType = .username
@@ -83,51 +83,51 @@ final class loginPagebarBV: barbCanvasbarBV {
         let actionButtonbarBV = gradientPill(type: .system)
         actionButtonbarBV.setTitle("Log in", for: .normal)
         actionButtonbarBV.setTitleColor(UIColor.black.withAlphaComponent(0.62), for: .normal)
-        actionButtonbarBV.titleLabel?.font = styleStorebarBV.fontbarBV(22, weight: .heavy)
-        styleStorebarBV.buttonFitbarBV(actionButtonbarBV)
-        actionButtonbarBV.heightAnchor.constraint(equalToConstant: styleStorebarBV.controlbarBV(56)).isActive = true
+        actionButtonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(22, weight: .heavy)
+        BaurbstyleStorebarBV.buttonFitbarBV(actionButtonbarBV)
+        actionButtonbarBV.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.controlbarBV(56)).isActive = true
         actionButtonbarBV.addAction(UIAction { [weak self] _ in self?.loginFlowbarBV() }, for: .touchUpInside)
         stackSurfacebarBV.addArrangedSubview(titleTextbarBV)
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(12, minimumbarBV: 8, maximumbarBV: 16), after: titleTextbarBV)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(12, minimumbarBV: 8, maximumbarBV: 16), after: titleTextbarBV)
         stackSurfacebarBV.addArrangedSubview(subtitleTextbarBV)
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(48, minimumbarBV: 26, maximumbarBV: 58), after: subtitleTextbarBV)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(48, minimumbarBV: 26, maximumbarBV: 58), after: subtitleTextbarBV)
         stackSurfacebarBV.addArrangedSubview(sectionTitlebarBV("Email"))
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 18), after: stackSurfacebarBV.arrangedSubviews.last!)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 18), after: stackSurfacebarBV.arrangedSubviews.last!)
         stackSurfacebarBV.addArrangedSubview(inputPanelbarBV(emailEntrybarBV, "Please enter your email address.", "envelope.fill"))
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(38, minimumbarBV: 22, maximumbarBV: 46), after: stackSurfacebarBV.arrangedSubviews.last!)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(38, minimumbarBV: 22, maximumbarBV: 46), after: stackSurfacebarBV.arrangedSubviews.last!)
         stackSurfacebarBV.addArrangedSubview(sectionTitlebarBV("Password"))
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 18), after: stackSurfacebarBV.arrangedSubviews.last!)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(14, minimumbarBV: 10, maximumbarBV: 18), after: stackSurfacebarBV.arrangedSubviews.last!)
         stackSurfacebarBV.addArrangedSubview(inputPanelbarBV(privacySeed, "Please enter your password.", "lock.fill"))
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(78, minimumbarBV: 34, maximumbarBV: 98), after: stackSurfacebarBV.arrangedSubviews.last!)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(78, minimumbarBV: 34, maximumbarBV: 98), after: stackSurfacebarBV.arrangedSubviews.last!)
         stackSurfacebarBV.addArrangedSubview(actionButtonbarBV)
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(28, minimumbarBV: 18, maximumbarBV: 36), after: actionButtonbarBV)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(28, minimumbarBV: 18, maximumbarBV: 36), after: actionButtonbarBV)
         stackSurfacebarBV.addArrangedSubview(switcherbarBV())
-        stackSurfacebarBV.setCustomSpacing(styleStorebarBV.spacebarBV(52, minimumbarBV: 28, maximumbarBV: 68), after: stackSurfacebarBV.arrangedSubviews.last!)
+        stackSurfacebarBV.setCustomSpacing(BaurbstyleStorebarBV.spacebarBV(52, minimumbarBV: 28, maximumbarBV: 68), after: stackSurfacebarBV.arrangedSubviews.last!)
         stackSurfacebarBV.addArrangedSubview(consentbarBV())
     }
 
     private func inputPanelbarBV(_ field: UITextField, _ placeholder: String, _ icon: String) -> UIView {
-        let fieldHeightbarBV = styleStorebarBV.controlbarBV(56)
+        let fieldHeightbarBV = BaurbstyleStorebarBV.controlbarBV(56)
         let card = cardSurfacebarBV(cornerRadius: fieldHeightbarBV / 2)
         let symbol = UIImageView(image: UIImage(systemName: icon))
         symbol.tintColor = .black
         field.placeholder = placeholder
-        field.font = styleStorebarBV.fontbarBV(18, weight: .regular)
+        field.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .regular)
         field.adjustsFontSizeToFitWidth = true
-        field.minimumFontSize = styleStorebarBV.sizebarBV(12)
+        field.minimumFontSize = BaurbstyleStorebarBV.sizebarBV(12)
         field.textColor = .black
         card.addSubview(symbol)
         card.addSubview(field)
         symbol.translatesAutoresizingMaskIntoConstraints = false
         field.translatesAutoresizingMaskIntoConstraints = false
-        let iconWidthbarBV = styleStorebarBV.metricbarBV(23, minimumbarBV: 20, maximumbarBV: 24)
+        let iconWidthbarBV = BaurbstyleStorebarBV.metricbarBV(23, minimumbarBV: 20, maximumbarBV: 24)
         NSLayoutConstraint.activate([
             card.heightAnchor.constraint(equalToConstant: fieldHeightbarBV),
-            symbol.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: styleStorebarBV.metricbarBV(26, minimumbarBV: 20, maximumbarBV: 30)),
+            symbol.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(26, minimumbarBV: 20, maximumbarBV: 30)),
             symbol.centerYAnchor.constraint(equalTo: card.centerYAnchor),
             symbol.widthAnchor.constraint(equalToConstant: iconWidthbarBV),
-            field.leadingAnchor.constraint(equalTo: symbol.trailingAnchor, constant: styleStorebarBV.metricbarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
-            field.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -styleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
+            field.leadingAnchor.constraint(equalTo: symbol.trailingAnchor, constant: BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 10, maximumbarBV: 16)),
+            field.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 14, maximumbarBV: 22)),
             field.centerYAnchor.constraint(equalTo: card.centerYAnchor)
         ])
         return card
@@ -136,9 +136,9 @@ final class loginPagebarBV: barbCanvasbarBV {
     private func sectionTitlebarBV(_ text: String) -> UILabel {
         let label = UILabel()
         label.text = text
-        label.font = styleStorebarBV.fontbarBV(24, weight: .heavy)
+        label.font = BaurbstyleStorebarBV.fontbarBV(24, weight: .heavy)
         label.textColor = .black
-        styleStorebarBV.labelFitbarBV(label, factorbarBV: 0.72, linesbarBV: 1)
+        BaurbstyleStorebarBV.labelFitbarBV(label, factorbarBV: 0.72, linesbarBV: 1)
         return label
     }
 
@@ -151,14 +151,14 @@ final class loginPagebarBV: barbCanvasbarBV {
         let spacerB = UIView()
         let text = UILabel()
         text.text = "No account?"
-        text.font = styleStorebarBV.fontbarBV(18, weight: .regular)
-        styleStorebarBV.labelFitbarBV(text, factorbarBV: 0.7, linesbarBV: 1)
+        text.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .regular)
+        BaurbstyleStorebarBV.labelFitbarBV(text, factorbarBV: 0.7, linesbarBV: 1)
         let action = UIButton(type: .system)
         action.setTitle("Sign up", for: .normal)
-        action.titleLabel?.font = styleStorebarBV.fontbarBV(18, weight: .heavy)
-        styleStorebarBV.buttonFitbarBV(action)
+        action.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(18, weight: .heavy)
+        BaurbstyleStorebarBV.buttonFitbarBV(action)
         action.addAction(UIAction { [weak self] _ in
-            self?.navigationController?.pushViewController(registerPagebarBV(), animated: true)
+            self?.navigationController?.pushViewController(BaurbCreatePagebarBV(), animated: true)
         }, for: .touchUpInside)
         row.addArrangedSubview(spacerA)
         row.addArrangedSubview(text)
@@ -171,7 +171,7 @@ final class loginPagebarBV: barbCanvasbarBV {
 
     private func consentbarBV() -> UIView {
         consentMarkbarBV.addAction(UIAction { _ in
-            sessionStore.agreementFlowbarBV(!sessionStore.agreementAcceptedbarBV)
+            BaurbsessionStore.agreementFlowbarBV(!BaurbsessionStore.agreementAcceptedbarBV)
         }, for: .touchUpInside)
         let text = UITextView()
         text.delegate = self
@@ -189,7 +189,7 @@ final class loginPagebarBV: barbCanvasbarBV {
         let format = NSMutableAttributedString(
             string: copy,
             attributes: [
-                .font: styleStorebarBV.fontbarBV(18, weight: .regular),
+                .font: BaurbstyleStorebarBV.fontbarBV(18, weight: .regular),
                 .foregroundColor: UIColor.black.withAlphaComponent(0.5)
             ]
         )
@@ -203,36 +203,36 @@ final class loginPagebarBV: barbCanvasbarBV {
         let row = UIStackView(arrangedSubviews: [consentMarkbarBV, text])
         row.axis = .horizontal
         row.alignment = .top
-        row.spacing = styleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
+        row.spacing = BaurbstyleStorebarBV.metricbarBV(8, minimumbarBV: 6, maximumbarBV: 10)
         row.isLayoutMarginsRelativeArrangement = true
-        let insetbarBV = styleStorebarBV.metricbarBV(18, minimumbarBV: 8, maximumbarBV: 26)
+        let insetbarBV = BaurbstyleStorebarBV.metricbarBV(18, minimumbarBV: 8, maximumbarBV: 26)
         row.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: insetbarBV, bottom: 0, trailing: insetbarBV)
-        consentMarkbarBV.widthAnchor.constraint(equalToConstant: styleStorebarBV.metricbarBV(24, minimumbarBV: 22, maximumbarBV: 28)).isActive = true
+        consentMarkbarBV.widthAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(24, minimumbarBV: 22, maximumbarBV: 28)).isActive = true
         agreementRefreshbarBV()
         return row
     }
 
     private func loginFlowbarBV() {
-        guard sessionStore.agreementAcceptedbarBV else {
+        guard BaurbsessionStore.agreementAcceptedbarBV else {
             agreementAlertbarBV()
             return
         }
-        if let alertText = sessionStore.loginFlowbarBV(emailEntry: emailEntrybarBV.text ?? "", privacySeed: privacySeed.text ?? "") {
+        if let alertText = BaurbsessionStore.loginFlowbarBV(emailEntry: emailEntrybarBV.text ?? "", privacySeed: privacySeed.text ?? "") {
             alertSurfacebarBV(alertText)
         }
     }
 
     private func agreementRefreshbarBV() {
-        let icon = sessionStore.agreementAcceptedbarBV ? "checkmark.square.fill" : "square"
+        let icon = BaurbsessionStore.agreementAcceptedbarBV ? "checkmark.square.fill" : "square"
         consentMarkbarBV.setImage(UIImage(systemName: icon), for: .normal)
-        consentMarkbarBV.tintColor = styleStorebarBV.purple
+        consentMarkbarBV.tintColor = BaurbstyleStorebarBV.purple
     }
 
     private func agreementAlertbarBV() {
-        let alert = UIAlertController(title: "End User License Agreement", message: sessionStore.agreementCopybarBV(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "End User License Agreement", message: BaurbsessionStore.agreementCopybarBV(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Decline", style: .cancel))
         alert.addAction(UIAlertAction(title: "Agree", style: .default) { _ in
-            sessionStore.agreementFlowbarBV(true)
+            BaurbsessionStore.agreementFlowbarBV(true)
         })
         present(alert, animated: true)
     }
@@ -244,14 +244,14 @@ final class loginPagebarBV: barbCanvasbarBV {
     }
 }
 
-extension loginPagebarBV: UITextViewDelegate {
+extension BaurbBoardPagebarBV: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         if URL.absoluteString == "barb://terms" {
-            navigationController?.pushViewController(agreementPage(), animated: true)
+            navigationController?.pushViewController(BaurbagreementPage(), animated: true)
             return false
         }
         if URL.absoluteString == "barb://privacy" {
-            navigationController?.pushViewController(policyPagebarBV(), animated: true)
+            navigationController?.pushViewController(BaurbpolicyPagebarBV(), animated: true)
             return false
         }
         return false

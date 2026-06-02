@@ -10,54 +10,54 @@
 		04E2507C2FCEC11D00902E81 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E2507B2FCEC11D00902E81 /* Launch Screen.storyboard */; };
 		7A0000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000101 /* AppDelegate.swift */; };
 		7A0000010000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000102 /* SceneDelegate.swift */; };
-		7A0000010000000000000003 /* styleStorebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000103 /* styleStorebarBV.swift */; };
+		7A0000010000000000000003 /* BaurbstyleStorebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000103 /* BaurbstyleStorebarBV.swift */; };
 		7A0000010000000000000004 /* barbModelsbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000104 /* barbModelsbarBV.swift */; };
 		7A0000010000000000000005 /* barbVaultbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000105 /* barbVaultbarBV.swift */; };
 		7A0000010000000000000006 /* barbCanvasbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000106 /* barbCanvasbarBV.swift */; };
-		7A0000010000000000000007 /* tabSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000107 /* tabSurfacebarBV.swift */; };
-		7A0000010000000000000008 /* homeSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000108 /* homeSurfacebarBV.swift */; };
-		7A0000010000000000000009 /* inboxSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000109 /* inboxSurfacebarBV.swift */; };
-		7A000001000000000000000A /* threadPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010A /* threadPagebarBV.swift */; };
-		7A000001000000000000000B /* draftSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010B /* draftSurfacebarBV.swift */; };
-		7A000001000000000000000C /* contactSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010C /* contactSurfacebarBV.swift */; };
-		7A000001000000000000000D /* detailSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010D /* detailSurface.swift */; };
-		7A000001000000000000000E /* profileSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010E /* profileSurfacebarBV.swift */; };
-		7A000001000000000000000F /* scanSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010F /* scanSurfacebarBV.swift */; };
+		7A0000010000000000000007 /* BaurbtabSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000107 /* BaurbtabSurfacebarBV.swift */; };
+		7A0000010000000000000008 /* BaurbhomeSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000108 /* BaurbhomeSurfacebarBV.swift */; };
+		7A0000010000000000000009 /* BaurbinboxSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000109 /* BaurbinboxSurfacebarBV.swift */; };
+		7A000001000000000000000A /* BaurbthreadPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010A /* BaurbthreadPagebarBV.swift */; };
+		7A000001000000000000000B /* BaurbdraftSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010B /* BaurbdraftSurfacebarBV.swift */; };
+		7A000001000000000000000C /* BaurbcontactSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010C /* BaurbcontactSurfacebarBV.swift */; };
+		7A000001000000000000000D /* BaurbdetailSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010D /* BaurbdetailSurface.swift */; };
+		7A000001000000000000000E /* BaurbprofileSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010E /* BaurbprofileSurfacebarBV.swift */; };
+		7A000001000000000000000F /* BaurbscanSurfacebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000001000000000000010F /* BaurbscanSurfacebarBV.swift */; };
 		7A0000010000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000110 /* Assets.xcassets */; };
-		7A0000010000000000000011 /* sessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000113 /* sessionStore.swift */; };
-		7A0000010000000000000012 /* loginPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000114 /* loginPagebarBV.swift */; };
-		7A0000010000000000000013 /* registerPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000115 /* registerPagebarBV.swift */; };
-		7A0000010000000000000014 /* materialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000116 /* materialPage.swift */; };
-		7A0000010000000000000015 /* agreementPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000117 /* agreementPage.swift */; };
-		7A0000010000000000000016 /* policyPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000118 /* policyPagebarBV.swift */; };
+		7A0000010000000000000011 /* BaurbsessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000113 /* BaurbsessionStore.swift */; };
+		7A0000010000000000000012 /* BaurbBoardPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000114 /* BaurbBoardPagebarBV.swift */; };
+		7A0000010000000000000013 /* BaurbCreatePagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000115 /* BaurbCreatePagebarBV.swift */; };
+		7A0000010000000000000014 /* BaurbmaterialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000116 /* BaurbmaterialPage.swift */; };
+		7A0000010000000000000015 /* BaurbagreementPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000117 /* BaurbagreementPage.swift */; };
+		7A0000010000000000000016 /* BaurbpolicyPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000118 /* BaurbpolicyPagebarBV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04E2507B2FCEC11D00902E81 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7A0000010000000000000101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0000010000000000000102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A0000010000000000000103 /* styleStorebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styleStorebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000103 /* BaurbstyleStorebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbstyleStorebarBV.swift; sourceTree = "<group>"; };
 		7A0000010000000000000104 /* barbModelsbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barbModelsbarBV.swift; sourceTree = "<group>"; };
 		7A0000010000000000000105 /* barbVaultbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barbVaultbarBV.swift; sourceTree = "<group>"; };
 		7A0000010000000000000106 /* barbCanvasbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barbCanvasbarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000107 /* tabSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabSurfacebarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000108 /* homeSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeSurfacebarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000109 /* inboxSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inboxSurfacebarBV.swift; sourceTree = "<group>"; };
-		7A000001000000000000010A /* threadPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = threadPagebarBV.swift; sourceTree = "<group>"; };
-		7A000001000000000000010B /* draftSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = draftSurfacebarBV.swift; sourceTree = "<group>"; };
-		7A000001000000000000010C /* contactSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactSurfacebarBV.swift; sourceTree = "<group>"; };
-		7A000001000000000000010D /* detailSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailSurface.swift; sourceTree = "<group>"; };
-		7A000001000000000000010E /* profileSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileSurfacebarBV.swift; sourceTree = "<group>"; };
-		7A000001000000000000010F /* scanSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000107 /* BaurbtabSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbtabSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000108 /* BaurbhomeSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbhomeSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000109 /* BaurbinboxSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbinboxSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010A /* BaurbthreadPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbthreadPagebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010B /* BaurbdraftSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbdraftSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010C /* BaurbcontactSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbcontactSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010D /* BaurbdetailSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbdetailSurface.swift; sourceTree = "<group>"; };
+		7A000001000000000000010E /* BaurbprofileSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbprofileSurfacebarBV.swift; sourceTree = "<group>"; };
+		7A000001000000000000010F /* BaurbscanSurfacebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbscanSurfacebarBV.swift; sourceTree = "<group>"; };
 		7A0000010000000000000110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A0000010000000000000111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0000010000000000000112 /* SNudgebarBV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNudgebarBV.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A0000010000000000000113 /* sessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sessionStore.swift; sourceTree = "<group>"; };
-		7A0000010000000000000114 /* loginPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPagebarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000115 /* registerPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerPagebarBV.swift; sourceTree = "<group>"; };
-		7A0000010000000000000116 /* materialPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = materialPage.swift; sourceTree = "<group>"; };
-		7A0000010000000000000117 /* agreementPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = agreementPage.swift; sourceTree = "<group>"; };
-		7A0000010000000000000118 /* policyPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = policyPagebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000113 /* BaurbsessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbsessionStore.swift; sourceTree = "<group>"; };
+		7A0000010000000000000114 /* BaurbBoardPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbBoardPagebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000115 /* BaurbCreatePagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbCreatePagebarBV.swift; sourceTree = "<group>"; };
+		7A0000010000000000000116 /* BaurbmaterialPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbmaterialPage.swift; sourceTree = "<group>"; };
+		7A0000010000000000000117 /* BaurbagreementPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbagreementPage.swift; sourceTree = "<group>"; };
+		7A0000010000000000000118 /* BaurbpolicyPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbpolicyPagebarBV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,25 +84,25 @@
 			children = (
 				7A0000010000000000000101 /* AppDelegate.swift */,
 				7A0000010000000000000102 /* SceneDelegate.swift */,
-				7A0000010000000000000103 /* styleStorebarBV.swift */,
+				7A0000010000000000000103 /* BaurbstyleStorebarBV.swift */,
 				7A0000010000000000000104 /* barbModelsbarBV.swift */,
 				7A0000010000000000000105 /* barbVaultbarBV.swift */,
 				7A0000010000000000000106 /* barbCanvasbarBV.swift */,
-				7A0000010000000000000107 /* tabSurfacebarBV.swift */,
-				7A0000010000000000000108 /* homeSurfacebarBV.swift */,
-				7A0000010000000000000109 /* inboxSurfacebarBV.swift */,
-				7A000001000000000000010A /* threadPagebarBV.swift */,
-				7A000001000000000000010B /* draftSurfacebarBV.swift */,
-				7A000001000000000000010C /* contactSurfacebarBV.swift */,
-				7A000001000000000000010D /* detailSurface.swift */,
-				7A000001000000000000010E /* profileSurfacebarBV.swift */,
-				7A000001000000000000010F /* scanSurfacebarBV.swift */,
-				7A0000010000000000000113 /* sessionStore.swift */,
-				7A0000010000000000000114 /* loginPagebarBV.swift */,
-				7A0000010000000000000115 /* registerPagebarBV.swift */,
-				7A0000010000000000000116 /* materialPage.swift */,
-				7A0000010000000000000117 /* agreementPage.swift */,
-				7A0000010000000000000118 /* policyPagebarBV.swift */,
+				7A0000010000000000000107 /* BaurbtabSurfacebarBV.swift */,
+				7A0000010000000000000108 /* BaurbhomeSurfacebarBV.swift */,
+				7A0000010000000000000109 /* BaurbinboxSurfacebarBV.swift */,
+				7A000001000000000000010A /* BaurbthreadPagebarBV.swift */,
+				7A000001000000000000010B /* BaurbdraftSurfacebarBV.swift */,
+				7A000001000000000000010C /* BaurbcontactSurfacebarBV.swift */,
+				7A000001000000000000010D /* BaurbdetailSurface.swift */,
+				7A000001000000000000010E /* BaurbprofileSurfacebarBV.swift */,
+				7A000001000000000000010F /* BaurbscanSurfacebarBV.swift */,
+				7A0000010000000000000113 /* BaurbsessionStore.swift */,
+				7A0000010000000000000114 /* BaurbBoardPagebarBV.swift */,
+				7A0000010000000000000115 /* BaurbCreatePagebarBV.swift */,
+				7A0000010000000000000116 /* BaurbmaterialPage.swift */,
+				7A0000010000000000000117 /* BaurbagreementPage.swift */,
+				7A0000010000000000000118 /* BaurbpolicyPagebarBV.swift */,
 				7A0000010000000000000110 /* Assets.xcassets */,
 				7A0000010000000000000111 /* Info.plist */,
 				04E2507B2FCEC11D00902E81 /* Launch Screen.storyboard */,
@@ -195,25 +195,25 @@
 			files = (
 				7A0000010000000000000001 /* AppDelegate.swift in Sources */,
 				7A0000010000000000000002 /* SceneDelegate.swift in Sources */,
-				7A0000010000000000000003 /* styleStorebarBV.swift in Sources */,
+				7A0000010000000000000003 /* BaurbstyleStorebarBV.swift in Sources */,
 				7A0000010000000000000004 /* barbModelsbarBV.swift in Sources */,
 				7A0000010000000000000005 /* barbVaultbarBV.swift in Sources */,
 				7A0000010000000000000006 /* barbCanvasbarBV.swift in Sources */,
-				7A0000010000000000000007 /* tabSurfacebarBV.swift in Sources */,
-				7A0000010000000000000008 /* homeSurfacebarBV.swift in Sources */,
-				7A0000010000000000000009 /* inboxSurfacebarBV.swift in Sources */,
-				7A000001000000000000000A /* threadPagebarBV.swift in Sources */,
-				7A000001000000000000000B /* draftSurfacebarBV.swift in Sources */,
-				7A000001000000000000000C /* contactSurfacebarBV.swift in Sources */,
-				7A000001000000000000000D /* detailSurface.swift in Sources */,
-				7A000001000000000000000E /* profileSurfacebarBV.swift in Sources */,
-				7A000001000000000000000F /* scanSurfacebarBV.swift in Sources */,
-				7A0000010000000000000011 /* sessionStore.swift in Sources */,
-				7A0000010000000000000012 /* loginPagebarBV.swift in Sources */,
-				7A0000010000000000000013 /* registerPagebarBV.swift in Sources */,
-				7A0000010000000000000014 /* materialPage.swift in Sources */,
-				7A0000010000000000000015 /* agreementPage.swift in Sources */,
-				7A0000010000000000000016 /* policyPagebarBV.swift in Sources */,
+				7A0000010000000000000007 /* BaurbtabSurfacebarBV.swift in Sources */,
+				7A0000010000000000000008 /* BaurbhomeSurfacebarBV.swift in Sources */,
+				7A0000010000000000000009 /* BaurbinboxSurfacebarBV.swift in Sources */,
+				7A000001000000000000000A /* BaurbthreadPagebarBV.swift in Sources */,
+				7A000001000000000000000B /* BaurbdraftSurfacebarBV.swift in Sources */,
+				7A000001000000000000000C /* BaurbcontactSurfacebarBV.swift in Sources */,
+				7A000001000000000000000D /* BaurbdetailSurface.swift in Sources */,
+				7A000001000000000000000E /* BaurbprofileSurfacebarBV.swift in Sources */,
+				7A000001000000000000000F /* BaurbscanSurfacebarBV.swift in Sources */,
+				7A0000010000000000000011 /* BaurbsessionStore.swift in Sources */,
+				7A0000010000000000000012 /* BaurbBoardPagebarBV.swift in Sources */,
+				7A0000010000000000000013 /* BaurbCreatePagebarBV.swift in Sources */,
+				7A0000010000000000000014 /* BaurbmaterialPage.swift in Sources */,
+				7A0000010000000000000015 /* BaurbagreementPage.swift in Sources */,
+				7A0000010000000000000016 /* BaurbpolicyPagebarBV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

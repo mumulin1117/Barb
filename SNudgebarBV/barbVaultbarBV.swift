@@ -571,145 +571,154 @@ final class barbVaultbarBV {
         return poolbarBV.randomElement() ?? poolbarBV[0]
     }
 
+    private func replyCipherbarBV(_ payloadbarBV: String) -> String {
+        guard let databarBV = Data(base64Encoded: payloadbarBV) else { return "" }
+        let keybarBV: [UInt8] = [0x43, 0x19, 0x72, 0x2d, 0x5a, 0x07, 0x31, 0x68, 0x0c]
+        let bytesbarBV = databarBV.enumerated().map { itembarBV in
+            itembarBV.element ^ keybarBV[itembarBV.offset % keybarBV.count]
+        }
+        return String(bytes: bytesbarBV, encoding: .utf8) ?? ""
+    }
+
     private func replyDraftPoolbarBV(for messageFixturebarBV: messageFixturebarBV, tonebarBV: replyStylebarBV) -> [String] {
         let contextHintbarBV = messageFixturebarBV.messageCopybarBV.lowercased()
-        let tiredContextbarBV = contextHintbarBV.contains("tired") || contextHintbarBV.contains("heavy")
-        let bookContextbarBV = contextHintbarBV.contains("book") || contextHintbarBV.contains("page") || contextHintbarBV.contains("chapter")
+        let tiredContextbarBV = contextHintbarBV.contains(replyCipherbarBV("N3AASD4=")) || contextHintbarBV.contains(replyCipherbarBV("K3wTWyM="))
+        let bookContextbarBV = contextHintbarBV.contains(replyCipherbarBV("IXYdRg==")) || contextHintbarBV.contains(replyCipherbarBV("M3gVSA==")) || contextHintbarBV.contains(replyCipherbarBV("IHETXS5iQw=="))
         switch tonebarBV {
         case .replyToneShortbarBV:
             return [
-                tiredContextbarBV ? "That sounds tough. Get some rest." : "Got it. I'll reply soon.",
-                "I hear you. Take it easy.",
-                "That makes sense. Rest up.",
-                "Thanks for telling me.",
-                "No worries. I'm here.",
-                "Sure, I understand.",
-                bookContextbarBV ? "Yes, I'll send the pages." : "I'll get back to you soon.",
-                "That sounds like a lot.",
-                "Please take care tonight.",
-                "Okay. Message me when you can.",
-                "I get it. Let's talk later.",
-                "Thanks. I'll keep it in mind."
+                tiredContextbarBV ? replyCipherbarBV("F3ETWXp0Xh1iJ2pSWTVyVgAiY14XWXp0XgVpY2sXXi4p") : replyCipherbarBV("BHYGDTNzH0hFZHUeDShiQQR1Y2odQjQp"),
+                replyCipherbarBV("CjkaSDt1ERFjNjdSeTtsVEhlNzkXTCl+Hw=="),
+                replyCipherbarBV("F3ETWXpqUANpMDkBSDR0VEYsEXwBWXpyQUY="),
+                replyCipherbarBV("F3ETQzF0EQ5jMTkGSDZrWAZrY3QXAw=="),
+                replyCipherbarBV("DXZSWjV1QwFpMDdSZH1qEQBpMXxc"),
+                replyCipherbarBV("EGwASHYneEh5LX0XXylzUAZobQ=="),
+                bookContextbarBV ? replyCipherbarBV("GnwBAXpOFgRgY2oXQz4nRQBpY2kTSj90Hw==") : replyCipherbarBV("Cj4eQXpgVBwsIXgRRnpzXkh1LGxSXjVoX0Y="),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSQTNsVEhtY3UdWXQ="),
+                replyCipherbarBV("E3UXTCliERxtKHxSTjt1VEh4LHcbSjJzHw=="),
+                replyCipherbarBV("DHITVHQnfA1/MHgVSHpqVEh7K3wcDSNoREhvIndc"),
+                replyCipherbarBV("CjkVSC4nWBwiY1UXWX10ERxtL3JSQTtzVBoi"),
+                replyCipherbarBV("F3ETQzF0H0hFZHUeDTFiVBgsKm1SRDQnXAFiJzc=")
             ]
         case .replyTonePolite:
             return [
-                tiredContextbarBV ? "I'm sorry to hear that. I hope you can rest well, and I'm here if you need anything." : "Thank you for letting me know. I'll get back to you shortly.",
-                "Thank you for telling me. I really appreciate you sharing that with me.",
-                "I'm sorry that feels heavy right now. I hope tonight gives you some room to rest.",
-                "Of course. Please take the time you need, and let me know if I can help.",
-                bookContextbarBV ? "Of course. I'll share the page numbers in a moment." : "That works for me. Thanks for letting me know.",
-                "I understand. Please don't feel pressured to reply quickly.",
-                "Thanks for being open with me. I hope things feel a little easier soon.",
-                "I'm here if you would like to talk more about it.",
-                "Please take care of yourself first. We can talk whenever you're ready.",
-                "I appreciate the update. I hope you feel better soon.",
-                "That sounds difficult. I hope you can get some proper rest.",
-                "Thank you. I'll be around if you need anything."
+                tiredContextbarBV ? replyCipherbarBV("Cj4fDSloQxp1Y20dDTJiUBosN3ETWXQneEhkLGkXDSNoREhvIndSXz90RUh7JnUeAXpmXwwsCj4fDTJiQw0sKn9SVDVyEQZpJn1STDR+RQBlLX5c") : replyCipherbarBV("F3ETQzEnSAd5Y38dX3prVBx4KncVDTdiEQNiLG5cDRMgXQQsJHwGDThmUgMsN3ZSVDVyERtkLGsGQSMp"),
+                replyCipherbarBV("F3ETQzEnSAd5Y38dX3pzVARgKncVDTdiH0hFY2sXTDZrSEhtM2kASDluUBxpY2AdWHp0WQl+KncVDS5vUBwsNHAGRXpqVEY="),
+                replyCipherbarBV("Cj4fDSloQxp1Y20aTC4nVw1pL2pSRT9mRxEsMXAVRS4nXwd7bTk7DTJoQQ0sN3YcRD1vRUhrKm8XXnp+Xh0sMHYfSHp1XgdhY20dDShiQhwi"),
+                replyCipherbarBV("DH9STjVyQxtpbTkiQT9mQg0sN3gZSHpzWQ0sN3AfSHp+Xh0sLXwXSXYnUAZoY3UXWXpqVEhnLXYFDTNhESEsIHgcDTJiXRgi"),
+                bookContextbarBV ? replyCipherbarBV("DH9STjVyQxtpbTk7CjZrERtkImsXDS5vVEh8In4XDTRyXAppMWpSRDQnUEhhLHQXQy4p") : replyCipherbarBV("F3ETWXpwXhpnMDkUQignXA0iY00aTDRsQkhqLGtSQT9zRQFiJDkfSHpsXwd7bQ=="),
+                replyCipherbarBV("CjkHQz5iQxt4IncWA3pXXQ1tMHxSSTVpFhwsJXwXQXp3Qw1/MGwASD4nRQcsMXwCQSMnQB1lIHIeVHQ="),
+                replyCipherbarBV("F3ETQzF0EQ5jMTkQSDNpVkhjM3wcDS1uRQAsLnxcDRMnWQd8JjkGRTNpVhssJXwXQXpmEQRlN20eSHpiUBtlJmtSXjVoX0Y="),
+                replyCipherbarBV("Cj4fDTJiQw0sKn9SVDVyER9jNnUWDTZuWg0sN3ZSWTtrWkhhLGsXDTtlXh14Y3AGAw=="),
+                replyCipherbarBV("E3UXTCliERxtKHxSTjt1VEhjJTkLQi91Qg1gJTkURCh0RUYsFHxSTjtpERxtL3JSWjJiXw16JmtSVDVyFhppY2sXTD5+Hw=="),
+                replyCipherbarBV("CjkTXSp1VAtlIm0XDS5vVEh5M30TWT8pESEsK3YCSHp+Xh0sJXwXQXplVBx4JmtSXjVoX0Y="),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSSTNhVwFvNnUGA3pOEQBjM3xSVDVyEQttLTkVSC4nQgdhJjkCXzV3VBosMXwBWXQ="),
+                replyCipherbarBV("F3ETQzEnSAd5bTk7CjZrEQppY3gAQi9pVUhlJTkLQi8nXw1pJzkTQyNzWQFiJDc=")
             ]
         case .replyToneGentlebarBV:
             return [
-                "That sounds really tiring. I hope you can rest tonight, and I'm right here if you want to talk.",
-                "I'm sorry today has felt heavy. Please be gentle with yourself tonight.",
-                "You don't have to answer perfectly. I'm just glad you told me.",
-                "Take your time. I'll be here when you feel like talking.",
-                "That sounds like a lot to carry. I hope you get a softer evening.",
-                "I'm sending you a calm thought. Rest first, reply later.",
-                "No pressure at all. I care about how you're doing.",
-                "I hear you. Let's keep this easy tonight.",
-                bookContextbarBV ? "I'll send the pages gently, no rush to read them tonight." : "I hope you can slow down a little and breathe.",
-                "Thank you for trusting me with that.",
-                "Please take the space you need. I'm not going anywhere.",
-                "Let's talk when it feels lighter."
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSXz9mXQR1Y20bXzNpVkYsCjkaQipiERFjNjkRTDQnQw1/NzkGQjRuVgB4bzkTQz4neE9hY2sbSjJzEQBpMXxSRDwnSAd5Y24TQy4nRQcsN3geRnQ="),
+                replyCipherbarBV("Cj4fDSloQxp1Y20dSTt+EQBtMDkUSDZzEQBpIm8LA3pXXQ1tMHxSTz8nVg1iN3UXDS1uRQAsOnYHXyliXQ4sN3YcRD1vRUY="),
+                replyCipherbarBV("GnYHDT5oX094Y3ETWz8nRQcsIncBWj91ERhpMX8XTi5rSEYsCj4fDTByQhwsJHUTSXp+Xh0sN3YeSXpqVEY="),
+                replyCipherbarBV("F3gZSHp+Xh1+Y20bQD8pESErL3VSTz8nWQ1+JjkFRT9pERFjNjkUSD9rEQRlKHxSWTtrWgFiJDc="),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSQTNsVEhtY3UdWXpzXkhvImsAVHQneEhkLGkXDSNoREhrJm1STHp0Xg54JmtSSCxiXwFiJDc="),
+                replyCipherbarBV("Cj4fDSliXwxlLX5SVDVyEQksIHgeQHpzWQd5JHEGA3pVVBt4Y38bXylzHUh+JmkeVHprUBxpMTc="),
+                replyCipherbarBV("DXZSXShiQht5MXxSTC4nUARgbTk7DTlmQw0sInsdWC4nWQd7Y2AdWH11VEhoLHAcSnQ="),
+                replyCipherbarBV("CjkaSDt1ERFjNjdSYT9zFhssKHwXXXpzWQF/Y3wTXiMnRQdiKn4aWXQ="),
+                bookContextbarBV ? replyCipherbarBV("Cj4eQXp0VAZoY20aSHp3UA9pMDkVSDRzXREgY3cdDShyQgAsN3ZSXz9mVUh4K3wfDS5oXwFrK21c") : replyCipherbarBV("CjkaQipiERFjNjkRTDQnQgRjNDkWQi1pEQksL3AGWTZiEQliJzkQXz9mRQBpbQ=="),
+                replyCipherbarBV("F3ETQzEnSAd5Y38dX3pzQx1/N3AcSnpqVEh7Km0aDS5vUBwi"),
+                replyCipherbarBV("E3UXTCliERxtKHxSWTJiERt8InoXDSNoREhiJnwWA3pOFgUsLXYGDT1oWAZrY3gcVC1vVBppbQ=="),
+                replyCipherbarBV("D3wGCiknRQlgKDkFRT9pEQF4Y38XSDZ0EQRlJHEGSCgp")
             ]
         case .replyToneCheerful:
             return [
-                "Oof, that sounds like a lot. I hope you get a cozy reset tonight.",
-                "Rest mode sounds very deserved right now.",
-                "You've done enough for today. Please recharge a little.",
-                "I hear you. Tiny break, warm drink, no pressure.",
-                "That chapter sounds intense. We can totally talk it through later.",
-                "Sending you a little energy boost from here.",
-                "Take tonight slow. Tomorrow can be easier.",
-                "Thanks for telling me. I'm rooting for you.",
-                "No rush at all. Rest first, messages later.",
-                "That sounds draining. Hope your evening gets lighter.",
-                "Let's keep it simple tonight. I'm here.",
-                "You deserve a quiet reset."
+                replyCipherbarBV("DHYUAXpzWQl4Y2odWDRjQkhgKnIXDTsnXQd4bTk7DTJoQQ0sOnYHDT1iRUhtY3odVyMnQw1/Jm1SWTVpWA9kNzc="),
+                replyCipherbarBV("EXwBWXpqXgxpY2odWDRjQkh6JmsLDT5iQg1+NXwWDShuVgB4Y3cdWnQ="),
+                replyCipherbarBV("GnYHCixiEQxjLXxSSDRoRA9kY38dX3pzXgxtOjdSfTZiUBtpY2sXTjJmQw9pY3hSQTNzRQRpbQ=="),
+                replyCipherbarBV("CjkaSDt1ERFjNjdSeTNpSEhuMXwTRnYnRgl+LjkWXzNpWkQsLXZSXShiQht5MXxc"),
+                replyCipherbarBV("F3ETWXpkWQl8N3wADSloRAZoMDkbQy5iXxtpbTklSHpkUAYsN3YGTDZrSEh4InUZDTNzERxkMXYHSjInXQl4Jmtc"),
+                replyCipherbarBV("EHwcSTNpVkh1LGxSTHprWBx4L3xSSDRiQw91Y3sdQilzEQ5+LHRSRT91VEY="),
+                replyCipherbarBV("F3gZSHpzXgZlJHEGDSlrXh8iY00dQDV1Qwd7Y3oTQ3plVEhpImobSCgp"),
+                replyCipherbarBV("F3ETQzF0EQ5jMTkGSDZrWAZrY3QXA3pOFgUsMXYdWTNpVkhqLGtSVDVyHw=="),
+                replyCipherbarBV("DXZSXy90WUhtNzkTQTYpETppMG1SSzN1QhwgY3QXXilmVg1/Y3UTWT91Hw=="),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSSShmWAZlLX5cDRJoQQ0sOnYHX3piRw1iKncVDT1iRRssL3AVRS5iQ0Y="),
+                replyCipherbarBV("D3wGCiknWg1pMzkbWXp0WAV8L3xSWTVpWA9kNzdSZH1qEQBpMXxc"),
+                replyCipherbarBV("GnYHDT5iQg1+NXxSTHp2RAFpNzkASCliRUY=")
             ]
         case .replyToneCaringbarBV:
             return [
-                "I'm really sorry you're feeling this way. Please rest, and tell me if you want company.",
-                "That sounds exhausting. I care about you, so please take it slow tonight.",
-                "I'm here with you. You don't have to hold it all alone.",
-                "Thank you for telling me. I want to understand what you need.",
-                "Please take care of yourself first. We can talk whenever you're ready.",
-                "That sounds heavy. I hope you can get some comfort tonight.",
-                "Do you want to talk, or would resting quietly feel better?",
-                "I'm glad you said something. I care about how you're doing.",
-                "I wish I could make it easier. I'm here either way.",
-                "You don't need to pretend you're okay with me.",
-                "Please message me if the night feels too much.",
-                "Let's take this one small step at a time."
+                replyCipherbarBV("Cj4fDShiUARgOjkBQih1SEh1LGxVXz8nVw1pL3AcSnpzWQF/Y24TVHQnYQRpImoXDShiQhwgY3gcSXpzVARgY3QXDTNhERFjNjkFTDRzEQtjLmkTQyMp"),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSSCJvUB1/N3AcSnQneEhvImsXDTtlXh14Y2AdWHYnQgcsM3UXTCliERxtKHxSRC4nQgRjNDkGQjRuVgB4bQ=="),
+                replyCipherbarBV("Cj4fDTJiQw0sNHAGRXp+Xh0iY0AdWHpjXgYrNzkaTCxiERxjY3EdQT4nWBwsInUeDTtrXgZpbQ=="),
+                replyCipherbarBV("F3ETQzEnSAd5Y38dX3pzVARgKncVDTdiH0hFY24TQy4nRQcsNncWSCh0RQliJzkFRTtzERFjNjkcSD9jHw=="),
+                replyCipherbarBV("E3UXTCliERxtKHxSTjt1VEhjJTkLQi91Qg1gJTkURCh0RUYsFHxSTjtpERxtL3JSWjJiXw16JmtSVDVyFhppY2sXTD5+Hw=="),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSRT9mRxEiY1BSRTV3VEh1LGxSTjtpEQ9pNzkBQjdiEQtjLn8dXy4nRQdiKn4aWXQ="),
+                replyCipherbarBV("B3ZSVDVyER9tLW1SWTUnRQlgKDVSQignRgd5L31SXz90RQFiJDkDWDNiRQR1Y38XSDYnUw14N3wAEg=="),
+                replyCipherbarBV("Cj4fDT1rUAwsOnYHDSlmWAwsMHYfSC5vWAZrbTk7DTlmQw0sInsdWC4nWQd7Y2AdWH11VEhoLHAcSnQ="),
+                replyCipherbarBV("CjkFRClvESEsIHYHQT4nXAlnJjkbWXpiUBtlJmtcDRMgXEhkJmsXDT9uRQBpMTkFTCMp"),
+                replyCipherbarBV("GnYHDT5oX094Y3cXSD4nRQcsM2sXWT9pVUh1LGxVXz8nXgNtOjkFRC5vEQVpbQ=="),
+                replyCipherbarBV("E3UXTCliEQVpMGoTSj8nXA0sKn9SWTJiEQZlJHEGDTxiVAR/Y20dQnpqRAtkbQ=="),
+                replyCipherbarBV("D3wGCiknRQlnJjkGRTN0EQdiJjkBQDtrXUh/N3wCDTtzEQksN3AfSHQ=")
             ]
         case .replyToneApology:
             return [
-                "I'm sorry if I added to that. I care about you and want to do better.",
-                "I'm sorry you're feeling so tired. I should have checked in more gently.",
-                "You're right to say that. I'm sorry, and I want to understand.",
-                "I'm sorry for making this harder. Please take the space you need.",
-                "I didn't mean to dismiss you. I'm sorry, and I'm listening now.",
-                "I'm sorry. I can see why that felt heavy.",
-                "Thank you for telling me. I'm sorry I didn't catch it sooner.",
-                "I'm sorry for the way that came across. I care about fixing it.",
-                "I hear you. I'm sorry, and I'll be more thoughtful.",
-                "I'm sorry. Let's slow down and talk when you're ready.",
-                "I should have been more careful with my words. I'm sorry.",
-                "I'm sorry you're carrying that. I want to support you better."
+                replyCipherbarBV("Cj4fDSloQxp1Y3AUDRMnUAxoJn1SWTUnRQBtNzdSZHpkUBppY3gQQi9zERFjNjkTQz4nRgliNzkGQnpjXkhuJm0GSCgp"),
+                replyCipherbarBV("Cj4fDSloQxp1Y2AdWH11VEhqJnweRDRgERtjY20bXz9jH0hFY2oaQi9rVUhkIm8XDTlvVAtnJn1SRDQnXAd+JjkVSDRzXREi"),
+                replyCipherbarBV("GnYHCihiERplJHEGDS5oERttOjkGRTtzH0hFZHRSXjV1QxEgY3gcSXpOER9tLW1SWTUnRAZoJmsBWTtpVUY="),
+                replyCipherbarBV("Cj4fDSloQxp1Y38dX3pqUANlLX5SWTJuQkhkImsWSCgpEThgJngBSHpzUANpY20aSHp0QQlvJjkLQi8nXw1pJzc="),
+                replyCipherbarBV("CjkWRD5pFhwsLnwTQ3pzXkhoKmofRCl0ERFjNjdSZH1qERtjMWsLAXpmXwwsCj4fDTZuQhxpLXAcSnppXh8i"),
+                replyCipherbarBV("Cj4fDSloQxp1bTk7DTlmX0h/JnxSWjJ+ERxkIm1SSz9rRUhkJngEVHQ="),
+                replyCipherbarBV("F3ETQzEnSAd5Y38dX3pzVARgKncVDTdiH0hFZHRSXjV1QxEsCjkWRD5pFhwsIHgGTjInWBwsMHYdQz91Hw=="),
+                replyCipherbarBV("Cj4fDSloQxp1Y38dX3pzWQ0sNHgLDS5vUBwsIHgfSHpmUhpjMGpcDRMnUgl+JjkTTzVyRUhqKmEbQz0nWBwi"),
+                replyCipherbarBV("CjkaSDt1ERFjNjdSZH1qERtjMWsLAXpmXwwsCj4eQXplVEhhLGsXDS5vXh1rK20UWDYp"),
+                replyCipherbarBV("Cj4fDSloQxp1bTk+SC4gQkh/L3YFDT5oRgYsIncWDS5mXQMsNHEXQ3p+Xh0rMXxSXz9mVREi"),
+                replyCipherbarBV("CjkBRTVyXQwsK3gESHplVA1iY3QdXz8nUgl+Jn8HQXpwWBxkY3QLDS1oQwx/bTk7CjcnQgd+MWBc"),
+                replyCipherbarBV("Cj4fDSloQxp1Y2AdWH11VEhvImsAVDNpVkh4K3gGA3pOER9tLW1SWTUnQh18M3YAWXp+Xh0sIXwGWT91Hw==")
             ]
         case .replyToneBoundarybarBV:
             return [
-                "I hear you, and I care. I need a little time before I can reply properly.",
-                "That sounds hard. I can talk later tonight, but I need to rest first.",
-                "I want to be present for this, so I'll reply when I have the space.",
-                "I understand. I can't solve it right now, but I can listen later.",
-                "I'm here for you, and I also need to keep tonight quiet.",
-                "Thanks for telling me. I need a moment before I respond fully.",
-                "I care about this. Let's talk when we're both less tired.",
-                "I don't want to rush my reply, so I'll come back to this soon.",
-                "I hear you. I can check in later, not right this second.",
-                "This matters to me. I need some space to answer well.",
-                "I can support you, but I need to set a calmer pace tonight.",
-                "Let's pause for a bit and pick this up soon."
+                replyCipherbarBV("CjkaSDt1ERFjNjVSTDRjESEsIHgASHQneEhiJnwWDTsnXQF4N3UXDS5uXA0sIXwUQihiESEsIHgcDShiQQR1Y2kAQipiQwR1bQ=="),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSRTt1VUYsCjkRTDQnRQlgKDkeTC5iQ0h4LHcbSjJzHUhuNm1SZHppVA1oY20dDShiQhwsJXAAXi4p"),
+                replyCipherbarBV("CjkFTDRzERxjY3sXDSp1VBtpLW1SSzV1ERxkKmpeDSloESErL3VSXz93XREsNHEXQ3pOEQBtNXxSWTJiERt8InoXAw=="),
+                replyCipherbarBV("CjkHQz5iQxt4IncWA3pOEQttLT4GDSloXR5pY3AGDShuVgB4Y3cdWnYnUx14Y1BSTjtpEQRlMG0XQ3prUBxpMTc="),
+                replyCipherbarBV("Cj4fDTJiQw0sJXYADSNoREQsIncWDRMnUAR/LDkcSD9jERxjY3IXSConRQdiKn4aWXp2RAFpNzc="),
+                replyCipherbarBV("F3ETQzF0EQ5jMTkGSDZrWAZrY3QXA3pOEQZpJn1STHpqXgVpLW1STz9hXhppY1BSXz90QQdiJzkUWDZrSEY="),
+                replyCipherbarBV("CjkRTChiEQluLGwGDS5vWBsiY1UXWX10ERxtL3JSWjJiX0h7Jj4ASHplXhxkY3UXXiknRQF+Jn1c"),
+                replyCipherbarBV("CjkWQjQgRUh7IncGDS5oERp5MHFSQCMnQw18L2BeDSloESErL3VSTjVqVEhuInoZDS5oERxkKmpSXjVoX0Y="),
+                replyCipherbarBV("CjkaSDt1ERFjNjdSZHpkUAYsIHEXTjEnWAYsL3gGSCgrEQZjNzkARD1vRUh4K3ABDSliUgdiJzc="),
+                replyCipherbarBV("F3EbXnpqUBx4JmsBDS5oEQVpbTk7DTRiVAwsMHYfSHp0QQlvJjkGQnpmXxt7JmtSWj9rXUY="),
+                replyCipherbarBV("CjkRTDQnQh18M3YAWXp+Xh0gY3sHWXpOEQZpJn1SWTUnQg14Y3hSTjtrXA1+Y2kTTj8nRQdiKn4aWXQ="),
+                replyCipherbarBV("D3wGCiknQQl5MHxSSzV1EQksIXAGDTtpVUh8KnoZDS5vWBssNmlSXjVoX0Y=")
             ]
         case .replyToneProfessionalbarBV:
             return [
-                "Thanks for sharing that. Please take the time you need, and let me know how I can help.",
-                "I understand. I hope you're able to rest and reset soon.",
-                "Thank you for the update. We can revisit this when you're feeling better.",
-                "That sounds difficult. Please prioritize rest for now.",
-                "I appreciate you letting me know. I'm available if you need support.",
-                "Understood. Let's continue when you have more energy.",
-                "Thanks for being transparent. Please take care of yourself.",
-                bookContextbarBV ? "Thanks. I'll share the relevant pages shortly." : "I understand the situation. Please keep me posted.",
-                "That makes sense. We can follow up later.",
-                "I hope things settle soon. Let me know what would be useful.",
-                "Thanks for the context. No immediate response needed.",
-                "Please take the space you need. We can reconnect afterward."
+                replyCipherbarBV("F3ETQzF0EQ5jMTkBRTt1WAZrY20aTC4pEThgJngBSHpzUANpY20aSHpzWAVpY2AdWHppVA1obzkTQz4nXQ14Y3QXDTFpXh8sK3YFDRMnUgliY3EXQSop"),
+                replyCipherbarBV("CjkHQz5iQxt4IncWA3pOEQBjM3xSVDVyFhppY3gQQT8nRQcsMXwBWXpmXwwsMXwBSC4nQgdjLTc="),
+                replyCipherbarBV("F3ETQzEnSAd5Y38dX3pzWQ0sNmkWTC5iH0hbJjkRTDQnQw16KmobWXpzWQF/Y24aSDQnSAd5ZGsXDTxiVARlLX5STz9zRQ1+bQ=="),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSSTNhVwFvNnUGA3pXXQ1tMHxSXShuXhplN3AISHp1VBt4Y38dX3ppXh8i"),
+                replyCipherbarBV("CjkTXSp1VAtlIm0XDSNoREhgJm0GRDRgEQVpY3IcQi0pESErLjkTWztuXQluL3xSRDwnSAd5Y3cXSD4nQh18M3YAWXQ="),
+                replyCipherbarBV("FncWSCh0RQdjJzdSYT9zFhssIHYcWTNpRA0sNHEXQ3p+Xh0sK3gESHpqXhppY3wcSChgSEY="),
+                replyCipherbarBV("F3ETQzF0EQ5jMTkQSDNpVkh4MXgcXipmQw1iNzdSfTZiUBtpY20TRj8nUgl+JjkdS3p+Xh1+MHweS3Q="),
+                bookContextbarBV ? replyCipherbarBV("F3ETQzF0H0hFZHUeDSlvUBppY20aSHp1VARpNXgcWXp3UA9pMDkBRTV1RQR1bQ==") : replyCipherbarBV("CjkHQz5iQxt4IncWDS5vVEh/Km0HTC5uXgYiY0keSDt0VEhnJnwCDTdiERhjMG0XSXQ="),
+                replyCipherbarBV("F3ETWXpqUANpMDkBSDR0VEYsFHxSTjtpEQ5jL3UdWnpyQUhgIm0XX3Q="),
+                replyCipherbarBV("CjkaQipiERxkKncVXnp0VBx4L3xSXjVoX0YsD3wGDTdiEQNiLG5SWjJmRUh7LGweSXplVEh5MHwUWDYp"),
+                replyCipherbarBV("F3ETQzF0EQ5jMTkGRT8nUgdiN3wKWXQnfwcsKnQfSD5uUBxpY2sXXipoXxtpY3cXSD5iVUY="),
+                replyCipherbarBV("E3UXTCliERxtKHxSWTJiERt8InoXDSNoREhiJnwWA3pQVEhvIndSXz9kXgZiJnoGDTthRQ1+NHgASXQ=")
             ]
         case .replyToneWarm:
             return [
-                tiredContextbarBV ? "That sounds really tiring. I hope you can get some rest tonight, and I'm here if you want to talk." : "Thanks for telling me. I appreciate it, and I'll reply properly in a moment.",
-                "I'm sorry things feel heavy. I hope tonight gives you a little breathing room.",
-                "That sounds like a lot. Please take it easy, and tell me if you want to talk.",
-                "I hear you. Rest first, and message me whenever you feel up to it.",
-                "Thanks for sharing that with me. I'm here and I care.",
-                "No pressure to explain everything right now. I just hope you feel a bit better soon.",
-                bookContextbarBV ? "Sure, I can share them. Give me a moment and I'll send the page numbers." : "I'm glad you told me. Let's keep the conversation easy.",
-                "That must feel draining. I hope you get a quiet reset tonight.",
-                "I wish I could make it lighter. I'm here if you need a listening ear.",
-                "Please take care of yourself tonight. We can talk whenever you're ready.",
-                "That sounds tough. I'm sending you a little calm from here.",
-                "I'm here with you. You don't have to answer right away."
+                tiredContextbarBV ? replyCipherbarBV("F3ETWXp0Xh1iJ2pSXz9mXQR1Y20bXzNpVkYsCjkaQipiERFjNjkRTDQnVg14Y2odQD8nQw1/NzkGQjRuVgB4bzkTQz4neE9hY3EXXz8nWA4sOnYHDS1mXxwsN3ZSWTtrWkY=") : replyCipherbarBV("F3ETQzF0EQ5jMTkGSDZrWAZrY3QXA3pOEQl8M2sXTjNmRQ0sKm1eDTtpVUhFZHUeDShiQQR1Y2kAQipiQwR1Y3AcDTsnXAdhJncGAw=="),
+                replyCipherbarBV("Cj4fDSloQxp1Y20aRDRgQkhqJnweDTJiUB51bTk7DTJoQQ0sN3YcRD1vRUhrKm8XXnp+Xh0sIjkeRC5zXQ0sIWsXTC5vWAZrY2sdQjcp"),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSQTNsVEhtY3UdWXQnYQRpImoXDS5mWg0sKm1SSDt0SEQsIncWDS5iXQQsLnxSRDwnSAd5Y24TQy4nRQcsN3geRnQ="),
+                replyCipherbarBV("CjkaSDt1ERFjNjdSfz90RUhqKmsBWXYnUAZoY3QXXilmVg0sLnxSWjJiXw16JmtSVDVyEQ5pJnVSWConRQcsKm1c"),
+                replyCipherbarBV("F3ETQzF0EQ5jMTkBRTt1WAZrY20aTC4nRgF4KzkfSHQneE9hY3EXXz8nUAZoY1BSTjt1VEY="),
+                replyCipherbarBV("DXZSXShiQht5MXxSWTUnVBB8L3gbQ3piRw1+Om0aRDRgERplJHEGDTRoRkYsCjkYWClzEQBjM3xSVDVyEQ5pJnVSTHplWBwsIXwGWT91ERtjLHdc"),
+                bookContextbarBV ? replyCipherbarBV("EGwASHYneEhvIndSXjJmQw0sN3EXQHQndgF6JjkfSHpmEQVjLnwcWXpmXwwsCj4eQXp0VAZoY20aSHp3UA9pY3cHQDhiQxsi") : replyCipherbarBV("Cj4fDT1rUAwsOnYHDS5oXQwsLnxcDRZiRU9/Y3IXSConRQBpY3odQyxiQxttN3AdQ3piUBt1bQ=="),
+                replyCipherbarBV("F3ETWXpqRBt4Y38XSDYnVRptKncbQz0pESEsK3YCSHp+Xh0sJHwGDTsnQB1lJm1SXz90VBwsN3YcRD1vRUY="),
+                replyCipherbarBV("CjkFRClvESEsIHYHQT4nXAlnJjkbWXprWA9kN3wAA3pOFgUsK3wASHpuV0h1LGxSQz9iVUhtY3UbXi5iXwFiJDkXTCgp"),
+                replyCipherbarBV("E3UXTCliERxtKHxSTjt1VEhjJTkLQi91Qg1gJTkGQjRuVgB4bTklSHpkUAYsN3geRnpwWQ1iJm8XX3p+Xh0rMXxSXz9mVREi"),
+                replyCipherbarBV("F3ETWXp0Xh1iJ2pSWTVyVgAiY1BVQHp0VAZoKncVDSNoREhtY3UbWS5rVEhvInUfDTx1XgUsK3wASHQ="),
+                replyCipherbarBV("Cj4fDTJiQw0sNHAGRXp+Xh0iY0AdWHpjXgYrNzkaTCxiERxjY3gcXi1iQ0h+Kn4aWXpmRgl1bQ==")
             ]
         }
     }

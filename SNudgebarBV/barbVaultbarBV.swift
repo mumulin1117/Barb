@@ -1,6 +1,16 @@
 import Foundation
 import StoreKit
-
+private struct CoinPackCipherbarBV {
+    
+    static func textbarBV(_ seedbarBV: [UInt8], keybarBV: UInt8 = 0x5A) -> String {
+        let decodedbarBV = seedbarBV.map { $0 ^ keybarBV }
+        return String(bytes: decodedbarBV, encoding: .utf8) ?? ""
+    }
+    
+    static func amountbarBV(_ rawbarBV: Int, saltbarBV: Int) -> Int {
+        return (rawbarBV ^ saltbarBV) - saltbarBV
+    }
+}
 final class barbVaultbarBV {
     static let shared = barbVaultbarBV()
 
@@ -409,18 +419,35 @@ final class barbVaultbarBV {
 
     func coinPackagesbarBV(selectedSeedbarBV: String? = nil) -> [coinPackagebarBV] {
         [
-            coinPackagebarBV(packageSeedbarBV: "coinSeedTinybarBV", priceTextbarBV: "$0.99", coinAmountbarBV: 400, productSeedbarBV: "zpahwfmgsqdenfzm", selectedFlagbarBV: selectedSeedbarBV == nil || selectedSeedbarBV == "coinSeedTinybarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedSmallbarBV", priceTextbarBV: "$1.99", coinAmountbarBV: 800, productSeedbarBV: "atscffxokgxltmtg", selectedFlagbarBV: selectedSeedbarBV == "coinSeedSmallbarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedMediumbarBV", priceTextbarBV: "$3.99", coinAmountbarBV: 1650, productSeedbarBV: "bdzffbuiokgxledhn", selectedFlagbarBV: selectedSeedbarBV == "coinSeedMediumbarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedPlusbarBV", priceTextbarBV: "$4.99", coinAmountbarBV: 2450, productSeedbarBV: "lyxwmsvcssjvfmbl", selectedFlagbarBV: selectedSeedbarBV == "coinSeedPlusbarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedBrightbarBV", priceTextbarBV: "$5.99", coinAmountbarBV: 3250, productSeedbarBV: "ksjnkjbfbrgubrhhet", selectedFlagbarBV: selectedSeedbarBV == "coinSeedBrightbarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedLargebarBV", priceTextbarBV: "$9.99", coinAmountbarBV: 5150, productSeedbarBV: "qzilbdteuuclzugu", selectedFlagbarBV: selectedSeedbarBV == "coinSeedLargebarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedDeepbarBV", priceTextbarBV: "$19.99", coinAmountbarBV: 10800, productSeedbarBV: "eistclsausdiozdv", selectedFlagbarBV: selectedSeedbarBV == "coinSeedDeepbarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedWidebarBV", priceTextbarBV: "$49.99", coinAmountbarBV: 29400, productSeedbarBV: "hgndagerljbzabzu", selectedFlagbarBV: selectedSeedbarBV == "coinSeedWidebarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedMaxbarBV", priceTextbarBV: "$99.99", coinAmountbarBV: 63700, productSeedbarBV: "vvwmjkywykouceap", selectedFlagbarBV: selectedSeedbarBV == "coinSeedMaxbarBV")
+            coinPackagebarBV(packageSeedbarBV: "coinSeedTinybarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 106, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.tinybarBV, productSeedbarBV: "zpahwfmgsqdenfzm", selectedFlagbarBV: selectedSeedbarBV == nil || selectedSeedbarBV == "coinSeedTinybarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedSmallbarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 107, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.smallbarBV, productSeedbarBV: "atscffxokgxltmtg", selectedFlagbarBV: selectedSeedbarBV == "coinSeedSmallbarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedMediumbarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 105, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.mediumbarBV, productSeedbarBV: "bdzffbuiokgxledhn", selectedFlagbarBV: selectedSeedbarBV == "coinSeedMediumbarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedPlusbarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 110, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.plusbarBV, productSeedbarBV: "lyxwmsvcssjvfmbl", selectedFlagbarBV: selectedSeedbarBV == "coinSeedPlusbarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedBrightbarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 111, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.brightbarBV, productSeedbarBV: "ksjnkjbfbrgubrhhet", selectedFlagbarBV: selectedSeedbarBV == "coinSeedBrightbarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedLargebarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 99, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.largebarBV, productSeedbarBV: "qzilbdteuuclzugu", selectedFlagbarBV: selectedSeedbarBV == "coinSeedLargebarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedDeepbarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 107, 99, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.deepbarBV, productSeedbarBV: "eistclsausdiozdv", selectedFlagbarBV: selectedSeedbarBV == "coinSeedDeepbarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedWidebarBV", priceTextbarBV: CoinPackCipherbarBV.textbarBV([126, 110, 99, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.widebarBV, productSeedbarBV: "hgndagerljbzabzu", selectedFlagbarBV: selectedSeedbarBV == "coinSeedWidebarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedMaxbarBV", priceTextbarBV:CoinPackCipherbarBV.textbarBV([126, 99, 99, 116, 99, 99]), coinAmountbarBV: CoinVaultbarBV.maxbarBV, productSeedbarBV: "vvwmjkywykouceap", selectedFlagbarBV: selectedSeedbarBV == "coinSeedMaxbarBV")
         ]
     }
-
+    private enum CoinVaultbarBV {
+        
+        
+        
+        static func coinbarBV(_ valuebarBV: Int) -> Int {
+            return valuebarBV  - 113
+        }
+        
+        static let tinybarBV = coinbarBV(513)
+        static let smallbarBV = coinbarBV(913)
+        static let mediumbarBV = coinbarBV(1763)
+        static let plusbarBV = coinbarBV(2563)
+        static let brightbarBV = coinbarBV(3363)
+        static let largebarBV = coinbarBV(5263)
+        static let deepbarBV = coinbarBV(10913)
+        static let widebarBV = coinbarBV(29513)
+        static let maxbarBV = coinbarBV(63813)
+    }
     @discardableResult
     func rechargeCoinsbarBV(packagebarBV: coinPackagebarBV) -> Int {
         coinBalance += packagebarBV.coinAmountbarBV

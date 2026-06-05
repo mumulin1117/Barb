@@ -342,6 +342,10 @@ final class BaurbthreadPagebarBV: barbCanvasbarBV, UITableViewDataSource, UITabl
         let pointbarBV = gesturebarBV.location(in: tableView)
         guard let indexPathbarBV = tableView.indexPathForRow(at: pointbarBV), indexPathbarBV.row > 0 else { return }
         let messagebarBV = store.messagePool(for: thread)[indexPathbarBV.row - 1]
+        guard !messagebarBV.sentFlag else {
+            dismissActionMenubarBV()
+            return
+        }
         let cellRectbarBV = tableView.rectForRow(at: indexPathbarBV)
         let convertedRectbarBV = tableView.convert(cellRectbarBV, to: view)
         view.endEditing(true)

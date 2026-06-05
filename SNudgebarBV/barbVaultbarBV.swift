@@ -201,7 +201,7 @@ final class barbVaultbarBV {
             avatarbarBV: avatarbarBV,
             barbIdbarBV: "BARB ID · \(idbarBV)",
             qrCodeValuebarBV: "barb://user/\(idbarBV)",
-            shareLinkbarBV: "https://example.com/invite/barb-\(idbarBV)",
+            shareLinkbarBV: "https://app.zt7ymojx.link/invite/barb-\(idbarBV)",
             pendingRequestCountbarBV: pendingRequestsbarBV().count
         )
     }
@@ -413,7 +413,7 @@ final class barbVaultbarBV {
             coinPackagebarBV(packageSeedbarBV: "coinSeedSmallbarBV", priceTextbarBV: "$1.99", coinAmountbarBV: 800, productSeedbarBV: "atscffxokgxltmtg", selectedFlagbarBV: selectedSeedbarBV == "coinSeedSmallbarBV"),
             coinPackagebarBV(packageSeedbarBV: "coinSeedMediumbarBV", priceTextbarBV: "$3.99", coinAmountbarBV: 1650, productSeedbarBV: "bdzffbuiokgxledhn", selectedFlagbarBV: selectedSeedbarBV == "coinSeedMediumbarBV"),
             coinPackagebarBV(packageSeedbarBV: "coinSeedPlusbarBV", priceTextbarBV: "$4.99", coinAmountbarBV: 2450, productSeedbarBV: "lyxwmsvcssjvfmbl", selectedFlagbarBV: selectedSeedbarBV == "coinSeedPlusbarBV"),
-            coinPackagebarBV(packageSeedbarBV: "coinSeedBrightbarBV", priceTextbarBV: "$5.99", coinAmountbarBV: 3250, productSeedbarBV: "KSJNkjbfbrgubrhhet", selectedFlagbarBV: selectedSeedbarBV == "coinSeedBrightbarBV"),
+            coinPackagebarBV(packageSeedbarBV: "coinSeedBrightbarBV", priceTextbarBV: "$5.99", coinAmountbarBV: 3250, productSeedbarBV: "ksjnkjbfbrgubrhhet", selectedFlagbarBV: selectedSeedbarBV == "coinSeedBrightbarBV"),
             coinPackagebarBV(packageSeedbarBV: "coinSeedLargebarBV", priceTextbarBV: "$9.99", coinAmountbarBV: 5150, productSeedbarBV: "qzilbdteuuclzugu", selectedFlagbarBV: selectedSeedbarBV == "coinSeedLargebarBV"),
             coinPackagebarBV(packageSeedbarBV: "coinSeedDeepbarBV", priceTextbarBV: "$19.99", coinAmountbarBV: 10800, productSeedbarBV: "eistclsausdiozdv", selectedFlagbarBV: selectedSeedbarBV == "coinSeedDeepbarBV"),
             coinPackagebarBV(packageSeedbarBV: "coinSeedWidebarBV", priceTextbarBV: "$49.99", coinAmountbarBV: 29400, productSeedbarBV: "hgndagerljbzabzu", selectedFlagbarBV: selectedSeedbarBV == "coinSeedWidebarBV"),
@@ -819,7 +819,7 @@ final class barbVaultbarBV {
             coinBalance = UserDefaults.standard.integer(forKey: coinBalanceKeybarBV)
             persistCoinBalancebarBV()
         } else {
-            coinBalance = BaurbsessionStore.seedAccountFlagbarBV ? 2222 : 0
+            coinBalance = BaurbsessionStore.seedAccountFlagbarBV ? 100 : 0
             persistCoinBalancebarBV()
         }
         if let databarBV = UserDefaults.standard.data(forKey: transactionKeybarBV),

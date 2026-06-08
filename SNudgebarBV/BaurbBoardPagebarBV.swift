@@ -12,7 +12,7 @@ final class BaurbBoardPagebarBV: barbCanvasbarBV {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Log in"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: nil, action: nil)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: nil, action: nil)
         layoutFlowbarBV()
         agreementSignalbarBV = NotificationCenter.default.addObserver(forName: BaurbsessionStore.agreementSignalbarBV, object: nil, queue: .main) { [weak self] _ in
             self?.agreementRefreshbarBV()

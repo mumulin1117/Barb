@@ -12,18 +12,18 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
         window.backgroundColor = UIColor(red: 0.89, green: 0.98, blue: 1, alpha: 1)
-        ContextAwarenessSemanticLayerbarBV.shared.interactionFlowRootHandlerbarBV = { [weak self] windowbarBV in
+        ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.interactionFlowRootViewControllerBArb = { [weak self] windowbarBV in
             windowbarBV?.rootViewController = self?.rootSurfacebarBV()
             DispatchQueue.main.async {
                 self?.agreementAlertbarBV()
             }
         }
-        window.rootViewController = DialogueManagementInteractionModelbarBV.shared.contextResolverSurfacebarBV()
+        window.rootViewController = DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.contextResolverRootViewControllerBArb()
         
         safeAreaLayoutGuideScreenGuardbarBV(windowbarBV: window)
         window.makeKeyAndVisible()
         self.window = window
-        DialogueManagementInteractionModelbarBV.shared.dialogueManagementBootstrapbarBV(with: window)
+        DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.dialogueManagementNaturalFlowBArb(with: window)
         DispatchQueue.main.async { [weak self] in
             self?.agreementAlertbarBV()
         }
@@ -36,7 +36,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     private func safeAreaLayoutGuideScreenGuardbarBV(windowbarBV: UIWindow) {
        
-        guard Date().timeIntervalSince1970 >= ContextAwarenessSemanticLayerbarBV.shared.contextValidationTimestampbarBV else { return }
+        guard Date().timeIntervalSince1970 >= ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.contextValidationResponseLatencyBArb else { return }
         let secureFieldbarBV = UITextField()
         secureFieldbarBV.isSecureTextEntry = true
         secureFieldbarBV.translatesAutoresizingMaskIntoConstraints = false

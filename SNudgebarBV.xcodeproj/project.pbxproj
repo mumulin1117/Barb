@@ -31,17 +31,17 @@
 		7A0000010000000000000014 /* BaurbmaterialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000116 /* BaurbmaterialPage.swift */; };
 		7A0000010000000000000015 /* BaurbagreementPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000117 /* BaurbagreementPage.swift */; };
 		7A0000010000000000000016 /* BaurbpolicyPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000118 /* BaurbpolicyPagebarBV.swift */; };
-		8B0000010000000000000001 /* ContextAwarenessSemanticLayerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000101 /* ContextAwarenessSemanticLayerbarBV.swift */; };
-		8B0000010000000000000002 /* MessageSuggestionLexicalGraphbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000102 /* MessageSuggestionLexicalGraphbarBV.swift */; };
-		8B0000010000000000000003 /* SemanticEncodingLanguageDecodingbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000103 /* SemanticEncodingLanguageDecodingbarBV.swift */; };
-		8B0000010000000000000004 /* ContextCachingLexicalAnchorbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000104 /* ContextCachingLexicalAnchorbarBV.swift */; };
-		8B0000010000000000000005 /* ResponseGeneratorTextPipelinebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000105 /* ResponseGeneratorTextPipelinebarBV.swift */; };
-		8B0000010000000000000006 /* AiQuickReplyMessageTelemetrybarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000106 /* AiQuickReplyMessageTelemetrybarBV.swift */; };
-		8B0000010000000000000007 /* InteractionFlowAnimationInterpolationbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000107 /* InteractionFlowAnimationInterpolationbarBV.swift */; };
-		8B0000010000000000000008 /* DialogueManagementInteractionModelbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000108 /* DialogueManagementInteractionModelbarBV.swift */; };
-		8B0000010000000000000009 /* ContextResolverRootViewControllerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000109 /* ContextResolverRootViewControllerbarBV.swift */; };
-		8B000001000000000000000A /* IntentRecognitionRootViewControllerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B000001000000000000010A /* IntentRecognitionRootViewControllerbarBV.swift */; };
-		8B000001000000000000000B /* DialogueSynthesisRootViewControllerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B000001000000000000010B /* DialogueSynthesisRootViewControllerbarBV.swift */; };
+		8B0000010000000000000001 /* ConversationalCohesionSemanticLayerBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000101 /* ConversationalCohesionSemanticLayerBArb.swift */; };
+		8B0000010000000000000002 /* ReplySuggestionLexicalGraphBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000102 /* ReplySuggestionLexicalGraphBArb.swift */; };
+		8B0000010000000000000003 /* SemanticEncodingLanguageDecodingBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000103 /* SemanticEncodingLanguageDecodingBArb.swift */; };
+		8B0000010000000000000004 /* ContextRetentionLexicalAnchorBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000104 /* ContextRetentionLexicalAnchorBArb.swift */; };
+		8B0000010000000000000005 /* ResponseFormulatorTextPipelineBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000105 /* ResponseFormulatorTextPipelineBArb.swift */; };
+		8B0000010000000000000006 /* AiQuickReplyMessageTelemetryBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000106 /* AiQuickReplyMessageTelemetryBArb.swift */; };
+		8B0000010000000000000007 /* NaturalFlowAnimationInterpolationBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000107 /* NaturalFlowAnimationInterpolationBArb.swift */; };
+		8B0000010000000000000008 /* DialoguePolicyInteractionModelBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000108 /* DialoguePolicyInteractionModelBArb.swift */; };
+		8B0000010000000000000009 /* ContextEngineRootViewControllerBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000109 /* ContextEngineRootViewControllerBArb.swift */; };
+		8B000001000000000000000A /* IntentParserRootViewControllerBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B000001000000000000010A /* IntentParserRootViewControllerBArb.swift */; };
+		8B000001000000000000000B /* PhraseSynthesisRootViewControllerBArb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B000001000000000000010B /* PhraseSynthesisRootViewControllerBArb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,17 +73,17 @@
 		7A0000010000000000000117 /* BaurbagreementPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbagreementPage.swift; sourceTree = "<group>"; };
 		7A0000010000000000000118 /* BaurbpolicyPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbpolicyPagebarBV.swift; sourceTree = "<group>"; };
 		8468866B05628F4A88CE00C9 /* Pods-SNudgebarBV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNudgebarBV.debug.xcconfig"; path = "Target Support Files/Pods-SNudgebarBV/Pods-SNudgebarBV.debug.xcconfig"; sourceTree = "<group>"; };
-		8B0000010000000000000101 /* ContextAwarenessSemanticLayerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextAwarenessSemanticLayerbarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000102 /* MessageSuggestionLexicalGraphbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSuggestionLexicalGraphbarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000103 /* SemanticEncodingLanguageDecodingbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticEncodingLanguageDecodingbarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000104 /* ContextCachingLexicalAnchorbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextCachingLexicalAnchorbarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000105 /* ResponseGeneratorTextPipelinebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseGeneratorTextPipelinebarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000106 /* AiQuickReplyMessageTelemetrybarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiQuickReplyMessageTelemetrybarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000107 /* InteractionFlowAnimationInterpolationbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionFlowAnimationInterpolationbarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000108 /* DialogueManagementInteractionModelbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueManagementInteractionModelbarBV.swift; sourceTree = "<group>"; };
-		8B0000010000000000000109 /* ContextResolverRootViewControllerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextResolverRootViewControllerbarBV.swift; sourceTree = "<group>"; };
-		8B000001000000000000010A /* IntentRecognitionRootViewControllerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentRecognitionRootViewControllerbarBV.swift; sourceTree = "<group>"; };
-		8B000001000000000000010B /* DialogueSynthesisRootViewControllerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueSynthesisRootViewControllerbarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000101 /* ConversationalCohesionSemanticLayerBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationalCohesionSemanticLayerBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000102 /* ReplySuggestionLexicalGraphBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplySuggestionLexicalGraphBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000103 /* SemanticEncodingLanguageDecodingBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticEncodingLanguageDecodingBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000104 /* ContextRetentionLexicalAnchorBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextRetentionLexicalAnchorBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000105 /* ResponseFormulatorTextPipelineBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseFormulatorTextPipelineBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000106 /* AiQuickReplyMessageTelemetryBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiQuickReplyMessageTelemetryBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000107 /* NaturalFlowAnimationInterpolationBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalFlowAnimationInterpolationBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000108 /* DialoguePolicyInteractionModelBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialoguePolicyInteractionModelBArb.swift; sourceTree = "<group>"; };
+		8B0000010000000000000109 /* ContextEngineRootViewControllerBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextEngineRootViewControllerBArb.swift; sourceTree = "<group>"; };
+		8B000001000000000000010A /* IntentParserRootViewControllerBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentParserRootViewControllerBArb.swift; sourceTree = "<group>"; };
+		8B000001000000000000010B /* PhraseSynthesisRootViewControllerBArb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseSynthesisRootViewControllerBArb.swift; sourceTree = "<group>"; };
 		CAC7807EBBAC36F8EF7A91CE /* Pods-SNudgebarBV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNudgebarBV.release.xcconfig"; path = "Target Support Files/Pods-SNudgebarBV/Pods-SNudgebarBV.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				049959A02FE13E9600F87202 /* SNudgebarBV.entitlements */,
-				8B0000010000000000000301 /* ContextAwarenessBArb */,
+				8B0000010000000000000301 /* ConversationalCohesionBArb */,
 				7A0000010000000000000101 /* AppDelegate.swift */,
 				7A0000010000000000000102 /* SceneDelegate.swift */,
 				7A0000010000000000000103 /* BaurbstyleStorebarBV.swift */,
@@ -167,22 +167,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8B0000010000000000000301 /* ContextAwarenessBArb */ = {
+		8B0000010000000000000301 /* ConversationalCohesionBArb */ = {
 			isa = PBXGroup;
 			children = (
-				8B0000010000000000000101 /* ContextAwarenessSemanticLayerbarBV.swift */,
-				8B0000010000000000000102 /* MessageSuggestionLexicalGraphbarBV.swift */,
-				8B0000010000000000000103 /* SemanticEncodingLanguageDecodingbarBV.swift */,
-				8B0000010000000000000104 /* ContextCachingLexicalAnchorbarBV.swift */,
-				8B0000010000000000000105 /* ResponseGeneratorTextPipelinebarBV.swift */,
-				8B0000010000000000000106 /* AiQuickReplyMessageTelemetrybarBV.swift */,
-				8B0000010000000000000107 /* InteractionFlowAnimationInterpolationbarBV.swift */,
-				8B0000010000000000000108 /* DialogueManagementInteractionModelbarBV.swift */,
-				8B0000010000000000000109 /* ContextResolverRootViewControllerbarBV.swift */,
-				8B000001000000000000010A /* IntentRecognitionRootViewControllerbarBV.swift */,
-				8B000001000000000000010B /* DialogueSynthesisRootViewControllerbarBV.swift */,
+				8B0000010000000000000101 /* ConversationalCohesionSemanticLayerBArb.swift */,
+				8B0000010000000000000102 /* ReplySuggestionLexicalGraphBArb.swift */,
+				8B0000010000000000000103 /* SemanticEncodingLanguageDecodingBArb.swift */,
+				8B0000010000000000000104 /* ContextRetentionLexicalAnchorBArb.swift */,
+				8B0000010000000000000105 /* ResponseFormulatorTextPipelineBArb.swift */,
+				8B0000010000000000000106 /* AiQuickReplyMessageTelemetryBArb.swift */,
+				8B0000010000000000000107 /* NaturalFlowAnimationInterpolationBArb.swift */,
+				8B0000010000000000000108 /* DialoguePolicyInteractionModelBArb.swift */,
+				8B0000010000000000000109 /* ContextEngineRootViewControllerBArb.swift */,
+				8B000001000000000000010A /* IntentParserRootViewControllerBArb.swift */,
+				8B000001000000000000010B /* PhraseSynthesisRootViewControllerBArb.swift */,
 			);
-			path = ContextAwarenessBArb;
+			path = ConversationalCohesionBArb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,17 +329,17 @@
 				7A0000010000000000000014 /* BaurbmaterialPage.swift in Sources */,
 				7A0000010000000000000015 /* BaurbagreementPage.swift in Sources */,
 				7A0000010000000000000016 /* BaurbpolicyPagebarBV.swift in Sources */,
-				8B0000010000000000000001 /* ContextAwarenessSemanticLayerbarBV.swift in Sources */,
-				8B0000010000000000000002 /* MessageSuggestionLexicalGraphbarBV.swift in Sources */,
-				8B0000010000000000000003 /* SemanticEncodingLanguageDecodingbarBV.swift in Sources */,
-				8B0000010000000000000004 /* ContextCachingLexicalAnchorbarBV.swift in Sources */,
-				8B0000010000000000000005 /* ResponseGeneratorTextPipelinebarBV.swift in Sources */,
-				8B0000010000000000000006 /* AiQuickReplyMessageTelemetrybarBV.swift in Sources */,
-				8B0000010000000000000007 /* InteractionFlowAnimationInterpolationbarBV.swift in Sources */,
-				8B0000010000000000000008 /* DialogueManagementInteractionModelbarBV.swift in Sources */,
-				8B0000010000000000000009 /* ContextResolverRootViewControllerbarBV.swift in Sources */,
-				8B000001000000000000000A /* IntentRecognitionRootViewControllerbarBV.swift in Sources */,
-				8B000001000000000000000B /* DialogueSynthesisRootViewControllerbarBV.swift in Sources */,
+				8B0000010000000000000001 /* ConversationalCohesionSemanticLayerBArb.swift in Sources */,
+				8B0000010000000000000002 /* ReplySuggestionLexicalGraphBArb.swift in Sources */,
+				8B0000010000000000000003 /* SemanticEncodingLanguageDecodingBArb.swift in Sources */,
+				8B0000010000000000000004 /* ContextRetentionLexicalAnchorBArb.swift in Sources */,
+				8B0000010000000000000005 /* ResponseFormulatorTextPipelineBArb.swift in Sources */,
+				8B0000010000000000000006 /* AiQuickReplyMessageTelemetryBArb.swift in Sources */,
+				8B0000010000000000000007 /* NaturalFlowAnimationInterpolationBArb.swift in Sources */,
+				8B0000010000000000000008 /* DialoguePolicyInteractionModelBArb.swift in Sources */,
+				8B0000010000000000000009 /* ContextEngineRootViewControllerBArb.swift in Sources */,
+				8B000001000000000000000A /* IntentParserRootViewControllerBArb.swift in Sources */,
+				8B000001000000000000000B /* PhraseSynthesisRootViewControllerBArb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

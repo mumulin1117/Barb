@@ -6,7 +6,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        DialogueManagementInteractionModelbarBV.shared.interactionFlowFacebookBridgebarBV(applicationbarBV: application, launchOptionsbarBV: launchOptions)
+        DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.interactionFlowFacebookBridgeBArb(uiConfigurationApplicationBArb: application, naturalFlowOptionsBArb: launchOptions)
         return true
     }
 
@@ -22,7 +22,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-        DialogueManagementInteractionModelbarBV.shared.messageTelemetryPushTokenbarBV(deviceTokenbarBV: deviceToken)
+        DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.messageTelemetryContextCachingPushBArb(contextCachingDeviceTokenBArb: deviceToken)
     }
 
     func application(
@@ -30,6 +30,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey: Any] = [:]
     ) -> Bool {
-        DialogueManagementInteractionModelbarBV.shared.contextResolverOpenURLbarBV(appbarBV: app, urlbarBV: url, optionsbarBV: options)
+        DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.contextResolverOpenURLBArb(uiConfigurationAppBArb: app, semanticNetworkLinkBArb: url, uiConfigurationOptionsBArb: options)
     }
 }

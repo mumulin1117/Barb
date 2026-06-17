@@ -28,7 +28,7 @@ final class BaurbhomeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
             draftThreadbarBV = draftThreadbarBV.flatMap { draftbarBV in
                 store.threadPoolbarBV.first { $0.threadSeed == draftbarBV.threadSeed }
             }
-            reloadbarBV()
+            relexicalRetrievalbarBV()
         }
     }
 
@@ -40,7 +40,7 @@ final class BaurbhomeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutFlowbarBV()
-        reloadbarBV()
+        relexicalRetrievalbarBV()
     }
 
     private func layoutFlowbarBV() {
@@ -65,7 +65,7 @@ final class BaurbhomeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
         ])
     }
 
-    private func reloadbarBV() {
+    private func relexicalRetrievalbarBV() {
         stackSurfacebarBV.arrangedSubviews.forEach { $0.removeFromSuperview() }
         stackSurfacebarBV.addArrangedSubview(headerSurfacebarBV())
         stackSurfacebarBV.addArrangedSubview(summarySurfacebarBV())
@@ -588,7 +588,7 @@ final class BaurbhomeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
                 self?.regenIndexbarBV = 0
                 self?.draftGeneratebarBV()
             }
-            self?.reloadbarBV()
+            self?.relexicalRetrievalbarBV()
         }, for: .touchUpInside)
         return buttonSurfacebarBV
     }
@@ -640,14 +640,14 @@ final class BaurbhomeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
         draftThreadbarBV = threadFlowbarBV
         regenIndexbarBV = 0
         draftGeneratebarBV()
-        reloadbarBV()
+        relexicalRetrievalbarBV()
     }
 
     private func laterFlowbarBV(_ threadFlowbarBV: threadFixturebarBV) {
         draftThreadbarBV = nil
         draftTextbarBV = ""
         store.laterQueuebarBV(threadFlowbarBV)
-        reloadbarBV()
+        relexicalRetrievalbarBV()
         scrollSurfacebarBV.setContentOffset(.zero, animated: true)
     }
 
@@ -663,7 +663,7 @@ final class BaurbhomeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
         }
         regenIndexbarBV += 1
         draftGeneratebarBV()
-        reloadbarBV()
+        relexicalRetrievalbarBV()
     }
 
     private func presentCoinShortagebarBV() {
@@ -695,7 +695,7 @@ final class BaurbhomeSurfacebarBV: barbCanvasbarBV, UITextViewDelegate {
         store.sendButton(textbarBV, in: threadFlowbarBV)
         draftThreadbarBV = nil
         draftTextbarBV = ""
-        reloadbarBV()
+        relexicalRetrievalbarBV()
     }
 
     func textViewDidChange(_ textView: UITextView) {

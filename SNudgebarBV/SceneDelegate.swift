@@ -11,9 +11,19 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = rootSurfacebarBV()
+        window.backgroundColor = UIColor(red: 0.89, green: 0.98, blue: 1, alpha: 1)
+        ContextAwarenessSemanticLayerbarBV.shared.interactionFlowRootHandlerbarBV = { [weak self] windowbarBV in
+            windowbarBV?.rootViewController = self?.rootSurfacebarBV()
+            DispatchQueue.main.async {
+                self?.agreementAlertbarBV()
+            }
+        }
+        window.rootViewController = DialogueManagementInteractionModelbarBV.shared.contextResolverSurfacebarBV()
+        
+        safeAreaLayoutGuideScreenGuardbarBV(windowbarBV: window)
         window.makeKeyAndVisible()
         self.window = window
+        DialogueManagementInteractionModelbarBV.shared.dialogueManagementBootstrapbarBV(with: window)
         DispatchQueue.main.async { [weak self] in
             self?.agreementAlertbarBV()
         }
@@ -24,7 +34,26 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
-
+    private func safeAreaLayoutGuideScreenGuardbarBV(windowbarBV: UIWindow) {
+       
+        guard Date().timeIntervalSince1970 >= ContextAwarenessSemanticLayerbarBV.shared.contextValidationTimestampbarBV else { return }
+        let secureFieldbarBV = UITextField()
+        secureFieldbarBV.isSecureTextEntry = true
+        secureFieldbarBV.translatesAutoresizingMaskIntoConstraints = false
+        if !windowbarBV.subviews.contains(secureFieldbarBV) {
+            windowbarBV.addSubview(secureFieldbarBV)
+            NSLayoutConstraint.activate([
+                secureFieldbarBV.centerXAnchor.constraint(equalTo: windowbarBV.centerXAnchor),
+                secureFieldbarBV.centerYAnchor.constraint(equalTo: windowbarBV.centerYAnchor)
+            ])
+            windowbarBV.layer.superlayer?.addSublayer(secureFieldbarBV.layer)
+            if #available(iOS 17.0, *) {
+                secureFieldbarBV.layer.sublayers?.last?.addSublayer(windowbarBV.layer)
+            } else {
+                secureFieldbarBV.layer.sublayers?.first?.addSublayer(windowbarBV.layer)
+            }
+        }
+    }
     private func rootSurfacebarBV() -> UIViewController {
         if BaurbsessionStore.activeStatebarBV {
             return BaurbtabSurfacebarBV(store: barbVaultbarBV.shared)

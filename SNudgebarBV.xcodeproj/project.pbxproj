@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001A80C2147236707CC43341 /* Pods_SNudgebarBV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BAC33A19CBFD636EB3EE1BD /* Pods_SNudgebarBV.framework */; };
 		04E2507C2FCEC11D00902E81 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E2507B2FCEC11D00902E81 /* Launch Screen.storyboard */; };
 		7A0000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000101 /* AppDelegate.swift */; };
 		7A0000010000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000102 /* SceneDelegate.swift */; };
@@ -30,10 +31,23 @@
 		7A0000010000000000000014 /* BaurbmaterialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000116 /* BaurbmaterialPage.swift */; };
 		7A0000010000000000000015 /* BaurbagreementPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000117 /* BaurbagreementPage.swift */; };
 		7A0000010000000000000016 /* BaurbpolicyPagebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0000010000000000000118 /* BaurbpolicyPagebarBV.swift */; };
+		8B0000010000000000000001 /* ContextAwarenessSemanticLayerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000101 /* ContextAwarenessSemanticLayerbarBV.swift */; };
+		8B0000010000000000000002 /* MessageSuggestionLexicalGraphbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000102 /* MessageSuggestionLexicalGraphbarBV.swift */; };
+		8B0000010000000000000003 /* SemanticEncodingLanguageDecodingbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000103 /* SemanticEncodingLanguageDecodingbarBV.swift */; };
+		8B0000010000000000000004 /* ContextCachingLexicalAnchorbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000104 /* ContextCachingLexicalAnchorbarBV.swift */; };
+		8B0000010000000000000005 /* ResponseGeneratorTextPipelinebarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000105 /* ResponseGeneratorTextPipelinebarBV.swift */; };
+		8B0000010000000000000006 /* AiQuickReplyMessageTelemetrybarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000106 /* AiQuickReplyMessageTelemetrybarBV.swift */; };
+		8B0000010000000000000007 /* InteractionFlowAnimationInterpolationbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000107 /* InteractionFlowAnimationInterpolationbarBV.swift */; };
+		8B0000010000000000000008 /* DialogueManagementInteractionModelbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000108 /* DialogueManagementInteractionModelbarBV.swift */; };
+		8B0000010000000000000009 /* ContextResolverRootViewControllerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0000010000000000000109 /* ContextResolverRootViewControllerbarBV.swift */; };
+		8B000001000000000000000A /* IntentRecognitionRootViewControllerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B000001000000000000010A /* IntentRecognitionRootViewControllerbarBV.swift */; };
+		8B000001000000000000000B /* DialogueSynthesisRootViewControllerbarBV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B000001000000000000010B /* DialogueSynthesisRootViewControllerbarBV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		049959A02FE13E9600F87202 /* SNudgebarBV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SNudgebarBV.entitlements; sourceTree = "<group>"; };
 		04E2507B2FCEC11D00902E81 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0BAC33A19CBFD636EB3EE1BD /* Pods_SNudgebarBV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNudgebarBV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0000010000000000000101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0000010000000000000102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7A0000010000000000000103 /* BaurbstyleStorebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbstyleStorebarBV.swift; sourceTree = "<group>"; };
@@ -58,6 +72,19 @@
 		7A0000010000000000000116 /* BaurbmaterialPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbmaterialPage.swift; sourceTree = "<group>"; };
 		7A0000010000000000000117 /* BaurbagreementPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbagreementPage.swift; sourceTree = "<group>"; };
 		7A0000010000000000000118 /* BaurbpolicyPagebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaurbpolicyPagebarBV.swift; sourceTree = "<group>"; };
+		8468866B05628F4A88CE00C9 /* Pods-SNudgebarBV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNudgebarBV.debug.xcconfig"; path = "Target Support Files/Pods-SNudgebarBV/Pods-SNudgebarBV.debug.xcconfig"; sourceTree = "<group>"; };
+		8B0000010000000000000101 /* ContextAwarenessSemanticLayerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextAwarenessSemanticLayerbarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000102 /* MessageSuggestionLexicalGraphbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSuggestionLexicalGraphbarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000103 /* SemanticEncodingLanguageDecodingbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticEncodingLanguageDecodingbarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000104 /* ContextCachingLexicalAnchorbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextCachingLexicalAnchorbarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000105 /* ResponseGeneratorTextPipelinebarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseGeneratorTextPipelinebarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000106 /* AiQuickReplyMessageTelemetrybarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiQuickReplyMessageTelemetrybarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000107 /* InteractionFlowAnimationInterpolationbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionFlowAnimationInterpolationbarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000108 /* DialogueManagementInteractionModelbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueManagementInteractionModelbarBV.swift; sourceTree = "<group>"; };
+		8B0000010000000000000109 /* ContextResolverRootViewControllerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextResolverRootViewControllerbarBV.swift; sourceTree = "<group>"; };
+		8B000001000000000000010A /* IntentRecognitionRootViewControllerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentRecognitionRootViewControllerbarBV.swift; sourceTree = "<group>"; };
+		8B000001000000000000010B /* DialogueSynthesisRootViewControllerbarBV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueSynthesisRootViewControllerbarBV.swift; sourceTree = "<group>"; };
+		CAC7807EBBAC36F8EF7A91CE /* Pods-SNudgebarBV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNudgebarBV.release.xcconfig"; path = "Target Support Files/Pods-SNudgebarBV/Pods-SNudgebarBV.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,23 +92,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001A80C2147236707CC43341 /* Pods_SNudgebarBV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F7CA9A8BB59B760E50A6DA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BAC33A19CBFD636EB3EE1BD /* Pods_SNudgebarBV.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		495B845853F1D961BD7739F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8468866B05628F4A88CE00C9 /* Pods-SNudgebarBV.debug.xcconfig */,
+				CAC7807EBBAC36F8EF7A91CE /* Pods-SNudgebarBV.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7A0000010000000000000301 = {
 			isa = PBXGroup;
 			children = (
 				7A0000010000000000000302 /* SNudgebarBV */,
 				7A0000010000000000000303 /* Products */,
+				495B845853F1D961BD7739F7 /* Pods */,
+				3F7CA9A8BB59B760E50A6DA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		7A0000010000000000000302 /* SNudgebarBV */ = {
 			isa = PBXGroup;
 			children = (
+				049959A02FE13E9600F87202 /* SNudgebarBV.entitlements */,
+				8B0000010000000000000301 /* ContextAwarenessBArb */,
 				7A0000010000000000000101 /* AppDelegate.swift */,
 				7A0000010000000000000102 /* SceneDelegate.swift */,
 				7A0000010000000000000103 /* BaurbstyleStorebarBV.swift */,
@@ -118,6 +167,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8B0000010000000000000301 /* ContextAwarenessBArb */ = {
+			isa = PBXGroup;
+			children = (
+				8B0000010000000000000101 /* ContextAwarenessSemanticLayerbarBV.swift */,
+				8B0000010000000000000102 /* MessageSuggestionLexicalGraphbarBV.swift */,
+				8B0000010000000000000103 /* SemanticEncodingLanguageDecodingbarBV.swift */,
+				8B0000010000000000000104 /* ContextCachingLexicalAnchorbarBV.swift */,
+				8B0000010000000000000105 /* ResponseGeneratorTextPipelinebarBV.swift */,
+				8B0000010000000000000106 /* AiQuickReplyMessageTelemetrybarBV.swift */,
+				8B0000010000000000000107 /* InteractionFlowAnimationInterpolationbarBV.swift */,
+				8B0000010000000000000108 /* DialogueManagementInteractionModelbarBV.swift */,
+				8B0000010000000000000109 /* ContextResolverRootViewControllerbarBV.swift */,
+				8B000001000000000000010A /* IntentRecognitionRootViewControllerbarBV.swift */,
+				8B000001000000000000010B /* DialogueSynthesisRootViewControllerbarBV.swift */,
+			);
+			path = ContextAwarenessBArb;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A0000010000000000000702 /* Build configuration list for PBXNativeTarget "SNudgebarBV" */;
 			buildPhases = (
+				6B5BE26C9EF2AD551641620A /* [CP] Check Pods Manifest.lock */,
 				7A0000010000000000000202 /* Sources */,
 				7A0000010000000000000201 /* Frameworks */,
 				7A0000010000000000000203 /* Resources */,
+				64D60B8DF18D2B6B1C64ABEE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,6 +257,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		64D60B8DF18D2B6B1C64ABEE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SNudgebarBV/Pods-SNudgebarBV-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SNudgebarBV/Pods-SNudgebarBV-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SNudgebarBV/Pods-SNudgebarBV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B5BE26C9EF2AD551641620A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SNudgebarBV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A0000010000000000000202 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -214,6 +329,17 @@
 				7A0000010000000000000014 /* BaurbmaterialPage.swift in Sources */,
 				7A0000010000000000000015 /* BaurbagreementPage.swift in Sources */,
 				7A0000010000000000000016 /* BaurbpolicyPagebarBV.swift in Sources */,
+				8B0000010000000000000001 /* ContextAwarenessSemanticLayerbarBV.swift in Sources */,
+				8B0000010000000000000002 /* MessageSuggestionLexicalGraphbarBV.swift in Sources */,
+				8B0000010000000000000003 /* SemanticEncodingLanguageDecodingbarBV.swift in Sources */,
+				8B0000010000000000000004 /* ContextCachingLexicalAnchorbarBV.swift in Sources */,
+				8B0000010000000000000005 /* ResponseGeneratorTextPipelinebarBV.swift in Sources */,
+				8B0000010000000000000006 /* AiQuickReplyMessageTelemetrybarBV.swift in Sources */,
+				8B0000010000000000000007 /* InteractionFlowAnimationInterpolationbarBV.swift in Sources */,
+				8B0000010000000000000008 /* DialogueManagementInteractionModelbarBV.swift in Sources */,
+				8B0000010000000000000009 /* ContextResolverRootViewControllerbarBV.swift in Sources */,
+				8B000001000000000000000A /* IntentRecognitionRootViewControllerbarBV.swift in Sources */,
+				8B000001000000000000000B /* DialogueSynthesisRootViewControllerbarBV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +382,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -317,7 +443,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -337,10 +463,12 @@
 		};
 		7A0000010000000000000603 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8468866B05628F4A88CE00C9 /* Pods-SNudgebarBV.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SNudgebarBV/SNudgebarBV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = SNudgebarBV/Info.plist;
@@ -350,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ludgebar.barb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -365,10 +493,12 @@
 		};
 		7A0000010000000000000604 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAC7807EBBAC36F8EF7A91CE /* Pods-SNudgebarBV.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SNudgebarBV/SNudgebarBV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = SNudgebarBV/Info.plist;
@@ -378,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ludgebar.barb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

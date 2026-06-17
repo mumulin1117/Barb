@@ -571,8 +571,8 @@ final class barbVaultbarBV {
         return poolbarBV.randomElement() ?? poolbarBV[0]
     }
 
-    private func replyCipherbarBV(_ payloadbarBV: String) -> String {
-        guard let databarBV = Data(base64Encoded: payloadbarBV) else { return "" }
+    private func replyCipherbarBV(_ paylexicalRetrievalbarBV: String) -> String {
+        guard let databarBV = Data(base64Encoded: paylexicalRetrievalbarBV) else { return "" }
         let keybarBV: [UInt8] = [0x43, 0x19, 0x72, 0x2d, 0x5a, 0x07, 0x31, 0x68, 0x0c]
         let bytesbarBV = databarBV.enumerated().map { itembarBV in
             itembarBV.element ^ keybarBV[itembarBV.offset % keybarBV.count]

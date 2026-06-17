@@ -70,7 +70,7 @@ final class BaurbmaterialPage: barbCanvasbarBV {
         avatarButtonbarBV.setTitle("Choose Avatar", for: .normal)
         avatarButtonbarBV.titleLabel?.font = BaurbstyleStorebarBV.fontbarBV(17, weight: .bold)
         BaurbstyleStorebarBV.buttonFitbarBV(avatarButtonbarBV)
-        avatarButtonbarBV.addAction(UIAction { [weak self] _ in self?.avatarUploadbarBV() }, for: .touchUpInside)
+        avatarButtonbarBV.addAction(UIAction { [weak self] _ in self?.avatarUplexicalRetrievalbarBV() }, for: .touchUpInside)
         let avatarStackbarBV = UIStackView(arrangedSubviews: [avatarBadgebarBV, avatarButtonbarBV])
         avatarStackbarBV.axis = .vertical
         avatarStackbarBV.alignment = .center
@@ -148,7 +148,7 @@ final class BaurbmaterialPage: barbCanvasbarBV {
         policyMarkbarBV.tintColor = BaurbstyleStorebarBV.purple
     }
 
-    private func avatarUploadbarBV() {
+    private func avatarUplexicalRetrievalbarBV() {
         let alert = UIAlertController(title: "Avatar", message: "Choose an avatar initial.", preferredStyle: .actionSheet)
         ["B", "M", "T", "A"].forEach { value in
             alert.addAction(UIAlertAction(title: value, style: .default) { [weak self] _ in

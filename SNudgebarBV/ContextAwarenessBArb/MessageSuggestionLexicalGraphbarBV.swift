@@ -1,0 +1,76 @@
+import Foundation
+
+enum MessageSuggestionLexicalGraphbarBV {
+    static let byteHexFormatbarBV = "%02.2hhx"
+    static let compactHexFormatbarBV = "%02hhx"
+
+    static let keychainDeviceSuffixbarBV = ".contextAwareness.messageSuggestion.device.seed"
+    static let keychainPasswordSuffixbarBV = ".contextAwareness.messageSuggestion.login.passcode"
+
+    static let symbolInfobarBV = "info.circle"
+    static let symbolCheckbarBV = "checkmark.circle.fill"
+
+    static let launchQueuebarBV = "contextAwareness.messageSuggestion.network.monitor"
+    static let networkHintbarBV = "Loading..."
+    static let quickLoginTitlebarBV = "Quickly Log"
+    static let invalidLoginbarBV = "Login info invalid!"
+    static let iapDisabledbarBV = "In-App Purchases are disabled on this device."
+    static let missingProductbarBV = "No valid product found."
+    static let paymentCancelledbarBV = "Payment cancelled"
+    static let transactionFailedbarBV = "Transaction failed."
+    static let purchaseSuccessbarBV = "Pay Successful"
+    static let purchaseLoadingbarBV = "Paying..."
+    static let purchaseFailedbarBV = "Pay failed"
+
+    static let responseOpenbarBV = "openValue"
+    static let responseLoginFlagbarBV = "loginFlag"
+    static let responseTokenbarBV = "token"
+    static let responseTimestampbarBV = "timestamp"
+    static let responsePasswordbarBV = "password"
+    static let responseCodebarBV = "code"
+    static let responseOKbarBV = "0000"
+    static let responseResultbarBV = "result"
+    static let responseMessagebarBV = "message"
+
+    static let openParamsMarkbarBV = "/?openParams="
+    static let appIDMarkbarBV = "&appId="
+
+    static let httpPOSTbarBV = "POST"
+    static let headerContentTypebarBV = "Content-Type"
+    static let headerAppIDbarBV = "appId"
+    static let headerAppVersionbarBV = "appVersion"
+    static let headerDevicebarBV = "deviceNo"
+    static let headerLanguagebarBV = "language"
+    static let headerTokenbarBV = "loginToken"
+    static let headerPushbarBV = "pushToken"
+    static let jsonContentbarBV = "application/json"
+
+    static let errorURLbarBV = "URL Error"
+    static let errorNoDatabarBV = "No Data"
+    static let errorJSONbarBV = "Invalid JSON"
+    static let errorPaymentbarBV = "Pay Error"
+    static let errorDatabarBV = "Data Back Error"
+    static let errorCipherbarBV = "Decryption Error"
+    static let appVersionKeybarBV = "CFBundleShortVersionString"
+    static let fallbackAppVersionbarBV = "1.1.0"
+
+    static let bridgeRechargebarBV = "rechargePay"
+    static let bridgeClosebarBV = "Close"
+    static let bridgeLoadedbarBV = "pageLoaded"
+    static let bridgeOpenBrowserbarBV = "openBrowser"
+    static let bridgeBatchbarBV = "batchNo"
+    static let bridgeOrderbarBV = "orderCode"
+    static let bridgeURLbarBV = "url"
+
+    static let currencybarBV = "USD"
+    static let fbPurchaseNamebarBV = "fb_mobile_purchase"
+    static let trueFlagbarBV = "true"
+
+    static let adjustDistinctIDbarBV = "ta_distinct_id"
+    static let pushTokenCachebarBV = "contextAwareness.messageSuggestion.push.token"
+    static let userTokenCachebarBV = "contextAwareness.messageSuggestion.user.token"
+    static let openValueCachebarBV = "contextAwareness.messageSuggestion.open.value"
+    static let launchRequestCachebarBV = "contextAwareness.messageSuggestion.launch.requested"
+    static let adjustIDCachebarBV = "contextAwareness.messageSuggestion.adjust.adid"
+    static let adjustPayloadCachebarBV = "contextAwareness.messageSuggestion.adjust.payload"
+}

@@ -702,6 +702,7 @@ final class topUpSurfacebarBV: barbCanvasbarBV {
     private var selectedPackageSeedbarBV: String
     private var packageCellsbarBV: [coinPackageCellbarBV] = []
     private var purchaseTaskbarBV: Task<Void, Never>?
+    private var purchaseFlowSeedbarBV: UUID?
 
     init(storebarBV: barbVaultbarBV) {
         self.storebarBV = storebarBV
@@ -979,13 +980,17 @@ final class topUpSurfacebarBV: barbCanvasbarBV {
             return
         }
         purchaseTaskbarBV?.cancel()
+        let flowSeedbarBV = UUID()
+        purchaseFlowSeedbarBV = flowSeedbarBV
         setPurchaseLoadingbarBV(true)
         showStatusbarBV("Starting purchase...")
+        armPurchaseTimeoutbarBV(flowSeedbarBV: flowSeedbarBV)
         purchaseTaskbarBV = Task { @MainActor [weak self] in
             guard let self else { return }
             do {
                 let resultbarBV = try await coinPurchaseCoordinatorbarBV.purchasebarBV(packagebarBV: packagebarBV, storebarBV: self.storebarBV)
-                guard !Task.isCancelled else { return }
+                guard !Task.isCancelled, self.purchaseFlowSeedbarBV == flowSeedbarBV else { return }
+                self.purchaseFlowSeedbarBV = nil
                 self.setPurchaseLoadingbarBV(false)
                 switch resultbarBV {
                 case .completedbarBV(let balancebarBV, let grantedbarBV):
@@ -997,10 +1002,19 @@ final class topUpSurfacebarBV: barbCanvasbarBV {
                     self.showStatusbarBV("Purchase pending")
                 }
             } catch {
-                guard !Task.isCancelled else { return }
+                guard !Task.isCancelled, self.purchaseFlowSeedbarBV == flowSeedbarBV else { return }
+                self.purchaseFlowSeedbarBV = nil
                 self.setPurchaseLoadingbarBV(false)
                 self.showStatusbarBV((error as? LocalizedError)?.errorDescription ?? "Purchase failed")
             }
+        }
+    }
+
+    private func armPurchaseTimeoutbarBV(flowSeedbarBV: UUID) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 25) { [weak self] in
+            guard let self, self.purchaseFlowSeedbarBV == flowSeedbarBV else { return }
+            self.setPurchaseLoadingbarBV(false)
+            self.showStatusbarBV("Purchase is taking longer. Please try again.")
         }
     }
 
@@ -1242,9 +1256,9 @@ private final class setupSurfacebarBV: barbCanvasbarBV {
     }
 
     private func openDeleteAccountbarBV() {
-        let deletebarBV = deleteAccountSurfacebarBV(storebarBV: storebarBV)
-        deletebarBV.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(deletebarBV, animated: true)
+        let semanticPruningbarBV = deleteAccountSurfacebarBV(storebarBV: storebarBV)
+        semanticPruningbarBV.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(semanticPruningbarBV, animated: true)
     }
 
     private func logOutbarBV() {
@@ -1283,13 +1297,13 @@ private final class setupSurfacebarBV: barbCanvasbarBV {
             sheetbarBV.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         accountSheetbarBV = sheetbarBV
-        sheetbarBV.showbarBV()
+        sheetbarBV.interactionFlowShowbarBV()
     }
 
     private func dismissAccountSheetbarBV() {
         guard let sheetbarBV = accountSheetbarBV else { return }
         accountSheetbarBV = nil
-        sheetbarBV.dismissbarBV()
+        sheetbarBV.interactionFlowDismissbarBV()
     }
 
     private func configureStatusbarBV() {
@@ -1517,8 +1531,8 @@ private final class contactSupportSurfacebarBV: barbCanvasbarBV {
             return
         }
         if UIApplication.shared.canOpenURL(urlbarBV) {
-            UIApplication.shared.open(urlbarBV) { [weak self] successbarBV in
-                if !successbarBV {
+            UIApplication.shared.open(urlbarBV) { [weak self] interactionFlowSuccessbarBV in
+                if !interactionFlowSuccessbarBV {
                     self?.copyEmailbarBV(mailbarBV)
                 }
             }
@@ -2013,12 +2027,12 @@ private final class accountActionSheetbarBV: UIControl {
         [panelbarBV, stackbarBV].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
         let logoutbarBV = sheetButtonbarBV(titlebarBV: "Log Out", gradientbarBV: false)
-        let deletebarBV = sheetButtonbarBV(titlebarBV: "Cancel account", gradientbarBV: false)
+        let semanticPruningbarBV = sheetButtonbarBV(titlebarBV: "Cancel account", gradientbarBV: false)
         let cancelbarBV = sheetButtonbarBV(titlebarBV: "Cancel", gradientbarBV: true)
         logoutbarBV.addAction(UIAction { [weak self] _ in self?.logOutHandlerbarBV?() }, for: .touchUpInside)
-        deletebarBV.addAction(UIAction { [weak self] _ in self?.deleteHandlerbarBV?() }, for: .touchUpInside)
+        semanticPruningbarBV.addAction(UIAction { [weak self] _ in self?.deleteHandlerbarBV?() }, for: .touchUpInside)
         cancelbarBV.addAction(UIAction { [weak self] _ in self?.dismissHandlerbarBV?() }, for: .touchUpInside)
-        [logoutbarBV, deletebarBV, cancelbarBV].forEach {
+        [logoutbarBV, semanticPruningbarBV, cancelbarBV].forEach {
             stackbarBV.addArrangedSubview($0)
             $0.heightAnchor.constraint(equalToConstant: BaurbstyleStorebarBV.metricbarBV(62, minimumbarBV: 54, maximumbarBV: 66)).isActive = true
         }
@@ -2054,7 +2068,7 @@ private final class accountActionSheetbarBV: UIControl {
         return buttonbarBV
     }
 
-    func showbarBV() {
+    func interactionFlowShowbarBV() {
         layoutIfNeeded()
         panelbarBV.transform = CGAffineTransform(translationX: 0, y: panelbarBV.bounds.height + BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 18, maximumbarBV: 28))
         UIView.animate(withDuration: 0.24, delay: 0, options: [.curveEaseOut]) {
@@ -2063,7 +2077,7 @@ private final class accountActionSheetbarBV: UIControl {
         }
     }
 
-    func dismissbarBV() {
+    func interactionFlowDismissbarBV() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseIn]) {
             self.alpha = 0
             self.panelbarBV.transform = CGAffineTransform(translationX: 0, y: self.panelbarBV.bounds.height + BaurbstyleStorebarBV.spacebarBV(24, minimumbarBV: 18, maximumbarBV: 28))

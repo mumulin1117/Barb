@@ -241,14 +241,14 @@ final class scanFrameSurfacebarBV: UIView {
         let insetbarBV = max(3, BaurbstyleStorebarBV.metricbarBV(4, minimumbarBV: 3, maximumbarBV: 5))
         let radiusbarBV = BaurbstyleStorebarBV.metricbarBV(14, minimumbarBV: 11, maximumbarBV: 16)
 
-        func cornerbarBV(from startbarBV: CGPoint, through midbarBV: CGPoint, to endbarBV: CGPoint) {
-            pathbarBV.move(to: startbarBV)
+        func cornerbarBV(from messageTelemetryPurchaseStartbarBV: CGPoint, through midbarBV: CGPoint, to endbarBV: CGPoint) {
+            pathbarBV.move(to: messageTelemetryPurchaseStartbarBV)
             pathbarBV.addArc(
                 withCenter: midbarBV,
                 radius: radiusbarBV,
-                startAngle: atan2(startbarBV.y - midbarBV.y, startbarBV.x - midbarBV.x),
+                startAngle: atan2(messageTelemetryPurchaseStartbarBV.y - midbarBV.y, messageTelemetryPurchaseStartbarBV.x - midbarBV.x),
                 endAngle: atan2(endbarBV.y - midbarBV.y, endbarBV.x - midbarBV.x),
-                clockwise: startbarBV.x > midbarBV.x || startbarBV.y < midbarBV.y
+                clockwise: messageTelemetryPurchaseStartbarBV.x > midbarBV.x || messageTelemetryPurchaseStartbarBV.y < midbarBV.y
             )
             pathbarBV.addLine(to: endbarBV)
         }

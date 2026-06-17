@@ -1,7 +1,6 @@
 import AdjustSdk
 import FBSDKCoreKit
 import UIKit
-import UserNotifications
 
 final class DialoguePolicyInteractionModelBArb: NSObject {
     static let dialoguePolicyBArb = DialoguePolicyInteractionModelBArb()
@@ -65,36 +64,6 @@ final class DialoguePolicyInteractionModelBArb: NSObject {
         return uiConfigurationBArb
     }
 
-    func messageSuggestionInteractionFlowBArb() {
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { contextValidationGrantedBArb, _ in
-            DispatchQueue.main.async {
-                if contextValidationGrantedBArb {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
-        }
-    }
-
-   
 }
 
 extension DialoguePolicyInteractionModelBArb: AdjustDelegate {}
-
-extension DialoguePolicyInteractionModelBArb: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        willPresent notification: UNNotification,
-        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
-    ) {
-        completionHandler([.banner, .sound, .badge])
-    }
-
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        didReceive response: UNNotificationResponse,
-        withCompletionHandler completionHandler: @escaping () -> Void
-    ) {
-        completionHandler()
-    }
-}

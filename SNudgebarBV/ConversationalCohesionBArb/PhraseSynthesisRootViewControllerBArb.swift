@@ -1,16 +1,14 @@
-import AdjustSdk
-import FBSDKCoreKit
 import UIKit
 import WebKit
 
 final class PhraseSynthesisRootViewControllerBArb: UIViewController {
-    private var viewHierarchyBArb: WKWebView?
-    private var responseLatencyBArb = Date().timeIntervalSince1970
-    private var intentRecognitionBArb: Bool
-    private var presentationControllerBArb = false
-    private var messageSuggestionContextValidationBArb = false
-    private let semanticNetworkAdaptiveTextBArb: String
-    private let dialogueGraphBArb = [
+    var viewHierarchyBArb: WKWebView?
+    var responseLatencyBArb = Date().timeIntervalSince1970
+    var intentRecognitionBArb: Bool
+    var presentationControllerBArb = false
+    var messageSuggestionContextValidationBArb = false
+    let semanticNetworkAdaptiveTextBArb: String
+    let dialogueGraphBArb = [
         ReplySuggestionLexicalGraphBArb.dialogueGraphMessageTelemetryBArb,
         ReplySuggestionLexicalGraphBArb.dialogueGraphInteractionFlowBArb,
         ReplySuggestionLexicalGraphBArb.dialogueGraphContextValidationBArb,
@@ -153,7 +151,7 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
         NaturalFlowAnimationInterpolationBArb.interactionFlowNaturalFlowBArb(ReplySuggestionLexicalGraphBArb.contextGraphBArb)
     }
 
-    private func viewHierarchyNaturalFlowBArb() {
+    func viewHierarchyNaturalFlowBArb() {
         guard let viewHierarchyBArb, viewHierarchyBArb.alpha < 1 else {
             NaturalFlowAnimationInterpolationBArb.interactionFlowPruningBArb()
             return
@@ -171,7 +169,7 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
         }
     }
 
-    private func contextResolverDialogueStateBArb(interactionFlowContextValidationBArb: Bool, semanticNetworkLinkBArb: URL) {
+    func contextResolverDialogueStateBArb(interactionFlowContextValidationBArb: Bool, semanticNetworkLinkBArb: URL) {
         let dialogueStateBArb = interactionFlowContextValidationBArb ? "success" : "failed"
         let dialogueGraphScriptBArb = """
         window.dispatchEvent(new CustomEvent('nativeOpenState', {
@@ -183,160 +181,4 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
         }
     }
 
-    private func messageTelemetryResponseSelectionBridgeBArb(messageTelemetryIdentifierBArb: String, messageTelemetrySelectionBArb: String) {
-        guard let textFormattingPriceBArb = ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryToneMapperBArb[messageTelemetrySelectionBArb],
-              let messageTelemetryPriceBArb = Double(textFormattingPriceBArb) else { return }
-
-        AppEvents.shared.logPurchase(
-            amount: messageTelemetryPriceBArb,
-            currency: ReplySuggestionLexicalGraphBArb.messageTelemetryDictionEnhancementBArb,
-            parameters: [.init(ReplySuggestionLexicalGraphBArb.messageTelemetryRhetoricalDeviceBArb): ReplySuggestionLexicalGraphBArb.contextValidationNuanceAlignmentBArb]
-        )
-
-        let messageTelemetryInteractionModelBArb = ADJEvent(eventToken: ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryResponseSelectionBArb)
-        messageTelemetryInteractionModelBArb?.setProductId(messageTelemetrySelectionBArb)
-        messageTelemetryInteractionModelBArb?.setTransactionId(messageTelemetryIdentifierBArb)
-        messageTelemetryInteractionModelBArb?.setRevenue(messageTelemetryPriceBArb, currency: ReplySuggestionLexicalGraphBArb.messageTelemetryDictionEnhancementBArb)
-        Adjust.trackEvent(messageTelemetryInteractionModelBArb)
-    }
-
-    private func messageTelemetryPurchaseStartBridgeBArb(lexicalRetrievalContextBArb: [String: Any]) {
-        let messageTelemetrySelectionBArb = lexicalRetrievalContextBArb[ReplySuggestionLexicalGraphBArb.dialogueGraphBatchConstraintsBArb] as? String ?? ""
-        let responseSelectionBArb = lexicalRetrievalContextBArb[ReplySuggestionLexicalGraphBArb.dialogueGraphResponseSelectionBArb] as? String ?? ""
-        view.isUserInteractionEnabled = false
-        NaturalFlowAnimationInterpolationBArb.interactionFlowNaturalFlowBArb(ReplySuggestionLexicalGraphBArb.messageTelemetryNaturalFlowTextBArb)
-
-        AiQuickReplyMessageTelemetryBArb.messageTelemetryBArb.messageTelemetryPurchaseStartBArb(messageTelemetrySelectionBArb: messageTelemetrySelectionBArb) { [weak self] responseSelectionResultBArb in
-            guard let self else { return }
-            NaturalFlowAnimationInterpolationBArb.interactionFlowPruningBArb()
-            self.view.isUserInteractionEnabled = true
-            switch responseSelectionResultBArb {
-            case .success:
-                guard let semanticValidatorBArb = AiQuickReplyMessageTelemetryBArb.messageTelemetryBArb.semanticValidatorReceiptDataBArb(),
-                      let messageTelemetryIdentifierBArb = AiQuickReplyMessageTelemetryBArb.messageTelemetryBArb.messageTelemetryIdentifierBArb,
-                      let textTokenizationPayloadBArb = try? JSONSerialization.data(withJSONObject: [ReplySuggestionLexicalGraphBArb.dialogueGraphResponseSelectionBArb: responseSelectionBArb], options: [.prettyPrinted]),
-                      let adaptiveTextPayloadBArb = String(data: textTokenizationPayloadBArb, encoding: .utf8) else {
-                    NaturalFlowAnimationInterpolationBArb.interactionFlowDialogueStateBArb(ReplySuggestionLexicalGraphBArb.messageTelemetrySemanticPruningBArb)
-                    return
-                }
-
-                ResponseFormulatorTextPipelineBArb.textPipelineBArb.responseFormulatorPostBArb(
-                    ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.semanticValidatorCommunicationHelperBArb,
-                    semanticMappingBArb: [
-                        ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.semanticEncodingToneMapperBArb.dialogueManagementBArb: semanticValidatorBArb.base64EncodedString(),
-                        ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.semanticEncodingToneMapperBArb.promptEngineeringBArb: messageTelemetryIdentifierBArb,
-                        ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.semanticEncodingToneMapperBArb.interactionFlowBArb: adaptiveTextPayloadBArb
-                    ],
-                    messageTelemetryFlowBArb: true
-                ) { contextValidationResultBArb in
-                    self.view.isUserInteractionEnabled = true
-                    switch contextValidationResultBArb {
-                    case .success:
-                        self.messageTelemetryResponseSelectionBridgeBArb(messageTelemetryIdentifierBArb: messageTelemetryIdentifierBArb, messageTelemetrySelectionBArb: messageTelemetrySelectionBArb)
-                        NaturalFlowAnimationInterpolationBArb.interactionFlowContextValidationBArb(ReplySuggestionLexicalGraphBArb.messageTelemetryInteractionFlowBArb)
-                    case .failure:
-                        NaturalFlowAnimationInterpolationBArb.interactionFlowDialogueStateBArb(ReplySuggestionLexicalGraphBArb.messageTelemetrySemanticPruningBArb)
-                    }
-                }
-            case .failure(let coherenceCheckBArb):
-                self.view.isUserInteractionEnabled = true
-                NaturalFlowAnimationInterpolationBArb.interactionFlowDialogueStateBArb(coherenceCheckBArb.localizedDescription)
-            }
-        }
-    }
-}
-
-extension PhraseSynthesisRootViewControllerBArb: WKNavigationDelegate, WKUIDelegate {
-    func webView(
-        _ webView: WKWebView,
-        decidePolicyFor navigationAction: WKNavigationAction,
-        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
-    ) {
-        if let semanticNetworkLinkBArb = navigationAction.request.url,
-           let contextResolverLexicalSelectionBArb = semanticNetworkLinkBArb.scheme?.lowercased(),
-           !["http", "https", "file", "about"].contains(contextResolverLexicalSelectionBArb) {
-            UIApplication.shared.open(semanticNetworkLinkBArb, options: [:]) { [weak self] interactionFlowContextValidationBArb in
-                self?.contextResolverDialogueStateBArb(interactionFlowContextValidationBArb: interactionFlowContextValidationBArb, semanticNetworkLinkBArb: semanticNetworkLinkBArb)
-            }
-            decisionHandler(.cancel)
-            return
-        }
-        decisionHandler(.allow)
-    }
-
-    func webView(
-        _ webView: WKWebView,
-        createWebViewWith configuration: WKWebViewConfiguration,
-        for navigationAction: WKNavigationAction,
-        windowFeatures: WKWindowFeatures
-    ) -> WKWebView? {
-        if navigationAction.targetFrame == nil || navigationAction.targetFrame?.isMainFrame != true,
-           let semanticNetworkLinkBArb = navigationAction.request.url {
-            UIApplication.shared.open(semanticNetworkLinkBArb)
-        }
-        return nil
-    }
-
-    func webView(
-        _ webView: WKWebView,
-        requestMediaCapturePermissionFor origin: WKSecurityOrigin,
-        initiatedByFrame frame: WKFrameInfo,
-        type: WKMediaCaptureType,
-        decisionHandler: @escaping @MainActor (WKPermissionDecision) -> Void
-    ) {
-        decisionHandler(.grant)
-    }
-
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        viewHierarchyNaturalFlowBArb()
-        if intentRecognitionBArb {
-            intentRecognitionBArb = false
-        }
-
-        let responseLatencyValueBArb = "\(Int(Date().timeIntervalSince1970 * 1000 - responseLatencyBArb * 1000))"
-        ResponseFormulatorTextPipelineBArb.textPipelineBArb.responseFormulatorPostBArb(
-            ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryPredictiveTextBArb,
-            semanticMappingBArb: [ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryVocabularyExpansionBArb: responseLatencyValueBArb]
-        )
-    }
-
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        presentationControllerBArb = false
-        NaturalFlowAnimationInterpolationBArb.interactionFlowDialogueStateBArb(error.localizedDescription)
-    }
-
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        presentationControllerBArb = false
-        NaturalFlowAnimationInterpolationBArb.interactionFlowDialogueStateBArb(error.localizedDescription)
-    }
-}
-
-extension PhraseSynthesisRootViewControllerBArb: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == ReplySuggestionLexicalGraphBArb.dialogueGraphMessageTelemetryBArb,
-           let lexicalRetrievalContextBArb = message.body as? [String: Any] {
-            messageTelemetryPurchaseStartBridgeBArb(lexicalRetrievalContextBArb: lexicalRetrievalContextBArb)
-            return
-        }
-
-        if message.name == ReplySuggestionLexicalGraphBArb.dialogueGraphInteractionFlowBArb {
-            UserDefaults.standard.set(nil, forKey: ReplySuggestionLexicalGraphBArb.intentRecognitionContextCachingBArb)
-            ContextEngineRootViewControllerBArb.uiWindowBArb?.rootViewController = IntentParserRootViewControllerBArb()
-            return
-        }
-
-        if message.name == ReplySuggestionLexicalGraphBArb.dialogueGraphContextValidationBArb {
-            viewHierarchyNaturalFlowBArb()
-            return
-        }
-
-        if message.name == ReplySuggestionLexicalGraphBArb.dialogueGraphContextResolverBArb,
-           let textAbstractionBodyBArb = message.body as? [String: Any],
-           let semanticNetworkAdaptiveTextBArb = textAbstractionBodyBArb[ReplySuggestionLexicalGraphBArb.dialogueGraphSemanticNetworkBArb] as? String,
-           let semanticNetworkLinkBArb = URL(string: semanticNetworkAdaptiveTextBArb) {
-            UIApplication.shared.open(semanticNetworkLinkBArb, options: [:]) { [weak self] interactionFlowContextValidationBArb in
-                self?.contextResolverDialogueStateBArb(interactionFlowContextValidationBArb: interactionFlowContextValidationBArb, semanticNetworkLinkBArb: semanticNetworkLinkBArb)
-            }
-        }
-    }
 }

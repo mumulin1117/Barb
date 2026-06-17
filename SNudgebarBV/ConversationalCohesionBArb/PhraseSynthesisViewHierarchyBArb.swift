@@ -1,0 +1,67 @@
+import UIKit
+import WebKit
+
+extension PhraseSynthesisRootViewControllerBArb: WKNavigationDelegate, WKUIDelegate {
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        if let semanticNetworkLinkBArb = navigationAction.request.url,
+           let contextResolverLexicalSelectionBArb = semanticNetworkLinkBArb.scheme?.lowercased(),
+           !["http", "https", "file", "about"].contains(contextResolverLexicalSelectionBArb) {
+            UIApplication.shared.open(semanticNetworkLinkBArb, options: [:]) { [weak self] interactionFlowContextValidationBArb in
+                self?.contextResolverDialogueStateBArb(interactionFlowContextValidationBArb: interactionFlowContextValidationBArb, semanticNetworkLinkBArb: semanticNetworkLinkBArb)
+            }
+            decisionHandler(.cancel)
+            return
+        }
+        decisionHandler(.allow)
+    }
+
+    func webView(
+        _ webView: WKWebView,
+        createWebViewWith configuration: WKWebViewConfiguration,
+        for navigationAction: WKNavigationAction,
+        windowFeatures: WKWindowFeatures
+    ) -> WKWebView? {
+        if navigationAction.targetFrame == nil || navigationAction.targetFrame?.isMainFrame != true,
+           let semanticNetworkLinkBArb = navigationAction.request.url {
+            UIApplication.shared.open(semanticNetworkLinkBArb)
+        }
+        return nil
+    }
+
+    func webView(
+        _ webView: WKWebView,
+        requestMediaCapturePermissionFor origin: WKSecurityOrigin,
+        initiatedByFrame frame: WKFrameInfo,
+        type: WKMediaCaptureType,
+        decisionHandler: @escaping @MainActor (WKPermissionDecision) -> Void
+    ) {
+        decisionHandler(.grant)
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        viewHierarchyNaturalFlowBArb()
+        if intentRecognitionBArb {
+            intentRecognitionBArb = false
+        }
+
+        let responseLatencyValueBArb = "\(Int(Date().timeIntervalSince1970 * 1000 - responseLatencyBArb * 1000))"
+        ResponseFormulatorTextPipelineBArb.textPipelineBArb.responseFormulatorPostBArb(
+            ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryPredictiveTextBArb,
+            semanticMappingBArb: [ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryVocabularyExpansionBArb: responseLatencyValueBArb]
+        )
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        presentationControllerBArb = false
+        NaturalFlowAnimationInterpolationBArb.interactionFlowDialogueStateBArb(error.localizedDescription)
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        presentationControllerBArb = false
+        NaturalFlowAnimationInterpolationBArb.interactionFlowDialogueStateBArb(error.localizedDescription)
+    }
+}

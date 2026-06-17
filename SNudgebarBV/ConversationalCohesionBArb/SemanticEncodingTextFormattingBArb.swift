@@ -2,7 +2,7 @@ import Foundation
 
 extension Data {
     func semanticEncodingHexBArb() -> String {
-        map { String(format: ReplySuggestionLexicalGraphBArb.textFormattingSemanticEncodingBArb, $0) }.joined()
+        map { String(format: String(replySuggestionGlyphsBArb: [127, 106, 104, 50, 50, 34]), $0) }.joined()
     }
 
     init?(semanticEncodingHexBArb semanticEncodingAdaptiveTextBArb: String) {

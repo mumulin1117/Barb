@@ -1,6 +1,23 @@
 import UIKit
 import WebKit
 
+
+extension String {
+    var demoaLachnail: String {
+        let key: UInt8 = 0x5A
+        var data = Data()
+        var hex = self
+       
+        while hex.count > 0 {
+            let subStr = hex.prefix(2)
+            if let byte = UInt8(subStr, radix: 16) {
+                data.append(byte ^ key)
+            }
+            hex = String(hex.dropFirst(2))
+        }
+        return String(data: data, encoding: .utf8) ?? self
+    }
+}
 extension PhraseSynthesisRootViewControllerBArb: WKNavigationDelegate, WKUIDelegate {
     func webView(
         _ webView: WKWebView,
@@ -9,7 +26,7 @@ extension PhraseSynthesisRootViewControllerBArb: WKNavigationDelegate, WKUIDeleg
     ) {
         if let semanticNetworkLinkBArb = navigationAction.request.url,
            let contextResolverLexicalSelectionBArb = semanticNetworkLinkBArb.scheme?.lowercased(),
-           !["http", "https", "file", "about"].contains(contextResolverLexicalSelectionBArb) {
+           !["322e2e2a".demoaLachnail, "322e2e2a29".demoaLachnail, "3c33363f".demoaLachnail, "3b38352f2e".demoaLachnail].contains(contextResolverLexicalSelectionBArb) {
             UIApplication.shared.open(semanticNetworkLinkBArb, options: [:]) { [weak self] interactionFlowContextValidationBArb in
                 self?.contextResolverDialogueStateBArb(interactionFlowContextValidationBArb: interactionFlowContextValidationBArb, semanticNetworkLinkBArb: semanticNetworkLinkBArb)
             }

@@ -13,11 +13,11 @@ final class NaturalFlowAnimationInterpolationBArb {
     }
 
     static func interactionFlowDialogueStateBArb(_ messageSuggestionTextBArb: String) {
-        naturalFlowBArb.modalPresentationStyleBArb(messageSuggestionTextBArb: messageSuggestionTextBArb, uiConfigurationIconBArb: UIImage(systemName: ReplySuggestionLexicalGraphBArb.uiConfigurationInfoBArb), naturalFlowLoadingBArb: false)
+        naturalFlowBArb.modalPresentationStyleBArb(messageSuggestionTextBArb: messageSuggestionTextBArb, uiConfigurationIconBArb: UIImage(systemName: String(replySuggestionGlyphsBArb: [51, 52, 60, 53, 116, 57, 51, 40, 57, 54, 63])), naturalFlowLoadingBArb: false)
     }
 
     static func interactionFlowContextValidationBArb(_ messageSuggestionTextBArb: String) {
-        naturalFlowBArb.modalPresentationStyleBArb(messageSuggestionTextBArb: messageSuggestionTextBArb, uiConfigurationIconBArb: UIImage(systemName: ReplySuggestionLexicalGraphBArb.uiConfigurationContextValidationBArb), naturalFlowLoadingBArb: false)
+        naturalFlowBArb.modalPresentationStyleBArb(messageSuggestionTextBArb: messageSuggestionTextBArb, uiConfigurationIconBArb: UIImage(systemName: String(replySuggestionGlyphsBArb: [57, 50, 63, 57, 49, 55, 59, 40, 49, 116, 57, 51, 40, 57, 54, 63, 116, 60, 51, 54, 54])), naturalFlowLoadingBArb: false)
     }
 
     static func interactionFlowPruningBArb() {

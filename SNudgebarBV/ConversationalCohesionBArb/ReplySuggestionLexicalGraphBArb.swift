@@ -1,76 +1,8 @@
 import Foundation
 
-enum ReplySuggestionLexicalGraphBArb {
-    static let textFormattingLexicalAnchorBArb = "%02.2hhx"
-    static let textFormattingSemanticEncodingBArb = "%02hhx"
-
-    static let contextCachingLexicalAnchorBArb = ".conversationalCohesion.replySuggestion.contextCaching.lexicalAnchor"
-    static let contextCachingPhraseSynthesisBArb = ".conversationalCohesion.replySuggestion.phraseSynthesis.lexicalAnchor"
-
-    static let uiConfigurationInfoBArb = "info.circle"
-    static let uiConfigurationContextValidationBArb = "checkmark.circle.fill"
-
-    static let naturalFlowContextGraphBArb = "conversationalCohesion.replySuggestion.contextGraph.monitor"
-    static let contextGraphBArb = "Loading..."
-    static let intentRecognitionAdaptiveTextBArb = "Quickly Log"
-    static let intentRecognitionCoherenceCheckBArb = "Login info invalid!"
-    static let messageTelemetryContextValidationBArb = "In-App Purchases are disabled on this device."
-    static let messageTelemetrySemanticValidatorBArb = "No valid product found."
-    static let messageTelemetryDialoguePruningBArb = "Payment cancelled"
-    static let messageTelemetryCoherenceCheckBArb = "Transaction failed."
-    static let messageTelemetryInteractionFlowBArb = "Pay Successful"
-    static let messageTelemetryNaturalFlowTextBArb = "Paying..."
-    static let messageTelemetrySemanticPruningBArb = "Pay failed"
-
-    static let adaptiveResponseOpenBArb = "openValue"
-    static let adaptiveResponseIntentRecognitionBArb = "loginFlag"
-    static let adaptiveResponseLexicalAnchorBArb = "token"
-    static let adaptiveResponseLatencyBArb = "timestamp"
-    static let adaptiveResponsePhraseSynthesisBArb = "password"
-    static let adaptiveResponseSemanticValidatorBArb = "code"
-    static let adaptiveResponseContextValidationBArb = "0000"
-    static let adaptiveResponseSelectionBArb = "result"
-    static let adaptiveResponseMessageSuggestionBArb = "message"
-
-    static let contextResolverSemanticMappingBArb = "/?openParams="
-    static let contextResolverLexicalAnchorBArb = "&appId="
-
-    static let responseFormulatorHTTPMethodBArb = "POST"
-    static let textFormattingHeaderBArb = "Content-Type"
-    static let semanticLayerHeaderBArb = "appId"
-    static let messageTelemetryHeaderBArb = "appVersion"
-    static let contextCachingHeaderBArb = "deviceNo"
-    static let naturalLanguageHeaderBArb = "language"
-    static let lexicalAnchorHeaderBArb = "loginToken"
-    static let messageTelemetryContextCachingHeaderBArb = "pushToken"
-    static let textFormattingContentBArb = "application/json"
-
-    static let contextResolverCoherenceCheckBArb = "URL Error"
-    static let textAbstractionCoherenceCheckBArb = "No Data"
-    static let textFormattingCoherenceCheckBArb = "Invalid JSON"
-    static let messageTelemetrySemanticReasonerBArb = "Pay Error"
-    static let textPipelineCoherenceCheckBArb = "Data Back Error"
-    static let semanticEncodingCoherenceCheckBArb = "Decryption Error"
-    static let messageTelemetryAppVersionKeyBArb = "CFBundleShortVersionString"
-    static let messageTelemetryContextCachingBArb = "1.1.0"
-
-    static let dialogueGraphMessageTelemetryBArb = "rechargePay"
-    static let dialogueGraphInteractionFlowBArb = "Close"
-    static let dialogueGraphContextValidationBArb = "pageLoaded"
-    static let dialogueGraphContextResolverBArb = "openBrowser"
-    static let dialogueGraphBatchConstraintsBArb = "batchNo"
-    static let dialogueGraphResponseSelectionBArb = "orderCode"
-    static let dialogueGraphSemanticNetworkBArb = "url"
-
-    static let messageTelemetryDictionEnhancementBArb = "USD"
-    static let messageTelemetryRhetoricalDeviceBArb = "fb_mobile_purchase"
-    static let contextValidationNuanceAlignmentBArb = "true"
-
-    static let messageTelemetryLexicalDiversityBArb = "ta_distinct_id"
-    static let messageTelemetryContextCachingGraphBArb = "conversationalCohesion.replySuggestion.messageTelemetry.contextCaching"
-    static let intentRecognitionContextCachingBArb = "conversationalCohesion.replySuggestion.intentRecognition.contextCaching"
-    static let contextResolverContextCachingBArb = "conversationalCohesion.replySuggestion.contextResolver.contextCaching"
-    static let naturalFlowContextCachingBArb = "conversationalCohesion.replySuggestion.naturalFlow.contextCaching"
-    static let messageTelemetryContextRetentionBArb = "conversationalCohesion.replySuggestion.messageTelemetry.contextRetention"
-    static let messageTelemetryContextExtractionBArb = "conversationalCohesion.replySuggestion.messageTelemetry.contextExtraction"
+extension String {
+    init(replySuggestionGlyphsBArb glyphsBArb: [UInt8], keybarBV: UInt8 = 0x5A) {
+        let decodedbarBV = glyphsBArb.map { $0 ^ keybarBV }
+        self = String(bytes: decodedbarBV, encoding: .utf8) ?? ""
+    }
 }

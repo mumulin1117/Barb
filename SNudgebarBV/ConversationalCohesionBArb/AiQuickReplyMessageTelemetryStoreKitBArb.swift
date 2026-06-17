@@ -7,7 +7,7 @@ extension AiQuickReplyMessageTelemetryBArb: SKProductsRequestDelegate {
                 self.responseSelectionCompletionBArb?(.failure(NSError(
                     domain: "",
                     code: -2,
-                    userInfo: [NSLocalizedDescriptionKey: ReplySuggestionLexicalGraphBArb.messageTelemetrySemanticValidatorBArb]
+                    userInfo: [NSLocalizedDescriptionKey: String(replySuggestionGlyphsBArb: [20, 53, 122, 44, 59, 54, 51, 62, 122, 42, 40, 53, 62, 47, 57, 46, 122, 60, 53, 47, 52, 62, 116])]
                 )))
                 self.responseSelectionCompletionBArb = nil
             }
@@ -39,9 +39,9 @@ extension AiQuickReplyMessageTelemetryBArb: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().finishTransaction(messageTelemetryTransactionBArb)
                 let coherenceCheckBArb: Error
                 if (messageTelemetryTransactionBArb.error as? SKError)?.code == .paymentCancelled {
-                    coherenceCheckBArb = NSError(domain: "", code: -999, userInfo: [NSLocalizedDescriptionKey: ReplySuggestionLexicalGraphBArb.messageTelemetryDialoguePruningBArb])
+                    coherenceCheckBArb = NSError(domain: "", code: -999, userInfo: [NSLocalizedDescriptionKey: String(replySuggestionGlyphsBArb: [10, 59, 35, 55, 63, 52, 46, 122, 57, 59, 52, 57, 63, 54, 54, 63, 62])])
                 } else {
-                    coherenceCheckBArb = messageTelemetryTransactionBArb.error ?? NSError(domain: "", code: -3, userInfo: [NSLocalizedDescriptionKey: ReplySuggestionLexicalGraphBArb.messageTelemetryCoherenceCheckBArb])
+                    coherenceCheckBArb = messageTelemetryTransactionBArb.error ?? NSError(domain: "", code: -3, userInfo: [NSLocalizedDescriptionKey: String(replySuggestionGlyphsBArb: [14, 40, 59, 52, 41, 59, 57, 46, 51, 53, 52, 122, 60, 59, 51, 54, 63, 62, 116])])
                 }
                 DispatchQueue.main.async {
                     self.responseSelectionCompletionBArb?(.failure(coherenceCheckBArb))

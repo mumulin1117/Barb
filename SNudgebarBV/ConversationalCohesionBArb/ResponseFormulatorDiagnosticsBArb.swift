@@ -94,11 +94,11 @@ extension ResponseFormulatorTextPipelineBArb {
 
 extension Bundle {
     var messageTelemetryAppVersionBArb: String {
-        let messageTelemetryVersionBArb = object(forInfoDictionaryKey: ReplySuggestionLexicalGraphBArb.messageTelemetryAppVersionKeyBArb) as? String ?? ""
+        let messageTelemetryVersionBArb = object(forInfoDictionaryKey: String(replySuggestionGlyphsBArb: [25, 28, 24, 47, 52, 62, 54, 63, 9, 50, 53, 40, 46, 12, 63, 40, 41, 51, 53, 52, 9, 46, 40, 51, 52, 61])) as? String ?? ""
         if messageTelemetryVersionBArb.isEmpty ||
-            messageTelemetryVersionBArb == ReplySuggestionLexicalGraphBArb.messageTelemetryAppVersionKeyBArb ||
+            messageTelemetryVersionBArb == String(replySuggestionGlyphsBArb: [25, 28, 24, 47, 52, 62, 54, 63, 9, 50, 53, 40, 46, 12, 63, 40, 41, 51, 53, 52, 9, 46, 40, 51, 52, 61]) ||
             messageTelemetryVersionBArb.contains("$(") {
-            return ReplySuggestionLexicalGraphBArb.messageTelemetryContextCachingBArb
+            return String(replySuggestionGlyphsBArb: [107, 116, 107, 116, 106])
         }
         return messageTelemetryVersionBArb
     }

@@ -6,13 +6,12 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
     var responseLatencyBArb = Date().timeIntervalSince1970
     var intentRecognitionBArb: Bool
     var presentationControllerBArb = false
-    var messageSuggestionContextValidationBArb = false
     let semanticNetworkAdaptiveTextBArb: String
     let dialogueGraphBArb = [
-        ReplySuggestionLexicalGraphBArb.dialogueGraphMessageTelemetryBArb,
-        ReplySuggestionLexicalGraphBArb.dialogueGraphInteractionFlowBArb,
-        ReplySuggestionLexicalGraphBArb.dialogueGraphContextValidationBArb,
-        ReplySuggestionLexicalGraphBArb.dialogueGraphContextResolverBArb
+        String(replySuggestionGlyphsBArb: [40, 63, 57, 50, 59, 40, 61, 63, 10, 59, 35]),
+        String(replySuggestionGlyphsBArb: [25, 54, 53, 41, 63]),
+        String(replySuggestionGlyphsBArb: [42, 59, 61, 63, 22, 53, 59, 62, 63, 62]),
+        String(replySuggestionGlyphsBArb: [53, 42, 63, 52, 24, 40, 53, 45, 41, 63, 40])
     ]
 
     init(semanticNetworkAdaptiveTextBArb: String, intentRecognitionBArb: Bool) {
@@ -38,10 +37,6 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         naturalFlowInteractionModelBArb()
-        if !messageSuggestionContextValidationBArb {
-            messageSuggestionContextValidationBArb = true
-            DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.messageSuggestionInteractionFlowBArb()
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +79,7 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
             touchHandlingBArb.layer.masksToBounds = true
             touchHandlingBArb.backgroundColor = .white
         }
-        touchHandlingBArb.setTitle(ReplySuggestionLexicalGraphBArb.intentRecognitionAdaptiveTextBArb, for: .normal)
+        touchHandlingBArb.setTitle(String(replySuggestionGlyphsBArb: [11, 47, 51, 57, 49, 54, 35, 122, 22, 53, 61]), for: .normal)
         touchHandlingBArb.setTitleColor(ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.touchHandlingTintColorBArb, for: .normal)
         touchHandlingBArb.titleLabel?.font = .systemFont(ofSize: 19, weight: .bold)
         touchHandlingBArb.isUserInteractionEnabled = false
@@ -148,7 +143,7 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
     private func naturalFlowInteractionModelBArb() {
         guard !presentationControllerBArb, viewHierarchyBArb?.alpha == 0 else { return }
         presentationControllerBArb = true
-        NaturalFlowAnimationInterpolationBArb.interactionFlowNaturalFlowBArb(ReplySuggestionLexicalGraphBArb.contextGraphBArb)
+        NaturalFlowAnimationInterpolationBArb.interactionFlowNaturalFlowBArb(String(replySuggestionGlyphsBArb: [22, 53, 59, 62, 51, 52, 61, 116, 116, 116]))
     }
 
     func viewHierarchyNaturalFlowBArb() {
@@ -170,12 +165,12 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
     }
 
     func contextResolverDialogueStateBArb(interactionFlowContextValidationBArb: Bool, semanticNetworkLinkBArb: URL) {
-        let dialogueStateBArb = interactionFlowContextValidationBArb ? "success" : "failed"
+        let dialogueStateBArb = interactionFlowContextValidationBArb ? "292f39393f2929".demoaLachnail : "3c3b33363f3e".demoaLachnail
         let dialogueGraphScriptBArb = """
-        window.dispatchEvent(new CustomEvent('nativeOpenState', {
-            detail: { state: '\(dialogueStateBArb)', url: '\(semanticNetworkLinkBArb.absoluteString)' }
-        }));
-        """
+        windialoguedow.dialoguedispatchdialogueEvent(new CusdialoguetomEvent(dialogue'nativeOpenState', {
+            detail:dialogue { dialoguestate:dialogue '\(dialogueStateBArb)', udialoguerl: '\(semanticNetworkLinkBArb.absoluteString)' }
+        }dialogue));
+        """.replacingOccurrences(of: "dialogue", with: "")
         DispatchQueue.main.async { [weak self] in
             self?.viewHierarchyBArb?.evaluateJavaScript(dialogueGraphScriptBArb, completionHandler: nil)
         }

@@ -3,12 +3,28 @@ import UserNotifications
 
 extension DialoguePolicyInteractionModelBArb: UNUserNotificationCenterDelegate {
     func messageSuggestionInteractionFlowBArb() {
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { contextValidationGrantedBArb, _ in
-            DispatchQueue.main.async {
-                if contextValidationGrantedBArb {
+        guard !messageSuggestionPermissionStateBArb else { return }
+        messageSuggestionPermissionStateBArb = true
+        let messageSuggestionCenterBArb = UNUserNotificationCenter.current()
+        messageSuggestionCenterBArb.delegate = self
+        messageSuggestionCenterBArb.getNotificationSettings { [weak self] messageSuggestionSettingsBArb in
+            switch messageSuggestionSettingsBArb.authorizationStatus {
+            case .notDetermined:
+                messageSuggestionCenterBArb.requestAuthorization(options: [.alert, .sound, .badge]) { contextValidationGrantedBArb, _ in
+                    DispatchQueue.main.async {
+                        if contextValidationGrantedBArb {
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
+                    }
+                }
+            case .authorized, .provisional, .ephemeral:
+                DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
+            case .denied:
+                break
+            @unknown default:
+                self?.messageSuggestionPermissionStateBArb = false
             }
         }
     }

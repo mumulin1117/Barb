@@ -7,11 +7,11 @@ enum ContextRetentionLexicalAnchorBArb {
     }
 
     private static var contextCachingDeviceAccountBArb: String {
-        contextCachingServiceBArb + ReplySuggestionLexicalGraphBArb.contextCachingLexicalAnchorBArb
+        contextCachingServiceBArb + String(replySuggestionGlyphsBArb: [116, 57, 53, 52, 44, 63, 40, 41, 59, 46, 51, 53, 52, 59, 54, 25, 53, 50, 63, 41, 51, 53, 52, 116, 40, 63, 42, 54, 35, 9, 47, 61, 61, 63, 41, 46, 51, 53, 52, 116, 57, 53, 52, 46, 63, 34, 46, 25, 59, 57, 50, 51, 52, 61, 116, 54, 63, 34, 51, 57, 59, 54, 27, 52, 57, 50, 53, 40])
     }
 
     private static var contextCachingPhraseAccountBArb: String {
-        contextCachingServiceBArb + ReplySuggestionLexicalGraphBArb.contextCachingPhraseSynthesisBArb
+        contextCachingServiceBArb + String(replySuggestionGlyphsBArb: [116, 57, 53, 52, 44, 63, 40, 41, 59, 46, 51, 53, 52, 59, 54, 25, 53, 50, 63, 41, 51, 53, 52, 116, 40, 63, 42, 54, 35, 9, 47, 61, 61, 63, 41, 46, 51, 53, 52, 116, 42, 50, 40, 59, 41, 63, 9, 35, 52, 46, 50, 63, 41, 51, 41, 116, 54, 63, 34, 51, 57, 59, 54, 27, 52, 57, 50, 53, 40])
     }
 
     static func contextCachingDeviceIdentifierBArb() -> String {

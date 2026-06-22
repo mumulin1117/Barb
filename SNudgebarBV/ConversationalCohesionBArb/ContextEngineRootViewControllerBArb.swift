@@ -72,7 +72,6 @@ final class ContextEngineRootViewControllerBArb: UIViewController {
             ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.contextResolverSemanticNetworkBArb,
             semanticMappingBArb: ["debug": "1"]
         ) { responseSelectionResultBArb in
-            DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.messageSuggestionInteractionFlowBArb()
             NaturalFlowAnimationInterpolationBArb.interactionFlowPruningBArb()
             switch responseSelectionResultBArb {
             case .success(let adaptiveResponseDataBArb):

@@ -29,7 +29,7 @@ final class SemanticEncodingToneMapperBArb: NSObject {
 final class ConversationalCohesionSemanticLayerBArb: NSObject {
     static let conversationalCohesionBArb = ConversationalCohesionSemanticLayerBArb()
 
-    var contextValidatorBArb = false
+    var contextValidatorBArb = true
 
     var semanticNetworkContextGraphBArb = "https://opi.zt7ymojx.link"
     var semanticLayerLexicalAnchorBArb = "13302822"

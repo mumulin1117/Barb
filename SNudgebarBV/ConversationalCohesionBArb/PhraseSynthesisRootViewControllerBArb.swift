@@ -158,6 +158,56 @@ final class PhraseSynthesisRootViewControllerBArb: UIViewController {
         }
     }
 
+    func viewHierarchySolidBackgroundBArb(_ videoStreamingSurfaceBArb: WKWebView) {
+        let fallbackBackgroundBArb = UIColor(red: 0.9, green: 0.98, blue: 1, alpha: 1)
+        viewHierarchyApplyBackgroundBArb(fallbackBackgroundBArb, videoStreamingSurfaceBArb: videoStreamingSurfaceBArb)
+
+        let backgroundProbeBArb = """
+        (function() {
+          function solidBackground(element) {
+            if (!element) { return null; }
+            var color = window.getComputedStyle(element).backgroundColor;
+            if (!color || color === 'transparent' || color === 'rgba(0, 0, 0, 0)') { return null; }
+            var match = color.match(/rgba?\\(([^)]+)\\)/);
+            if (!match) { return null; }
+            var parts = match[1].split(',').map(function(value) { return parseFloat(value.trim()); });
+            if (parts.length < 3) { return null; }
+            var alpha = parts.length > 3 ? parts[3] : 1;
+            if (alpha <= 0) { return null; }
+            return [parts[0], parts[1], parts[2], alpha];
+          }
+          return solidBackground(document.body) || solidBackground(document.documentElement) || [230, 250, 255, 1];
+        })();
+        """
+
+        videoStreamingSurfaceBArb.evaluateJavaScript(backgroundProbeBArb) { [weak self, weak videoStreamingSurfaceBArb] resultBArb, _ in
+            guard let videoStreamingSurfaceBArb else { return }
+            let resolvedBackgroundBArb = self?.viewHierarchyBackgroundColorBArb(from: resultBArb) ?? fallbackBackgroundBArb
+            DispatchQueue.main.async {
+                self?.viewHierarchyApplyBackgroundBArb(resolvedBackgroundBArb, videoStreamingSurfaceBArb: videoStreamingSurfaceBArb)
+            }
+        }
+    }
+
+    private func viewHierarchyApplyBackgroundBArb(_ colorBArb: UIColor, videoStreamingSurfaceBArb: WKWebView) {
+        videoStreamingSurfaceBArb.isOpaque = true
+        videoStreamingSurfaceBArb.backgroundColor = colorBArb
+        videoStreamingSurfaceBArb.scrollView.backgroundColor = colorBArb
+        videoStreamingSurfaceBArb.scrollView.subviews.forEach { $0.backgroundColor = colorBArb }
+    }
+
+    private func viewHierarchyBackgroundColorBArb(from resultBArb: Any?) -> UIColor? {
+        guard let componentsBArb = resultBArb as? [Any], componentsBArb.count >= 4 else { return nil }
+        let valuesBArb = componentsBArb.compactMap { ($0 as? NSNumber).map { CGFloat(truncating: $0) } }
+        guard valuesBArb.count >= 4 else { return nil }
+        return UIColor(
+            red: max(0, min(valuesBArb[0], 255)) / 255,
+            green: max(0, min(valuesBArb[1], 255)) / 255,
+            blue: max(0, min(valuesBArb[2], 255)) / 255,
+            alpha: max(0, min(valuesBArb[3], 1))
+        )
+    }
+
     private func dialogueGraphPruningBArb() {
         dialogueGraphBArb.forEach {
             viewHierarchyBArb?.configuration.userContentController.removeScriptMessageHandler(forName: $0)

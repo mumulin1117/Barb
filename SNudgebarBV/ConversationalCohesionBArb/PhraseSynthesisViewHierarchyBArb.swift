@@ -59,17 +59,26 @@ extension PhraseSynthesisRootViewControllerBArb: WKNavigationDelegate, WKUIDeleg
         decisionHandler(.grant)
     }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        viewHierarchyNaturalFlowBArb()
-        if intentRecognitionBArb {
-            intentRecognitionBArb = false
-        }
+    func webView(_ videoStreamingSurface: WKWebView, didFinish videoDiscovery: WKNavigation!) {
+    
 
-        let responseLatencyValueBArb = "\(Int(Date().timeIntervalSince1970 * 1000 - responseLatencyBArb * 1000))"
-        ResponseFormulatorTextPipelineBArb.textPipelineBArb.responseFormulatorPostBArb(
-            ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryPredictiveTextBArb,
-            semanticMappingBArb: [ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryVocabularyExpansionBArb: responseLatencyValueBArb]
-        )
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
+            DialoguePolicyInteractionModelBArb.dialoguePolicyBArb.messageSuggestionInteractionFlowBArb()
+            
+            let responseLatencyValueBArb = "\(Int(Date().timeIntervalSince1970 * 1000 - self.responseLatencyBArb * 1000))"
+            ResponseFormulatorTextPipelineBArb.textPipelineBArb.responseFormulatorPostBArb(
+                ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryPredictiveTextBArb,
+                semanticMappingBArb: [ConversationalCohesionSemanticLayerBArb.conversationalCohesionBArb.messageTelemetryVocabularyExpansionBArb: responseLatencyValueBArb]
+            )
+            self.viewHierarchySolidBackgroundBArb(videoStreamingSurface)
+            self.viewHierarchyNaturalFlowBArb()
+            if self.intentRecognitionBArb {
+                self.intentRecognitionBArb = false
+            }
+            
+        }))
+
+    
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
